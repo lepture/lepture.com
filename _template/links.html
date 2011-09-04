@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block afterstyle -%}
+<style type="text/css">
+    :root {
+        -webkit-perspective: 200;
+        -moz-perspective: 200;
+        perspective: 200;
+        -webkit-animation: wrap 1.4s ease;
+        -moz-animation: wrap 1.4s ease;
+        animation: wrap 1.4s ease;
+    }
+    article {
+        margin-bottom: 20px;
+        -webkit-transform-origin: -100px 0;
+        -moz-transform-origin: -100px 0;
+        transform-origin: -100px 0;
+        -webkit-animation:spin .8s 1 ease;-moz-animation:spin .8s 1 ease;animation:spin .8s 1 ease;
+    }
+    article:nth-of-type(1) {
+        -webkit-animation-delay: .4s;
+        -moz-animation-delay: .4s;
+        animation-delay: .4s;
+    }
+    article:nth-of-type(2) {
+        -webkit-animation-delay: .5s;
+        -moz-animation-delay: .5s;
+        animation-delay: .5s;
+    }
+    article:nth-of-type(3) {
+        -webkit-animation-delay: .6s;
+        -moz-animation-delay: .6s;
+        animation-delay: .6s;
+    }
+    article:nth-of-type(4) {
+        -webkit-animation-delay: .7s;
+        -moz-animation-delay: .7s;
+        animation-delay: .7s;
+    }
+    article:nth-of-type(5) {
+        -webkit-animation-delay: .8s;
+        -moz-animation-delay: .8s;
+        animation-delay: .8s;
+    }
+    article p {
+        font-size: 11px;
+        margin-bottom: 1px;
+        color: #bbb;
+        text-transform: uppercase;
+    }
+    article ul {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+</style>
+{%- endblock -%}
+
+{%- block container -%}
+<h1 id="page-title"><a href="/links/">Links</a></h1>
+<article>
+<p>Friends</p>
+<ul>
+    <li><a href="http://imquyi.com">The Qlog</a></li>
+    <li><a href="http://riverslee.com">川叶 : 时间河</a></li>
+    <li><a href="http://www.niphanin.net">逆风寒翎</a></li>
+</ul>
+</article>
+
+<article>
+<p>ziqiang.net</p>
+<ul>
+    <li><a href="http://traicyer.me">Hydrangea Land</a></li>
+    <li><a href="http://blog.crackcell.com">Searcher's Log</a></li>
+    <li><a href="http://blog.linluxiang.info">双木成林：喋喋不休</a></li>
+    <li><a href="http://blog.liuw.name">Liuw's Thinkpad</a></li>
+    <li><a href="http://blog.odichy.org">等待另一个人的奥林匹斯</a></li>
+    <li><a href="http://www.liuhanyu.com">不安静的书桌</a></li>
+</ul>
+</article>
+
+<article>
+<p>alipay.com</p>
+<ul>
+    <li><a href="http://sofish.de">幸福收藏夹</a></li>
+    <li><a href="http://janlay.com">Janlay's blog</a></li>
+</ul>
+</article>
+
+<article>
+<p>Tools</p>
+<ul>
+    <li><a rel="nofollow" href="http://blogsearch.google.com/ping?url=http://lepture.com">Ping</a></li>
+    <li><a rel="nofollow" href="https://www.google.com/webmasters/tools/home">Webmaster</a></li>
+    <li><a rel="nofollow" href="https://www.google.com/analytics/settings/home">Analytics</a></li>
+</ul>
+</article>
+{%- endblock -%}
+

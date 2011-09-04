@@ -4,7 +4,7 @@
 
 {% block container %}
 <h1 id="page-title">Tags</h1>
-<ul class="tagcloud">
+<ul class="tagcloud fn-clear">
     {% for tag in tags %}
     <li><a href="{{ content_url('tag', tag.name) }}" style="font-size: {{tag.size}}%" title="{{tag.count}} posts">{{ tag.name }}</a></li>
     {% endfor %}

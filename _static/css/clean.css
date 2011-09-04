@@ -220,6 +220,7 @@ a:hover {
 }
 #page-title {
     margin-bottom: 20px;
+    color: #dd4b39;
 }
 #page-title a {
     color: #dd4b39;
@@ -357,4 +358,11 @@ figcaption {
 }
 #pagination span, #pagination a {
     padding: 3px 9px;
+}
+.tagcloud li {
+    display: inline;
+    padding: 3px 5px;
+}
+.tagcloud li a {
+    color: #dd4b39;
 }
