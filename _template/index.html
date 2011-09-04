@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{%- block afterstyle -%}
+<style type="text/css">
+    article {
+        margin-bottom: 20px;
+    }
+    #else ul {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+</style>
+{%- endblock -%}
+
+{%- block container -%}
+<article>
+<p class="ui-desc">About</p>
+{% filter restructuredtext -%}
+Hi, I am **Hsiaoming Young** (aka **lepture** elsewhere).
+
+I am a creative web developer, fan of python. I love everything that worth the word beauty.
+
+I did, do and will always belive in "Love its people, but never trust its government".
+
+You can find me on `Twitter <http://twitter.com/lepture>`_ . If you have any freelance job, you can contact me with `Email <sopheryoung+job@gmail.com>`_ .
+{% endfilter %}
+</article>
+
+<article>
+<p class="ui-desc">On Project</p>
+<p><a href="http://github.com/lepture/liquidluck">Felix Felicis</a></p>
+</article>
+<article id="else"> 
+<p class="ui-desc">Elsewhere</p>
+<ul>
+    <li><a href="" rel="me, nofollow"></a></li>
+</ul>
+</article>
+{%- endblock -%}
