@@ -3,9 +3,46 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{{context.sitename}}{% endblock %}</title>
+        <script>if (top !== self) top.location = self.location;</script>
+        <meta name="author" content="{{ context.author }}" />
+        {% block beforestyle %}{% endblock %}
+        <link rel="alternate" type="application/rss+xml" href="{{context.feed}}" title="{{context.sitename}} Feed" />
+        <link rel="stylesheet" href="{{ static_url('css/clean.css') }}" />
+        {% block afterstyle %}{% endblock %}
+        <!--[if IE]>
+        <script src="{{static_url('js/html5.js')}}"></script>
+        <![endif]-->
+        {% include "ga.html" %}
     </head>
     <body>
-        {% block body %}
-        {% endblock %}
+        <div id="wrapper">
+            <header id="header">
+            <nav id="nav-wrap">
+            <ul id="nav" class="fn-clear">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/archive/">Archive</a></li>
+                <li class="nav-item"><a href="/life/">Life</a></li>
+                <li class="nav-item"><a href="/work/">Work</a></li>
+                <li class="nav-item"><a href="/links/">Links</a></li>
+                <li id="nav-search">
+                <form id="search-form" action="http://www.google.com/cse">
+                    <input type="hidden" name="cx" value="{{context.gcse}}" />
+                    <input id="search-input" class="ui-fm-text" type="text" placeholder="Search .." name="q" />
+                </form>
+                </li>
+            </ul>
+            </nav>
+            </header>
+            <div id="container">
+                {% block container %}{% endblock %}
+            </div>
+            <footer id="footer">
+            <div class="copyrith ft-right">Copyright by <a href="{{context.siteurl}}">Hsiaoming Young</a> | Powered by <a href="http://github.com/lepture/liquidluck">Felix Felicis</a></div>
+            </footer>
+            {% block beforejquery %}{% endblock %}
+            <script type="text/javascript" src="{{ static_url('js/jquery.min.js') }}"></script>
+            <script type="text/javascript" src="{{ static_url('js/app.js') }}"></script>
+            {% block afterjquery %}{% endblock %}
+        </div>
     </body>
 </html>

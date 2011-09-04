@@ -1,2 +1,38 @@
+{% extends "layout.html" %}
 
-{{ content_url(pagi.folder, '1') }}
+{% block title %}{{context.sitename}} - {{title|capitalize}}{% endblock %}
+
+{% block container %}
+<h1 id="page-title">{{title}}</h1>
+<ul id="article-list" class="ui-list fn-clear">
+    {% for rst in pagi.rsts %}
+    <li class="ui-list-item">
+    <h3 class="ui-article-title"><a href="{{content_url(rst.slug)}}">{{rst.parts.title}}</a></h3>
+    <p class="ui-article-desc">{{rst.get_info('summary')}}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% if pagi.pages > 1 %}
+<div id="pagination" class="ft-center">
+    {% if pagi.prev %}
+        {% if pagi.prev == '1' %}
+            {% set folder = pagi.folder %}
+            {% if not folder %}
+            {% set folder = 'archive' %}
+            {% endif %}
+        <a class="prev" href="{{ content_url(folder) }}">«Prev</a>
+        {% else %}
+        <a class="prev" href="{{ content_url(pagi.folder, 'page', pagi.prev) }}">«Prev</a>
+        {% endif %}
+    {% else %}
+    <span class="prev">«Prev</span>
+    {% endif %}
+    <span class="fn-current">{{pagi.page}}</span>
+    {% if pagi.next %}
+    <a class="next" href="{{ content_url(pagi.folder, 'page', pagi.next) }}">Next»</a>
+    {% else %}
+    <span class="next">Next»</span>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

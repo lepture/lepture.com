@@ -1,3 +1,63 @@
+{% extends "layout.html" %}
 
-{{ rst.parts.body }}
+{% block title %}{{context.sitename}} - {{rst.parts.title|escape}}{% endblock %}
 
+{% block afterstyle %}
+<meta name="description" content="{{ rst.get_info('summary') }}" />
+<meta name="keywords" content="{{ rst.get_info('tags',[])|join(',') }}" />
+{% if rst.get_info('folder') == 'work' %}
+<link rel="stylesheet" href="{{ static_url('css/syntax.css') }}" />
+{% endif %}
+<link rel="canonical" href="{{ content_url(rst.slug) }}" />
+{% endblock %}
+
+
+{% block container %}
+<article class="ui-article">
+    <h2 class="ui-article-title">
+        <a href="{{content_url(rst.slug)}}" rel="self">{{rst.parts.title|escape}}</a>
+        <time class="ui-article-time" datetime="{{rst.get_info('date')}}">{{rst.get_info('date').strftime("%a, %b %d, %Y")}}</time>
+    </h2>
+    <div class="ui-article-content">
+        {{ rst.parts.body }}
+    </div>
+    <div class="ui-article-meta fn-clear">
+        <p class="ui-tags fn-left">
+            {% for tag in rst.get_info('tags',[]) %}
+            <a href="{{content_url('tag', tag)}}" class="ui-tag" rel="tag">{{tag}}</a>
+            {% endfor %}
+        </p>
+        <p class="ui-article-rel fn-right">
+        {% if rst.prev %}
+        <a id="prev-article" href="{{content_url(rst.prev.slug)}}" title="{{rst.prev.parts.title}}" rel="prev">«Prev</a>
+        {% endif %}
+        {% if rst.next %}
+        <a id="next-article" href="{{content_url(rst.next.slug)}}" title="{{rst.next.parts.title}}" rel="next">Next»</a>
+        {% endif %}
+        </p>
+    </div>
+</article>
+{% endblock %}
+
+{% block beforejquery %}
+{% if rst.get_info('folder') == 'work' %}
+<div id="github"><a rel="me, nofollow" href="https://github.com/lepture">Fork me on Github</a></div>
+{% endif %}
+{% endblock %}
+
+{% block afterjquery %}
+<script type="text/javascript">
+    $(function(){$(document).keydown(function(e){
+            var tagName = e.target.tagName.toLowerCase();
+            if("input" == tagName|| "textarea" == tagName){return ;}
+            if(37 == e.keyCode || 72 == e.keyCode){
+                var url = $('#prev-article').attr('href');
+            }else if(39 == e.keyCode || 76 == e.keyCode){
+                var url = $('#next-article').attr('href');
+            }
+            var url = url || '';
+            if(url){location.assign(url);}
+        });
+    });
+</script>
+{% endblock %}
