@@ -23,15 +23,16 @@ pre::-webkit-scrollbar-thumb {
 }
 ::selection {
     color: #fff;
-    background: #dd4b39;
+    background: #e3513b;
 }
 /* @end scrollbar */
 
 /* @begin reset */
 html {
     overflow: auto;
-    color:#aaa;
-    background:#fff;
+    color: #aaa;
+    text-shadow: 0 1px 0 #fff;
+    background: #efefee;
     font:14px/1.6 Helvetica,arial,sans-serif;
 }
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
@@ -169,17 +170,14 @@ ins,a {
     padding: 10px 0;
 }
 #container {
+    color: #343435;
+    text-align: justify;
     padding-top: 14px;
 }
 #footer {
     padding: 24px 0 12px;
     font-size: 12px;
     font-family: "Georgia", serif;
-}
-
-article {
-    color: #666;
-    text-align: justify;
 }
 p {
     margin-bottom: 12px;
@@ -189,8 +187,8 @@ a {
     text-decoration: none;
 }
 a:hover {
-    border-bottom: 1px solid #dd4b39;
-    color: #dd4b39;
+    border-bottom: 1px solid #e3513b;
+    color: #e3513b;
 }
 .nav-item {
     float: left;
@@ -215,15 +213,14 @@ a:hover {
     border: 0 none;
     border-bottom: 1px solid #ccc;
     padding: 3px 3px 0;
-    color: #999;
+    color: #666;
+    background: #efefee;
     max-width: 120px;
 }
 #page-title {
     margin-bottom: 20px;
-    color: #dd4b39;
-}
-#page-title a {
-    color: #dd4b39;
+    color: #aaa;
+    font-weight: normal;
 }
 /* @end layout */
 
@@ -232,7 +229,7 @@ a:hover {
     margin-bottom: 10px;
 }
 .ui-article-title a {
-    color: #dd4b39;
+    color: #e3513b;
 }
 .ui-article-title .ui-article-time {
     font: normal 12px/1.6 Helvetica,arial,sans-serif;
@@ -263,7 +260,9 @@ a:hover {
 }
 .ui-list-item {
     position: relative;
-    margin-bottom: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid #dadada;
+    box-shadow: 0 1px 0 #ffffff;
 }
 .ui-article-type {
     position: absolute;
@@ -355,14 +354,21 @@ figcaption {
     display: block;
     color: white;
     border: 1px solid #696969;
+    text-shadow: 0 0 0 #fff;
+}
+#pagination {
+    text-align: center;
+    padding: 24px 0 10px;
+    color: #bcbcbd;
 }
 #pagination span, #pagination a {
     padding: 3px 9px;
+    border-bottom: 0 none;
 }
 .tagcloud li {
     display: inline;
     padding: 3px 5px;
 }
 .tagcloud li a {
-    color: #dd4b39;
+    color: #e3513b;
 }
