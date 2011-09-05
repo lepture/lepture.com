@@ -3,7 +3,7 @@
 {% block title %}{{context.sitename}} - {{title|capitalize}}{% endblock %}
 
 {% block container %}
-<h1 id="page-title">{{title}}</h1>
+<h1 id="page-title">{{title|upper}}</h1>
 <ul id="article-list" class="ui-list fn-clear">
     {% for rst in pagi.rsts %}
     <li class="ui-list-item">

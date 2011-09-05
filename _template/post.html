@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}{{context.sitename}} - {{rst.parts.title|escape}}{% endblock %}
+{% block title %}{{context.sitename}} - {{rst.parts.title}}{% endblock %}
 
 {% block afterstyle %}
 <meta name="description" content="{{ rst.get_info('summary') }}" />
@@ -15,8 +15,8 @@
 {% block container %}
 <article class="ui-article">
     <h2 class="ui-article-title">
-        <a href="{{content_url(rst.slug)}}" rel="self">{{rst.parts.title|escape}}</a>
-        <time class="ui-article-time" datetime="{{rst.get_info('date')}}">{{rst.get_info('date').strftime("%a, %b %d, %Y")}}</time>
+        <a href="{{content_url(rst.slug)}}" rel="self">{{rst.parts.title}}</a>
+        <a href="{{content_url(rst.get_info('date').strftime('%Y'))}}" rel=archive"><time class="ui-article-time" datetime="{{rst.get_info('date')}}">{{rst.get_info('date').strftime("%a, %b %d, %Y")}}</time></a>
     </h2>
     <div class="ui-article-content">
         {{ rst.parts.body }}

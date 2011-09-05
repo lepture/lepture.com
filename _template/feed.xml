@@ -17,7 +17,7 @@
         <category scheme="{{ content_url(context.siteurl, 'tag', tag) }}" term="{{tag}}" label="{{ tag|title }}" />
         {% endfor -%}
         <content type="html" xml:base="{{ context.siteurl }}" xml:lang="en">
-            <![CDATA[{{ rst.parts.body }}]]>
+            <![CDATA[ {{ rst.parts.body }} ]]>
         </content>
     </entry>
     {% endfor -%}
