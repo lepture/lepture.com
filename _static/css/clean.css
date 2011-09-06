@@ -271,7 +271,7 @@ a:hover {
     left: -16px;
 }
 blockquote {
-    padding: 8px 12px 1px;
+    padding: 8px 24px 1px;
     margin: 8px 0;
 }
 blockquote::before {
@@ -282,7 +282,7 @@ blockquote::before {
     color: #bababa;
     font-style: italic;
     line-height: 24px;
-    margin: 0 8px 0 -8px;
+    margin: 0 0 0 -24px;
     font-family: Georgia, serif
 }
 blockquote::after {
