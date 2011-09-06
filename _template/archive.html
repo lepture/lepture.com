@@ -2,6 +2,10 @@
 
 {% block title %}{{context.sitename}} - {{title|capitalize}}{% endblock %}
 
+{% block afterstyle %}
+<link rel="canonical" href="{{ content_url(pagi.folder) }}" />
+{% endblock %}
+
 {% block container %}
 <h1 id="page-title">{{title|upper}}</h1>
 <ul id="article-list" class="ui-list fn-clear">
