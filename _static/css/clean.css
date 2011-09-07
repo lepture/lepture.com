@@ -210,7 +210,7 @@ blockquote::after {
 #header {
     padding: 10px 0;
 }
-#header a:hover, #footer a:hover, .tagcloud a:hover {
+#header a:hover, #footer a:hover, .tagcloud a:hover, article a:hover {
     border-bottom: 1px solid #e3513b;
 }
 #container {
@@ -306,6 +306,35 @@ blockquote::after {
     display: inline-block;
     top: -5px;
     left: -16px;
+}
+blockquote {
+    padding: 8px 24px 1px;
+    margin: 8px 0;
+}
+blockquote::before {
+    float: left;
+    content: '“';
+    font-size: 34px;
+    font-weight: bold;
+    color: #bababa;
+    font-style: italic;
+    line-height: 24px;
+    margin: 0 0 0 -24px;
+    font-family: Georgia, serif
+}
+blockquote::after {
+    display: block;
+    width: 98%;
+    text-align: right;
+    content:'”';
+    clear:both;
+    font-size: 34px;
+    font-weight: bold;
+    color: #bababa;
+    font-style: italic;
+    line-height: 0;
+    margin: 0 0 12px 10px;
+    font-family: Georgia, serif
 }
 .highlight {
     border: 1px dashed #ddd;
