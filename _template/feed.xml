@@ -7,7 +7,7 @@
     <id>{{ context.siteurl }}</id>
     {% for rst in rsts -%}
     <entry>
-        <title type="html"><![CDATA[{{ rst.parts.title }}]]></title>
+        <title type="html"><![CDATA[{{ rst.title }}]]></title>
         <author><name>{{ context.author }}</name><uri>{{ context.siteurl }}</uri></author>
         <link href="{{ content_url(context.siteurl, rst.slug) }}"/>
         <updated>{{ rst.get_info('date')|xmldatetime }}</updated>
@@ -17,7 +17,7 @@
         <category scheme="{{ content_url(context.siteurl, 'tag', tag) }}" term="{{tag}}" label="{{ tag|title }}" />
         {% endfor -%}
         <content type="html" xml:base="{{ context.siteurl }}" xml:lang="en">
-            <![CDATA[ {{ rst.parts.body }} ]]>
+            <![CDATA[ {{ rst.body }} ]]>
         </content>
     </entry>
     {% endfor -%}

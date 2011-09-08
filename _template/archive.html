@@ -3,37 +3,37 @@
 {% block title %}{{context.sitename}} - {{title|capitalize}}{% endblock %}
 
 {% block afterstyle %}
-<link rel="canonical" href="{{ content_url(pagi.folder) }}" />
+<link rel="canonical" href="{{ content_url(pager.folder) }}" />
 {% endblock %}
 
 {% block container %}
 <h1 id="page-title">{{title|upper}}</h1>
 <ul id="article-list" class="ui-list fn-clear">
-    {% for rst in pagi.rsts %}
+    {% for rst in pager.rsts %}
     <li class="ui-list-item">
-    <h3 class="ui-article-title"><a href="{{content_url(rst.slug)}}">{{rst.parts.title}}</a></h3>
+    <h3 class="ui-article-title"><a href="{{content_url(rst.slug)}}">{{rst.title}}</a></h3>
     <p class="ui-article-desc">{{rst.get_info('summary')}}</p>
     </li>
     {% endfor %}
 </ul>
-{% if pagi.pages > 1 %}
+{% if pager.pages > 1 %}
 <div id="pagination">
-    {% if pagi.prev %}
-        {% if pagi.prev == '1' %}
-            {% set folder = pagi.folder %}
+    {% if pager.prev %}
+        {% if pager.prev == '1' %}
+            {% set folder = pager.folder %}
             {% if not folder %}
             {% set folder = 'archive' %}
             {% endif %}
         <a class="prev" href="{{ content_url(folder) }}">«Prev</a>
         {% else %}
-        <a class="prev" href="{{ content_url(pagi.folder, 'page', pagi.prev) }}">«Prev</a>
+        <a class="prev" href="{{ content_url(pager.folder, 'page', pager.prev) }}">«Prev</a>
         {% endif %}
     {% else %}
     <span class="prev">«Prev</span>
     {% endif %}
-    <span class="fn-current">{{pagi.page}}</span>
-    {% if pagi.next %}
-    <a class="next" href="{{ content_url(pagi.folder, 'page', pagi.next) }}">Next»</a>
+    <span class="fn-current">{{pager.page}}</span>
+    {% if pager.next %}
+    <a class="next" href="{{ content_url(pager.folder, 'page', pager.next) }}">Next»</a>
     {% else %}
     <span class="next">Next»</span>
     {% endif %}
