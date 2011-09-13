@@ -1,10 +1,10 @@
-all: clean build upload
+publish: clean build upload
 
 clean:
 	rm -rf _build
 
 build:
-	felicis
+	felicis --config .config
 
 deploy:
 	felicis --config deploy.ini

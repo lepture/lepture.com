@@ -62,7 +62,7 @@ wsgi_ 是 web server gateway interface 的缩写，详情请参阅 pep333_ 。
 + 一个简单的helloworld uwsgi demo 见: `uwsgi Quickstart`_
 + 创建uwsgi的配置文件: ``touch uwsgi.ini``
 
-编辑uwsgi.ini，以下是[demo][helloworld]中我的配置，请参阅文档修改。
+编辑uwsgi.ini，以下是 helloworld_ 中我的配置，请参阅文档修改。
 
 .. sourcecode:: ini
 
