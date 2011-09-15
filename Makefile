@@ -1,4 +1,4 @@
-publish: clean build upload
+publish: build upload
 
 clean:
 	rm -rf _build
