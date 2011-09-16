@@ -6,10 +6,11 @@
     article {
         margin-bottom: 20px;
     }
-    #else ul {
+    article ul {
         -webkit-column-count: 4;
         -moz-column-count: 4;
         column-count: 4;
+        line-height: 150%;
     }
 </style>
 <link rel="canonical" href="/" />
@@ -17,7 +18,7 @@
 
 {%- block container -%}
 <article>
-<p class="ui-desc">About</p>
+<h1 class="ui-desc">About</h1>
 {% filter restructuredtext -%}
 Hi, I am **Hsiaoming Young** (aka **lepture** elsewhere).
 
@@ -30,11 +31,14 @@ You can find me on `Twitter <http://twitter.com/lepture>`_ . If you have any fre
 </article>
 
 <article>
-<p class="ui-desc">On Project</p>
-<p><a href="http://github.com/lepture/liquidluck">Felix Felicis</a></p>
+<h1 class="ui-desc">On Project</h1>
+<ul>
+    <li><a href="http://github.com/lepture/liquidluck">Felix Felicis</a></li>
+    <li><a href="http://github.com/lepture/editorous">Editorous</a></li>
+</ul>
 </article>
-<article id="else"> 
-<p class="ui-desc">Elsewhere</p>
+<article> 
+<h1 class="ui-desc">Elsewhere</h1>
 <ul>
     <li><a href="http://twitter.com/lepture" rel="me, nofollow">Twitter</a></li>
     <li><a href="http://github.com/lepture" rel="me, nofollow">Github</a></li>

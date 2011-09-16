@@ -4,10 +4,10 @@ clean:
 	rm -rf _build
 
 build:
-	felicis --config .config
+	liquidluck --config .config
 
 deploy:
-	felicis --config deploy.ini
+	liquidluck --config deploy.ini
 
 upload:
 	rsync -av --del _build/ lepture.com:/www/lepture/lepture.com

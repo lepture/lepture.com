@@ -13,11 +13,11 @@
 
 
 {% block container %}
-<article class="ui-article">
-    <h2 class="ui-article-title">
-        <a href="{{content_url(rst.slug)}}" rel="self">{{rst.title}}</a>
-        <a href="{{content_url(rst.get_info('date').strftime('%Y'))}}" rel=archive"><time class="ui-article-time" datetime="{{rst.get_info('date')}}">{{rst.get_info('date').strftime("%a, %b %d, %Y")}}</time></a>
-    </h2>
+<h1 class="ui-article-title">
+    <a href="{{content_url(rst.slug)}}" rel="self">{{rst.title}}</a>
+</h1>
+<small><a href="{{content_url(rst.get_info('date').strftime('%Y'))}}" rel=archive"><time class="ui-article-time" datetime="{{rst.get_info('date')}}">{{rst.get_info('date').strftime("%a, %b %d, %Y")}}</time></a></small>
+<div class="ui-article">
     <div class="ui-article-content">
         {{ rst.body }}
     </div>
@@ -36,7 +36,7 @@
         {% endif %}
         </p>
     </div>
-</article>
+</div>
 {% include "disqus.html" %}
 {% endblock %}
 

@@ -264,11 +264,11 @@ blockquote::after {
 .ui-article-title a {
     color: #e3513b;
 }
-.ui-article-title .ui-article-time {
+.ui-article-time {
     font: normal 12px/1.6 Helvetica,arial,sans-serif;
-    opacity: .3;
+    opacity: .4;
 }
-.ui-article-title:hover .ui-article-time {
+.ui-article-time:hover {
     opacity: 1;
 }
 .ui-article-meta {
