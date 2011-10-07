@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Schema Demo</title>
+    </head>
+    <body>
+        <div id="container" itemscope itemtype="http://schema.org/Review">
+            <h1 itemprop="name">杭州</h1>
+            <link itemprop="url" href="http://maps.google.com/maps?hl=en&ll=30.274089,120.155069&spn=0.694994,1.234589&vpsrc=0&t=m&z=10" />
+            <img width="400" itemprop="image" src="http://static.panoramio.com/photos/original/9596342.jpg" alt="hangzhou" />
+            <div itemprop="contentLocation" itemscope itemtype="http://schema.org/Place">
+                <div itemprop="geo" itemscope itemtype="http://schema.org/CeoCoordinates">
+                    <p>Latitude: <span itemprop="latitude">30.274089</span></p>
+                    <p>Longitude: <span itemprop="longitude">120.155069</span></p>
+                </div>
+            </div>
+            <meta itemprop="interactionCount" content="UserLikes:10" />
+            <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                <span itemprop="ratingValue">8</span> /
+                <span itemprop="ratingCount">34</span>
+                <meta itemprop="bestRating" content="10" />
+            </div>
+            <div itemprop="reviewBody">
+                Love its people, but never trust its government.
+            </div>
+        </div>
+        <div id="footer">
+            Powered by <a href="http://lepture.com">lepture.com</a>
+        </div>
+    </body>
+</html>
