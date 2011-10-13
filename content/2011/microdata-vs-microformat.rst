@@ -15,7 +15,7 @@ Microdata vs Microformat
 
 但是 Google 确实支持微数据 [1]_ 。例如，你是否有见过如下的搜索结果呢？
 
-.. image:: http://d.pr/y0wz+
+.. image:: http://www.googel.com//help/hc/images/webmasters_99170_rsreview.png
    :alt: search result
 
 可见 `Google是支持微数据 <http://www.google.com/support/webmasters/bin/answer.py?answer=99170>`_ 的。而且，其实支持很久了。
