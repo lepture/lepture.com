@@ -1,38 +1,44 @@
 {% extends "layout.html" %}
 
-{% block title %}{{context.sitename}} - {{rst.title}}{% endblock %}
+{% block title %}{{context.sitename}} - {{post.title}}{% endblock %}
+
+{% block author %}
+<meta name="author" content="{{ post.author }}" />
+{% endblock %}
 
 {% block afterstyle %}
-<meta name="description" content="{{ rst.get_info('summary') }}" />
-<meta name="keywords" content="{{ rst.get_info('tags',[])|join(',') }}" />
-{% if rst.get_info('folder') == 'work' %}
+<meta name="description" content="{{ post.summary }}" />
+{% if post.get('tags') %}
+<meta name="keywords" content="{{ post.tags|join(',') }}" />
+{% endif %}
+{% if post.get('folder') == 'work' %}
 <link rel="stylesheet" href="{{ static_url('css/syntax.css') }}" />
 {% endif %}
-<link rel="canonical" href="{{ content_url(rst.slug) }}" />
+<link rel="canonical" href="{{ content_url(post.slug) }}" />
 {% endblock %}
 
 
 {% block container %}
 <h1 class="ui-article-title">
-    <a href="{{content_url(rst.slug)}}" rel="self">{{rst.title}}</a>
+    <a href="{{content_url(post.slug)}}" rel="self">{{post.title}}</a>
 </h1>
-<small><a href="{{content_url(rst.get_info('date').strftime('%Y'))}}" rel=archive"><time class="ui-article-time" datetime="{{rst.get_info('date')}}">{{rst.get_info('date').strftime("%a, %b %d, %Y")}}</time></a></small>
+<small><a href="{{content_url(post.date.year)}}" rel=archive"><time class="ui-article-time" datetime="{{post.date}}">{{post.date.strftime("%a, %b %d, %Y")}}</time></a></small>
 <div class="ui-article">
     <div class="ui-article-content">
-        {{ rst.body }}
+        {{ post.content }}
     </div>
     <div class="ui-article-meta fn-clear">
         <p class="ui-tags fn-left">
-            {% for tag in rst.get_info('tags',[]) %}
+            {% for tag in post.get('tags',[]) %}
             <a href="{{content_url('tag', tag)}}" class="ui-tag" rel="tag">{{tag}}</a>
             {% endfor %}
         </p>
         <p class="ui-article-rel fn-right">
-        {% if rst.prev %}
-        <a id="prev-article" href="{{content_url(rst.prev.slug)}}" title="{{rst.prev.title}}" rel="prev">«Prev</a>
+        {% if post.prev %}
+        <a id="prev-article" href="{{content_url(post.prev.slug)}}" title="{{post.prev.title}}" rel="prev">«Prev</a>
         {% endif %}
-        {% if rst.next %}
-        <a id="next-article" href="{{content_url(rst.next.slug)}}" title="{{rst.next.title}}" rel="next">Next»</a>
+        {% if post.next %}
+        <a id="next-article" href="{{content_url(post.next.slug)}}" title="{{post.next.title}}" rel="next">Next»</a>
         {% endif %}
         </p>
     </div>
@@ -41,7 +47,7 @@
 {% endblock %}
 
 {% block beforejquery %}
-{% if rst.get_info('folder') == 'work' %}
+{% if post.get('folder') == 'work' %}
 <div id="github"><a rel="me, nofollow" href="https://github.com/lepture">Fork me on Github</a></div>
 {% endif %}
 {% endblock %}

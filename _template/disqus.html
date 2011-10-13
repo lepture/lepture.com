@@ -1,8 +1,8 @@
-{% if context.disqus and rst.get_info('public', 'true') != 'false' %}
+{% if context.disqus and post.public %}
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = '{{context.disqus}}';
-    var disqus_title = '{{rst.parts.title}}';
+    var disqus_title = '{{post.title}}';
     (function() {
      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

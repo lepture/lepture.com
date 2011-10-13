@@ -6,7 +6,9 @@
         <script>if (top !== self) top.location = self.location;</script>
         <meta name="HandheldFriendly" content="True" />
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+        {% block author %}
         <meta name="author" content="{{ context.author }}" />
+        {% endblock %}
         {% block beforestyle %}{% endblock %}
         <link rel="alternate" type="application/rss+xml" href="{{context.feed}}" title="{{context.sitename}} Feed" />
         <link rel="stylesheet" href="{{ static_url('css/clean.css') }}" />
