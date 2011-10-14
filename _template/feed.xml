@@ -5,19 +5,19 @@
     <link href="{{ content_url(context.siteurl, folder) }}" />
     <updated>{{now|xmldatetime}}</updated>
     <id>{{ context.siteurl }}</id>
-    {% for rst in rsts -%}
+    {% for post in posts -%}
     <entry>
-        <title type="html"><![CDATA[{{ rst.title }}]]></title>
+        <title type="html"><![CDATA[{{ post.title }}]]></title>
         <author><name>{{ context.author }}</name><uri>{{ context.siteurl }}</uri></author>
-        <link href="{{ content_url(context.siteurl, rst.slug) }}"/>
-        <updated>{{ rst.get_info('date')|xmldatetime }}</updated>
-        <published>{{ rst.get_info('date')|xmldatetime }}</published>
-        <id>{{ content_url(context.siteurl, rst.slug) }}</id>
-        {% for tag in rst.get_info('tags', []) -%}
+        <link href="{{ content_url(context.siteurl, post.slug) }}"/>
+        <updated>{{ post.date|xmldatetime }}</updated>
+        <published>{{ post.date|xmldatetime }}</published>
+        <id>{{ content_url(context.siteurl, post.slug) }}</id>
+        {% for tag in post.get('tags', []) -%}
         <category scheme="{{ content_url(context.siteurl, 'tag', tag) }}" term="{{tag}}" label="{{ tag|title }}" />
         {% endfor -%}
         <content type="html" xml:base="{{ context.siteurl }}" xml:lang="en">
-            <![CDATA[ {{ rst.body }} ]]>
+            <![CDATA[ {{ post.content }} ]]>
         </content>
     </entry>
     {% endfor -%}
