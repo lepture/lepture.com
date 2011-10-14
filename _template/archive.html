@@ -3,7 +3,15 @@
 {% block title %}{{context.sitename}} - {{title|capitalize}}{% endblock %}
 
 {% block afterstyle %}
+{% if pager.page > 1 %}
+<link rel="canonical" href="{{ content_url(pager.folder, pager.sub_folder, pager.page) }}" />
+{% else %}
+{% if pager.sub_folder == 'page' %}
 <link rel="canonical" href="{{ content_url(pager.folder) }}" />
+{% else %}
+<link rel="canonical" href="{{ content_url(pager.folder, pager.sub_folder) }}" />
+{% endif %}
+{% endif %}
 {% endblock %}
 
 {% block container %}
@@ -19,21 +27,21 @@
 {% if pager.pages > 1 %}
 <div id="pagination">
     {% if pager.prev %}
-        {% if pager.prev == '1' %}
-            {% set folder = pager.folder %}
-            {% if not folder %}
-            {% set folder = 'archive' %}
-            {% endif %}
-        <a class="prev" href="{{ content_url(folder) }}">«Prev</a>
+        {% if pager.prev == 1 %}
+        {% if pager.sub_folder == 'page' %}
+        <a class="prev" href="{{ content_url(pager.folder) }}">«Prev</a>
         {% else %}
-        <a class="prev" href="{{ content_url(pager.folder, 'page', pager.prev) }}">«Prev</a>
+        <a class="prev" href="{{ content_url(pager.folder, pager.sub_folder) }}">«Prev</a>
+        {% endif %}
+        {% else %}
+        <a class="prev" href="{{ content_url(pager.folder, pager.sub_folder, pager.prev) }}">«Prev</a>
         {% endif %}
     {% else %}
     <span class="prev">«Prev</span>
     {% endif %}
     <span class="fn-current">{{pager.page}}</span>
     {% if pager.next %}
-    <a class="next" href="{{ content_url(pager.folder, 'page', pager.next) }}">Next»</a>
+    <a class="next" href="{{ content_url(pager.folder, pager.sub_folder, pager.next) }}">Next»</a>
     {% else %}
     <span class="next">Next»</span>
     {% endif %}
