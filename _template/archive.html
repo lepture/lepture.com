@@ -2,6 +2,9 @@
 
 {% block title %}{{context.sitename}} - {{title|capitalize}}{% endblock %}
 
+{% block feed %}
+<link rel="alternate" type="application/rss+xml" href="{{ content_url(pager.folder, 'feed.xml') }}" title="{{context.sitename}} {{pager.folder}} Feed" />
+{% endblock %}
 {% block afterstyle %}
 <link rel="canonical" href="{{ content_url(pager.folder) }}" />
 {% endblock %}
