@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS Border</title>
+        <style type="text/css">
+            body {
+                width: 500px;
+                margin: 20px auto;
+            }
+            .border {
+                display: block;
+                width: 0; height: 0;
+                border: 30px solid transparent;
+            }
+            #border1 {
+                border-top-color: black;
+            }
+            #border2 {
+                border-bottom-color: black;
+                margin-bottom: 20px;
+            }
+            #border3 {
+                border-left-color: black;
+            }
+            #border4 {
+                border-right-color: black;
+                margin-bottom: 20px;
+            }
+            #border5 {
+                width: 20px; height: 20px;
+                border-top-color: black;
+                border-left-color: red;
+                border-bottom-color: green;
+                border-right-color: blue;
+            }
+            p { margin-top: 40px; }
+        </style>
+    </head>
+    <body>
+        <a id="border1" href="#" class="border"></a>
+        <a id="border2" href="#" class="border"></a>
+        <a id="border3" href="#" class="border"></a>
+        <a id="border4" href="#" class="border"></a>
+        <a id="border5" href="#" class="border"></a>
+        <p>Powered by <a href="http://lepture.com">lepture.com</a></p>
+    </body>
+</html>
