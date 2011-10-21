@@ -5,17 +5,6 @@
 {% block feed %}
 <link rel="alternate" type="application/rss+xml" href="{{ content_url(pager.folder, 'feed.xml') }}" title="{{context.sitename}} {{pager.folder}} Feed" />
 {% endblock %}
-{% block afterstyle %}
-{% if pager.page > 1 %}
-<link rel="canonical" href="{{ content_url(pager.folder, pager.sub_folder, pager.page) }}" />
-{% else %}
-{% if pager.sub_folder == 'page' %}
-<link rel="canonical" href="{{ content_url(pager.folder) }}" />
-{% else %}
-<link rel="canonical" href="{{ content_url(pager.folder, pager.sub_folder) }}" />
-{% endif %}
-{% endif %}
-{% endblock %}
 
 {% block container %}
 <h1 id="page-title">{{title|upper}}</h1>
