@@ -22,17 +22,23 @@
 <h1 class="ui-article-title">
     <a href="{{content_url(post.slug)}}" rel="self">{{post.title}}</a>
 </h1>
-<small><a href="{{content_url(post.date.year)}}" rel=archive"><time class="ui-article-time" datetime="{{post.date}}">{{post.date.strftime("%a, %b %d, %Y")}}</time></a></small>
+<div class="ui-article-meta fn-clear">
+    <p class="ui-article-time fn-left">
+    Created at: 
+    <a href="{{content_url(post.date.year)}}" rel=archive"><time datetime="{{post.date}}">{{post.date.strftime("%a, %b %d, %Y")}}</time></a>
+    </p>
+    <p class="ui-tags fn-left">
+    Tagged in:
+    {% for tag in post.get('tags',[]) %}
+    <a href="{{content_url('tag', tag)}}" class="ui-tag" rel="tag">{{tag}}</a>
+    {% endfor %}
+    </p>
+</div>
 <div class="ui-article">
     <div class="ui-article-content">
         {{ post.content }}
     </div>
-    <div class="ui-article-meta fn-clear">
-        <p class="ui-tags fn-left">
-            {% for tag in post.get('tags',[]) %}
-            <a href="{{content_url('tag', tag)}}" class="ui-tag" rel="tag">{{tag}}</a>
-            {% endfor %}
-        </p>
+    <div class="fn-clear">
         <p class="ui-article-rel fn-right">
         {% if post.prev %}
         <a id="prev-article" href="{{content_url(post.prev.slug)}}" title="{{post.prev.title}}" rel="prev">«Prev</a>
@@ -46,25 +52,19 @@
 {% include "disqus.html" %}
 {% endblock %}
 
-{% block beforejquery %}
-{% if post.get('folder') == 'work' %}
-<div id="github"><a rel="me, nofollow" href="https://github.com/lepture">Fork me on Github</a></div>
-{% endif %}
-{% endblock %}
-
 {% block afterjquery %}
 <script type="text/javascript">
     $(function(){$(document).keydown(function(e){
-            var tagName = e.target.tagName.toLowerCase();
-            if("input" == tagName|| "textarea" == tagName){return ;}
-            if(37 == e.keyCode || 72 == e.keyCode){
+                var tagName = e.target.tagName.toLowerCase();
+                if("input" == tagName|| "textarea" == tagName){return ;}
+                if(37 == e.keyCode || 72 == e.keyCode){
                 var url = $('#prev-article').attr('href');
-            }else if(39 == e.keyCode || 76 == e.keyCode){
+                }else if(39 == e.keyCode || 76 == e.keyCode){
                 var url = $('#next-article').attr('href');
-            }
-            var url = url || '';
-            if(url){location.assign(url);}
-        });
-    });
-</script>
-{% endblock %}
+                }
+                var url = url || '';
+                if(url){location.assign(url);}
+                });
+            });
+        </script>
+        {% endblock %}

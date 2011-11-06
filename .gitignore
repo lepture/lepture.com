@@ -1,4 +1,5 @@
 _build
 .DS_Store
 deploy
+_site
 deploy.ini

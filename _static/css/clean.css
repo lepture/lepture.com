@@ -23,7 +23,8 @@ pre::-webkit-scrollbar-thumb {
 }
 ::selection {
     color: #fff;
-    background: #e3513b;
+    background: rgba(277,81,59,0.74);
+    text-shadow: 0 0 0 #fff;
 }
 /* @end scrollbar */
 
@@ -116,6 +117,9 @@ a:hover {
 
 a:active {
     outline: 0 none;
+}
+h2 a, h3 a, h4 a {
+    color: #222;
 }
 ins,a {
     text-decoration:none;
@@ -263,26 +267,39 @@ blockquote::after {
 }
 .ui-article-title a {
     color: #e3513b;
-}
-.ui-article-time {
-    font: normal 12px/1.6 Helvetica,arial,sans-serif;
-    opacity: .4;
-}
-.ui-article-time:hover {
-    opacity: 1;
+    color: rgba(227,81,59,0.9);
 }
 .ui-article-meta {
-    color: #999;
-    font-size: 12px;
+    font-style: italic;
+    font-family: Georgia, serif;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 1px 0 #fff, 0 1px 0 #fff inset;
+    margin-bottom: 24px;
+}
+.ui-article-meta a {
+    font-style: normal;
+}
+.ui-article-meta p {
+    margin: 6px 0;
+}
+.ui-article-time {
+    padding-right: 6px;
+    border-right: 1px solid #dfdfdf;
+}
+.ui-tags {
+    padding-left: 6px;
+    border-left: 1px solid #fff;
 }
 .ui-tags a {
-    font-size: 12px;
     margin-right: 8px;
 }
 .ui-tags a::before {
     content: "#";
 }
 .ui-article-rel a {
+    color: #999;
+    font-size: 12px;
     margin-left: 8px;
 }
 #article-list p {
