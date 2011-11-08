@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DEMO of click file form</title>
+        <style type="text/css">
+            .hide-file {
+                position: absolute;
+                left: -99999px;
+            }
+            #demo-form {
+                margin: 40px 20px;
+            }
+            #upload-button {
+                background: #c66944;
+                color: #fff;
+                border: 1px solid #ce653b;
+                border-radius: 4px;
+                width: 10em;
+                text-align: center;
+                padding: 8px 0;
+            }
+            #file-name {
+                font-size: 80%;
+                color: #999;
+            }
+            p { margin-top: 40px; }
+        </style>
+        <script type="text/javascript">
+            var _gaq = [['_setAccount', 'UA-21475122-1'], ['_trackPageview']];
+            (function(d, t) {
+            var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            g.async = true;
+            g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s);
+            })(document, 'script');
+        </script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("#upload-file").addClass('hide-file');
+                $("#upload-button").text("Choose file");
+                $("#upload-button").click(function(){
+                    if($('#upload-file').val()){
+                        return true;
+                    }
+                    $("#upload-file").click()
+                    return false;
+                });
+                $("#upload-file").change(function(){
+                    var file = $('#upload-file').val();
+                    if(file){
+                        // fix on webkit, and IE
+                        file = file.substr(file.lastIndexOf("\\")+1);
+                        $("#file-name").text(file);
+                        $("#upload-button").text("Upload file");
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form action="" id="demo-form">
+            <div class="fm-item">
+                <input type="file" name="file" id="upload-file" />
+            </div>
+            <div class="fm-item">
+                <button type="submit" id="upload-button">Submit</button>
+                <span id="file-name"></span>
+            </div>
+        </form>
+        <p>Related post: <a href="http://lepture.com/work/inputfile/">Styling a file input</a></p>
+        <p>Powered by <a href="http://lepture.com">lepture.com</a></p>
+    </body>
+</html>
