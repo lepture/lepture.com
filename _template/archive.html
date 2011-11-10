@@ -1,18 +1,22 @@
 {% extends "layout.html" %}
 
-{% block title %}{{context.sitename}} - {{title|capitalize}}{% endblock %}
+{% block title %}{{title|capitalize}} | {{context.sitename}}{% endblock %}
 
 {% block feed %}
 <link rel="alternate" type="application/rss+xml" href="{{ content_url(pager.folder, 'feed.xml') }}" title="{{context.sitename}} {{pager.folder}} Feed" />
+<script type="text/javascript">
+    var currentNav = '#nav-{{title|lower}}';
+</script>
 {% endblock %}
 
+{% block brand%}{{title|upper}}{%endblock%}
+
 {% block container %}
-<h1 id="page-title">{{title|upper}}</h1>
 <ul id="article-list" class="ui-list fn-clear">
     {% for post in pager.posts %}
     <li class="ui-list-item">
-    <h3 class="ui-article-title"><a href="{{content_url(post.slug)}}">{{post.title}}</a></h3>
-    <p class="ui-article-desc">{{post.summary}}</p>
+    <h3><a class="article-title" href="{{content_url(post.slug)}}">{{post.title}}</a></h3>
+    <p class="article-desc">{{post.summary}}</p>
     </li>
     {% endfor %}
 </ul>

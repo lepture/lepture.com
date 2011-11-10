@@ -9,7 +9,7 @@
         {% block author %}<meta name="author" content="{{ context.author }}" />{% endblock %}
         {% block beforestyle %}{% endblock %}
         {% block feed %}<link rel="alternate" type="application/rss+xml" href="{{context.feed}}" title="{{context.sitename}} Feed" />{% endblock %}
-        <link rel="stylesheet" href="{{ static_url('css/clean.css') }}" />
+        <link rel="stylesheet" href="{{ static_url('css/liquid.css') }}" />
         {% block afterstyle %}{% endblock %}
         <!--[if IE]>
         <script src="{{static_url('js/html5.js')}}"></script>
@@ -20,26 +20,32 @@
     <body>
         <div id="wrapper">
             <div id="header">
+                <div id="top" class="fn-clear">
+                    <h1 id="brand" class="fn-left">{%block brand%}<a href="/">{{context.sitename}}</a>{%endblock%}</h1>
+                    <div class="fn-right">
+                        <form id="search-form" action="http://www.google.com/cse">
+                            <input type="hidden" name="cx" value="{{context.gcse}}" />
+                            <input id="search-input" class="ui-fm-text" type="text" placeholder="Search .." name="q" />
+                        </form>
+                    </div>
+                </div>
+                {% block nav %}
                 <ul id="nav" class="fn-clear">
-                    <li class="nav-item"><a href="/">Home</a></li>
-                    <li class="nav-item"><a href="/archive/">Archive</a></li>
-                    <li class="nav-item"><a href="/life/">Life</a></li>
-                    <li class="nav-item"><a href="/work/">Work</a></li>
-                    <li class="nav-item"><a href="/tag/">Tags</a></li>
-                    <li class="nav-item"><a href="/links/">Links</a></li>
-                    <li id="nav-search">
-                    <form id="search-form" action="http://www.google.com/cse">
-                        <input type="hidden" name="cx" value="{{context.gcse}}" />
-                        <input id="search-input" class="ui-fm-text" type="text" placeholder="Search .." name="q" />
-                    </form>
-                    </li>
+                    <li id="nav-home" class="nav-item"><a href="/">Home</a></li>
+                    <li id="nav-archive" class="nav-item"><a href="/archive/">Archive</a></li>
+                    <li id="nav-life" class="nav-item"><a href="/life/">Life</a></li>
+                    <li id="nav-work" class="nav-item"><a href="/work/">Work</a></li>
+                    <li id="nav-tags" class="nav-item"><a href="/tag/">Tags</a></li>
+                    <li id="nav-links" class="nav-item"><a href="/links/">Links</a></li>
                 </ul>
+                {% endblock %}
             </div>
             <div id="container">
                 {% block container %}{% endblock %}
             </div>
-            <div id="footer">
-                <div class="copyrith ft-right">Copyright by <a href="{{context.siteurl}}">Hsiaoming Young</a> | Powered by <a href="http://github.com/lepture/liquidluck">Felix Felicis</a></div>
+            <div id="footer" class="ft-right">
+                <div class="copyright">Copyright by <a href="{{context.siteurl}}">Hsiaoming Young</a> | Powered by <a href="http://lepture.com/#felix-felicis">Felix Felicis</a></div>
+                <p class="bio">&#9829; Love its people, but never trust its government.</p>
             </div>
             {% block beforejquery %}{% endblock %}
             <script type="text/javascript" src="{{ static_url('js/jquery.min.js') }}"></script>

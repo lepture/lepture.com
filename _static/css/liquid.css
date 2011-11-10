@@ -1,0 +1,356 @@
+/* @begin scrollbar */
+pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    padding: 18px;
+    -webkit-border-radius: 3px;
+} 
+pre::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    width: 8px;
+    height: 8px;
+    padding: 18px;
+    -webkit-border-radius: 3px;
+}
+::selection {
+    color: #fff;
+    background: rgba(277,81,59,0.74);
+    text-shadow: 0 0 0 #fff;
+}
+/* @end scrollbar */
+
+/* @begin reset */
+html {
+    overflow: auto;
+    color: #aaa;
+    text-shadow: 0 1px 0 #fff;
+    background: #f2f2f2;
+    font:14px/1.6 Helvetica,arial,sans-serif;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    margin:0;padding:0;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+pre {
+    overflow: auto;
+    font: normal normal 12px/1.3 monospace;
+    max-height: 45em;
+    padding: 8px;
+}
+code {
+    font: normal normal 12px/1.3 monospace;
+}
+input,select,textarea{
+    font-size:100%;
+}
+table{
+    border-collapse:collapse;border-spacing:0;
+}
+th{
+    text-align:inherit;
+}
+fieldset,img,a img{
+    border:0;
+    outline: 0 none;
+}
+iframe{
+    display:block;
+}
+abbr,acronym{
+    border:0;font-variant:normal;
+}
+del {
+    text-decoration:line-through;
+}
+address,caption,code,dfn,th,var {
+    font-style:normal;
+    font-weight:500;
+}
+ol,ul {
+    list-style:none;
+}
+caption,th {
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6,strong {
+    font-size: 100%;
+    font-weight: bold;
+    font-family: Helvetica,arial,sans-serif;
+}
+h1 {
+    font-size: 1.6em;
+}
+h2 {
+    font-size: 1.4em;
+}
+h3 {
+    font-size: 1.2em;
+}
+q:before,q:after {
+    content:'';
+}
+sup {
+    vertical-align:text-top;
+}
+sub {
+    vertical-align:text-bottom;
+}
+p {
+    margin-bottom: 12px;
+}
+a {
+    color: #999;
+}
+a:hover {
+    color: #d76c48;
+}
+
+a:active {
+    outline: 0 none;
+}
+h2 a, h3 a, h4 a {
+    color: #565656;
+}
+ins,a {
+    text-decoration:none;
+}
+blockquote {
+    padding: 8px 24px 1px;
+    margin: 8px 0;
+}
+blockquote::before {
+    float: left;
+    content: '“';
+    font-size: 34px;
+    font-weight: bold;
+    color: #bababa;
+    font-style: italic;
+    line-height: 24px;
+    margin: 0 0 0 -24px;
+    font-family: Georgia, serif;
+}
+blockquote::after {
+    display: block;
+    width: 98%;
+    text-align: right;
+    content:'”';
+    clear:both;
+    font-size: 34px;
+    font-weight: bold;
+    color: #bababa;
+    font-style: italic;
+    line-height: 0;
+    margin: 0 0 12px 10px;
+    font-family: Georgia, serif;
+}
+
+/* @end reset */
+/* @begin function class */
+.fn-clear:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+}
+.fn-clear {
+    zoom:1; /* for IE6 IE7 */
+}
+.fn-left,.fn-right {
+    display:inline;
+}
+.fn-left {
+    float:left;
+}
+.fn-right {
+    float:right;
+}
+.fn-center{
+    margin:0 auto;
+    position:relative;
+    max-width: 960px;
+}
+.fn-text-wrap {
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.fn-sep {
+    margin-top: 12px;
+}
+.fn-hide {
+    display:none;
+}
+.fn-red {
+    color: red;
+}
+.ft-left {
+    text-align: left;
+}
+.ft-right {
+    text-align: right;
+}
+.ft-center {
+    text-align: center;
+}
+.ui-list {
+    border-top: 1px solid #dadada;
+}
+.ui-list-item {
+    position: relative;
+    padding: 6px 0;
+    border-bottom: 1px solid #dadada;
+    border-top: 1px solid #ffffff;
+    box-shadow: 0 1px 0 #ffffff;
+}
+
+/* @end function class */
+
+/* @begin layout */
+#wrapper {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 14px;
+    color: #656565;
+}
+#header {
+    padding: 10px 0;
+}
+#container {
+    text-align: left;
+    padding-top: 14px;
+}
+#footer {
+    padding: 24px 0 12px;
+    font-size: 12px;
+    font-family: "Georgia", serif;
+}
+#footer a:hover, .tagcloud a:hover, article a:hover {
+    border-bottom: 1px solid #e3513b;
+}
+#footer .bio { color: #cecece; }
+#nav {
+    margin-top: 12px;
+    padding: 6px 0;
+    border-top: 4px double #dadada;
+    border-bottom: 4px double #dadada;
+}
+.nav-item {
+    float: left;
+    padding: 0 6px;
+}
+#nav a:hover, #nav .current a {
+    text-decoration: none;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d76c48;
+}
+#search-input {
+    outline: 0 none;
+    color: #666;
+    background: #f1f1f1;
+    padding: 6px;
+    max-width: 120px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-shadow: 0 1px 0 #fff;
+    box-shadow: 0 1px 0 #fff, inset 0 1px 0 #efefef;
+}
+#search-input:focus {
+    background: #eee;
+}
+/* @end layout */
+
+/* @begin article */
+.article-title {
+    margin-bottom: 10px;
+}
+.article-title {
+    color: #d76c48;
+}
+.article-title:hover {
+    text-decoration: none;
+}
+.article-meta {
+    font-style: italic;
+    font-family: Georgia, serif;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 1px 0 #fff, 0 1px 0 #fff inset;
+    margin-bottom: 24px;
+}
+.article-meta a {
+    font-style: normal;
+}
+.article-meta p {
+    margin: 6px 0;
+}
+.article-time {
+    padding-right: 6px;
+    border-right: 1px solid #dfdfdf;
+}
+.article-tags {
+    padding-left: 6px;
+    border-left: 1px solid #fff;
+}
+.article-tags a {
+    margin-right: 8px;
+}
+.article-tags a::before {
+    content: "#";
+}
+.article-rel a {
+    color: #999;
+    font-size: 12px;
+    margin-left: 8px;
+}
+.article-content .section {
+    padding: 9px 0;
+}
+.article-content .section .section {
+    padding: 9px 0 0;
+}
+.article-content h3 {
+    font-size: 14px;
+}
+.article-content p {
+    margin: 8px 0;
+}
+.article-content ul {
+    list-style-type: square;
+    margin: 6px 0 6px 18px;
+}
+.article-content ol {
+    list-style-type: decimal;
+    margin: 6px 0 6px 18px;
+}
+.article-content img {
+    max-width: 90%;
+    border-radius: 6px;
+    box-shadow: 1px 1px 3px #aeaeae;
+}
+.highlight {
+    border: 1px dashed #ddd;
+    padding: 1px 5px 3px 1px;
+}
+.page-content ul {
+    list-style-type: none;
+    margin: 0;
+}
+/* @end article */
+#disqus_thread {
+    text-shadow: 0 0 0 #fff;
+}
+#pagination {
+    text-align: center;
+    padding: 24px 0 10px;
+    color: #bcbcbd;
+}
+#pagination span, #pagination a {
+    padding: 3px 9px;
+}
+.tagcloud li {
+    display: inline;
+    padding: 3px 5px;
+}

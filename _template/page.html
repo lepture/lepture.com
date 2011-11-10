@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block afterstyle -%}
+{% if post.style %}
+<style type="text/css">
+    {{ post.style }}
+</style>
+{% endif %}
+<script type="text/javascript">
+    var currentNav = '#nav-{{post.nav}}';
+</script>
+{%- endblock -%}
+
+{% block brand %}{{post.title}}{% endblock %}
+
+{% block container %}
+    <div class="page-content article-content">
+        {{ post.content }}
+    </div>
+{% endblock %}
