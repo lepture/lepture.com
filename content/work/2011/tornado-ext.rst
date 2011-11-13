@@ -139,7 +139,6 @@ Bug report 请在github上开 issue。谢谢。
 
 BTW，Web并不是 Python_ 的所有，如果你用 Python_ ，但是又一直待在 Django_ 的世界里，现在是时候出来了，了解一下 Python_ 的其它方面。例如这个网站，它是纯静态的，从 restructuredText_ 生成为html，其间的工具Felix Felicis( liquidluck_ )就是用 Python_ 写的。
 
-哦，不要用这个来生成你的博客，这是为满足我个人需求而写的简单的实现。你自己写一个吧！
 
 
 .. _Python: http://www.python.org

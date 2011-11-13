@@ -5,7 +5,7 @@
         <title>{% block title %}{{context.sitename}}{% endblock %}</title>
         <script>if (top !== self) top.location = self.location;</script>
         <meta name="HandheldFriendly" content="True" />
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+        <meta name="viewport" content="initial-scale=1; maximum-scale=1; user-scalable=0;" />
         {% block author %}<meta name="author" content="{{ context.author }}" />{% endblock %}
         {% block beforestyle %}{% endblock %}
         {% block feed %}<link rel="alternate" type="application/rss+xml" href="{{context.feed}}" title="{{context.sitename}} Feed" />{% endblock %}
@@ -44,7 +44,7 @@
                 {% block container %}{% endblock %}
             </div>
             <div id="footer" class="ft-right">
-                <div class="copyright">Copyright by <a href="{{context.siteurl}}">Hsiaoming Young</a> | Powered by <a href="http://lepture.com/#felix-felicis">Felix Felicis</a></div>
+                <div class="copyright">Copyright by <a href="{{context.siteurl}}">lepture</a> | Powered by <a href="http://lepture.com/#felix-felicis">Felix Felicis</a></div>
                 <p class="bio">&#9829; Love its people, but never trust its government.</p>
             </div>
             {% block beforejquery %}{% endblock %}

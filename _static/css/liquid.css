@@ -14,7 +14,7 @@ pre::-webkit-scrollbar-thumb {
 }
 ::selection {
     color: #fff;
-    background: rgba(277,81,59,0.74);
+    background: #e3513b;
     text-shadow: 0 0 0 #fff;
 }
 /* @end scrollbar */
@@ -102,9 +102,11 @@ p {
 }
 a {
     color: #999;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 a:hover {
-    color: #d76c48;
+    color: #e3513b;
 }
 
 a:active {
@@ -195,15 +197,15 @@ blockquote::after {
 .ft-center {
     text-align: center;
 }
-.ui-list {
-    border-top: 1px solid #dadada;
-}
 .ui-list-item {
     position: relative;
     padding: 6px 0;
     border-bottom: 1px solid #dadada;
     border-top: 1px solid #ffffff;
     box-shadow: 0 1px 0 #ffffff;
+}
+.ui-list-item:first-child {
+    border-top: 0 none;
 }
 
 /* @end function class */
@@ -244,7 +246,7 @@ blockquote::after {
 #nav a:hover, #nav .current a {
     text-decoration: none;
     padding-bottom: 10px;
-    border-bottom: 2px solid #d76c48;
+    border-bottom: 2px solid #e3513b;
 }
 #search-input {
     outline: 0 none;
@@ -265,12 +267,11 @@ blockquote::after {
 /* @begin article */
 .article-title {
     margin-bottom: 10px;
-}
-.article-title {
-    color: #d76c48;
+    color: #e3513b;
 }
 .article-title:hover {
     text-decoration: none;
+    color: #d76c48;
 }
 .article-meta {
     font-style: italic;
