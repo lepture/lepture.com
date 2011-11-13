@@ -12,10 +12,10 @@ LINKS
 
 Friends
 ---------
-
 + `川叶 : 时间河 <http://riverslee.com>`_
 + `The Qlog <http://imquyi.com>`_
 + `逆风寒翎 <http://www.niphanin.net>`_
++ `Micius <http://micius.org/>`_
 
 ziqiang.net
 ------------
@@ -29,6 +29,7 @@ alipay.com
 -----------
 + `幸福收藏夹 <http://sofish.de>`_
 + `Janlay's blog <http://janlay.com>`_
++ `ShaoShuai.me <http://shaoshuai.me>`_
 + `小麻的博客 <http://www.hsinglin.com/blog/>`_
 
 Tools
