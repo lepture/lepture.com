@@ -9,16 +9,15 @@ if(window.jQuery){(function($){
         $("html, body").animate({'scrollTop': pos}, speed);
         return false;
     }
-    var bindVimKey = function(step, speed, searchInput, searchWrap) {
+    var bindVimKey = function(step, speed, searchInput) {
         // "gg" go top, "shift+g" go bottom
         // "j" scroll down, "k" scroll up
         // "i" insert mode, auto focus on the very first input area
         // "esc" leave insert mode
         // TODO indicate capslock
         var keyMap = {27:"esc", 71:"g", 73:"i", 74:"j", 75:"k", 191:"/"};
-        var step = step || 40, speed = speed || 50;
+        var step = step || 40, speed = speed || 30;
         var searchInput = searchInput || 'search-input';
-        var searchWrap = searchWrap || 'search-form-wrap';
         var h = $(document).height();
         var b = $('body');
         $(this).keydown(function(e){
@@ -29,10 +28,6 @@ if(window.jQuery){(function($){
                 // No need for document.activeElement == e.target
                 if("esc" == keyMap[e.keyCode]){
                     $(e.target).blur(); // leave text area
-                    if(searchInput == e.target.id) {
-                        $("#"+searchWrap).hide();
-                        $('#nav-search').removeClass('fn-current');
-                    }
                     return true;
                 }
                 return true;
@@ -68,7 +63,6 @@ if(window.jQuery){(function($){
                     return false;
                 }else if("/" == keyMap[e.keyCode]){
                     // show search form. for my own use
-                    $('#'+searchWrap).show();
                     $('#'+searchInput).focus();
                     $('#nav-search').addClass('fn-current');
                     return false;
@@ -91,8 +85,30 @@ if(window.jQuery){(function($){
 
 if(window.jQuery){(function($){
     $(function(){
+        var isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|Blackberry|mobile)/);
         var currentNav = window.currentNav || '#nav-home';
         $(currentNav).addClass('current');
-        $(document).bindVimKey();
+        if(!isMobile) {
+            $(document).bindVimKey();
+            $(document).keydown(function(e) {
+                var tagName = e.target.tagName.toLowerCase();
+                if("input" == tagName|| "textarea" == tagName){return ;}
+                if(37 == e.keyCode || 72 == e.keyCode){
+                    var url = $('#prev-entry').attr('href');
+                }else if(39 == e.keyCode || 76 == e.keyCode){
+                    var url = $('#next-entry').attr('href');
+                }
+                var url = url || '';
+                if(url){location.assign(url);}
+            });
+        }
+        if($('div.rdbWrapper').length && !isMobile) {
+            $('#footer').after('<script type="text/javascript" src="http://www.readability.com/embed.js" async></script>');
+        }
+        if(isMobile) {
+            $('#nav-tags').hide();
+            $('#header nav, #nav li').height(36);
+            $('#nav a').css({fontSize: 13, lineHeight: '36px'});
+        }
     });
 })(jQuery);}
