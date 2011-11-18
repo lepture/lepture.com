@@ -29,3 +29,5 @@ Border 的模型：
     }
 
 如上代码则构成了一个顶角向下的三角形，非常适合用来做下拉选项的标志。Google 导航栏上的那个 ``More`` 正是如此构造出来的。
+
+More shapes via Reorx's sharing: http://css-tricks.com/examples/ShapesOfCSS/
