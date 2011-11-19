@@ -106,7 +106,7 @@ if(window.jQuery){(function($){
             $('#footer').after('<script type="text/javascript" src="http://www.readability.com/embed.js" async></script>');
         }
         if(isMobile) {
-            $('#nav-tags').hide();
+            $('#nav-tags, #search-form').hide();
             $('#header nav, #nav li').height(36);
             $('#nav a').css({fontSize: 13, lineHeight: '36px'});
         }

@@ -36,7 +36,7 @@
         <h1 class="entry-title fn-left">{%block entrytitle%}{{context.sitename}}{%endblock%}</h1>
         <form id="search-form" action="http://www.google.com/cse">
             <input type="hidden" name="cx" value="{{context.gcse}}" />
-            <input id="search-input" class="ui-fm-text" type="search" placeholder="Search .." name="q" />
+            <input id="search-input" class="ui-fm-text" type="text" placeholder="Search .." name="q" />
         </form>
         </header>
         {% block container %}{% endblock %}
