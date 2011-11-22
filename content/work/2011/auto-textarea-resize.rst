@@ -21,11 +21,14 @@ Make a Clone
 ------------
 1. clone 一份原 textarea: ``var clone = el.clone();``
 2. 清理 clone 的选择器: ``clone.removeAttr('id').removeAttr('class')`` 
-3. css隐藏clone (不能用 ``display:none``): ``clone.css({'position':'absolute',top:'-9999em',left:'-9999em'})``
+3. css隐藏clone (不能用 ``display:none``): 
+   ``clone.css({'position':'absolute',top:'-9999em',left:'-9999em'})``
 
 最后的代码如下:
 
-``var clone = el.clone().removeAttr('id').removeAttr('class').css({position:'absolute', top:'-9999em',left:'-9999em',width: el.width(), height: 'auto'}).appendTo('body');``
+.. sourcecode:: javascript
+
+    var clone = el.clone().removeAttr('id').removeAttr('class').css({position:'absolute', top:'-9999em',left:'-9999em',width: el.width(), height: 'auto'}).appendTo('body');
 
 Calculate Height
 -----------------

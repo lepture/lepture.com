@@ -106,9 +106,22 @@ if(window.jQuery){(function($){
             $('#footer').after('<script type="text/javascript" src="http://www.readability.com/embed.js" async></script>');
         }
         if(isMobile) {
-            $('#nav-tags, #search-form').hide();
+            $('#nav-work, #search-form').hide();
             $('#header nav, #nav li').height(36);
             $('#nav a').css({fontSize: 13, lineHeight: '36px'});
         }
     });
 })(jQuery);}
+
+var wfonts = window.wfonts || ['Lato:700:latin', 'Volkhov::latin'];
+WebFontConfig = {
+    google: { families: wfonts }
+};
+(function() {
+    var wf = document.createElement('script');
+    wf.src = 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+})();

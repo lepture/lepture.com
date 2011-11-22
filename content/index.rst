@@ -6,7 +6,6 @@ Just lepture
 :public: false
 :nav: home
 :style:
-    .page-content p { font-family: Georgia, serif; }
     .page-content h2 { font-size: 11px; margin-bottom: 1px; color: #bbb; text-transform: uppercase;}
     #elsewhere ul { -webkit-column-count: 4; -moz-column-count: 4; column-count: 4; line-height: 150%;}
 

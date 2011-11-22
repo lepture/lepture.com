@@ -28,12 +28,11 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 }
 pre {
     overflow: auto;
-    font: normal normal 12px/1.3 monospace;
     max-height: 45em;
     padding: 8px;
 }
-code, .literal {
-    font: normal normal 12px/1.3 monospace;
+pre, code, .literal {
+    font: normal normal 0.8em/1.3 monaco, menlo, monospace;
 }
 input,select,textarea{
     font-size:100%;
@@ -70,7 +69,7 @@ caption,th {
 h2,h3,h4,h5,h6 {
     font-size: 100%;
     font-weight: bold;
-    font-family: Helvetica,arial,sans-serif;
+    font-family: "Lato", Helvetica,arial,sans-serif;
 }
 h1 {
     font-size: 1.6em;
@@ -182,6 +181,7 @@ blockquote::after {
 html, body {
     color: #080000;
     background: #fdfdfa;
+    font-family: "Volkhov", "Georgia", "Times New Roman", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h1, h2, h3, h4, strong {
     color: #000;
@@ -240,14 +240,13 @@ a:hover {
     #header nav { height: 36px; }
     #nav a { font-size: 13px; line-height: 36px; }
     #nav li { height: 36px; }
-    #nav-tags, #search-form { display: none; border: 0 none; }
+    #nav-work, #search-form { display: none; border: 0 none; }
 }
 /** end header **/
 /** footer **/
 #footer {
     padding: 1.8em 0 1em;
     font-size: 0.8em;
-    font-family: Georgia, "Times New Roman", serif;
     max-width: 650px;
     *width: 650px;
     margin: 0 auto;
@@ -255,6 +254,11 @@ a:hover {
     color: #969696;
 }
 #footer .bio { color: #ddd; }
+#footer .bio:before {
+    content: "♥";
+    color: #e3513b;
+    margin-right: 0.3em;
+}
 /** end footer **/
 /** search **/
 #search-form {
@@ -284,7 +288,6 @@ a:hover {
 }
 .entry-meta {
     font-style: italic;
-    font-family: Georgia, "Times New Roman", serif;
     border-top: 3px double #d0d0d0;
     border-bottom: 3px double #d0d0d0;
     margin: 1em 0 2em;
@@ -319,7 +322,6 @@ a:hover {
 }
 .entry-content {
     line-height: 1.55em;
-    font-family: Georgia, "Times New Roman", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 .entry-content .section {
     padding: 9px 0;
@@ -357,9 +359,6 @@ a:hover {
 /* @end entry */
 
 /* @begin entry-list */
-#entry-list {
-    font-family: Georgia, "Times New Roman", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
-}
 #entry-list li{
     position: relative;
     padding: 6px 0;
