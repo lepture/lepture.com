@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Textarea Auto Resize</title>
+        <style type="text/css">
+            #wrapper { width: 650px; margin: 40px auto; }
+            #textarea {
+                resize: none;
+                height: 40px;
+                width: 400px;
+                overflow: hidden;
+            }
+        </style>
+        <script type="text/javascript">
+            var _gaq = [['_setAccount', 'UA-21475122-1'], ['_trackPageview']];
+            (function(d, t) {
+            var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            g.async = true;
+            g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s);
+            })(document, 'script');
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <textarea id="textarea"></textarea>
+            <p>Created by <a href="http://lepture.com">lepture</a></p>
+        </div>
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript">
+            $.fn.textResizer = function(options) {
+                var el = $(this), h;
+                var settings = {
+                    minHeight: el.height(),
+                    maxHeight: 300,
+                    duration: 100
+                }
+                if (options) {
+                    $.extend(settings, options);
+                }
+                var clone = el.clone().removeAttr('id').removeAttr('class').css({position:'absolute', top:'-9999em',left:'-9999em',width: el.width(), height: 'auto'}).appendTo('body');
+                $(this).keyup(function(e) {
+                    h = clone.val(el.val()).height(0).scrollTop(10000).scrollTop() + 16;
+                    h = Math.min(Math.max(settings.minHeight, h), settings.maxHeight);
+                    if (el.height() != h) {
+                        if($.browser.msie) {
+                            el.height(h);
+                        } else {
+                            el.stop(1,1).animate({height: h}, settings.duration);
+                        }
+                    }
+                });
+                return this;
+            }
+            $('#textarea').textResizer();
+        </script>
+    </body>
+</html>
