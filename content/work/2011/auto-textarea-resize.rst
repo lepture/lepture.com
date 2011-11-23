@@ -11,9 +11,9 @@ Auto Textarea Resize
     - jquery
 
 
-豆瓣首页的我说有一个可根据文本内容伸缩的textarea。但是总觉得做得很粗糙，不知道你使用中是否和我一样，当换行的时候总能看到文字一跳一跳的。想起很久之前在Forrst发过的一篇文章 `Auto Resize Textarea <http://forrst.com/posts/Auto_Resize_Textarea-1eS>`_ ，还是借鉴的豆瓣呢。
+豆瓣首页的"我说"有一个可根据文本内容伸缩的textarea。但是总觉得做得很粗糙，不知道你使用中是否和我一样，当换行的时候总能看到文字一跳一跳的。想起很久之前在Forrst发过的一篇文章 `Auto Resize Textarea <http://forrst.com/posts/Auto_Resize_Textarea-1eS>`_ ，还是借鉴的豆瓣呢。
 
-当时刚开始写前端，现在回想起来，不免汗颜。对原码做了点修正，让伸缩显得更自然。跳过本文，阅读源码 http://d.pr/dpzD 。
+当时刚开始写前端，现在回想起来，不免汗颜。对源码做了点修正，让伸缩显得更自然。跳过本文，阅读源码 http://d.pr/dpzD 。
 
 具体实现原理如下：
 
@@ -45,7 +45,7 @@ DEMO
 
 CODE
 ----------
-原码再现
+源码再现
 
 .. sourcecode:: javascript
 

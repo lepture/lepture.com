@@ -212,7 +212,7 @@ a:hover {
 }
 #nav a {
     display: inline-block;
-    border-top: 3px solid #7d7d7c;
+    border-top: 3px solid transparent;
     padding: 0 0.6em;
     line-height: 2.4em;
     color: #707065;
