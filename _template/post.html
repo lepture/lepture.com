@@ -53,3 +53,9 @@
 </div>
 {% include "disqus.html" %}
 {% endblock %}
+
+{% block afterjs %}
+{% if post.github %}
+<div id="github"><a href="https://github.com/{{post.github}}">Fork me on github</a></div>
+{% endif %}
+{% endblock %}

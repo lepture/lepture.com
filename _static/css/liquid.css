@@ -408,3 +408,25 @@ a:hover {
     display: inline;
     padding: 3px 5px;
 }
+#github {
+    position: fixed;
+    top: 40px;
+    left: -40px;
+    width: 200px;
+    line-height: 28px;
+    text-align: center;
+    color: white;
+    background-color: #202020;
+    border: 1px solid #000;
+    font-size: 0.85em;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    *display: none;
+}
+#github a {
+    display: block;
+    color: white;
+    border: 1px solid #696969;
+    text-shadow: 0 0 0 #fff;
+}

@@ -24,16 +24,15 @@ Check my `Wishlist <https://www.amazon.com/registry/wishlist/373NY7OIMSWGJ>`_ , 
 Active Projects
 ----------------
 
-Felix Felicis
-~~~~~~~~~~~~~~
-Felix Felicis (aka liquidluck) is a simple lightweight static blog generator. It supports markup of restructedText and markdown.
-
-The project is still on development, I will release the very beta version soon. Be patient.
+`Felix Felicis`_
+~~~~~~~~~~~~~~~~~
+`Felix Felicis`_ (aka liquidluck) is a simple lightweight static blog generator. It supports markup of restructedText and markdown.
 
 You can follow the `project on github <https://github.com/lepture/liquidluck>`_,
 report bug to `issue track <https://github.com/lepture/liquidluck/issues>`_.
 Before starting your liquidluck-powered blog, you should first check the `wiki <https://github.com/lepture/liquidluck/wiki>`_.
 
+I just released the very alpha version 0.1, you can install it with ``pip install liquidluck`` now.
 
 tForms
 ~~~~~~~
@@ -77,3 +76,4 @@ Elsewhere
 
 .. _Twitter: https://twitter.com/lepture
 .. _tornado: http://tornadoweb.org
+.. _`Felix Felicis`: http://lepture.com/project/liquidluck
