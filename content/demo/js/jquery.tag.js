@@ -8,8 +8,8 @@ if(window.jQuery){(function($){
     var tagbox = function(options) {
         var $this = this;
         var settings = {
-            'confirm': 'comma|space|tab',
-            'delete': 'backspace|delete'
+            'confirm': ['comma', 'space', 'tab'],
+            'delete': ['backspace','delete']
         }
         if (options) {
             $.extend(settings, options);
@@ -54,7 +54,7 @@ if(window.jQuery){(function($){
         $(taginput).keydown(function(e) {
             var confirmKeys = {'comma': 188, 'space': 32, 'tab': 9, 'enter':13};
             var deleteKeys = {'backspace': 8, 'delete':46 };
-            var keys = settings.confirm.split('|');
+            var keys = settings.confirm;
             for (i=0; i<keys.length; i++) {
                 if (confirmKeys[keys[i]] == e.keyCode || keys[i] == e.keyCode) {
                     e.preventDefault();
@@ -63,7 +63,7 @@ if(window.jQuery){(function($){
                     break;
                 }
             }
-            var keys = settings.delete.split('|');
+            var keys = settings.delete;
             for (i=0; i<keys.length; i++) {
                 if (deleteKeys[keys[i]] == e.keyCode || keys[i] == e.keyCode) {
                     if(!$(this).val()) {

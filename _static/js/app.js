@@ -102,9 +102,6 @@ if(window.jQuery){(function($){
                 if(url){location.assign(url);}
             });
         }
-        if($('div.rdbWrapper').length && !isMobile) {
-            $('#footer').after('<script type="text/javascript" src="http://www.readability.com/embed.js" async></script>');
-        }
         if(isMobile) {
             $('#nav-work, #search-form').hide();
             $('#header nav, #nav li').height(36);

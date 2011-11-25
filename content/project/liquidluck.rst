@@ -104,7 +104,7 @@ There are many static blog engines, I know some:
 Changelog
 ---------
 
-+ *2011.11.24* v0.1 (alpha) released
++ **2011.11.24**: v0.1 (alpha) released
 
 .. _restructedText: http://docutils.sourceforge.net/rst.html
 .. _markdown: http://daringfireball.net/projects/markdown/

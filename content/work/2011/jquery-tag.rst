@@ -36,11 +36,11 @@ I want it being:
         <input type="text" name="tags" class="tag-input" />
     </div>
 
-Creating these dom is pretty simple, but at first, we must have something in account::
+Creating these dom is pretty simple, but at first, we must have something in account:
 
-    1. init tags
-    2. create dom and then hide the tag-input
-    3. no repeat tag
+1. init tags
+2. create dom and then hide the tag-input
+3. no repeat tag
 
 
 And the final look is:
@@ -53,12 +53,8 @@ And the final look is:
 .. sourcecode:: javascript
 
     $(seletor).tagbox({
-        'confirm': 'comma|tab|space|tab', //optional
-        'delete': 'backspace|delete' //optional
+        'confirm': ['comma', 'tab', 'space' ,'enter'], //optional
+        'delete': ['backspace', 'delete'] //optional
     });
 
 You can have a look at the `DEMO <http://lepture.com/demo/tags/>`_ , just have a try.
-
-And welcome to FeedBundle_ , we need high quality feeds.
-
-.. _FeedBundle: http://www.feedbundle.com

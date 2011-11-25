@@ -236,12 +236,6 @@ a:hover {
     height: 2.4em;
 }
 .hentry {padding: 0 10px;}
-@media only screen and (max-device-width: 480px) {
-    #header nav { height: 36px; }
-    #nav a { font-size: 13px; line-height: 36px; }
-    #nav li { height: 36px; }
-    #nav-work, #search-form { display: none; border: 0 none; }
-}
 /** end header **/
 /** footer **/
 #footer {
@@ -324,13 +318,10 @@ a:hover {
     line-height: 1.55em;
 }
 .entry-content .section {
-    padding: 9px 0;
+    padding: 0.6em 0;
 }
 .entry-content .section .section {
-    padding: 0 0 9px;
-}
-.entry-content h3 {
-    font-size: 14px;
+    padding: 0 0 0.6em;
 }
 .entry-content p {
     margin: 1em 0;
@@ -405,8 +396,8 @@ a:hover {
     padding: 3px 9px;
 }
 .tagcloud li {
-    display: inline;
-    padding: 3px 5px;
+    display: inline-block;
+    padding: 0.1em 0.27em;
 }
 #github {
     position: fixed;
@@ -429,4 +420,11 @@ a:hover {
     color: white;
     border: 1px solid #696969;
     text-shadow: 0 0 0 #fff;
+}
+@media only screen and (max-device-width: 480px) {
+    #header nav { height: 36px; }
+    #nav a { font-size: 13px; line-height: 36px; }
+    #nav li { height: 36px; }
+    #nav-work, #search-form { display: none; border: 0 none; }
+    #github {display:none;}
 }
