@@ -69,7 +69,7 @@ Themes
 
 If you don't like the default theme, you can write a theme yourself. You will need take a look at `How to write your own template <https://github.com/lepture/liquidluck/wiki/Template>`_
 
-There are two more themes available at `Theme Gallery <https://github.com/lepture/liquidluck/tree/themes>`_
+There are two more themes available at `Theme Gallery <https://github.com/lepture/liquidluck/tree/themes>`_ , `Download All Themes <https://github.com/lepture/liquidluck/zipball/themes>`_.
 
 I am using the *liquid* one.
 

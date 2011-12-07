@@ -58,3 +58,5 @@ And the final look is:
     });
 
 You can have a look at the `DEMO <http://lepture.com/demo/tags/>`_ , just have a try.
+
+.. _FeedBundle: http://www.feedbundle.com

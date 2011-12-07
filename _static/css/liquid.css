@@ -342,6 +342,7 @@ a:hover {
 .highlight {
     border: 1px dashed #ddd;
     padding: 1px 5px 3px 1px;
+    margin: 1em 0;
 }
 .page-content ul {
     list-style-type: none;
