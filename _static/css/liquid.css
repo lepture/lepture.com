@@ -34,14 +34,29 @@ pre {
 pre, code, .literal {
     font: normal normal 0.8em/1.3 monaco, menlo, monospace;
 }
+code, .literal {
+    padding: .4em;
+    color: #565656;
+}
 input,select,textarea{
     font-size:100%;
 }
 table{
+    margin: 1em 0;
     border-collapse:collapse;border-spacing:0;
+    border: 1px solid #dadada;
 }
-th{
+thead{
+    background: #999;
+    color: #fff;
+    border: 1px solid #888;
+}
+th, td{
     text-align:inherit;
+    padding: 0.2em 0.4em;
+}
+tbody tr:nth-child(2n) {
+    background: #eee;
 }
 fieldset,img,a img{
     border:0;
