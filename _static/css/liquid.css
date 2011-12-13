@@ -81,14 +81,13 @@ ol,ul {
 caption,th {
     text-align:left;
 }
-h2,h3,h4,h5,h6 {
+h1, h2,h3,h4,h5,h6 {
     font-size: 100%;
     font-weight: bold;
-    font-family: "Lato", Helvetica,arial,sans-serif;
+    font-family: "Georgia", "Times New Roman", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h1 {
     font-size: 1.6em;
-    font-family: Georgia, "Times New Roman", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h2 {
     font-size: 1.4em;
@@ -324,6 +323,7 @@ a:hover {
 .entry-rel a {
     color: #999;
     font-size: 0.9em;
+    font-variant: small-caps;
     margin-left: 0.6em;
 }
 .entry-rel a:hover {
@@ -441,6 +441,6 @@ a:hover {
     #header nav { height: 36px; }
     #nav a { font-size: 13px; line-height: 36px; }
     #nav li { height: 36px; }
-    #nav-work, #search-form { display: none; border: 0 none; }
+    #nav-work, #nav-tags, #search-form { display: none; border: 0 none; }
     #github {display:none;}
 }

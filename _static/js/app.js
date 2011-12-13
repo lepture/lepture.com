@@ -85,6 +85,7 @@ if(window.jQuery){(function($){
 
 if(window.jQuery){(function($){
     $(function(){
+        $('a[href^=http]:not(a[href^="http://lepture.com"])').attr('target', '_blank');
         var isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|Blackberry|mobile)/);
         var currentNav = window.currentNav || '#nav-home';
         $(currentNav).addClass('current');
@@ -109,16 +110,3 @@ if(window.jQuery){(function($){
         }
     });
 })(jQuery);}
-
-var wfonts = window.wfonts || ['Lato:700:latin', 'Volkhov::latin'];
-WebFontConfig = {
-    google: { families: wfonts }
-};
-(function() {
-    var wf = document.createElement('script');
-    wf.src = 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-})();

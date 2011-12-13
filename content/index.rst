@@ -6,7 +6,7 @@ Just lepture
 :public: false
 :nav: home
 :style:
-    .page-content h2 { font-size: 11px; margin-bottom: 1px; color: #bbb; text-transform: uppercase;}
+    .page-content h2 { font-size: 11px; margin-bottom: 1px; color: #bbb; text-transform: uppercase; font-family: Helvetica, arial, sans-serif;}
     #elsewhere ul { -webkit-column-count: 4; -moz-column-count: 4; column-count: 4; line-height: 150%;}
 
 About
@@ -23,6 +23,7 @@ Check my `Wishlist <https://www.amazon.com/registry/wishlist/373NY7OIMSWGJ>`_ , 
 
 Active Projects
 ----------------
+Projects that are active now.
 
 `Felix Felicis`_
 ~~~~~~~~~~~~~~~~~
@@ -48,6 +49,7 @@ Third party apis which are written with tornado. Include recaptcha api, renren a
 
 Deactive Projects
 ------------------
+Projects that are deactive now.
 
 Vealous
 ~~~~~~~~

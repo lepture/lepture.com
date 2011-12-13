@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 
-{% block afterstyle -%}
+{% block afterstyle %}
+{% if post.summary %}
+<meta name="description" content="{{ post.summary }}" />
+{% endif %}
 {% if post.style %}
 <style type="text/css">
     {{ post.style }}
@@ -9,15 +12,15 @@
 <script type="text/javascript">
     var currentNav = '#nav-{{post.nav}}';
 </script>
-{%- endblock -%}
+{% endblock %}
 
 {% block title %}{{post.title}}{% endblock %}
 {% block entrytitle %}{{post.title}}{% endblock %}
 
 {% block container %}
-    <div class="page-content entry-content">
-        {{ post.content }}
-    </div>
+<div class="page-content entry-content">
+    {{ post.content }}
+</div>
 {% endblock %}
 
 {% block afterjs %}
