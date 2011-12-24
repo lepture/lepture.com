@@ -2,12 +2,7 @@
 
 {% block title %}{{title|capitalize}} | {{context.sitename}}{% endblock %}
 
-{% block feed %}
-{% if pager.folder == 'life' %}
-<link rel="alternate" type="application/rss+xml" href="http://feeds.lepture.com/shiao" title="{{context.sitename}} {{pager.folder}} Feed" />
-{% else %}
-<link rel="alternate" type="application/rss+xml" href="{{ content_url(pager.folder, 'feed.xml') }}" title="{{context.sitename}} {{pager.folder}} Feed" />
-{% endif %}
+{% block afterstyle%}
 <script type="text/javascript">
     var currentNav = '#nav-{{title|lower}}';
 </script>
