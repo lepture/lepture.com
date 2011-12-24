@@ -3,13 +3,13 @@
 {% block title %}{{title}} | {{context.sitename}}{% endblock %}
 
 {% block afterstyle %}
-<meta name="description" content="Archived entries in Tag {{title}} of {{context.sitename}}" />
+<meta name="description" content="Archived entries in Year {{title}} of {{context.sitename}}" />
 <script type="text/javascript">
-    var currentNav = '#nav-tags';
+    var currentNav = '#nav-archive';
 </script>
 {% endblock %}
 
-{% block entrytitle%}{{title|upper}}{%endblock%}
+{% block entrytitle%}{{title}}{%endblock%}
 
 {% block container %}
 {% include "list.html" %}
