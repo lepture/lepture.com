@@ -47,9 +47,9 @@ table{
     border: 1px solid #dadada;
 }
 thead{
-    background: #999;
+    background: #ccc;
     color: #fff;
-    border: 1px solid #888;
+    border: 1px solid #bbb;
 }
 th, td{
     text-align:inherit;
@@ -84,7 +84,7 @@ caption,th {
 h1, h2,h3,h4,h5,h6 {
     font-size: 100%;
     font-weight: bold;
-    font-family: "Georgia", "Times New Roman", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
+    font-family: "Georgia", "Times New Roman", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h1 {
     font-size: 1.6em;
@@ -399,6 +399,10 @@ a:hover {
     font-size: 1.5em;
     padding-bottom: 0.1em;
     color: #fff;
+}
+.footnote {
+    border: 0 none;
+    margin: 0;
 }
 #disqus_thread {
     text-shadow: 0 0 0 #fff;
