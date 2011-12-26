@@ -6,7 +6,7 @@
 {% endif %}
 {% if post.style %}
 <style type="text/css">
-    {{ post.style }}
+{{ post.style }}
 </style>
 {% endif %}
 <script type="text/javascript">
@@ -18,6 +18,19 @@
 {% block entrytitle %}{{post.title}}{% endblock %}
 
 {% block container %}
+<div class="entry-content">
+    <div class="page-content"><h2>Latest</h2></div>
+    <div id="latest" class="section">
+        <ul>
+            {% for post in status.posts[:3] %}
+            <li>
+            <small><time class="updated" datetime="{{post.date}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time> — </small>
+            <a href="{{content_url(post.slug)}}">{{post.title}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 <div class="page-content entry-content">
     {{ post.content }}
 </div>

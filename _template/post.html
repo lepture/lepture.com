@@ -56,9 +56,3 @@
     You may also <a href="mailto:lepture@me.com?subject={{post.title|urlencode}}">send Email</a> to me.
 </div>
 {% endblock %}
-
-{% block afterjs %}
-{% if post.github %}
-<div id="github"><a href="https://github.com/{{post.github}}">Fork me on github</a></div>
-{% endif %}
-{% endblock %}

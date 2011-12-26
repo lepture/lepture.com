@@ -1,13 +1,14 @@
 Just lepture
 =============
 
-:template: page.html
+:template: index.html
 :date: 2011-11-23
 :public: false
 :nav: home
 :style:
     .page-content h2 { font-size: 11px; margin-bottom: 1px; color: #bbb; text-transform: uppercase; font-family: Helvetica, arial, sans-serif;}
     #elsewhere ul { -webkit-column-count: 4; -moz-column-count: 4; column-count: 4; line-height: 150%;}
+    time.updated { font-family: menlo, monospace; }
 
 About
 -------

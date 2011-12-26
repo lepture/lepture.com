@@ -34,6 +34,6 @@ alipay.com
 
 Tools
 --------
-+ `Ping <http://blogsearch.google.com/ping?url=http://lepture.com>`_
++ `Ping <http://blogsearch.google.com/ping?url=http://lepture.com/archive/>`_
 + `Webmaster <https://www.google.com/webmasters/tools/home>`_
 + `Analytics <https://www.google.com/analytics/settings/home>`_
