@@ -43,12 +43,14 @@
     Created at: 
     <a href="/{{post.date.year}}/" rel="archive"><time class="updated" datetime="{{post.date}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time></a>
     </p>
+    {% if post.tags %}
     <p class="entry-tags fn-left">
     Tagged in:
-    {% for tag in post.get('tags',[]) %}
+    {% for tag in post.tags %}
     <a href="{{content_url('tag', tag)}}" class="tag" rel="tag">{{tag}}</a>
     {% endfor %}
     </p>
+    {% endif %}
 </div>
 <div class="comments">
     <p><strong>Would you like to comment?</strong></p>
