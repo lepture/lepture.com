@@ -1,38 +1,55 @@
 Velocity Syntax for VIM
 =======================
 :summary: 
-    Velocity Syntax for VIM, a better replacement for the one on vim.org.
-:date: 2011-12-26 10:30
+    Velocity Syntax for VIM, a better replacement for the one on vim.org. For people who are using VIM and have to deal with velocity.
+:date: 2011-12-26 23:30
 :folder: work
-:github: lepture/dotfiles/blob/master/vim/syntax/velocity.vim
+:github: lepture/dotfiles
 :tags:
     - vim
     - alipay
 
 
-A preview:
+Who need this ?
+---------------
+People who:
+
++ are using VIM
++ have to deal with velocity
++ find the original one on vim.org is not good enough
++ want to have a better syntax
+
+Preview
+----------
+A preview with my slate3 theme:
 
 .. image:: http://i.imgur.com/48SoD.png
     :alt: velocity syntax for vim
 
-For non Chinese
----------------
-If you are using VIM, and if you have to work with velocity, you will find a velocity syntax at http://www.vim.org/scripts/script.php?script_id=541 . But it's not good enough, it really sucks.
 
-So I wrote a syntax myself, hope you enjoy it.
+Install
+---------
++ Download:
 
-+ Download: `Velocity Syntax <https://github.com/lepture/dotfiles/raw/master/vim/syntax/velocity.vim>`_
-+ Place it at ~/.vim/syntax
-+ Add to your vimrc: ``au BufRead,BufNewFile *.vm set ft=html syntax=velocity``
+  ``wget https://github.com/lepture/dotfiles/raw/master/vim/syntax/velocity.vim``
 
-For Chinese
------------
-之前一直在写 css3 syntax，还没有完成，请 `@janlay <https://twitter.com/janlay>`_ 看看。@janlay 建议写一个 velocity syntax ，对工作更有用。
++ Place it at `~/.vim/syntax`
 
-其实有在 vim.org 上找到过一个 syntax ，不过写的有问题，就没有用了。看时间，大约作者也不再维护了。
++ Add to your vimrc:
 
-原先的repo是 vim.syntax ，应鹭飞之请，释出了我的 dotfiles（颇为汗颜），于是就删掉了 vim.syntax，统一在 dotfiles 里维护吧。
+  ``au BufRead,BufNewFile *.vm set ft=html syntax=velocity``
 
-如果你的系统很糟糕，也用的是GBK的话，vimrc 的配置请用:
+For vimmer in alipay, add this:
 
 ``au BufRead,BufNewFile *.vm set ft=html fileencoding=gbk syntax=velocity``
+
+
+Attention
+----------
+There is one more keyword ``cmsparse`` which alipay's sofaMVC contains in the syntax file. If you are not comfortable with this, you may remove it by yourself. But I don't think it will bother you.
+
+How to write syntax
+-------------------
+It's not that hard, but you should keep in mind that vim use a magic regex, which really sucks.
+
+It is not a post on this topic, all you need is ``:help syntax`` . Good luck!

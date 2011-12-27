@@ -24,7 +24,7 @@
         <ul>
             {% for post in status.posts[:3] %}
             <li>
-            <small><time class="updated" datetime="{{post.date}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time> — </small>
+            <small><time class="updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time> — </small>
             <a href="{{content_url(post.slug)}}">{{post.title}}</a>
             </li>
             {% endfor %}

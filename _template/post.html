@@ -20,7 +20,7 @@
 </script>
 {% endblock %}
 
-{% block entrytitle%}<a href="{{content_url(post.slug)}}" rel="self">{{post.title}}</a>{% endblock %}
+{% block entrytitle%}<a href="{{content_url(post.slug)}}">{{post.title}}</a>{% endblock %}
 
 {% block container %}
 <div class="entry">
@@ -41,7 +41,7 @@
 <div class="entry-meta fn-clear">
     <p class="entry-time fn-left">
     Created at: 
-    <a href="/{{post.date.year}}/" rel="archive"><time class="updated" datetime="{{post.date}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time></a>
+    <a href="/{{post.date.year}}/" rel="index"><time class="updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time></a>
     </p>
     {% if post.tags %}
     <p class="entry-tags fn-left">
@@ -54,7 +54,7 @@
 </div>
 <div class="comments">
     <p><strong>Would you like to comment?</strong></p>
-    <p>Great. Open an issuse at <a href="https://github.com/lepture/lepture.com/issues/new?title={{post.title|urlencode}}" rel="nofollow">Github</a>, or ping me <a rel="me" href="https://twitter.com/lepture">@lepture</a>.
+    <p>Great. Open an issuse at <a href="https://github.com/{%if post.github%}{{post.github}}{%else%}lepture/lepture.com{%endif%}/issues/new?title={{post.title|urlencode}}" rel="nofollow">Github</a>, or ping me <a rel="me" href="https://twitter.com/lepture">@lepture</a>.
     You may also <a href="mailto:lepture@me.com?subject={{post.title|urlencode}}">send Email</a> to me.
 </div>
 {% endblock %}

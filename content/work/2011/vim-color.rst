@@ -7,6 +7,7 @@ Vim Color Scheme
 :folder: work
 :tags:
     - vim
+:github: lepture/dotfiles
 
 
 
@@ -96,7 +97,7 @@ Todo            anything that needs extra attention
 
 更多幫助請參閱 ``:help colorscheme``
 
-昨天配色的一點小成果，雖然還不滿意，還是展示一下吧，你可以在 `gist <https://gist.github.com/1450633>`_ 上跟蹤代碼。
+昨天配色的一點小成果，雖然還不滿意，還是展示一下吧，你可以在 `github <http://github.com/lepture/dotfiles/blob/master/vim/colors/slate3.vim>`_ 上跟蹤代碼。
 
 .. image:: http://i.imgur.com/opJdr.png
     :alt: vim colorscheme demo
