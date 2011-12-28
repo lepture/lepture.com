@@ -1,0 +1,35 @@
+Just lepture
+=============
+
+:template: index.html
+:date: 2011-11-23
+:public: false
+:nav: home
+:style:
+    .page-content h2 { font-size: 11px; margin-bottom: 1px; color: #bbb; text-transform: uppercase; font-family: Helvetica, arial, sans-serif;}
+    #elsewhere ul { -webkit-column-count: 4; -moz-column-count: 4; column-count: 4; line-height: 150%;}
+    time.updated { font-family: menlo, monospace; }
+
+
+404
+-------
+**Not Found**
+
+Great! There is no government here!
+
+Please note, *love its people, but never trust its government*.
+
+Elsewhere
+-----------
++ Twitter_
++ `Github <http://github.com/lepture>`_
++ `Forrst <http://forrst.me/lepture>`_
++ `Facebook <http://facebook.com/lepture>`_
++ `Douban <http://www.douban.com/people/SopherYoung>`_
++ `Dribbble <http://dribbble.com/lepture>`_
++ `Zootool <http://zootool.com/user/lepture/>`_
++ `Kindle <https://kindle.amazon.com/profile/lepture/1099122>`_
+
+.. _Twitter: https://twitter.com/lepture
+.. _tornado: http://tornadoweb.org
+.. _`Felix Felicis`: http://lepture.com/project/liquidluck

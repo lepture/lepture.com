@@ -1,4 +1,4 @@
-LINKS
+Links
 =======
 
 :template: page.html
@@ -16,6 +16,7 @@ Friends
 + `The Qlog <http://imquyi.com>`_
 + `逆风寒翎 <http://www.niphanin.net>`_
 + `Micius <http://micius.org/>`_
++ `Leeiio Chaos Made. <http://leeiio.me>`_
 
 ziqiang.net
 ------------

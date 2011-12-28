@@ -7,7 +7,7 @@ Velocity Syntax for VIM
 :github: lepture/dotfiles
 :tags:
     - vim
-    - alipay
+    - Alipay
 
 
 Who need this ?
