@@ -67,9 +67,11 @@ $(function(){
         $.getJSON(url, function(json){
             var items = [];
             $.each(json.data, function(index, item) {
-                var li = '<li><a href="https://github.com/' + item.author.login +
-                '"><img src="' + item.author.avatar_url + 
-                '&s=24" /></a> <span>' + item.commit.message + '</span></li>';
+                var li = '<li><a target="_blank" href="https://github.com/'
+                + item.author.login + '"><img src="' + item.author.avatar_url
+                + '&s=24" /></a> <a target="_blank" href="https://github.com/'
+                + github_repo + '/commit/' + item.sha + '">'
+                + item.commit.message + '</span></li>';
                 items.push(li);
             });
             $('#github-commits').html(items.join(''));

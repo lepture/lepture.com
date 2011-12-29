@@ -267,6 +267,7 @@ a:hover {
 #footer .bio:before {
     content: "♥";
     color: #e3513b;
+    opacity: 0.8;
     margin-right: 0.3em;
 }
 /** end footer **/
@@ -440,6 +441,9 @@ a:hover {
 #github-section {
     margin: 1.6em 0;
 }
+#github-section p {
+    margin-bottom: 1em;
+}
 #github-commits {
     color: #999;
 }
@@ -448,6 +452,8 @@ a:hover {
     overflow: hidden;
     height: 24px;
     line-height: 24px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 #github-commits img {
     border-radius: 3px;
