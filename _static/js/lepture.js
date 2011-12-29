@@ -61,4 +61,18 @@ $(function(){
         })
     }
     $('a[href^=http]:not(a[href^="http://lepture.com"])').attr('target', '_blank');
+    if (window.github_repo) {
+        $('#github-section').html('<p><strong>Github Commits</strong></p><ul id="github-commits"><li>Loading ....</li></ul>');
+        var url = 'https://api.github.com/repos/' + github_repo + '/commits?callback=?';
+        $.getJSON(url, function(json){
+            var items = [];
+            $.each(json.data, function(index, item) {
+                var li = '<li><a href="https://github.com/' + item.author.login +
+                '"><img src="' + item.author.avatar_url + 
+                '&s=24" /></a> <span>' + item.commit.message + '</span></li>';
+                items.push(li);
+            });
+            $('#github-commits').html(items.join(''));
+        });
+    }
 });
