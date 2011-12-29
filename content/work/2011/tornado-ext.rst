@@ -4,27 +4,28 @@ Tornado with SQLAlchemy and wtForms
 :summary: Tornado integerated with SQLAlchemy and wtForms. Make Tornado easy to use.
 :date: 2011-09-20
 :folder: work
+:github: lepture/tornado.ext
 :tags:
     - python
     - tornado
 
 
-毫无疑问， Django_ 在 Python_ 的Web世界里占有相当的分量，它不是唯一的选择，但它是一个很好的选择。虽然我不太用 Django_ 了，但是如果有对 Python_ 感兴趣，对Web编程感兴趣，面对 Python_ 世界里数不甚数的框架发愁时，我还是推荐 Django_ 。
+毫无疑问， Django_ 在 Python_ 的Web世界里占有相当的分量，它不是唯一的选择，但它是一个很好的选择。虽然我不太用 Django 了，但是如果有对 Python 感兴趣，对Web编程感兴趣，面对 Python 世界里数不甚数的框架发愁时，我还是推荐 Django 。
 
 
 Tornado
 ---------
-接触 Tornado_ 有些时候了。用，却是最近才开始的。前几个月，还是在学校的时候写 FeedBundle_ ，最开始用的是 GAE_ ，后来因为效率问题又用 Tornado_ 重写了一遍，算是有点小体验吧。
+接触 Tornado_ 有些时候了。用，却是最近才开始的。前几个月，还是在学校的时候写 FeedBundle_ ，最开始用的是 GAE_ ，后来因为效率问题又用 Tornado 重写了一遍，算是有点小体验吧。
 
-不过因为为了和 GAE_ 的数据结构相仿，用的是 MongoDB_ ，又因为表单简单，没必要用表单处理的库。还是颇为可惜的，不能算有完整的经验。今次就不一样了，打算写点传统点的东西，不得不涉及到数据库和表单。个人对写sql语句还是有点恐惧的，而且 ORM 方便好用（sql偏执狂可以无视），于是搜索了一下，结果不太理想，只好自己动手了。
+不过因为为了和 GAE 的数据结构相仿，用的是 MongoDB_ ，又因为表单简单，没必要用表单处理的库。还是颇为可惜的，不能算有完整的经验。今次就不一样了，打算写点传统点的东西，不得不涉及到数据库和表单。个人对写sql语句还是有点恐惧的，而且 ORM 方便好用（sql偏执狂可以无视），于是搜索了一下，结果不太理想，只好自己动手了。
 
-之前用过的框架有 Django_ 、 web.py_ 、 GAE_ 。其中 Django_ 已经什么都有， GAE_ 的数据库比较特别，不过很好用。 web.py_ 有表单处理，当时数据库的python lib用的 SQLAlchemy_ 。
+之前用过的框架有 Django 、 web.py_ 、 GAE 。其中 Django 已经什么都有， GAE 的数据库比较特别，不过很好用。 web.py 有表单处理，当时数据库的python lib用的 SQLAlchemy_ 。
 
-至于我为什么用 Tornado_ ，我不想多说，也不想评论框架的优劣，选择你喜欢的吧。
+至于我为什么用 Tornado ，我不想多说，也不想评论框架的优劣，选择你喜欢的吧。
 
 SQLAlchemy
 -----------
-如何把 SQLAlchemy_ 整合进来是我首先考虑的问题，当时搜索到了 `Integrating SQLAlchemy with Tornado <https://www.aliway.com/read.php?fid=20&tid=112655>`_ ，看了一下，基本等于没整合。我心目中的整合，至少要可以这样用： ``User.filter(username='lepture')`` 。
+如何把 SQLAlchemy 整合进来是我首先考虑的问题，当时搜索到了 `Integrating SQLAlchemy with Tornado <https://www.aliway.com/read.php?fid=20&tid=112655>`_ ，看了一下，基本等于没整合。我心目中的整合，至少要可以这样用： ``User.filter(username='lepture')`` 。
 
 `Armin Ronacher <http://lucumr.pocoo.org>`_ 是个精力旺盛的人，是 pocoo_ 最活跃的开发者。 `他的Github <http://github.com/mitsuhiko>`_ 里有很多好东西，从里面淘到了点想法，录于下。
 
@@ -68,9 +69,9 @@ source code at: https://github.com/lepture/tornado.ext/blob/master/database.py
 
 wtForms
 --------
-表单处理是在 formencode_ 和 wtForms_ 之间选择的。选择 wtForms_ 是因为写起来很 Django_ ，哦，他们说其实是 Django_ 借鉴的他们。
+表单处理是在 formencode_ 和 wtForms_ 之间选择的。选择 wtForms 是因为写起来很 Django ，哦，他们说其实是 Django 借鉴的他们。
 
-对于和 Tornado_ 的整合，其实就是要把 Tornado_ 的输出作一点处理。下面是我的方案：
+对于和 Tornado 的整合，其实就是要把 Tornado 的输出作一点处理。下面是我的方案：
 
 .. sourcecode:: python
 
@@ -137,7 +138,7 @@ Else
 
 Bug report 请在github上开 issue。谢谢。
 
-BTW，Web并不是 Python_ 的所有，如果你用 Python_ ，但是又一直待在 Django_ 的世界里，现在是时候出来了，了解一下 Python_ 的其它方面。例如这个网站，它是纯静态的，从 restructuredText_ 生成为html，其间的工具Felix Felicis( liquidluck_ )就是用 Python_ 写的。
+BTW，Web并不是 Python 的所有，如果你用 Python ，但是又一直待在 Django 的世界里，现在是时候出来了，了解一下 Python 的其它方面。例如这个网站，它是纯静态的，从 restructuredText_ 生成为html，其间的工具Felix Felicis( liquidluck_ )就是用 Python 写的。
 
 
 
