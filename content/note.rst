@@ -2,12 +2,18 @@ Note
 =============
 
 :template: page.html
-:summary: 生活裡的一點想法，不成熟的思考。
+:summary: 生活裡的一點想法，不成熟的思考，對未知的探索，又或者人生的疑問。
 :date: 2011-12-11
 :public: false
 :nav: note
 :style: .entry-content .section {border-bottom: 1px solid #dadada;padding-bottom:0;}
 
+
+Jan 1, 2012
+-------------
+盲人：
+對於盲人而言旅行是否有意義？如果看不到風景，那旅行的價值在哪裡？當然，風景不是旅行的全部。
+可是路途那麼艱辛，最有價值的部分卻無法欣賞。
 
 Dec 11, 2011
 -------------

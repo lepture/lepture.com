@@ -71,7 +71,7 @@ Elsewhere
 + Twitter_
 + `Github <http://github.com/lepture>`_
 + `Forrst <http://forrst.me/lepture>`_
-+ `Facebook <http://facebook.com/lepture>`_
++ `500px <https://500px.com/lepture/favorites>`_
 + `Douban <http://www.douban.com/people/SopherYoung>`_
 + `Dribbble <http://dribbble.com/lepture>`_
 + `Zootool <http://zootool.com/user/lepture/>`_

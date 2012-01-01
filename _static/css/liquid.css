@@ -266,7 +266,6 @@ a:hover {
 #footer .bio { color: #ddd; }
 #footer .bio:before {
     content: "♥";
-    color: #e3513b;
     opacity: 0.8;
     margin-right: 0.3em;
 }
@@ -459,10 +458,39 @@ a:hover {
     border-radius: 3px;
     margin-right: 8px;
 }
+.subnav {
+    border-top: 3px double #ddd;
+    border-bottom: 3px double #ddd;
+    margin: 0.4em 0 1em;
+    padding: 0.2em 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: 1.2em;
+}
+.subnav li {
+    float: left;
+    padding: 0 0.5em;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    border-right: 1px dotted #ddd;
+    height: 1.6em;
+    line-height: 1.6em;
+}
+.subnav li:last-of-type {
+    border-right: 0 none;
+}
+.subnav a {
+    color: #666;
+}
+.subnav a:hover {
+    color: #333;
+}
 @media only screen and (max-device-width: 480px) {
     #header nav { height: 36px; }
     #nav a { font-size: 13px; line-height: 36px; }
     #nav li { height: 36px; }
     #nav-work, #nav-tags, #search-form { display: none; border: 0 none; }
     #github {display:none;}
+    .not-mobile {display:none;}
 }

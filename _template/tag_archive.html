@@ -12,5 +12,10 @@
 {% block entrytitle%}{{title|upper}}{%endblock%}
 
 {% block container %}
+<ul class="subnav not-mobile fn-clear">
+    {% for tag in status.tags|sample(7) -%}
+    <li><a href="{{ content_url('tag', tag.name) }}" title="{{tag.count}} posts">{{ tag.name }}</a></li>
+    {%- endfor %}
+</ul>
 {% include "list.html" %}
 {% endblock %}

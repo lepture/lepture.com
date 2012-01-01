@@ -53,9 +53,7 @@
     {% endif %}
 </div>
 <div class="comments">
-    <p><strong>Would you like to comment?</strong></p>
-    <p>Great. Open an issuse at <a href="https://github.com/{%if post.github%}{{post.github}}{%else%}lepture/lepture.com{%endif%}/issues/new?title={{post.title|urlencode}}" rel="nofollow">Github</a>, or ping me <a rel="me" href="https://twitter.com/lepture">@lepture</a>.
-    You may also <a href="mailto:lepture@me.com?subject={{post.title|urlencode}}">send Email</a> to me.
+    {% include "third/disqus.html" %}
 </div>
-{% include "github.html" %}
+{% include "third/github.html" %}
 {% endblock %}

@@ -56,10 +56,9 @@ Type Y, or just enter. Then check your directory again. Write your article in th
 
 Run ``liquidluck`` command again in the terminal, your blog will be created in the ``deploy`` directory.
 
-The best way to have a clear understanding what a post file should be like:
+The best way to have a clear understanding what a post file should be like is `Felix Felicis Powered Sites <https://github.com/lepture/liquidluck/wiki/Sites>`_ .
 
-+ https://github.com/lepture/lepture.com
-+ https://github.com/riverscn/micius.org
+And you can add your site here, so everyone will know it.
 
 More about Writting: https://github.com/lepture/liquidluck/wiki/Write
 

@@ -12,5 +12,11 @@
 {% block entrytitle%}{{title}}{%endblock%}
 
 {% block container %}
+<ul class="subnav not-mobile fn-clear">
+    {% for year in status.years -%}
+    <li><a href="/{{year}}/">{{year}}</a></li>
+    {%- endfor %}
+</ul>
+
 {% include "list.html" %}
 {% endblock %}
