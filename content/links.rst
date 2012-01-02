@@ -10,13 +10,17 @@ Links
     .page-content ul {-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;}
 
 
-Friends
----------
+Wuhan University
+-----------------
 + `川叶 : 时间河 <http://riverslee.com>`_
 + `The Qlog <http://imquyi.com>`_
+
+Network
+-----------
 + `逆风寒翎 <http://www.niphanin.net>`_
 + `Micius <http://micius.org/>`_
 + `Leeiio Chaos Made. <http://leeiio.me>`_
++ `Sparanoid <http://sparanoid.com/>`_
 
 ziqiang.net
 ------------
@@ -24,14 +28,13 @@ ziqiang.net
 + `Searcher's Log <http://blog.crackcell.com>`_
 + `双木成林：喋喋不休 <http://blog.linluxiang.info>`_
 + `Liuw's Thinkpad <http://blog.liuw.name>`_
-+ `不安静的书桌 <http://www.liuhanyu.com>`_
 
 alipay.com
 -----------
 + `幸福收藏夹 <http://sofish.de>`_
 + `Janlay's blog <http://janlay.com>`_
 + `ShaoShuai.me <http://shaoshuai.me>`_
-+ `小麻的博客 <http://www.hsinglin.com/blog/>`_
++ `小麻的博客 <http://blog.hsinglin.com>`_
 
 Tools
 --------
