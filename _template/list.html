@@ -1,15 +1,18 @@
-<ul id="entry-list" class="fn-clear">
+<dl id="entry-list" class="fn-clear">
     {% for post in pager.posts %}
-    <li>
-    <h3><a href="{{content_url(post.slug)}}">{{post.title}}</a></h3>
-    <p>{{post.summary}}</p>
-    <time class="updated" datetime="{{post.date|xmldatetime}}" title="{{post.date.strftime("%a, %b %d, %Y")}}" pubdate>
-    <a href="/{{post.date.year}}/" class="year">{{post.date.year}}</a>
-    <span class="day">{{post.date.strftime("%b. %d")}}</span>
-    </time>
+    <dt>
+        <time class="updated" datetime="{{post.date|xmldatetime}}" pubdate><a href="/{{post.date.year}}/" rel="index">{{post.date.strftime("%b, %Y")}}</a></time>
+        <a href="{{content_url(post.slug)}}">{{post.title}}</a>
+    </dt>
+    <dd>
+    {{post.summary}}
+    <div class="entry-tags">
+    {% for tag in post.tags %}<a href="{{content_url('tag', tag)}}" class="tag" rel="tag">{{tag}}</a>{% endfor %}
+    </div>
+    </dd>
     </li>
     {% endfor %}
-</ul>
+</dl>
 {% if pager.pages > 1 %}
 <div id="pagination">
     {% if pager.prev %}

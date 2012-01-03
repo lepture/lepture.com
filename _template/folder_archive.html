@@ -16,29 +16,8 @@
 </script>
 {% endblock %}
 
-{% block entrytitle%}{{title|capitalize}}{%endblock%}
+{% block entrytitle%}{{ dictionary[title] }}{%endblock%}
 
 {% block container %}
-<ul class="subnav not-mobile fn-clear">
-    {% if pager.folder == 'work' %}
-    <li><a href="/tag/python/">Python</a></li>
-    <li><a href="/tag/javascript/">Javascript</a></li>
-    <li><a href="/tag/css/">CSS</a></li>
-    <li><a href="/tag/html/">HTML</a></li>
-    <li><a href="/tag/vim/">VIM</a></li>
-    {%- elif pager.folder == 'life' -%}
-    <li><a href="/tag/reading/">Reading</a></li>
-    <li><a href="/tag/girl/">Girl</a></li>
-    <li><a href="/tag/childhood/">Childhood</a></li>
-    <li><a href="/tag/memory/">Memory</a></li>
-    <li><a href="/tag/education/">Education</a></li>
-    <li><a href="/tag/chinese/">Chinese</a></li>
-    {%- else -%}
-    {% for year in status.years -%}
-    <li><a href="/{{year}}/">{{year}}</a></li>
-    {%- endfor %}
-    {% endif -%}
-</ul>
-
 {% include "list.html" %}
 {% endblock %}

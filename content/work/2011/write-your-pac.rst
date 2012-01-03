@@ -1,18 +1,18 @@
 PAC解析及其它
 ===================================
 
-:summary: 编写属于自己的Proxy Auto Config，其实不难。如果你是前端的话，那简直是小儿科了。
+:summary: 編寫屬於自己的Proxy Auto Config，其實不難。如果你是前端的話，那簡直是小兒科了。
 :date: 2011-09-29
 :folder: work
 :tags:
     - javascript
 
 
-PAC_ (Proxy Auto Config) 是 Netscape 于1996年设计出来的，我不知道他们当时是出于何种心境，是出于何种需求。他们又何尝想到，这一协议将会如何惠及到大陆仔呢！
+PAC_ (Proxy Auto Config) 是 Netscape 於1996年設計出來的，我不知道他們當時是出於何種心境，是出於何種需求。他們又何嘗想到，這一協議將會如何惠及到大陸仔呢！
 
-闲话少叙，单表PAC。
+閒話少敘，單表PAC。
 
-PAC使用 javascript 语法（这当然是因为 Netscape），PAC 文件里必有的一个函数是 ``FindProxyForURL(url, host)`` ，它的返回值将决定是否启用代理。这里先给出一个小例子:
+PAC使用 javascript 語法（這當然是因為 Netscape），PAC 文件里必有的一個函數是 ``FindProxyForURL(url, host)`` ，它的返回值將決定是否啓用代理。這裡先給出一個小例子:
 
 .. sourcecode:: javascript
 
@@ -24,15 +24,15 @@ PAC使用 javascript 语法（这当然是因为 Netscape），PAC 文件里必�
     }
 
 
-其中 ``dnsDomainIS`` 是 PAC 已有的函数，类似的还有：shExpMatch ， 如 shExpMatch(url, ``'*twitter.com*'``)
+其中 ``dnsDomainIS`` 是 PAC 已有的函數，類似的還有：shExpMatch ， 如 shExpMatch(url, ``'*twitter.com*'``)
 
-基本这两个就够用了，如果你想要更加灵活的写法，你可以选择正则表达式，同javascript里正则表达式的写法是一样的，这里就不多言了。
+基本這兩個就夠用了，如果你想要更加靈活的寫法，你可以選擇正則表達式，同javascript里正則表達式的寫法是一樣的，這裡就不多言了。
 
-上例中的 return 值， 'DIRECT' 是一个关键字，表示不需要代理; 'PROXY proxy.example.com:8080' 是代理地址， 其中 PROXY 是协议名，如果你使用 SOCKS 代理，返回值可以是 'SOCKS5 127.0.0.1:7070' 或者 SOCKS4 127.0.0.1:7070'，取决于你所用的协议与端口。
+上例中的 return 值， 'DIRECT' 是一個關鍵字，表示不需要代理; 'PROXY proxy.example.com:8080' 是代理地址， 其中 PROXY 是協議名，如果你使用 SOCKS 代理，返回值可以是 'SOCKS5 127.0.0.1:7070' 或者 SOCKS4 127.0.0.1:7070'，取決於你所用的協議與端口。
 
-大致原理若此，如想要更详细的资料，请参阅 `The Practical Proxy PAC File Guide <http://www.proxypacfiles.com/proxypac/>`_ ，拓展阅读 `Web Proxy Autodiscovery Protocol <http://en.wikipedia.org/wiki/Web_Proxy_Autodiscovery_Protocol>`_ 。
+大致原理若此，如想要更詳細的資料，請參閱 `The Practical Proxy PAC File Guide <http://www.proxypacfiles.com/proxypac/>`_ ，拓展閱讀 `Web Proxy Autodiscovery Protocol <http://en.wikipedia.org/wiki/Web_Proxy_Autodiscovery_Protocol>`_ 。
 
-最后给出一个简单完整的PAC例子：
+最後給出一個簡單完整的PAC例子：
 
 .. sourcecode:: javascript
  
@@ -68,6 +68,7 @@ PAC使用 javascript 语法（这当然是因为 Netscape），PAC 文件里必�
         return 'DIRECT';
     }
 
-Mac 可在 System Preferences -> Network -> Advanced -> Proxies 中设置代理，勾选 ``Automatic Proxy Configuration`` ，在URL处选择你的PAC文件。
+Mac 可在 System Preferences -> Network -> Advanced -> Proxies 中設置代理，勾選 ``Automatic Proxy Configuration`` ，在URL處選擇你的PAC文件。
 
 .. _PAC: http://en.wikipedia.org/wiki/Proxy_auto-config
+

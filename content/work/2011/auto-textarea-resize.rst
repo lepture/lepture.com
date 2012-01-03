@@ -11,20 +11,20 @@ Auto Textarea Resize
     - jquery
 
 
-豆瓣首页的"我说"有一个可根据文本内容伸缩的textarea。但是总觉得做得很粗糙，不知道你使用中是否和我一样，当换行的时候总能看到文字一跳一跳的。想起很久之前在Forrst发过的一篇文章 `Auto Resize Textarea <http://forrst.com/posts/Auto_Resize_Textarea-1eS>`_ ，还是借鉴的豆瓣呢。
+豆瓣首頁的"我說"有一個可根據文本內容伸縮的textarea。但是總覺得做得很粗糙，不知道你使用中是否和我一樣，當換行的時候總能看到文字一跳一跳的。想起很久之前在Forrst發過的一篇文章 `Auto Resize Textarea <http://forrst.com/posts/Auto_Resize_Textarea-1eS>`_ ，還是借鑒的豆瓣呢。
 
-当时刚开始写前端，现在回想起来，不免汗颜。对源码做了点修正，让伸缩显得更自然。跳过本文，阅读源码 http://d.pr/dpzD 。
+當時剛開始寫前端，現在回想起來，不免汗顏。對源碼做了點修正，讓伸縮顯得更自然。跳過本文，閱讀源碼 http://d.pr/dpzD 。
 
-具体实现原理如下：
+具體實現原理如下：
 
 Make a Clone
 ------------
 1. clone 一份原 textarea: ``var clone = el.clone();``
-2. 清理 clone 的选择器: ``clone.removeAttr('id').removeAttr('class')`` 
-3. css隐藏clone (不能用 ``display:none``): 
-   ``clone.css({'position':'absolute',top:'-9999em',left:'-9999em'})``
+2. 清理 clone 的選擇器: ``clone.removeAttr('id').removeAttr('class')`` 
+3. css隱藏clone (不能用 ``display:none``): 
+    ``clone.css({'position':'absolute',top:'-9999em',left:'-9999em'})``
 
-最后的代码如下:
+最後的代碼如下:
 
 .. sourcecode:: javascript
 
@@ -32,20 +32,20 @@ Make a Clone
 
 Calculate Height
 -----------------
-计算高度: ``h = clone.val(el.val()).height(0).scrollTop(10000).scrollTop() + 16;``
+計算高度: ``h = clone.val(el.val()).height(0).scrollTop(10000).scrollTop() + 16;``
 
-豆瓣的问题就出在这里，新的高度相对于原高度豆瓣是 +5 。于是伸展的时候不够用。
+豆瓣的問題就出在這裡，新的高度相對於原高度豆瓣是 +5 。於是伸展的時候不夠用。當然我上面 +16 也是不正確的做法，應該動態獲取文字大小。
 
 
 DEMO
 -------
-古人云 "A picture(demo) is worth a thousand words" ，所以还是看 `demo <http://lepture.com/demo/auto-textarea-resize/>`_ 吧。
+古人雲 "A picture(demo) is worth a thousand words" ，所以還是看 `demo <http://lepture.com/demo/auto-textarea-resize/>`_ 吧。
 
-对IE做了点小处理，IE没有使用animate。
+對IE做了點小處理，IE沒有使用animate。
 
 CODE
 ----------
-源码再现
+源碼再現
 
 .. sourcecode:: javascript
 

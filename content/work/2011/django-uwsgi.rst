@@ -11,21 +11,21 @@ Django with uwsgi
     - virtualenv
 
 
-至于fastcgi和uwsgi孰优孰劣不在本文的讨论范围，自然我个人偏向于uwsgi。本文只介绍基本的环境搭建与配置。
+至於fastcgi和uwsgi孰優孰劣不在本文的討論範圍，自然我個人偏向於uwsgi。本文只介紹基本的環境搭建與配置。
 
 virtualenv
 -----------
 
-virtualenv_ 是利器，建议使用。与 pip_ 搭配，构建 python_ 虚拟环境，方便你在各个版本间切换。
+virtualenv_ 是利器，建議使用。與 pip_ 搭配，構建 python_ 虛擬環境，方便你在各個版本間切換。
 
-+ 安装 pip (pip 是 easy\_install 的代替者): ``easy_install pip``
-+ 安装 virtualenv : ``pip install virtualenv``
-+ 创建python虚拟环境: ``virtualenv django``
-+ 创建干净的python虚拟环境: ``virtualenv django --no-site-packages``
-+ 启用python虚拟环境: ``source django/bin/active``
-+ 安装python包到该环境: ``pip install Django``
++ 安裝 pip (pip 是 easy\_install 的代替者): ``easy_install pip``
++ 安裝 virtualenv : ``pip install virtualenv``
++ 創建python虛擬環境: ``virtualenv django``
++ 創建乾淨的python虛擬環境: ``virtualenv django --no-site-packages``
++ 啓用python虛擬環境: ``source django/bin/active``
++ 安裝python包到該環境: ``pip install Django``
 
-更多信息请自行查看文档:
+更多信息請自行查看文檔:
 
 + ``virtualenv --help``
 + ``pip --help``
@@ -34,13 +34,13 @@ virtualenv_ 是利器，建议使用。与 pip_ 搭配，构建 python_ 虚拟�
 django
 -------
 
-如果你压根不用django，你可以离开了。
+如果你壓根不用django，你可以離開了。
 
-+ 创建项目文件夹: ``mkdir helloworld``
-+ 新建django项目: ``django-admin.py startproject project``
++ 創建項目文件夾: ``mkdir helloworld``
++ 新建django項目: ``django-admin.py startproject project``
 + 新建wsgi.py文件: ``touch wsgi.py``
 
-编辑wsgi.py:
+編輯wsgi.py:
 
 .. sourcecode:: python
 
@@ -51,18 +51,18 @@ django
     application = django.core.handlers.wsgi.WSGIHandler()
 
 
-更多 django_ 信息请查看网上文档。
+更多 django_ 信息請查看網上文檔。
 
 uwsgi
 ------
 
-wsgi_ 是 web server gateway interface 的缩写，详情请参阅 pep333_ 。
+wsgi_ 是 web server gateway interface 的縮寫，詳情請參閱 pep333_ 。
 
-+ 安装uwsgi: ``pip install uwsgi``
-+ 一个简单的helloworld uwsgi demo 见: `uwsgi Quickstart`_
-+ 创建uwsgi的配置文件: ``touch uwsgi.ini``
++ 安裝uwsgi: ``pip install uwsgi``
++ 一個簡單的helloworld uwsgi demo 見: `uwsgi Quickstart`_
++ 創建uwsgi的配置文件: ``touch uwsgi.ini``
 
-编辑uwsgi.ini，以下是 helloworld_ 中我的配置，请参阅文档修改。
+編輯uwsgi.ini，以下是 helloworld_ 中我的配置，請參閱文檔修改。
 
 .. sourcecode:: ini
 
@@ -75,17 +75,17 @@ wsgi_ 是 web server gateway interface 的缩写，详情请参阅 pep333_ 。
     logto = /tmp/uwsgi.log
     file = wsgi.py
 
-注意，其中 home 就是你的虚拟环境的path，如果你不用 virtualenv，可去掉该选项。
+注意，其中 home 就是你的虛擬環境的path，如果你不用 virtualenv，可去掉該選項。
 
 supervisor
 -----------
 
-supervisor_ 是一个进程管理系统，挺好用的。
+supervisor_ 是一個進程管理系統，挺好用的。
 
-+ 安装supervisor: ``pip install supervisor``
-+ 创建supervisor的配置文件: ``touch supervisord.conf``
++ 安裝supervisor: ``pip install supervisor``
++ 創建supervisor的配置文件: ``touch supervisord.conf``
 
-编辑supervisord.conf:
+編輯supervisord.conf:
 
 .. sourcecode:: ini
 
@@ -101,11 +101,11 @@ supervisor_ 是一个进程管理系统，挺好用的。
 nginx
 -------
 
-nginx_ 就不用多介绍了。不了解的话，请访问官网。
+nginx_ 就不用多介紹了。不瞭解的話，請訪問官網。
 
-nginx_ 最新的版本已经自带了 uwsgi_ 模块，如果你的 nginx 没有 uwsgi 模块，请下载编译最新版。
+nginx_ 最新的版本已經自帶了 uwsgi_ 模塊，如果你的 nginx 沒有 uwsgi 模塊，請下載編譯最新版。
 
-完整demo呈现，请下载 helloworld_ 。
+完整demo呈現，請下載 helloworld_ 。
 
 Get rid of fastcgi, why not try wsgi ?
 

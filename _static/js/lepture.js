@@ -30,9 +30,11 @@ $(function(){
                 }
             }
         });
-        $("#scrolling-header").css({
-            opacity: a
-        }).css("left", h2s.first().position()["left"] - 180 - 35).html(d)
+        if(h2s && h2s.length) {
+            $("#scrolling-header").css({
+                opacity: a
+            }).css("left", h2s.first().position()["left"] - 180 - 35).html(d)
+        }
     }
 
     function fetch_github_commits(github_repo) {

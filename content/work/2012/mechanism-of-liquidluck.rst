@@ -9,6 +9,7 @@ Mechanism of Felix Felicis
 :github: lepture/liquidluck
 :tags:
     - python
+    - project
 
 
 This post will explain how Felix Felicis works and how to write plugins

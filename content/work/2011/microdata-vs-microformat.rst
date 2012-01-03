@@ -10,15 +10,15 @@ Microdata vs Microformat
     - google
 
 
-今岁六月初，三大搜索引擎，也就是Google、Bing和Yahoo!，联合推出了 `schema.org <http://schema.org>`_ ，旨在提供一个统一的有利于索引的标准。这自然是好事，可是四个月过去了，还没有一家支持的。
-虽然 Google 声称已经支持 schema.org ，好事者如我，试了一下，发现并不像它所说的，其实都还不能识别。
+今歲六月初，三大搜索引擎，也就是Google、Bing和Yahoo!，聯合推出了 `schema.org <http://schema.org>`_ ，旨在提供一個統一的有利於索引的標準。這自然是好事，可是四個月過去了，還沒有一家支持的。
+雖然 Google 聲稱已經支持 schema.org ，好事者如我，試了一下，發現並不像它所說的，其實都還不能識別。
 
-但是 Google 确实支持微数据 [1]_ 。例如，你是否有见过如下的搜索结果呢？
+但是 Google 確實支持微數據 [1]_ 。例如，你是否有見過如下的搜索結果呢？
 
 .. image:: http://www.googel.com//help/hc/images/webmasters_99170_rsreview.png
    :alt: search result
 
-可见 `Google是支持微数据 <http://www.google.com/support/webmasters/bin/answer.py?answer=99170>`_ 的。而且，其实支持很久了。
+可見 `Google是支持微數據 <http://www.google.com/support/webmasters/bin/answer.py?answer=99170>`_ 的。而且，其實支持很久了。
 
 
 Microdata_
@@ -39,16 +39,15 @@ Microdata_
 
 Pro
 ~~~~
-1. Microdata_ 是 HTML 标准
-2. schema.org 使用 microdata，且未来会被三大搜索引擎支持（也许更多）
+1. Microdata_ 是 HTML 標準
+2. schema.org 使用 microdata，且未來會被三大搜索引擎支持（也許更多）
 
 Con
 ~~~~
-1. schema.org 目前还不可用
-2. 增加了额外内容，增加了数据传输量
+1. schema.org 目前還不可用
+2. 增加了額外內容，增加了數據傳輸量
 
-
-schema.org 可以暂时用 `data-vocabulary <http://data-vocabulary.org>`_ 代替，这样 Google 就可以识别出微数据了。
+schema.org 可以暫時用 `data-vocabulary <http://data-vocabulary.org>`_ 代替，這樣 Google 就可以識別出微數據了。
 
 Microformat_
 ------------
@@ -72,20 +71,20 @@ Microformat_
 
 Pro
 ~~~~
-1. 使用 ``class`` ``rel`` 等标签，未产生额外内容(考虑到这些 ``class`` ``rel`` 本身有用处)
-2. 相比于 microdata ，对人类更友好 (microdata 对机器友好)
-3. 支持度比较高，相关标准比较成熟，如 `vcard <http://microformats.org/wiki/hcard>`_
+1. 使用 ``class`` ``rel`` 等標籤，未產生額外內容(考慮到這些 ``class`` ``rel`` 本身有用處)
+2. 相比於 microdata ，對人類更友好 (microdata 對機器友好)
+3. 支持度比較高，相關標準比較成熟，如 `vcard <http://microformats.org/wiki/hcard>`_
 
 Con
 ~~~~
-1. 非 W3C 标准
+1. 非 W3C 標準
 
-没发现还有什么缺点，而且可以利用其命名规范。
+沒發現還有甚麼缺點，而且可以利用其命名規範。
 
 
 Conclusion
 -----------
-因为 microdata 与 microformat 在标签使用上并不冲突，可结合起来使用。如：
+因為 microdata 與 microformat 在標籤使用上並不衝突，可結合起來使用。如：
 
 .. sourcecode:: html
 
@@ -98,13 +97,13 @@ Conclusion
         </p>
     </div>
 
-这样目前 Google 可以识别 microformat ，只等 Google,Bing,Yahoo! 部署好 schema.org 的支持。 :)
+這樣目前 Google 可以識別 microformat ，只等 Google,Bing,Yahoo! 部署好 schema.org 的支持。 :)
 
-`DEMO <http://lepture.com/demo/schema/>`_ ，效果测试 `Google <http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Flepture.com%2Fdemo%2Fschema%2F&view=cse>`_ 。
+`DEMO <http://lepture.com/demo/schema/>`_ ，效果測試 `Google <http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Flepture.com%2Fdemo%2Fschema%2F&view=cse>`_ 。
 
-BTW， `豆瓣 <http://www.douban.com>`_ 使用的是 ``RDFa`` 。 不推荐使用。
+BTW， `豆瓣 <http://www.douban.com>`_ 使用的是 ``RDFa`` 。 不推薦使用。
 
 .. _Microdata: http://www.w3.org/TR/microdata/
 .. _Microformat: http://microformats.org
 
-.. [1] 微数据：展示页面所包含的有特定意义的数据，如评分等用户行为、如电影产品等属性。
+.. [1] 微數據：展示頁面所包含的有特定意義的數據，如評分等用戶行為、如電影產品等屬性。

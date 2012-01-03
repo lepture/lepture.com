@@ -2,7 +2,7 @@ CSS Border
 ===========================
 
 :summary: 
-    利用Border 的 CSS 模型构造下拉图标，及其它。
+    利用Border 的 CSS 模型構造下拉圖標，及其它。
 :date: 2011-10-21
 :folder: work
 :tags:
@@ -16,9 +16,9 @@ Border 的模型：
    :alt: css border
 
 
-如果内容区无高度与宽度，那么四个border不就是三角形了么？
+如果內容區無高度與寬度，那麼四個border不就是三角形了麼？
 
-因为 ``border-color`` 支持 ``transparent`` 属性，可想而知，若其它三边是透明的，只有一边不透明，这一边不就构成了三角么。 [ `CSS Border DEMO <http://lepture.com/demo/css-border/>`_ ]
+因為 ``border-color`` 支持 ``transparent`` 屬性，可想而知，若其它三邊是透明的，只有一邊不透明，這一邊不就構成了三角麼。 [ `CSS Border DEMO <http://lepture.com/demo/css-border/>`_ ]
 
 .. sourcecode:: css
 
@@ -28,6 +28,6 @@ Border 的模型：
         border-top-color: black;
     }
 
-如上代码则构成了一个顶角向下的三角形，非常适合用来做下拉选项的标志。Google 导航栏上的那个 ``More`` 正是如此构造出来的。
+如上代碼則構成了一個頂角向下的三角形，非常適合用來做下拉選項的標誌。Google 導航欄上的那個 ``More`` 正是如此構造出來的。
 
 More shapes via Reorx's sharing: http://css-tricks.com/examples/ShapesOfCSS/

@@ -86,7 +86,7 @@ caption,th {
 h1, h2,h3,h4,h5,h6 {
     font-size: 100%;
     font-weight: bold;
-    font-family: "Georgia", "Times New Roman", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
+    font-family: "Georgia", "Times New Roman", "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h1 {
     font-size: 1.6em;
@@ -197,19 +197,20 @@ blockquote::after {
 html, body {
     color: #080000;
     background: #fdfdfa;
-    font-family: "Volkhov", "Georgia", "Times New Roman", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
+    font-family: "Volkhov", "Georgia", "Times New Roman", "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h1, h2, h3, h4, strong {
     color: #000;
 }
 a {
-    color: #9c0001;
+    color: #222;
+    border-bottom: 1px dotted #ccc;
 }
 a:hover {
     color: #cd0001;
 }
 #wrapper {
-    paddding: 0 10px;
+    padding: 0 10px;
 }
 /** header **/
 #header {
@@ -373,39 +374,25 @@ a:hover {
 /* @end entry */
 
 /* @begin entry-list */
-#entry-list li{
-    position: relative;
-    padding: 6px 0;
-    border-bottom: 1px solid #dadada;
-    border-top: 1px solid #ffffff;
-    box-shadow: 0 1px 0 #ffffff;
+#entry-list dt {
+    margin: 0.8em 0;
+    font-size: 1.2em;
 }
-#entry-list li:first-child {
-    border-top: 0 none;
-}
-#entry-list h3 {
-    padding-bottom: 0.5em;
-}
-#entry-list li:hover time {
-    display: block;
+#entry-list dd {
+    margin: 0.6em 0 2.6em;
 }
 #entry-list time {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: -6.1em;
-    background: #969696;
-    background: rgba(0,0,0,0.24);
-    color: #fff;
-    border-radius: 0.3em;
-    font-size: 0.8em;
-    padding: 0.6em 0.8em;
+    font-size: 60%;
+    font-weight: normal;
+    margin-right: 0.4em;
 }
-#entry-list time .year {
-    display: block;
-    font-size: 1.5em;
-    padding-bottom: 0.1em;
-    color: #fff;
+#entry-list .entry-tags {
+    padding: 0.2em 0;
+    border: 0 none;
+}
+#entry-list .entry-tags a {
+    font-size: 80%;
+    margin: 0 0.6em 0 0;
 }
 .footnote {
     border: 0 none;
@@ -459,21 +446,15 @@ a:hover {
     margin-right: 8px;
 }
 .subnav {
-    border-top: 3px double #ddd;
-    border-bottom: 3px double #ddd;
     margin: 0.4em 0 1em;
     padding: 0.2em 0;
     overflow: hidden;
     white-space: nowrap;
     width: 100%;
-    height: 1.2em;
 }
 .subnav li {
     float: left;
     padding: 0 0.5em;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    border-right: 1px dotted #ddd;
     height: 1.6em;
     line-height: 1.6em;
 }
@@ -482,6 +463,7 @@ a:hover {
 }
 .subnav a {
     color: #666;
+    border-bottom: none;
 }
 .subnav a:hover {
     color: #333;

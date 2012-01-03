@@ -13,7 +13,7 @@
 
 {% block container %}
 <ul class="subnav not-mobile fn-clear">
-    {% for year in status.years -%}
+    {% for year in status.years if year != title|int -%}
     <li><a href="/{{year}}/">{{year}}</a></li>
     {%- endfor %}
 </ul>
