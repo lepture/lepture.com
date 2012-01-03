@@ -4,7 +4,7 @@ Mechanism of Felix Felicis
 :summary: 
     This post will explain how Felix Felicis works and how to write plugins
     (actually, there is no such thing in Felix Felicis).
-:date: 2012-01-03 02:00
+:date: 2012-01-02 22:40
 :folder: work
 :github: lepture/liquidluck
 :tags:

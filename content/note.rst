@@ -1,4 +1,4 @@
-Note
+Note / 筆記
 =============
 
 :template: page.html

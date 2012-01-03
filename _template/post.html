@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block afterstyle %}
-<meta name="description" content="{{ post.summary }}" />
+{%if post.summary%}<meta name="description" content="{{ post.summary }}" />{%endif%}
 {% if post.get('tags') %}
 <meta name="keywords" content="lepture, {{ post.tags|join(',') }}" />
 {% endif %}

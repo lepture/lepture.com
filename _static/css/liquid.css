@@ -262,7 +262,7 @@ a:hover {
     *width: 650px;
     margin: 0 auto;
     text-align: right;
-    color: #969696;
+    color: #333;
 }
 #footer .bio { color: #ddd; }
 #footer .bio:before {
@@ -371,6 +371,9 @@ a:hover {
     list-style-type: none;
     margin: 0;
 }
+.figure {
+    text-align: center;
+}
 /* @end entry */
 
 /* @begin entry-list */
@@ -393,10 +396,6 @@ a:hover {
 #entry-list .entry-tags a {
     font-size: 80%;
     margin: 0 0.6em 0 0;
-}
-.footnote {
-    border: 0 none;
-    margin: 0;
 }
 #disqus_thread {
     text-shadow: 0 0 0 #fff;

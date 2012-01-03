@@ -5,7 +5,7 @@
         <a href="{{content_url(post.slug)}}">{{post.title}}</a>
     </dt>
     <dd>
-    {{post.summary}}
+    {%if post.summary%}{{post.summary}}{%else%}{{post.content|first_paragraph}}{%endif%}
     <div class="entry-tags">
     {% for tag in post.tags %}<a href="{{content_url('tag', tag)}}" class="tag" rel="tag">{{tag}}</a>{% endfor %}
     </div>
