@@ -36,6 +36,7 @@ alipay.com
 + `Janlay's blog <http://janlay.com>`_
 + `ShaoShuai.me <http://shaoshuai.me>`_
 + `小麻的博客 <http://blog.hsinglin.com>`_
++ `chuo me <http://chuo.me>`_
 
 Tools
 --------

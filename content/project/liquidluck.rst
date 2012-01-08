@@ -71,7 +71,7 @@ There are two more themes available at `Theme Gallery <https://github.com/leptur
 
 I am using the *liquid* one, with a little changes.
 
-If you have any questions, ask me on `twitter <http://lepture.com/lepture>`_, or `send Email <lepture@me.com>`_ to me.
+If you have any questions, ask me on `twitter <https://twitter.com/lepture>`_, or `send Email <lepture@me.com>`_ to me.
 
 Other static blog engines
 -------------------------

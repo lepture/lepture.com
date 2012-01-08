@@ -86,7 +86,7 @@ caption,th {
 h1, h2,h3,h4,h5,h6 {
     font-size: 100%;
     font-weight: bold;
-    font-family: "Georgia", "Times New Roman", "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
+    font-family: "Georgia", "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h1 {
     font-size: 1.6em;
@@ -132,7 +132,7 @@ blockquote::before {
     font-style: italic;
     line-height: 24px;
     margin: 0 0 0 -24px;
-    font-family: Georgia, serif;
+    font-family: "Georgia", serif;
 }
 blockquote::after {
     display: block;
@@ -146,7 +146,7 @@ blockquote::after {
     font-style: italic;
     line-height: 0;
     margin: 0 0 12px 10px;
-    font-family: Georgia, serif;
+    font-family: "Georgia", serif;
 }
 /* @end reset */
 /* @begin function class */
@@ -197,7 +197,7 @@ blockquote::after {
 html, body {
     color: #080000;
     background: #fdfdfa;
-    font-family: "Volkhov", "Georgia", "Times New Roman", "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
+    font-family: "Volkhov", "Georgia", "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h1, h2, h3, h4, strong {
     color: #000;
@@ -221,7 +221,7 @@ a:hover {
     margin-bottom: 1em;
 }
 #nav {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: "Georgia", serif;
 }
 #nav li {
     float: left;
@@ -399,6 +399,7 @@ a:hover {
 }
 #disqus_thread {
     text-shadow: 0 0 0 #fff;
+    font-family: "Georgia", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 #pagination {
     text-align: center;
