@@ -29,11 +29,9 @@ A preview with my slate3 theme:
 
 Install
 ---------
-+ Download:
++ Download and Update:
 
-  ``wget https://github.com/lepture/dotfiles/raw/master/vim/syntax/velocity.vim``
-
-+ Place it at `~/.vim/syntax`
+  ``curl https://github.com/lepture/dotfiles/raw/master/vim/syntax/velocity.vim -o ~/.vim/syntax/velocity.vim``
 
 + Add to your vimrc:
 

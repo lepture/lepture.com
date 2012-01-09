@@ -22,7 +22,7 @@
     <div class="page-content"><h2>Latest</h2></div>
     <div id="latest" class="section">
         <ul>
-            {% for post in status.posts[:3] %}
+            {% for post in status.posts[:5] %}
             <li>
             <small><time class="updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time> — </small>
             <a href="{{content_url(post.slug)}}">{{post.title}}</a>
