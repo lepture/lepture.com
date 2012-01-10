@@ -29,11 +29,11 @@
     </div>
     <div class="fn-clear">
         <p class="entry-rel fn-right">
-        {% if post.prev %}
-        <a id="prev-entry" href="{{content_url(post.prev.slug)}}" title="{{post.prev.title}}" rel="prev">«Newer</a>
+        {% if post.newer %}
+        <a id="prev-entry" href="{{content_url(post.newer.slug)}}" title="{{post.newer.title}}" rel="prev">«Newer</a>
         {% endif %}
-        {% if post.next %}
-        <a id="next-entry" href="{{content_url(post.next.slug)}}" title="{{post.next.title}}" rel="next">Older»</a>
+        {% if post.older%}
+        <a id="next-entry" href="{{content_url(post.older.slug)}}" title="{{post.older.title}}" rel="next">Older»</a>
         {% endif %}
         </p>
     </div>

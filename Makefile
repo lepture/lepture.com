@@ -4,7 +4,7 @@ clean:
 	rm -rf _site
 
 build:
-	liquidluck --config .config
+	liquidluck --config .config --disable-log
 
 deploy:
 	liquidluck --config deploy.ini

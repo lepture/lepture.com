@@ -1,24 +1,3 @@
-/* @begin scrollbar */
-pre::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    padding: 18px;
-    -webkit-border-radius: 3px;
-} 
-pre::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    width: 8px;
-    height: 8px;
-    padding: 18px;
-    -webkit-border-radius: 3px;
-}
-::selection {
-    color: #fff;
-    background: #e3513b;
-    text-shadow: 0 0 0 #fff;
-}
-/* @end scrollbar */
-
 /* @begin reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
     margin:0;padding:0;
@@ -31,33 +10,16 @@ pre {
     max-height: 45em;
     padding: 8px;
 }
-pre, code, .literal {
-    font: normal normal 0.8em/1.3 menlo, monospace;
-}
-code, .literal {
-    padding: 0 .3em;
-    color: #565656;
-    border-left: 4px solid #ddd;
-}
 input,select,textarea{
     font-size:100%;
 }
 table{
     margin: 1em 0;
     border-collapse:collapse;border-spacing:0;
-    border: 1px solid #dadada;
-}
-thead{
-    background: #ccc;
-    color: #fff;
-    border: 1px solid #bbb;
 }
 th, td{
     text-align:inherit;
     padding: 0.2em 0.4em;
-}
-tbody tr:nth-child(2n) {
-    background: #eee;
 }
 fieldset,img,a img{
     border:0;
@@ -86,7 +48,6 @@ caption,th {
 h1, h2,h3,h4,h5,h6 {
     font-size: 100%;
     font-weight: bold;
-    font-family: "Georgia", "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h1 {
     font-size: 1.6em;
@@ -128,7 +89,7 @@ blockquote::before {
     content: '“';
     font-size: 34px;
     font-weight: bold;
-    color: #bababa;
+    color: #dbceb3;
     font-style: italic;
     line-height: 24px;
     margin: 0 0 0 -24px;
@@ -142,7 +103,7 @@ blockquote::after {
     clear:both;
     font-size: 34px;
     font-weight: bold;
-    color: #bababa;
+    color: #dbceb3;
     font-style: italic;
     line-height: 0;
     margin: 0 0 12px 10px;
@@ -196,26 +157,45 @@ blockquote::after {
 /* @begin layout */
 html, body {
     color: #080000;
-    background: #fdfdfa;
+    background: #f1ece6 url("mainbg.png") repeat;
     font-family: "Volkhov", "Georgia", "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 h1, h2, h3, h4, strong {
-    color: #000;
+    color: inherit;
+    font-family: "Georgia", "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
 }
 a {
-    color: #222;
+    color: inherit;
     border-bottom: 1px dotted #ccc;
 }
 a:hover {
-    color: #cd0001;
+    text-shadow: 0 0 1px #f0f0f0;
+    border-bottom: 1px solid #bcbcbc;
 }
+a.footnote-reference {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.5em;
+    line-height: 0;
+    font-size: 75%;
+    color: #a00;
+}
+pre, code, .literal {
+    font: normal normal 0.8em/1.3 menlo, monospace;
+}
+code, .literal {
+    padding: 0 .3em;
+    color: #565656;
+}
+
 #wrapper {
     padding: 0 10px;
 }
 /** header **/
 #header {
-    background: url('bg_header.png') repeat-x #fff;
-    border-bottom: 1px solid #dadada;
+    background: url('bg_header.png') repeat-x #efe8d7;
+    background: url('bg_header.png') repeat-x transparent;
+    border-bottom: 1px solid #dbceb3;
     box-shadow: 0 1px 0 #f0f0f0;
     text-transform: uppercase;
     margin-bottom: 1em;
@@ -236,7 +216,7 @@ a:hover {
     text-decoration: none;
 }
 #nav .current a {
-    color: #9c0001;
+    color: #222;
 }
 #nav a:hover {
     border-color: #222;
@@ -264,7 +244,7 @@ a:hover {
     text-align: right;
     color: #333;
 }
-#footer .bio { color: #ddd; }
+#footer .bio { color: #dbceb3; }
 #footer .bio:before {
     content: "♥";
     opacity: 0.8;
@@ -278,17 +258,17 @@ a:hover {
 }
 #search-input {
     outline: 0 none;
-    color: #666;
-    background: #fdfdf9;
+    color: #b97046;
+    background: transparent;
     padding: 0.2em 0 0.2em 0.5em;
     max-width: 120px;
-    border: 1px solid #ddd;
+    border: 1px solid #dbceb3;
     border-radius: 1em;
     text-shadow: 0 1px 0 #fff;
     box-shadow: 0 1px 0 #fff, inset 0 1px 0 #efefef;
 }
 #search-input:focus {
-    background: #fefdf9;
+    background: transparent;
 }
 /** end search **/
 /* @end layout */
@@ -299,10 +279,12 @@ a:hover {
 }
 .entry-title {
     max-width: 480px;
+    color: #343434;
 }
 .entry-meta {
-    border-top: 3px double #d0d0d0;
-    border-bottom: 3px double #d0d0d0;
+    border-top: 3px double #dbceb3;
+    border-bottom: 3px double #dbceb3;
+    box-shadow: 0 1px 0 #fff, 0 1px 0 #fff inset;
     margin: 1em 0 2em;
 }
 .entry-meta a {
@@ -329,22 +311,25 @@ a:hover {
     content: "#";
 }
 .entry-rel a {
-    color: #999;
+    color: #cfb87d;
     font-size: 0.9em;
     font-variant: small-caps;
     margin-left: 0.6em;
-}
-.entry-rel a:hover {
-    color: #565656;
+    border-bottom: 0 none;
 }
 .entry-content {
     line-height: 1.55em;
+    color: #454545;
+    text-shadow: 0 1px 0 #f9f9f9;
 }
 .entry-content .section {
     padding: 0.6em 0;
 }
 .entry-content .section .section {
     padding: 0 0 0.6em;
+}
+.entry-content h2, .entry-content h3, .entry-content h4 {
+    text-shadow: 0 1px 0 #fffff0;
 }
 .entry-content p {
     margin: 1em 0;
@@ -359,11 +344,23 @@ a:hover {
 }
 .entry-content img {
     max-width: 90%;
-    border-radius: 6px;
     box-shadow: 1px 1px 3px #aeaeae;
 }
+.entry-content table{
+    border: 1px solid #dadada;
+    background: #f9f9f9;
+}
+.entry-content thead{
+    background: #ccc;
+    color: #fff;
+    border: 1px solid #bbb;
+}
+.entry-content tr:nth-child(2n) {
+    background: #eee;
+}
 .highlight {
-    border: 1px dashed #ddd;
+    border-left: 4px solid #dbceb3;
+    background: #fff;
     padding: 1px 5px 3px 1px;
     margin: 1em 0;
 }
@@ -377,9 +374,13 @@ a:hover {
 /* @end entry */
 
 /* @begin entry-list */
+#entry-list {
+    color: #454545;
+}
 #entry-list dt {
     margin: 0.8em 0;
     font-size: 1.2em;
+    color: #d32913;
 }
 #entry-list dd {
     margin: 0.6em 0 2.6em;
@@ -404,10 +405,14 @@ a:hover {
 #pagination {
     text-align: center;
     padding: 24px 0 10px;
-    color: #bcbcbd;
+    color: #d32913;
+}
+#pagination a {
+    font-weight: bold;
 }
 #pagination span, #pagination a {
     padding: 3px 9px;
+    border-bottom: 0 none;
 }
 .tagcloud li {
     display: inline-block;
@@ -454,12 +459,12 @@ a:hover {
 }
 .subnav li {
     float: left;
-    padding: 0 0.5em;
+    padding-right: 1em;
     height: 1.6em;
     line-height: 1.6em;
 }
 .subnav li:last-of-type {
-    border-right: 0 none;
+    padding-right: 0;
 }
 .subnav a {
     color: #666;
@@ -467,6 +472,15 @@ a:hover {
 }
 .subnav a:hover {
     color: #333;
+}
+#sidenote {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    color: #666;
+}
+#sidenote .footnote {
+    border-left: 1px solid #ccc;
 }
 @media only screen and (max-device-width: 480px) {
     #header nav { height: 36px; }

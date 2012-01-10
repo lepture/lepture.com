@@ -28,7 +28,9 @@ Make a Clone
 
 .. sourcecode:: javascript
 
-    var clone = el.clone().removeAttr('id').removeAttr('class').css({position:'absolute', top:'-9999em',left:'-9999em',width: el.width(), height: 'auto'}).appendTo('body');
+    var clone = el.clone().removeAttr('id').removeAttr('class')
+                  .css({position:'absolute', top:'-9999em',left:'-9999em',width: el.width(), height: 'auto'})
+                  .appendTo('body');
 
 Calculate Height
 -----------------

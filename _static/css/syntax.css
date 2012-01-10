@@ -1,6 +1,6 @@
 .c, .cm, .c1 { color: #0e6081; font-style: italic } /* Comments */
 .err { color: #a61717; background-color: #e3d2d2 } /* Error */
-.k { font-weight: bold } /* Keyword */
+.k { font-weight: bold; color: #08f; } /* Keyword */
 .o { font-weight: bold } /* Operator */
 .cp { color: #999; font-weight: bold } /* Comment.Preproc */
 .cs { color: #999; font-weight: bold; font-style: italic } /* Comment.Special */
@@ -17,7 +17,7 @@
 .gu { color: #aaaaaa } /* Generic.Subheading */
 .gt { color: #a00 } /* Generic.Traceback */
 .kc { font-weight: bold } /* Keyword.Constant */
-.kd { font-weight: bold } /* Keyword.Declaration */
+.kd { font-weight: bold; color:#088;} /* Keyword.Declaration */
 .kp { font-weight: bold } /* Keyword.Pseudo */
 .kr { font-weight: bold } /* Keyword.Reserved */
 .kt { color: #445588; font-weight: bold } /* Keyword.Type */

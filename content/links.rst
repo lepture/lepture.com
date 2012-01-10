@@ -6,7 +6,7 @@ Links / 交集
 :public: false
 :nav: links
 :style:
-    .page-content h2 { font-size: 11px; margin-bottom: 1px; color: #dadada; text-transform: uppercase; font-family: Helvetica, arial, sans-serif;}
+    .page-content h2 { font-size: 11px; margin-bottom: 1px; color: #bcbcbc; text-transform: uppercase; font-family: Helvetica, arial, sans-serif;}
     .page-content ul {-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;}
 
 

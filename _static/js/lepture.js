@@ -66,6 +66,7 @@ $(function(){
         $('#header nav, #nav li').height(36);
         $('#nav a').css({fontSize: 13, lineHeight: '36px'});
     } else {
+        $('a[href^=http]:not(a[href^="http://lepture.com"])').attr('target', '_blank');
         $(document).keydown(function(e) {
             var tagName = e.target.tagName.toLowerCase();
             if("input" == tagName|| "textarea" == tagName){return ;}
@@ -85,6 +86,28 @@ $(function(){
                 fetch_github_commits(github_repo);
             }
         })
+        /* footnote */
+        $('body').append('<aside id="sidenote"></aside>');
+        $("#sidenote").css({'width': $('body').width()/2-360});
+        $('table.footnote').each(function(index, item){
+            var exists = $('#sidenote .footnote');
+            var prev = exists[exists.length - 1];
+            var fixHeight = 0;
+            if (prev) {
+                var fixHeight = $(prev).height();
+                var topBefore = $('a[href="#' + prev.id + '"]').offset().top;
+            } else {
+                var topBefore = 0;
+            }
+            var topNow = $('a[href="#' + item.id + '"]').position().top;
+            var offset = topNow - topBefore - fixHeight;
+            $(item).css('margin-top', offset < 0 ? 14 : offset);
+            $('#sidenote').append(item);
+        });
+        $('a.footnote-reference').hover(function(){
+            $($(this).attr("href")).css('background', '#fff')
+        }, function(){
+            $($(this).attr("href")).css('background', 'transparent')
+        });
     }
-    $('a[href^=http]:not(a[href^="http://lepture.com"])').attr('target', '_blank');
 });
