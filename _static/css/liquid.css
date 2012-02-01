@@ -45,14 +45,14 @@ ol,ul {
 caption,th {
     text-align:left;
 }
-h1, h2,h3,h4,h5,h6 {
+h1, h2,h3,h4,h5,h6, .topic-title {
     font-size: 100%;
     font-weight: bold;
 }
 h1 {
     font-size: 1.6em;
 }
-h2 {
+h2, .topic-title {
     font-size: 1.4em;
 }
 h3 {
@@ -193,8 +193,8 @@ code, .literal {
 }
 /** header **/
 #header {
-    background: url('bg_header.png') repeat-x #efe8d7;
     background: url('bg_header.png') repeat-x transparent;
+    background-color: rgba(0,0,0,0.05);
     border-bottom: 1px solid #dbceb3;
     box-shadow: 0 1px 0 #f0f0f0;
     text-transform: uppercase;
@@ -343,8 +343,8 @@ code, .literal {
     margin: 6px 0 6px 18px;
 }
 .entry-content img {
-    max-width: 90%;
-    box-shadow: 1px 1px 3px #aeaeae;
+    max-width: 98%;
+    box-shadow: 3px 3px 3px #aaa;
 }
 .entry-content table{
     border: 1px solid #dadada;
@@ -358,7 +358,7 @@ code, .literal {
 .entry-content tr:nth-child(2n) {
     background: #eee;
 }
-.highlight {
+pre.literal-block, .highlight {
     border-left: 4px solid #dbceb3;
     background: #fff;
     padding: 1px 5px 3px 1px;
@@ -388,6 +388,7 @@ code, .literal {
 #entry-list time {
     font-size: 60%;
     font-weight: normal;
+    font-family: "Papyrus", cursive;
     margin-right: 0.4em;
 }
 #entry-list .entry-tags {

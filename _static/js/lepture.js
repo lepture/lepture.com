@@ -78,14 +78,22 @@ $(function(){
             var url = url || '';
             if(url){location.assign(url);}
         });
-        var h2s = $(".entry-content h2");
-        $("body").append('<div id="scrolling-header"></div>');
-        $(window).scroll(function () {
-            place_scrolly_header()
-            if (window.github_repo && !window.is_github_fetched) {
-                fetch_github_commits(github_repo);
-            }
-        })
+        if (currentNav != "#nav-links") {
+            var h2s = $(".entry-content h2");
+            $("body").append('<div id="scrolling-header"></div>');
+            $(window).scroll(function () {
+                place_scrolly_header()
+                if (window.github_repo && !window.is_github_fetched) {
+                    fetch_github_commits(github_repo);
+                }
+            });
+        } else {
+            $('.page-content li a').each(function(index, item){
+                var bg = 'http://www.google.com/s2/u/0/favicons?domain_url=';
+                var bg = 'url(' + bg + item.href + ')';
+                $(item).css('background-image', bg);
+            });
+        }
         /* footnote */
         $('body').append('<aside id="sidenote"></aside>');
         $("#sidenote").css({'width': $('body').width()/2-360});

@@ -4,7 +4,7 @@ Velocity Syntax for VIM
     Velocity Syntax for VIM, a better replacement for the one on vim.org. For people who are using VIM and have to deal with velocity.
 :date: 2011-12-26 23:30
 :folder: work
-:github: lepture/dotfiles
+:github: lepture/vim-velocity
 :tags:
     - vim
     - Alipay
@@ -29,9 +29,16 @@ A preview with my slate3 theme:
 
 Install
 ---------
-+ Download and Update:
 
-  ``curl https://github.com/lepture/dotfiles/raw/master/vim/syntax/velocity.vim -o ~/.vim/syntax/velocity.vim``
+If you are using pathogen_, GREAT! If not, try to !
+
++ Download:
+
+  ``git clone git://github.com/lepture/vim-velocity.git ~/.vim/bundle/velocity``
+
++ (Git Pro Users) If you keep a dotfile repo:
+
+  ``git submodule add git://github.com/lepture/vim-velocity.git ~/.vim/bundle/velocity``
 
 + Add to your vimrc:
 
@@ -51,3 +58,5 @@ How to write syntax
 It's not that hard, but you should keep in mind that vim use a magic regex, which really sucks.
 
 It is not a post on this topic, all you need is ``:help syntax`` . Good luck!
+
+.. _pathogen: https://github.com/tpope/vim-pathogen
