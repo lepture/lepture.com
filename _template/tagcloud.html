@@ -2,13 +2,8 @@
 
 {% block title %}Tags | {{context.sitename}}{% endblock %}
 
-{% block afterstyle %}
-<script type="text/javascript">
-    var currentNav = '#nav-tags';
-</script>
-{% endblock %}
-
 {% block container %}
+<h2>Tag Cloud</h2>
 <ul class="tagcloud fn-clear">
     {% for tag in tags %}
     <li><a href="{{ content_url('tag', tag.name) }}" style="font-size: {{tag.size}}%" title="{{tag.count}} posts">{{ tag.name }}</a></li>

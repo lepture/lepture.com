@@ -15,7 +15,8 @@
 {% endblock %}
 
 {% block title %}{{post.title}}{% endblock %}
-{% block entrytitle %}{{post.title}}{% endblock %}
+
+{% block sideheader %}<h2 class="side-title">{{post.title}}</h2>{% endblock %}
 
 {% block container %}
 {{ post.content }}

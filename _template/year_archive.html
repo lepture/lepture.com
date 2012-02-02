@@ -1,22 +1,50 @@
 {% extends "layout.html" %}
 
-{% block title %}{{title}} | {{context.sitename}}{% endblock %}
+{% block title %}{{title|capitalize}} | {{context.sitename}}{% endblock %}
 
-{% block afterstyle %}
-<meta name="description" content="Archived entries in Year {{title}} of {{context.sitename}}" />
-<script type="text/javascript">
-    var currentNav = '#nav-archive';
-</script>
+{% block middle %}
+
+{% if pager.posts %}
+<dl>
+    <dt class="entry-time">{{title}}</dt>
+    {% for post in pager.posts %}
+    <dt class="fn-clear">
+        <h3 class="fn-left"><a href="{{content_url(post.slug)}}">{{post.title}}</a></h3>
+        <time class="fn-right updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d")}}</time>
+    </dt>
+    <dd>
+    {%if post.summary%}<p>{{post.summary}}</p>{%else%}{{post.content|first_paragraph}}{%endif%}
+    </dd>
+    {% endfor %}
+</dl>
+{% endif %}
+
+{% include "pagination.html" %}
+
 {% endblock %}
 
-{% block entrytitle%}{{title}}{%endblock%}
+{% block aftersocial %}
+<div class="fn-clear" style="margin-top:1em;">
+    <img class="avatar" src="http://gravatar.com/avatar/83a5c46f52b4835e6048159bfa85478e?s=80" alt="gravatar" />
+    <div class="tx-wrap tx-small">
+        <p>Hi, I am Hsiaoming Young (aka lepture elsewhere).</p>
+        <p>I am a creative web developer, fan of python.</p>
+    </div>
+</div>
+{% endblock %}
 
-{% block container %}
-<ul class="subnav not-mobile fn-clear">
-    {% for year in status.years if year != title|int -%}
-    <li><a href="/{{year}}/">{{year}}</a></li>
-    {%- endfor %}
-</ul>
-
-{% include "list.html" %}
+{% block afternav %}
+<script type="text/javascript">
+    var currentNav = "#nav-year";
+</script>
+<nav>
+    <span id="nav-year" class="current"><a href="/{{title}}/">{{title}}</a></span>
+</nav>
+{% endblock %}
+{% block sidefooter %}
+<p class="links">
+    {% for year in status.years %}
+    <a href="/{{year}}/" rel="index">{{year}}</a>
+    {% endfor %}
+</p>
 {% endblock %}

@@ -6,8 +6,16 @@ Note / 筆記
 :date: 2011-12-11
 :public: false
 :nav: note
-:style: .entry-content .section {margin-bottom: 1em;}
-        .entry-content h2{text-align: center; font-size: 105%;}
+:style:
+    .hentry h2 { 
+    text-align: left;
+    font-size: 11px;
+    margin-bottom: 1px;
+    color: #BCBCBC;
+    text-transform: uppercase;
+    font-family: Helvetica, arial, sans-serif;
+    }
+
 
 
 Jan 1, 2012

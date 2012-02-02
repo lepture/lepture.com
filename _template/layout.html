@@ -62,16 +62,23 @@
 
         {% block right %}
         <aside id="sidebar" class="side lepture">
-            <div>
+            {% block sideheader %}
+            {% endblock %}
+            <div id="social">
                 <a rel="me" href="mailto:lepture@me.com" class="social-icon mail">Email</a>
                 <a rel="me" href="https://twitter.com/lepture" class="social-icon twitter">@lepture</a>
                 <a rel="me" href="https://github.com/lepture" class="social-icon github">Github</a>
                 <a rel="me" href="http://dribbble.com/lepture" class="social-icon dribbble">Dribbble</a>
                 <a rel="me" href="https://plus.google.com/u/0/117887319435448092628" class="social-icon googleplus">Google+</a>
             </div>
+            {% block aftersocial %}
             <p id="description">Love its people, but never trust its government</p>
+            {% endblock %}
+
+            {% block sidefooter %}
             <div id="toc"></div>
             <div id="sidenote"></div>
+            {% endblock %}
         </aside>
         {% endblock %}
 
