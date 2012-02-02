@@ -12,7 +12,7 @@
 <meta name="keywords" content="lepture, {{ post.tags|join(',') }}" />
 {% endif %}
 {% if post.get('folder') == 'work' %}
-<link rel="stylesheet" href="{{ static_url('css/pygments-monokai-light.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/pygments-lucumr.css') }}" />
 {% endif %}
 <link rel="canonical" href="{{ content_url(post.slug) }}" />
 <script type="text/javascript">
@@ -20,40 +20,36 @@
 </script>
 {% endblock %}
 
-{% block entrytitle%}<a href="{{content_url(post.slug)}}">{{post.title}}</a>{% endblock %}
-
-{% block container %}
-<div class="entry">
+{% block middle %}
+<article class="hentry">
+    <h1>{{post.title}}</h1>
+    <div class="entry-time"><time datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%Y-%m-%d")}}</time></div>
     <div class="entry-content">
         {{ post.content }}
     </div>
-    <div class="fn-clear">
-        <p class="entry-rel fn-right">
-        {% if post.newer %}
-        <a id="prev-entry" href="{{content_url(post.newer.slug)}}" title="{{post.newer.title}}" rel="prev">«Newer</a>
-        {% endif %}
-        {% if post.older%}
-        <a id="next-entry" href="{{content_url(post.older.slug)}}" title="{{post.older.title}}" rel="next">Older»</a>
-        {% endif %}
-        </p>
-    </div>
+</article>
+<nav class="entry-rel">
+    {% if post.older%}
+    <a id="older-entry" href="{{content_url(post.older.slug)}}" title="{{post.older.title}}" rel="next">«Older</a>
+    {% endif %}
+    {% if post.newer %}
+    <a id="newer-entry" href="{{content_url(post.newer.slug)}}" title="{{post.newer.title}}" rel="prev">Newer»</a>
+    {% endif %}
+</nav>
+<div id="comments">
+    {% include "third/disqus.html" %}
 </div>
-<div class="entry-meta fn-clear">
-    <p class="entry-time fn-left">
-    Created at: 
-    <a href="/{{post.date.year}}/" rel="index"><time class="updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time></a>
-    </p>
-    {% if post.tags %}
-    <p class="entry-tags fn-left">
-    Tagged in:
+{% include "third/github.html" %}
+{% endblock %}
+
+{% block afternav %}
+<nav><a href="/{{post.date.year}}/" rel="index"><time class="updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time></a></nav>
+{% if post.tags %}
+<div class="links">
     {% for tag in post.tags %}
     <a href="{{content_url('tag', tag)}}" class="tag" rel="tag">{{tag}}</a>
     {% endfor %}
     </p>
-    {% endif %}
 </div>
-<div class="comments">
-    {% include "third/disqus.html" %}
-</div>
-{% include "third/github.html" %}
+{% endif %}
 {% endblock %}

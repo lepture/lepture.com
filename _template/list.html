@@ -1,38 +1,45 @@
-<dl id="entry-list" class="fn-clear">
+{% if pager.posts %}
+<dl>
+    {% set year = 0 %}
     {% for post in pager.posts %}
-    <dt>
-        <time class="updated" datetime="{{post.date|xmldatetime}}" pubdate><a href="/{{post.date.year}}/" rel="index">{{post.date.strftime("%b, %Y")}}</a></time>
-        <a href="{{content_url(post.slug)}}">{{post.title}}</a>
+    {% if post.date.year != year %}
+    <dt class="entry-time"><a href="/{{post.date.year}}/">{{post.date.year}}</a></dt>
+    {% endif %}
+    <dt class="fn-clear">
+        <h3 class="fn-left"><a href="{{content_url(post.slug)}}">{{post.title}}</a></h3>
+        <time class="fn-right updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d")}}</time>
     </dt>
+    {% set year = post.date.year %}
+    {% if now.year == year %}
     <dd>
-    {%if post.summary%}{{post.summary}}{%else%}{{post.content|first_paragraph}}{%endif%}
-    <div class="entry-tags">
-    {% for tag in post.tags %}<a href="{{content_url('tag', tag)}}" class="tag" rel="tag">{{tag}}</a>{% endfor %}
-    </div>
+    {%if post.summary%}<p>{{post.summary}}</p>{%else%}{{post.content|first_paragraph}}{%endif%}
     </dd>
-    </li>
+    {% endif %}
     {% endfor %}
 </dl>
+<footer class="pagination">{{pager.page}} / {{pager.pages}}</footer>
+{% endif %}
+
 {% if pager.pages > 1 %}
-<div id="pagination">
+<nav role="pagination">
     {% if pager.prev %}
         {% if pager.prev == 1 %}
-        {% if pager.sub_folder == 'page' %}
-        <a class="prev" href="{{ content_url(pager.folder) }}">«Prev</a>
+            {% if pager.sub_folder == 'page' %}
+                {% set url = content_url(pager.folder) %}
+            {% else %}
+                {% set url = content_url(pager.folder, pager.sub_folder) %}
+            {% endif %}
         {% else %}
-        <a class="prev" href="{{ content_url(pager.folder, pager.sub_folder) }}">«Prev</a>
+            {% set url = content_url(pager.folder, pager.sub_folder, pager.prev) %}
         {% endif %}
-        {% else %}
-        <a class="prev" href="{{ content_url(pager.folder, pager.sub_folder, pager.prev) }}">«Prev</a>
-        {% endif %}
+        <a id="newer-entry" class="prev" href="{{url}}">Newer»</a>
     {% else %}
-    <span class="prev">«Prev</span>
+    <span id="newer-entry" class="prev">Newer»</span>
     {% endif %}
-    <span class="fn-current">{{pager.page}}</span>
     {% if pager.next %}
-    <a class="next" href="{{ content_url(pager.folder, pager.sub_folder, pager.next) }}">Next»</a>
+    <a id="older-entry" class="next" href="{{ content_url(pager.folder, pager.sub_folder, pager.next) }}">«Older</a>
     {% else %}
-    <span class="next">Next»</span>
+    <span id="older-entry" class="next">«Older</span>
     {% endif %}
 </div>
 {% endif %}

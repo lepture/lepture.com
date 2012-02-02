@@ -34,19 +34,27 @@ If you are using pathogen_, GREAT! If not, try to !
 
 + Download:
 
-  ``git clone git://github.com/lepture/vim-velocity.git ~/.vim/bundle/velocity``
+::
+
+    git clone git://github.com/lepture/vim-velocity.git ~/.vim/bundle/velocity
 
 + (Git Pro Users) If you keep a dotfile repo:
 
-  ``git submodule add git://github.com/lepture/vim-velocity.git ~/.vim/bundle/velocity``
+::
+
+    git submodule add git://github.com/lepture/vim-velocity.git ~/.vim/bundle/velocity
 
 + Add to your vimrc:
 
-  ``au BufRead,BufNewFile *.vm set ft=html syntax=velocity``
+::
+
+    au BufRead,BufNewFile *.vm set ft=html syntax=velocity
 
 For vimmer in alipay, add this:
 
-``au BufRead,BufNewFile *.vm set ft=html fileencoding=gbk syntax=velocity``
+::
+
+    au BufRead,BufNewFile *.vm set ft=html fileencoding=gbk syntax=velocity
 
 
 Attention

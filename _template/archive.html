@@ -8,13 +8,7 @@
 </script>
 {% endblock %}
 
-{% block entrytitle%}{{title|capitalize}}{%endblock%}
 
-{% block container %}
-<ul class="subnav not-mobile fn-clear">
-    {% for year in status.years -%}
-    <li><a href="/{{year}}/">{{year}}</a></li>
-    {%- endfor %}
-</ul>
+{% block middle %}
 {% include "list.html" %}
 {% endblock %}

@@ -20,10 +20,21 @@ font-family 的渲染順序， https://developer.mozilla.org/en/CSS/font-family 
     However, this doesn't work in Internet Explorer.
 
 
-如上所述，font-family 是逐字渲染的，比如 ``font-family: arial, "Hiragino Sans GB", sans-serif;``
+如上所述，font-family 是逐字渲染的，比如 
+
+::
+
+    font-family: arial, "Hiragino Sans GB", sans-serif;
+
 如果一個字元 arial 無法渲染，則由 "Hiragino Sans GB" 來渲染。
 
-但是這裡有一個問題，關於 fallback 到 generic family 。很奇怪的一點是 webkit 系並不會根據最後指定的 generic family 去 fallback ，而是根據第一個字體所屬的 generic family 去 fallback 。例如： ``font-family: Georgia, sans-serif;`` ，漢字會 fallback 到 serif 。Firefox 的 generic family fallback 機制也不按套路出牌。
+但是這裡有一個問題，關於 fallback 到 generic family 。很奇怪的一點是 webkit 系並不會根據最後指定的 generic family 去 fallback ，而是根據第一個字體所屬的 generic family 去 fallback 。例如：
+
+::
+
+    font-family: Georgia, sans-serif;
+
+漢字會 fallback 到 serif 。Firefox 的 generic family fallback 機制也不按套路出牌。
 
 generic family 日常使用的一般是 ``serif`` (有襯線字體) 和 ``sans-serif`` (無襯線字體) 。但是除此還有 ``cursive`` 和 ``fantasy`` ， ``cursive`` 表示手寫體， ``fantasy`` 一般是藝術字。
 

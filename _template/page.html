@@ -18,8 +18,6 @@
 {% block entrytitle %}{{post.title}}{% endblock %}
 
 {% block container %}
-<div class="page-content entry-content">
-    {{ post.content }}
-</div>
+{{ post.content }}
 {% include "third/github.html" %}
 {% endblock %}

@@ -1,14 +1,16 @@
-publish: build upload
+publish: css build upload
 
-clean:
-	rm -rf _site
+css:
+	lessc --compress _static/less/screen.less > _static/css/screen.css
 
 build:
 	liquidluck --config .config --disable-log
 
-deploy:
+deploy: css
 	liquidluck --config deploy.ini
 
 upload:
+	rm -fr _site/_static/less
 	rsync -av --del _site/ lepture.com:/www/lepture/lepture.com
+	rm _static/css/screen.css
 	@echo "Done..."

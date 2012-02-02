@@ -88,7 +88,9 @@ Install Plugin
 
 這樣的話，就很方便用 git submodule 來管理了。當我要安裝新的 plugin 時，只需要：
 
-``git submodule add git://github.com/lepture/vim-velocity.git bundle/velocity``
+::
+
+    git submodule add git://github.com/lepture/vim-velocity.git bundle/velocity
 
 這裡假設你的 .vim 是一個 Git repo。
 

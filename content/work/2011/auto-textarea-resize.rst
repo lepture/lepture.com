@@ -26,7 +26,7 @@ Make a Clone
 
 最後的代碼如下:
 
-.. sourcecode:: javascript
+::
 
     var clone = el.clone().removeAttr('id').removeAttr('class')
                   .css({position:'absolute', top:'-9999em',left:'-9999em',width: el.width(), height: 'auto'})
@@ -34,7 +34,11 @@ Make a Clone
 
 Calculate Height
 -----------------
-計算高度: ``h = clone.val(el.val()).height(0).scrollTop(10000).scrollTop() + 16;``
+計算高度: 
+
+::
+
+    h = clone.val(el.val()).height(0).scrollTop(10000).scrollTop() + 16;
 
 豆瓣的問題就出在這裡，新的高度相對於原高度豆瓣是 +5 。於是伸展的時候不夠用。當然我上面 +16 也是不正確的做法，應該動態獲取文字大小。
 

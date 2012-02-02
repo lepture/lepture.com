@@ -20,7 +20,9 @@ Basic Gram
 
 舉個例子:
 
-``:hi Number cterm=none ctermfg=white ctermbg=black gui=none guifg=#FFFFFF guibg=#000000``
+::
+
+    :hi Number cterm=none ctermfg=white ctermbg=black gui=none guifg=#FFFFFF guibg=#000000
 
 其中 cterm, ctermfg, ctermbg 是針對 terminal 的配色方案。相對的另一部分是針對gui(如GVim, MacVim)
 的配色方案。
