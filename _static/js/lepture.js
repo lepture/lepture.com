@@ -34,6 +34,13 @@ $(function(){
             var url = $('#older-entry').attr('href');
         }else if(39 == e.keyCode || 76 == e.keyCode){
             var url = $('#newer-entry').attr('href');
+        }else if(85 == e.keyCode){
+            $('.side').toggleClass('fn-hide');
+            $('#middle .container').toggleClass('print');
+        }else if(74 == e.keyCode) {
+            $("html, body").animate({'scrollTop': "+=400"}, 200);
+        }else if(75 == e.keyCode) {
+            $("html, body").animate({'scrollTop': "-=400"}, 200);
         }
         var url = url || '';
         if(url){location.assign(url);}

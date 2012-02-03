@@ -1,6 +1,12 @@
 <footer class="pagination">{{pager.page}} / {{pager.pages}}</footer>
 {% if pager.pages > 1 %}
-<nav role="pagination">
+<nav class="role-pagination" role="pagination">
+    {% if pager.next %}
+    <a id="older-entry" class="next" href="{{ content_url(pager.folder, pager.sub_folder, pager.next) }}">«Older</a>
+    {% else %}
+    <span id="older-entry" class="next">«Older</span>
+    {% endif %}
+
     {% if pager.prev %}
         {% if pager.prev == 1 %}
             {% if pager.sub_folder == 'page' %}
@@ -14,11 +20,6 @@
         <a id="newer-entry" class="prev" href="{{url}}">Newer»</a>
     {% else %}
     <span id="newer-entry" class="prev">Newer»</span>
-    {% endif %}
-    {% if pager.next %}
-    <a id="older-entry" class="next" href="{{ content_url(pager.folder, pager.sub_folder, pager.next) }}">«Older</a>
-    {% else %}
-    <span id="older-entry" class="next">«Older</span>
     {% endif %}
 </div>
 {% endif %}

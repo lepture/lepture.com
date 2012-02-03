@@ -17,8 +17,16 @@
     #elsewhere ul {
         -webkit-column-count: 4; -moz-column-count: 4; column-count: 4; line-height: 150%;
         margin: 0.8em 0;
+        list-style-type: none;
     }
-    time.updated { font-family: menlo, monospace; }
+    time.updated, #latest small { 
+        color: #808081;
+        font-size: 80%;
+        font-family: menlo, monospace;
+    }
+    #latest small {
+        margin: 0 .8em;
+    }
 </style>
 <script type="text/javascript">
     var currentNav = '#nav-{{post.nav}}';
@@ -33,7 +41,7 @@
     <ul>
         {% for post in status.posts[:5] %}
         <li>
-        <small><time class="updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time> — </small>
+        <time class="updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time> <small> — </small>
         <a href="{{content_url(post.slug)}}">{{post.title}}</a>
         </li>
         {% endfor %}

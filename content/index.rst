@@ -22,7 +22,7 @@ Active Projects
 ----------------
 Projects that are active now.
 
-`Felix Felicis`_
+Felix Felicis
 ~~~~~~~~~~~~~~~~~
 `Felix Felicis`_ (aka liquidluck) is a simple lightweight static blog generator. It supports markup of restructedText and markdown.
 

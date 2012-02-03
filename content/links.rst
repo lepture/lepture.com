@@ -5,19 +5,11 @@ Links / 交集
 :date: 2011-11-23
 :public: false
 :nav: links
-:style:
-    .hentry h2 { 
-    text-align: left;
-    font-size: 11px;
-    margin-bottom: 1px;
-    color: #BCBCBC;
-    text-transform: uppercase;
-    font-family: Helvetica, arial, sans-serif;
-    }
 
 
 Tools
 --------
+
 + `Ping <http://blogsearch.google.com/ping?url=http://lepture.com/archive/>`_
 
 + `Webmaster <https://www.google.com/webmasters/tools/home>`_
@@ -27,20 +19,18 @@ Tools
 
 Wuhan University
 -----------------
+
 + `川葉 : 時間河 <http://riverslee.com>`_
 
-  - 科學、科技愛好者和科幻文學愛好者
-  - 偽文藝青年
-  - 無車無房又無不良嗜好的好青年
-  - 單身，男，愛好女
+  偽文藝青年，偽科學青年，偽學術青年。真·新時代正義青年。
 
 + `The Qlog <http://imquyi.com>`_
 
-  屈藝，常用馬甲 rangerqu，武漢大學世界經濟系畢業，現就讀於浙江大學國際經濟學系。
 
 
 Network
 -----------
+
 + `逆風寒翎 <http://www.niphanin.net>`_
 
 + `Micius <http://micius.org/>`_
@@ -53,9 +43,10 @@ Network
 
 ziqiang.net
 ------------
-+ `Raiya <http://traicyer.me>`_
 
-  boss of ziqiang.net now
++ `Hydrangea Land <http://traicyer.me>`_
+
+  Raiya, boss of ziqiang.net now.
 
 + `Crackcell <http://blog.crackcell.com>`_
 
@@ -70,6 +61,10 @@ ziqiang.net
   beyond the control of GFW
 
 + `Xiaoba <http://xiaoba.me>`_
+
++ `In Wandering <http://xiaoyuann.me/>`_
+
+  A photographer.
 
 
 alipay.com
@@ -87,4 +82,5 @@ alipay.com
 
 Felix Felicis
 --------------
+
 - `ThCode's Blog <http://blog.thcode.com>`_

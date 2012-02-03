@@ -8,22 +8,41 @@
         {% block author %}<meta name="author" content="{{ context.author }}" />{% endblock %}
         {% block beforestyle %}{% endblock %}
         {% block feed %}<link rel="alternate" type="application/rss+xml" href="{{context.feed}}" title="{{context.sitename}} Feed" />{% endblock %}
-        <link rel="stylesheet" href="{{ static_url('css/screen.css') }}" media="screen" />
-        <style type="text/css" media="print, only screen and (max-device-width: 480px)">
-            .side, .entry-rel, .footnote-reference {display: none;}
-            #github {display: none;}
-            #middle{margin:0; padding:0.6em;}
-            body {font-family: "Georgia", "Hiragino Mincho ProN", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;}
-        </style>
-        <style type="text/css" media="print">
-            a {color: inherit; text-decoration: none;}
-            #comments {display: none;}
-        </style>
+        <link rel="stylesheet" href="{{ static_url('css/screen.css') }}" media="all" />
         {% block afterstyle %}{% endblock %}
         <!--[if IE]>
         <script src="{{static_url('js/html5.js')}}"></script>
         <![endif]-->
+        <!--[if IE 6]>
+        <link rel="stylesheet" href="{{static_url('css/ie6.css')}}" />
+        <![endif]-->
         {% include "third/google.js" %}
+        <script type="text/javascript">
+            var isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|Blackberry|mobile)/);
+            if(!isMobile) {
+                var jq = document.createElement('script'); jq.type = 'text/javascript'; jq.async = true;
+                jq.src = "{{static_url('js/jquery.min.js')}}";
+                var s = document.getElementsByTagName('script')[0];
+                jq.onload = function() {
+                    var lp = document.createElement('script'); lp.type = 'text/javascript'; lp.async = true;
+                    lp.src = "{{static_url('js/lepture.js')}}";
+                    s.parentNode.insertBefore(lp, s);
+                }
+                s.parentNode.insertBefore(jq, s);
+            } else {
+                window.onload = function() {
+                    var just = document.getElementsByTagName('aside')[0];
+                    just.onclick = function(e) {
+                        var nav = just.getElementsByTagName('nav')[0];
+                        if (nav.style.display == 'block') {
+                            nav.style.display = 'none';
+                        } else {
+                            nav.style.display = 'block';
+                        }
+                    }
+                }
+            }
+        </script>
         <link rel="me" href="https://plus.google.com/u/0/117887319435448092628" />
     </head>
     <body>
@@ -53,15 +72,18 @@
         {% endblock %}
 
         <div id="middle" class="fn-clear">
-            {% block middle %}
-            <article class="hentry">
-                {% block container %}{% endblock %}
-            </article>
-            {% endblock %}
+            <div class="container">
+                {% block middle %}
+                <article class="hentry">
+                    {% block container %}{% endblock %}
+                </article>
+                {% endblock %}
+            </div>
         </div>
 
         {% block right %}
         <aside id="sidebar" class="side lepture">
+            <div class="container">
             {% block sideheader %}
             {% endblock %}
             <div id="social">
@@ -79,6 +101,7 @@
             <div id="toc"></div>
             <div id="sidenote"></div>
             {% endblock %}
+            </div>
         </aside>
         {% endblock %}
 
@@ -87,20 +110,6 @@
         <script type="text/javascript" src="{{static_url('js/jquery.min.js')}}"></script>
         <script type="text/javascript" src="{{static_url('js/lepture.js')}}" media="screen"></script>
         #}
-        <script type="text/javascript">
-            var isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|Blackberry|mobile)/);
-            if(!isMobile) {
-                var jq = document.createElement('script'); jq.type = 'text/javascript'; jq.async = true;
-                jq.src = "{{static_url('js/jquery.min.js')}}";
-                var s = document.getElementsByTagName('script')[0];
-                jq.onload = function() {
-                    var lp = document.createElement('script'); lp.type = 'text/javascript'; lp.async = true;
-                    lp.src = "{{static_url('js/lepture.js')}}";
-                    s.parentNode.insertBefore(lp, s);
-                }
-                s.parentNode.insertBefore(jq, s);
-            }
-        </script>
         {% block afterjs %}{% endblock %}
     </body>
 </html>

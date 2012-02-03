@@ -7,8 +7,6 @@ Felix Felicis
 :public: false
 :nav: home
 :github: lepture/liquidluck
-:style:
-    .page-content ul {list-style-type: square; margin: 1em 0 0 1.2em;}
 
 
 Felix Felicis (aka liquidluck) is a simple lightweight static blog generator. It supports markup of restructedText_ and markdown_.

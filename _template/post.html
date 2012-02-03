@@ -13,6 +13,20 @@
 {% endif %}
 {% if post.get('folder') == 'work' %}
 <link rel="stylesheet" href="{{ static_url('css/pygments-lucumr.css') }}" />
+{% else %}
+<style type="text/css">
+    .hentry .entry-title {
+        text-align: left;
+        font-size: 1em;
+        border-bottom: 1px solid #bcbdbd;
+    }
+    .hentry .entry-time {
+        text-align: left;
+    }
+    .hentry p {
+        text-indent: 2em;
+    }
+</style>
 {% endif %}
 <link rel="canonical" href="{{ content_url(post.slug) }}" />
 <script type="text/javascript">
@@ -23,7 +37,7 @@
 
 {% block middle %}
 <article class="hentry">
-    <h1>{{post.title}}</h1>
+    <h1 class="entry-title">{{post.title}}</h1>
     <div class="entry-time"><time datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%Y-%m-%d")}}</time></div>
     <div class="entry-content">
         {{ post.content }}

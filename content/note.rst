@@ -6,15 +6,6 @@ Note / 筆記
 :date: 2011-12-11
 :public: false
 :nav: note
-:style:
-    .hentry h2 { 
-    text-align: left;
-    font-size: 11px;
-    margin-bottom: 1px;
-    color: #BCBCBC;
-    text-transform: uppercase;
-    font-family: Helvetica, arial, sans-serif;
-    }
 
 
 

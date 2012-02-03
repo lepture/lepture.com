@@ -4,11 +4,16 @@
 {% if post.summary %}
 <meta name="description" content="{{ post.summary }}" />
 {% endif %}
-{% if post.style %}
 <style type="text/css">
-    {{ post.style }}
+    .hentry h2 { 
+        text-align: left;
+        font-size: 11px;
+        margin-bottom: 1px;
+        color: #BCBCBC;
+        text-transform: uppercase;
+        font-family: Helvetica, arial, sans-serif;
+    }
 </style>
-{% endif %}
 <script type="text/javascript">
     var currentNav = '#nav-{{post.nav}}';
 </script>
