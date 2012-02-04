@@ -21,9 +21,8 @@
 
 {% block title %}{{post.title}}{% endblock %}
 
-{% block sideheader %}<h2 class="side-title">{{post.title}}</h2>{% endblock %}
-
-{% block container %}
+{% block entry %}
+<h2 class="entry-title">{{post.title}}</h2>
 {{ post.content }}
 {% include "third/github.html" %}
 {% endblock %}

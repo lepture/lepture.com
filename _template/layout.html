@@ -31,9 +31,9 @@
                 s.parentNode.insertBefore(jq, s);
             } else {
                 window.onload = function() {
-                    var just = document.getElementsByTagName('aside')[0];
-                    just.onclick = function(e) {
-                        var nav = just.getElementsByTagName('nav')[0];
+                    var navbar = document.getElementById("navbar");
+                    navbar.onclick = function(e) {
+                        var nav = navbar.getElementsByTagName('nav')[0];
                         if (nav.style.display == 'block') {
                             nav.style.display = 'none';
                         } else {
@@ -46,9 +46,17 @@
         <link rel="me" href="https://plus.google.com/u/0/117887319435448092628" />
     </head>
     <body>
-        {% block left %}
-        <aside class="side just">
-            <h1><a id="nav-home" href="/"><span id="just">Just</span> <span id="lepture">lepture</span></a></h1>
+        {% block header %}
+        <aside id="navbar">
+            <h1><a id="nav-home" href="/">{{context.sitename}}</a></h1>
+            <div id="social">
+                <a rel="me" href="mailto:lepture@me.com" class="social-icon mail">Email</a>
+                <a rel="me" href="https://twitter.com/lepture" class="social-icon twitter">@lepture</a>
+                <a rel="me" href="https://github.com/lepture" class="social-icon github">Github</a>
+                <a rel="me" href="http://dribbble.com/lepture" class="social-icon dribbble">Dribbble</a>
+                <a rel="me" href="https://plus.google.com/u/0/117887319435448092628" class="social-icon googleplus">Google+</a>
+            </div>
+            <p id="description">Love its people, but never trust its government</p>
             {% block navigation %}
             <nav role="navigation">
                 <ul>
@@ -61,55 +69,18 @@
                 </ul>
             </nav>
             {% endblock %}
-
-            <form id="search-form" action="http://www.google.com/cse">
-                <input type="hidden" name="cx" value="{{context.gcse}}" />
-                <input id="search-input" class="ui-fm-text" type="text" placeholder="Search .." name="q" />
-            </form>
-
-            {% block afternav %}{% endblock %}
         </aside>
         {% endblock %}
 
-        <div id="middle" class="fn-clear">
+        <div id="main" class="fn-clear">
             <div class="container">
-                {% block middle %}
+                {% block main %}
                 <article class="hentry">
-                    {% block container %}{% endblock %}
+                    {% block entry %}{% endblock %}
                 </article>
+                {% block afterentry %}{% endblock %}
                 {% endblock %}
             </div>
         </div>
-
-        {% block right %}
-        <aside id="sidebar" class="side lepture">
-            <div class="container">
-            {% block sideheader %}
-            {% endblock %}
-            <div id="social">
-                <a rel="me" href="mailto:lepture@me.com" class="social-icon mail">Email</a>
-                <a rel="me" href="https://twitter.com/lepture" class="social-icon twitter">@lepture</a>
-                <a rel="me" href="https://github.com/lepture" class="social-icon github">Github</a>
-                <a rel="me" href="http://dribbble.com/lepture" class="social-icon dribbble">Dribbble</a>
-                <a rel="me" href="https://plus.google.com/u/0/117887319435448092628" class="social-icon googleplus">Google+</a>
-            </div>
-            {% block aftersocial %}
-            <p id="description">Love its people, but never trust its government</p>
-            {% endblock %}
-
-            {% block sidefooter %}
-            <div id="toc"></div>
-            <div id="sidenote"></div>
-            {% endblock %}
-            </div>
-        </aside>
-        {% endblock %}
-
-        {% block beforejs %}{% endblock %}
-        {#
-        <script type="text/javascript" src="{{static_url('js/jquery.min.js')}}"></script>
-        <script type="text/javascript" src="{{static_url('js/lepture.js')}}" media="screen"></script>
-        #}
-        {% block afterjs %}{% endblock %}
     </body>
 </html>

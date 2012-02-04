@@ -8,18 +8,14 @@
 </script>
 {% endblock %}
 
-{% block sideheader %}
-<h2 class="side-title">{%if title in map_data%}{{map_data[title]}}{%else%}{{title}}{%endif%}</h2>
-{% endblock %}
 
-{% block middle %}
-
+{% block main %}
 {% if pager.posts %}
 <dl>
     {% set year = 0 %}
     {% for post in pager.posts %}
     {% if post.date.year != year %}
-    <dt class="entry-time"><a href="/{{post.date.year}}/">{{post.date.year}}</a></dt>
+    <dt class="entry-time{%if loop.index == 1%} entry-top-time{%endif%}"><a href="/{{post.date.year}}/">{{post.date.year}}</a></dt>
     {% endif %}
     <dt class="{%if loop.index > 5%}entry-title {%endif%}fn-clear">
         <h3 class="fn-left"><a href="{{content_url(post.slug)}}">{{post.title}}</a></h3>
@@ -36,12 +32,4 @@
 {% endif %}
 
 {% include "pagination.html" %}
-{% endblock %}
-
-{% block sidefooter %}
-<div class="links">
-    {% for tag in status.tags %}
-    <a href="{{ content_url('tag', tag.name) }}" title="{{tag.count}} posts">{{ tag.name }}</a>
-    {% endfor %}
-</div>
 {% endblock %}

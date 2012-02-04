@@ -31,16 +31,11 @@ $(function(){
         var tagName = e.target.tagName.toLowerCase();
         if("input" == tagName|| "textarea" == tagName){return ;}
         if(37 == e.keyCode || 72 == e.keyCode){
-            var url = $('#older-entry').attr('href');
+            var url = $('#older').attr('href');
         }else if(39 == e.keyCode || 76 == e.keyCode){
-            var url = $('#newer-entry').attr('href');
-        }else if(85 == e.keyCode){
-            $('.side').toggleClass('fn-hide');
-            $('#middle .container').toggleClass('print');
-        }else if(74 == e.keyCode) {
-            $("html, body").animate({'scrollTop': "+=400"}, 200);
-        }else if(75 == e.keyCode) {
-            $("html, body").animate({'scrollTop': "-=400"}, 200);
+            var url = $('#newer').attr('href');
+        }else if(85 == e.keyCode) {
+            $('#navbar').toggleClass('fn-hide');
         }
         var url = url || '';
         if(url){location.assign(url);}
@@ -49,13 +44,5 @@ $(function(){
         if (window.github_repo && !window.is_github_fetched) {
             fetch_github_commits(github_repo);
         }
-    });
-    /* footnote */
-    $('table.footnote').each(function(index, item){
-        $('#sidenote').append(item);
-    });
-    $('a.footnote-reference').hover(function(){
-        $($(this).attr("href")).slideDown('fast');
-    }, function(){
     });
 });

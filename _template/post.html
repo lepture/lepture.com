@@ -35,20 +35,29 @@
 {% endblock %}
 
 
-{% block middle %}
-<article class="hentry">
-    <h1 class="entry-title">{{post.title}}</h1>
-    <div class="entry-time"><time datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%Y-%m-%d")}}</time></div>
-    <div class="entry-content">
-        {{ post.content }}
+{% block entry %}
+<h1 class="entry-title">{{post.title}}</h1>
+<div class="entry-meta fn-clear">
+    <time datetime="{{post.date|xmldatetime}}" pubdate class="updated">{{post.date.strftime("%Y-%m-%d")}}</time>
+    <div class="entry-tags">
+        {% for tag in post.tags %}
+        {% if loop.index > 1 %}|{%endif%}
+        <a href="{{content_url('tag', tag)}}" class="tag" rel="tag">{{tag}}</a>
+        {% endfor %}
     </div>
-</article>
+</div>
+<div class="entry-content">
+    {{ post.content }}
+</div>
+{% endblock %}
+
+{% block afterentry %}
 <nav class="entry-rel">
     {% if post.older%}
-    <a id="older-entry" href="{{content_url(post.older.slug)}}" title="{{post.older.title}}" rel="next">«Older</a>
+    <a id="older" href="{{content_url(post.older.slug)}}" title="{{post.older.title}}" rel="next">«Older</a>
     {% endif %}
     {% if post.newer %}
-    <a id="newer-entry" href="{{content_url(post.newer.slug)}}" title="{{post.newer.title}}" rel="prev">Newer»</a>
+    <a id="newer" href="{{content_url(post.newer.slug)}}" title="{{post.newer.title}}" rel="prev">Newer»</a>
     {% endif %}
 </nav>
 <div id="comments">
@@ -58,12 +67,8 @@
 {% endblock %}
 
 {% block afternav %}
-<nav><a href="/{{post.date.year}}/" rel="index"><time class="updated" datetime="{{post.date|xmldatetime}}" pubdate>{{post.date.strftime("%a, %b %d, %Y")}}</time></a></nav>
 {% if post.tags %}
 <div class="links">
-    {% for tag in post.tags %}
-    <a href="{{content_url('tag', tag)}}" class="tag" rel="tag">{{tag}}</a>
-    {% endfor %}
     </p>
 </div>
 {% endif %}
