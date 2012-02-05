@@ -8,7 +8,7 @@
         {% block author %}<meta name="author" content="{{ context.author }}" />{% endblock %}
         {% block beforestyle %}{% endblock %}
         {% block feed %}<link rel="alternate" type="application/rss+xml" href="{{context.feed}}" title="{{context.sitename}} Feed" />{% endblock %}
-        <link rel="stylesheet" href="{{ static_url('css/screen.css') }}" media="all" />
+        <link rel="stylesheet" href="{{ static_url('css/tmp.screen.css') }}" media="all" />
         {% block afterstyle %}{% endblock %}
         <!--[if IE]>
         <script src="{{static_url('js/html5.js')}}"></script>
@@ -21,13 +21,8 @@
             var isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|Blackberry|mobile)/);
             if(!isMobile) {
                 var jq = document.createElement('script'); jq.type = 'text/javascript'; jq.async = true;
-                jq.src = "{{static_url('js/jquery.min.js')}}";
+                jq.src = "{{static_url('js/tmp.lepture.js')}}";
                 var s = document.getElementsByTagName('script')[0];
-                jq.onload = function() {
-                    var lp = document.createElement('script'); lp.type = 'text/javascript'; lp.async = true;
-                    lp.src = "{{static_url('js/lepture.js')}}";
-                    s.parentNode.insertBefore(lp, s);
-                }
                 s.parentNode.insertBefore(jq, s);
             } else {
                 window.onload = function() {

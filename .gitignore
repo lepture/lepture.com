@@ -4,3 +4,4 @@ deploy
 _site
 tmp
 deploy.ini
+tmp.*
