@@ -1,4 +1,4 @@
-publish: js css build upload
+default: js css build publish
 
 css:
 	lessc --compress _static/src/screen.less > _static/css/tmp.screen.css
@@ -13,7 +13,7 @@ build:
 deploy: css
 	liquidluck --config deploy.ini
 
-upload:
+publish:
 	rm -fr _site/_static/src
-	rsync -av --del _site/ lepture.com:/www/lepture/lepture.com
+	rsync -av --del _site/ linode.lepture.com:/home/lepture/project/lepture.com
 	@echo "Done..."
