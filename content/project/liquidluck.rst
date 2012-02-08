@@ -58,7 +58,7 @@ The best way to have a clear understanding what a post file should be like is `F
 
 And you can add your site here, so everyone will know it.
 
-More about Writting: https://github.com/lepture/liquidluck/wiki/Write
+`More about Writting <https://github.com/lepture/liquidluck/wiki/Write>`_ .
 
 Themes
 --------

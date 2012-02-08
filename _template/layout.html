@@ -47,9 +47,9 @@
             <div id="social">
                 <a rel="me" href="mailto:lepture@me.com" class="social-icon mail">Email</a>
                 <a rel="me" href="https://twitter.com/lepture" class="social-icon twitter">@lepture</a>
-                <a rel="me" href="https://github.com/lepture" class="social-icon github">Github</a>
+                <a rel="me" href="http://flickr.com/lepture" class="social-icon flickr">Flickr</a>
                 <a rel="me" href="http://dribbble.com/lepture" class="social-icon dribbble">Dribbble</a>
-                <a rel="me" href="https://plus.google.com/u/0/117887319435448092628" class="social-icon googleplus">Google+</a>
+                <a rel="me" href="{{context.feed}}" class="social-icon feed">Feed</a>
             </div>
             <p id="description">Love its people, but never trust its government</p>
             {% block navigation %}
@@ -59,11 +59,12 @@
                     <li id="nav-life"><a href="/life/">Life</a></li>
                     <li id="nav-work"><a href="/work/">Work</a></li>
                     <li id="nav-note"><a href="/note/">Note</a></li>
+                    <li id="nav-project"><a href="/project/">Project</a></li>
                     <li id="nav-links"><a href="/links/">Links</a></li>
-                    <li id="nav-rss"><a href="{{context.feed}}">Feed</a></li>
                 </ul>
             </nav>
             {% endblock %}
+            <p class="copy"><a href="/project/liquidluck">Felix Felicis</a> Powered</p>
         </aside>
         {% endblock %}
 

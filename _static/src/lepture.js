@@ -22,7 +22,7 @@ $(function(){
 
     var currentNav = window.currentNav || '#nav-archive';
     $(currentNav).addClass('current');
-    $('#navbar').css('width', $('#main .container').offset().left);
+    //$('#navbar').css('width', $('#main .container').offset().left);
     $('a[href^=http]:not(a[href^="http://lepture.com"])').attr('target', '_blank');
     $("#toc").html($("#table-of-contents"));
     $(".toc-backref").each(function(index, item){

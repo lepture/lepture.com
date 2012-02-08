@@ -6,64 +6,47 @@ Just lepture
 :public: false
 :nav: home
 
-About
--------
-Hi, I am **Hsiaoming Young** (aka **lepture** elsewhere).
+
+About Me
+---------
+
+Hi! My name is **Hsiaoming Young** (aka **lepture** elsewhere).
 
 I am a creative web developer, fan of python. I love everything that worth the word beauty.
+I'm currently living in Hangzhou, occupied as front end developer at Alipay_.
 
-I did, do and will always belive in *Love its people, but never trust its government*.
+I did, do and will always belive in **Love its people, but never trust its government**.
 
-You can find me on Twitter_ , or contact me with `Email <lepture@me.com>`_ .
+You can reach me with:
+
+- following my Twitter_
+- sending me an `Email <lepture@me.com>`_ 
+- sending a message on Github_
+
+
+About My Work
+--------------
+
+All open source can be found on Github_ , and they are all under BSD License,
+which means you can do whatever you want. You may have a glance at my Project_ page.
 
 Check my `Wishlist <https://www.amazon.com/registry/wishlist/373NY7OIMSWGJ>`_ , buy me a kindle book for supporting my works.
 
-Active Projects
-----------------
-Projects that are active now.
+About this Website
+-------------------
 
-Felix Felicis
-~~~~~~~~~~~~~~~~~
-`Felix Felicis`_ (aka liquidluck) is a simple lightweight static blog generator. It supports markup of restructedText and markdown.
+I have tried lots of blog platforms, and have written some blog platforms, and I hope this is
+the very end of it.
 
-You can follow the `project on github <https://github.com/lepture/liquidluck>`_,
-report bug to `issue track <https://github.com/lepture/liquidluck/issues>`_.
-Before starting your liquidluck-powered blog, you should first check the `wiki <https://github.com/lepture/liquidluck/wiki>`_.
+It's now powered by `Felix Felicis </project/liquidluck>`_ which is a static blog generator
+by me, written in python. It's not perfect, but I wrote it, I can improve it.
 
-I just released the very alpha version 0.1, you can install it with ``pip install liquidluck`` now.
+If you are interested in this project, you should check this article `Mechanism of Felix Felicis <http://dev.lepture.com/work/mechanism-of-liquidluck/>`_
 
-tForms
-~~~~~~~
-tForms is a form framework for tornado_ , which is based on wtforms.
-
-tornado.ext
-~~~~~~~~~~~
-Collections of tools for tornado_, and practice in production.
-
-tornado.third
-~~~~~~~~~~~~~~
-Third party apis which are written with tornado. Include recaptcha api, renren api, and douban api. All written with async http request.
-
-Deactive Projects
-------------------
-Projects that are deactive now.
-
-Vealous
-~~~~~~~~
-`Vealous <https://github.com/lepture/Vealous>`_ is a blog system for GAE.
-
-I stopped this project long ago, I think it's quite a briliant decision since Google has changed the price plan.
-
-But if you still have a faith in GAE, you can fork this project, and continue my work.
-
-Feedbundle
-~~~~~~~~~~
-Create a bundle of your favorite feeds with `Feedbundle <http://www.feedbundle.com>`_, but I have no spare time right now, I will continue this project when I am free.
-
-The project is written with tornado_ , database powered by mongodb.
 
 Elsewhere
 -----------
+
 + Twitter_
 + `Github <http://github.com/lepture>`_
 + `Forrst <http://forrst.me/lepture>`_
@@ -74,5 +57,5 @@ Elsewhere
 + `Kindle <https://kindle.amazon.com/profile/lepture/1099122>`_
 
 .. _Twitter: https://twitter.com/lepture
-.. _tornado: http://tornadoweb.org
-.. _`Felix Felicis`: http://lepture.com/project/liquidluck
+.. _Project: http://lepture.com/project/
+.. _Alipay: https://www.alipay.com

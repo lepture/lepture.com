@@ -86,7 +86,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
 #social {
     margin: 0.8em;
 }
-#description {
+#description, .copy {
     font-style: italic;
     font-size: 85%;
 }
@@ -95,7 +95,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
     position: fixed;
     left: 0;
     top: 0;
-    width: 260px;
+    width: 300px;
     height: 100%;
     padding: 20px 0;
     font-family: @serif;
@@ -107,12 +107,19 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
         a {
             line-height: 170%;
             color: @basecolor;
-            display: block;
             text-decoration: none;
             text-transform: uppercase;
         }
         .current a, a:hover {
             color: darken(@basecolor, 20%);
+        }
+    }
+    .copy {
+        margin-top: 3em;
+        font-family: @serif;
+        color: @bordercolor;
+        a {
+            color: @bordercolor;
         }
     }
 }
@@ -148,13 +155,13 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
     }
 }
 #main {
-    margin: 0 260px;
     font-family: @serif;
     color: #343434;
     line-height: 150%;
     .container {
-        max-width: 560px;
-        margin: 0 auto;
+        margin-left: 300px;
+        margin-right: 300px;
+        min-width: 560px;
         padding: 2em;
         border: 1px solid #dadada;
         background: #fff;
@@ -262,20 +269,15 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
     border: 0 none;
 }
 
-.social-icon{background:url(social_icons.png) no-repeat 0 0;width:24px;height:24px;display:inline-block;margin-right:2px;text-indent:-9999em;}
-.social-icon.dribbble{background-position:0 0;}
-.social-icon.mail{background-position:0 -24px;}
-.social-icon.facebook{background-position:0 -48px;}
-.social-icon.flickr{background-position:0 -72px;}
-.social-icon.github{background-position:0 -96px;}
-.social-icon.googleplus{background-position:0 -120px;}
-.social-icon.instagram{background-position:0 -144px;}
-.social-icon.lastfm{background-position:0 -168px;}
-.social-icon.linkedin{background-position:0 -192px;}
-.social-icon.twitter{background-position:0 -216px;}
-.social-icon.sinaweibo{background-position:0 -240px;}
-.social-icon.tweibo{background-position:0 -264px;}
-.social-icon.douban{background-position:0 -288px;}
+.social-icon{
+    background:url(social.png) no-repeat 0 0;
+    width:32px;height:32px;display:inline-block;margin-right:2px;text-indent:-9999em;
+}
+.social-icon.mail{background-position:0 -1px;}
+.social-icon.twitter{background-position:0 -79px;}
+.social-icon.flickr{background-position:0 -159px;}
+.social-icon.dribbble{background-position:0 -119px;}
+.social-icon.feed{background-position:0 -38px;}
 .tagcloud li {
     display: inline-block;
     padding: 0.1em 0.27em;
@@ -289,6 +291,8 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
     #main .container {
         padding: 1em;
         max-width: none;
+        min-width: 0;
+        margin: 0 auto;
         border: 0 none;
     }
 }
@@ -313,7 +317,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
             line-height: 150%;
         }
     }
-    #social, #description {
+    #social, #description, .copy {
         display: none;
     }
 }
