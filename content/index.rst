@@ -39,7 +39,8 @@ I have tried lots of blog platforms, and have written some blog platforms, and I
 the very end of it.
 
 It's now powered by `Felix Felicis </project/liquidluck>`_ which is a static blog generator
-by me, written in python. It's not perfect, but I wrote it, I can improve it.
+by me, written in python. It's not perfect, but I wrote it, I can improve it. The source code
+of this site can be found at `Github Blog Source <https://github.com/lepture/lepture.com>`_ .
 
 If you are interested in this project, you should check this article `Mechanism of Felix Felicis <http://dev.lepture.com/work/mechanism-of-liquidluck/>`_
 
