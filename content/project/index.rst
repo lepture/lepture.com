@@ -19,6 +19,14 @@ Before starting your liquidluck-powered blog, you should first check the `wiki <
 
 I just released the very alpha version 0.1, you can install it with ``pip install liquidluck`` now.
 
+Google HTTPS
+-------------
+A greasemonkey script that enforce all google services to https.
+
+Fix on google search results, remove the refer behavior. GFW sucks.
+
+`Install the Script </project/google.user.js>`_ on Chrome or Firefox.
+
 
 tForms
 ---------
