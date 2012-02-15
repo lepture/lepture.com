@@ -2,6 +2,7 @@ default: js css build publish
 
 css:
 	lessc --compress _static/src/screen.less > _static/css/tmp.screen.css
+	lessc --compress _static/src/pygments.less > _static/css/tmp.pygments.css
 
 js:
 	uglifyjs -nc _static/src/jquery.min.js > _static/js/tmp.lepture.js

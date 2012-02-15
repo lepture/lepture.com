@@ -1,28 +1,13 @@
-html {
-    background: #2E426B;
-}
-.just, #middle, {
-    float: left !important;
-    margin: 0;
-}
-#middle {
-    background: #fff;
-}
-#middle .container {
-    width: 560px;
-    margin: 0;
-}
 #github {
     display: none;
 }
-.lepture {
-    float: right;
-    width: auto;
+#navbar {
+    position: absolute;
 }
-.entry-rel, .role-pagination {
+.role-pagination {
     text-align: center;
 }
-#older-entry, #newer-entry {
+#older, #newer{
     background: transparent;
     color: #656565;
 }
