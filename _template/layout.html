@@ -45,11 +45,12 @@
         <aside id="navbar">
             <h1><a id="nav-home" href="/">{{context.sitename}}</a></h1>
             <div id="social">
-                <a rel="me" href="mailto:lepture@me.com" class="social-icon mail">Email</a>
-                <a rel="me" href="https://twitter.com/lepture" class="social-icon twitter">@lepture</a>
-                <a rel="me" href="http://flickr.com/lepture" class="social-icon flickr">Flickr</a>
-                <a rel="me" href="http://dribbble.com/lepture" class="social-icon dribbble">Dribbble</a>
-                <a rel="me" href="{{context.feed}}" class="social-icon feed">Feed</a>
+                <a rel="me" href="mailto:lepture@me.com" class="social-mail" title="Email">Email</a>
+                <a rel="me" href="https://twitter.com/lepture" class="social-twitter" title="Twitter">@lepture</a>
+                <a rel="me" href="https://github.com/lepture" class="social-github" title="Github">Github</a>
+                <a rel="me" href="http://dribbble.com/lepture" class="social-dribbble" title="Dribbble">Dribbble</a>
+                <a rel="me" href="http://flickr.com/lepture" class="social-flickr" title="Flickr">Flickr</a>
+                <a rel="me" href="{{context.feed}}" class="social-feed" title="Feed">Feed</a>
             </div>
             <p id="description">Love its people, but never trust its government</p>
             {% block navigation %}
@@ -64,7 +65,10 @@
                 </ul>
             </nav>
             {% endblock %}
-            <p class="copy"><a href="/project/liquidluck">Felix Felicis</a> Powered</p>
+            <p class="copy">
+            <a href="/project/liquidluck/">Felix Felicis</a> Powered<br />
+            Icons by <a href="http://www.wpzoom.com/freebies/free-icons-set-social-media-by-wpzoom/" rel="nofollow">wpzoom</a>
+            </p>
         </aside>
         {% endblock %}
 

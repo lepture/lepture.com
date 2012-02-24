@@ -28,7 +28,7 @@
     }
 </style>
 {% endif %}
-<link rel="canonical" href="{{ content_url(post.slug) }}" />
+<link rel="canonical" href="{{context.siteurl}}{{ content_url(post.slug) }}" />
 <script type="text/javascript">
     var currentNav = '#nav-{{post.folder}}';
 </script>

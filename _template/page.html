@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block afterstyle %}
+<link rel="canonical" href="{{ context.siteurl }}{{ content_url(post.slug) }}" />
 {% if post.summary %}
 <meta name="description" content="{{ post.summary }}" />
 {% endif %}

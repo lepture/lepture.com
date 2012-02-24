@@ -71,7 +71,11 @@ alipay.com
 -----------
 + `sofish <http://sofish.de>`_
 
+  小魚已經離開支付寶了
+
 + `Janlay <http://janlay.com>`_
+
+  大伯是個藝文青年
 
 + `ShaoShuai <http://shaoshuai.me>`_
 

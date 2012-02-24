@@ -25,7 +25,7 @@ A greasemonkey script that enforce all google services to https.
 
 Fix on google search results, remove the refer behavior. GFW sucks.
 
-`Install the Script </project/google.user.js>`_ on Chrome or Firefox.
+`Install the Script <https://github.com/lepture/dotfiles/raw/master/dotjs/google.user.js>`_ on Chrome or Firefox.
 
 
 tForms
