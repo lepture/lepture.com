@@ -42,7 +42,7 @@ It's now powered by `Felix Felicis </project/liquidluck>`_ which is a static blo
 by me, written in python. It's not perfect, but I wrote it, I can improve it. The source code
 of this site can be found at `Github Blog Source <https://github.com/lepture/lepture.com>`_ .
 
-If you are interested in this project, you should check this article `Mechanism of Felix Felicis <http://dev.lepture.com/work/mechanism-of-liquidluck/>`_
+If you are interested in this project, you should check this article `Mechanism of Felix Felicis <http://lepture.com/work/mechanism-of-liquidluck/>`_
 
 
 Elsewhere

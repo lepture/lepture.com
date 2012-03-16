@@ -1,5 +1,5 @@
-Fix mysql has gone away with SQLAlchemy in tornado
-===================================================
+MySQL and SQLAlchemy in tornado
+================================
 
 :folder: work
 :date: 2012-02-09 21:15
@@ -10,8 +10,10 @@ Fix mysql has gone away with SQLAlchemy in tornado
     - tornado
 
 
-I just started a project at http://start.lepture.com , which is built on tornado with database
-of mysql. 
+Fix MySQL has gone away
+-----------------------
+
+I just started a new project, which is built on tornado with database of mysql.
 
 It's a new project, and there is no user. Therefore, the database can be inactive for a long
 time, it then occurred to me that mysql has gone away!
@@ -23,51 +25,65 @@ Then I figured it out, I am using tornado! I can set a PeriodicCallback to ping 
 pool recycle time, so that mysql can not go away.
 
 I have written a `wrap for SQLAlchemy <http://lepture.com/work/tornado-ext/>`_ to make it a
-little Django like. Then I add this feature to it as:
+little Django like. Then I add this feature to it.
 
 .. sourcecode:: python
 
-    class SQLAlchemy(object):
-        """
-        Example::
+    if 'pool_recycle' in kwargs:
+        # ping db, so that mysql won't goaway
+        PeriodicCallback(self._ping_db, kwargs['pool_recycle'] * 1000).start()
 
-            db = SQLAlchemy("mysql://user:pass@host:port/db", pool_recycle=3600)
 
-            from sqlalchemy import Column, String
+.. sourcecode:: python
 
-            class User(db.Model):
-                username = Column(String(16), unique=True, nullable=False)
-                password = Column(String(30), nullable=False)
+    def _ping_bd(self):
+        self.session.execute('show variables')
 
-            >>> db.create_db()
-            >>> User.query.filter_by(username='yourname')
 
-        """
-        def __init__(self, database, **kwargs):
-            self.engine = create_engine(database, **kwargs)
-            self.session = self.create_session()
-            self.Model = self.create_model()
-            if 'pool_recycle' in kwargs:
-                # ping db, so that mysql won't goaway
-                PeriodicCallback(self._ping_db, kwargs['pool_recycle'] * 1000).start()
+Master Slave in SQLAlchemy
+---------------------------
 
-        def create_session(self):
-            session = sessionmaker(bind=self.engine, query_cls=DjangoQuery)
-            return scoped_session(session)
+I hate SQL! I know that orm sucks, but SQL is killing me. I am using SQLAlchemy as the
+orm engine, but it's not that easy to implement in a project. I wrote some snippets to
+make it easy to use. And I introduced a new feature in the snippet today! (2012-02-28)
 
-        def create_model(self):
+Master and Slave support in SQLAlchemy! What a tremendous feature. There are some answers on
+Stack Overflow, but I thought mine is more elegant (maybe I am wrong).
+
+.. sourcecode:: python
+    
+    @property
+    def Model(self):
+        if hasattr(self, '_base'):
+            base = self._base
+        else:
             base = declarative_base(cls=Model, name='Model')
+            self._base = base
+        if self.slaves:
+            slave = random.choice(self.slaves)
+            base.query = slave.query_property()
+        else:
             base.query = self.session.query_property()
-            return base
-
-        def create_db(self):
-            return self.Model.metadata.create_all(self.engine)
-
-        def _ping_db(self):
-            self.session.execute('show variables')
+        return base
 
 
 You may have a little confuse, have a better understanding with the source code at Github_ .
+
+**You must read the whole code before continuing!**
+
+After it is integrated in your project! You can read data from slave database with:
+
+``Member.query.filter_by(username='lepture')``
+
+For writing data into master database, using ``db.session.add(model)`` .
+
+For updating data, you should query the model with:
+
+``db.session.query(Member).filter_by(username='lepture')``
+
+Always remember, ``db.session`` is master, ``Model.query`` is slave,
+``Model.query`` is read-only!
+
 
 .. _document: http://docs.sqlalchemy.org/en/latest/dialects/mysql.html
 .. _Github: https://github.com/lepture/tornado.ext/blob/master/database.py

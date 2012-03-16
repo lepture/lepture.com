@@ -10,11 +10,15 @@ Links / 交集
 Tools
 --------
 
-+ `Ping <http://blogsearch.google.com/ping?url=http://lepture.com/archive/>`_
++ `Ping Blog <http://blogsearch.google.com/ping?url=http://lepture.com/archive/>`_
+
++ `Ping Python China <http://blogsearch.google.com/ping?url=http://python-china.org/feed>`_
 
 + `Webmaster <https://www.google.com/webmasters/tools/home>`_
 
 + `Analytics <https://www.google.com/analytics/settings/home>`_
+
++ `Python China <http://python-china.org>`_
 
 
 Wuhan University
