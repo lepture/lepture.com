@@ -235,6 +235,8 @@ syntax errors. Just install it, and edit your .vimrc:
 By the way, manage your vim plugin with Pathogen_ or Vundle_ . For Chinese visitors,
 `this post`_ will tell how I manage my vim plugins.
 
+**EDIT: flake8 is the default syntax checker in syntastic now. Don't add the code.**
+
 
 Conclusion
 -----------
