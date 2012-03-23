@@ -1,4 +1,4 @@
-default: js css build publish
+default: build publish
 
 css:
 	lessc --compress _static/src/screen.less > _static/css/tmp.screen.css

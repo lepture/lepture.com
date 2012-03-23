@@ -36,7 +36,7 @@ little Django like. Then I add this feature to it.
 
 .. sourcecode:: python
 
-    def _ping_bd(self):
+    def _ping_db(self):
         self.session.execute('show variables')
 
 
