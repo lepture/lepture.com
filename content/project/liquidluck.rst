@@ -5,7 +5,7 @@ Felix Felicis
 :date: 2011-11-23
 :folder: project
 :public: false
-:nav: home
+:nav: project
 :github: lepture/liquidluck
 
 
@@ -36,7 +36,7 @@ Features
 Install
 --------
 
-Install the very alpha version 0.2::
+Install the very alpha version 0.3::
 
     pip install liquidluck --upgrade
 
@@ -99,6 +99,22 @@ There are many static blog engines, I know some:
 
 Changelog
 ---------
+
++ **2012.03.22**: v0.3
+
+  Notice: variables changed.
+
+  1. Edit your post.html, change post.prev to post.newer
+  2. Edit your post.html, change post.next to post.older
+
+  Notice: change codeblock for markdown, now write your code with:
+
+  ::
+
+    ```python
+    def code():
+        return True
+    ```
 
 + **2011.12.25**: v0.2
 
