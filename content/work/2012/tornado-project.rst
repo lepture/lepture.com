@@ -48,7 +48,7 @@ A glance at my tornado project folder structure:
         locale/
         lib/
 
-A live demo can be found at june_ , which is the forum engine that powered `Python China`_.
+A live demo can be found at june_ , which is the forum engine that powers `Python China`_.
 And welcome Chinese Pythoners, we need you.
 
 Why assets

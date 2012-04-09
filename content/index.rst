@@ -13,9 +13,9 @@ About Me
 Hi! My name is **Hsiaoming Young** (aka **lepture** elsewhere).
 
 I am a creative web developer, fan of python. I love everything that worth the word beauty.
-I'm currently living in Hangzhou, employed as front end developer at Alipay_.
+I'm currently living in Hangzhou, employed as a front end developer at Alipay_.
 
-I did, do and will always belive in **Love its people, but never trust its government**.
+I did, do and will always believe in **Love its people, but never trust its government**.
 
 You can reach me with:
 
