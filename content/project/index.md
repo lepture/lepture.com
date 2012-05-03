@@ -21,8 +21,17 @@ is a simple lightweight static blog generator.
 It supports markup of restructedText and markdown.
 
 + [Documentation](https://github.com/lepture/liquidluck/wiki)
-+ [Github](https://github.com/lepture/liquidluck)
++ [GitHub](https://github.com/lepture/liquidluck)
 + [PyPi](http://pypi.python.org/pypi/liquidluck)
+
+
+## vim-velocity
+
+[vim-velocity](http://lepture.com/work/vim-velocity-syntax/) is a syntax plugin
+for velocity template language. It is a better replacement of the one on vim.org.
+
++ [Documentation](http://lepture.com/work/vim-velocity-syntax/)
++ [GitHub](https://github.com/lepture/vim-velocity)
 
 
 ## June
