@@ -2,7 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Python LiverReload</title>
+        <title>Python LiveReload</title>
+        <script type="text/javascript">
+            var _gaq = [['_setAccount', 'UA-21475122-1'], ['_trackPageview']];
+            _gap.push(['_setCustomVar', 1, 'Project', 'LiveReload'])
+            (function(d, t) {
+            var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            g.async = true;
+            g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s);
+            })(document, 'script');
+        </script>
         <style type="text/css">
             html, body {
                 background: #f9f9f9;
@@ -25,10 +36,13 @@
                 font-size: 36px;
             }
             h2 {
-                margin: 5px;
+                margin: 5px 0;
+            }
+            h3 {
+                margin: 20px 0 5px;
             }
             pre {
-                background: #ccc;
+                background: #ddd;
                 padding: 6px 18px;
             }
             a {
@@ -43,6 +57,9 @@
                 margin: 0 auto;
                 padding: 20px;
             }
+            article {
+                padding: 20px;
+            }
         </style>
     </head>
     <body>
@@ -54,20 +71,99 @@
             </header>
             <div id="main">
                 <article>
-                    <h2>What is LiveReload</h2>
-                </article>
-                <article>
-                    <h2>What is Python LiveReload</h2>
+                    <h2>Forward</h2>
+                    <p><a href="http://livereload.com">LiveReload</a>
+                    is an awsome tool for web developers, and this is a python
+                    version of LiveReload Server.
+                    </p>
+                    <p>Web Developers need to refresh a browser everytime when he
+                    saved a file(style, javascript, html), it is really boring.
+                    LiveReload will take care of that for you. When you saved a
+                    file, your browser will refresh itself. And what's more, it
+                    can do some tasks like compiling less to css before the browser
+                    refreshing.
+                    </p>
+                    <video width="650" controls>
+                        <source src="https://shiao.googlecode.com/files/livereload.mov" />
+                    </video>
+                    <p>If you can't watch the video, head over to <a href="http://v.youku.com/v_show/id_XMzkxMDgwMDcy.html">here</a></p>
                 </article>
                 <article>
                     <h2>Installation</h2>
+                    <p>Python LiveReload is designed for web developers who know
+                    Python.</p>
+                    <h3>Install python-livereload</h3>
                     <p>Install Python LiveReload with pip</p>
-                    <pre>pip install livereload</pre>
+                    <pre>$ pip install livereload</pre>
                     <p>If you don't have pip installed, try easy_install</p>
-                    <pre>easy_install livereload</pre>
+                    <pre>$ easy_install livereload</pre>
+
+                    <h3>Install Browser Extensions</h3>
+                    <p>Get Browser Extensions From <a href="http://help.livereload.com/kb/general-use/browser-extensions">LiveReload.com</a></p>
+
+                    <h3>Get Notify</h3>
+                    <p>If you are on Mac, and you are a Growl user,
+                    you can get a notify by install:
+                    </p>
+                    <pre>$ pip install gntp</pre>
+
+                    <h3>Working with file protocal</h3>
+                    <p>Enable file protocal on Chrome:</p>
+                    <p><img src="http://i.imgur.com/qGpJI.png" /></p>
+                    <p>Safari extension will not work with file protocal.</p>
                 </article>
                 <article>
-                    <h2>Documentation</h2>
+                    <h2>Quickstart</h2>
+                    <p>
+                    LiveReload is designed for more complex tasks,
+                    not just for refreshing a browser.
+                    But you can still do the simple task.
+                    </p>
+                    <p>Assume you have livereload and its extension installed, and
+                    now you are in your working directory. With command
+                    </p>
+                    <pre>$ livereload</pre>
+                    <p>your browser will reload, if any file in the working
+                    directory changed.
+                    </p>
+                </article>
+                <article>
+                    <h2>Guardfile</h2>
+                    <p>More complex tasks can be done by Guardfile. Write a
+                    Guardfile in your working directory, the basic syntax:
+                    </p>
+                    <pre>#!/usr/bin/env python
+from livereload.task import Task
+
+Task.add('static/style.css')
+Task.add('*.html')
+                    </pre>
+                    <p>Now livereload will only guard <code>static/style.css</code> and html in your workding directory.</p>
+                    <p>But python-livereload is more than that, you can specify
+                    a task before refreshing the browser:
+                    </p>
+                    <pre>#!/usr/bin/env python
+import functools
+from livereload.task import Task
+
+def lessc(path, output):
+    from livereload.compiler import LessCompiler
+    less = LessCompiler(path)
+    less.write(output)
+
+Task.add('style.less', functools.partial(lessc, 'style.less', 'style.css'))
+                    </pre>
+                    <p>And it will compile less css before refreshing the browser now.</p>
+                    <p>More documentation will be available soon.
+                    You should follow me on
+                    <a href="https://github.com/lepture">GitHub</a>
+                    for the latest news.
+                    </p>
+                </article>
+                <article>
+                    <h2>Others</h2>
+                    <p>If you are on a Mac, you can buy <a href="http://livereload.com">LiveReload2</a>.</p>
+                    <p>If you are a rubist, you can get <a href="https://github.com/guard/guard-livereload">guard-livereload</a>.</p>
                 </article>
             </div>
         </div>
