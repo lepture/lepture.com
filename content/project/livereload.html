@@ -5,7 +5,7 @@
         <title>Python LiveReload</title>
         <script type="text/javascript">
             var _gaq = [['_setAccount', 'UA-21475122-1'], ['_trackPageview']];
-            _gap.push(['_setCustomVar', 1, 'Project', 'LiveReload'])
+            _gaq.push(['_setCustomVar', 1, 'Project', 'LiveReload']);
             (function(d, t) {
             var g = d.createElement(t),
                 s = d.getElementsByTagName(t)[0];
@@ -73,7 +73,7 @@
                 <article>
                     <h2>Forward</h2>
                     <p><a href="http://livereload.com">LiveReload</a>
-                    is an awsome tool for web developers, and this is a python
+                    is an awesome tool for web developers, and this is a python
                     version of LiveReload Server.
                     </p>
                     <p>Web Developers need to refresh a browser everytime when he
@@ -83,10 +83,6 @@
                     can do some tasks like compiling less to css before the browser
                     refreshing.
                     </p>
-                    <video width="650" controls>
-                        <source src="https://shiao.googlecode.com/files/livereload.mov" />
-                    </video>
-                    <p>If you can't watch the video, head over to <a href="http://v.youku.com/v_show/id_XMzkxMDgwMDcy.html">here</a></p>
                 </article>
                 <article>
                     <h2>Installation</h2>
@@ -154,7 +150,7 @@ def lessc(path, output):
 Task.add('style.less', functools.partial(lessc, 'style.less', 'style.css'))
                     </pre>
                     <p>And it will compile less css before refreshing the browser now.</p>
-                    <p>More documentation will be available soon.
+                    <p>More documentation on <a href="http://livereload.readthedocs.org/">Read the Docs</a>.
                     You should follow me on
                     <a href="https://github.com/lepture">GitHub</a>
                     for the latest news.

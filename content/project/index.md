@@ -38,6 +38,7 @@ for velocity template language. It is a better replacement of the one on vim.org
 [python-livereload](http://lepture.com/project/livereload/) is an awsome tool for
 web developers.
 
++ [Documentation](http://livereload.readthedocs.org/)
 + [GitHub](https://github.com/lepture/python-livereload)
 + [PyPi](http://pypi.python.org/pypi/livereload)
 
