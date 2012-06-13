@@ -1,11 +1,7 @@
 Links / 交集
 ============
 
-:template: page.html
-:date: 2011-11-23
-:public: false
-:nav: links
-
+:template: note.html
 
 Tools
 --------
