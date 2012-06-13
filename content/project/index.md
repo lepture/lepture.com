@@ -1,12 +1,9 @@
-==================
-title: Project
-template: page.html
-date: 2011-11-23
-folder: project
-public: false
-nav: project
-=================
+# title: Project
 
+- template: page.html
+- nav: project
+
+--------------
 
 All open source can be found on [Github](https://github.com/lepture) ,
 and they are all under BSD License.
