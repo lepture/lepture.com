@@ -51,10 +51,10 @@ writers_variables = {
 #: template variables for rewrite themes variables
 template_variables = {
     'nav_items': [
-        ('Home', '/'),
-        ('Archive', '/archive/'),
+        ('Blog', '/archive/'),
         ('Life', '/life/'),
         ('Work', '/work/'),
+        ('Links', '/links/'),
     ],
     'social_items': [
         ('GitHub', 'https://github.com/lepture'),
