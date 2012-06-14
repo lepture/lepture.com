@@ -17,8 +17,7 @@ permalink = '{{category}}/{{filename}}/'
 #: site information
 site = {
     'name': 'Just lepture',
-    'url': 'http://dev.lepture.com',
-    #'url': 'http://lepture.com',
+    'url': 'http://lepture.com',
     'feed': 'http://feeds.lepture.com/lepture',
 }
 author = 'lepture'
@@ -31,42 +30,35 @@ authors = {
 }
 
 #: active readers
-readers = ['markdown', 'rst']
+# readers = ['markdown', 'rst']
 
 #: active writers
-writers = [
-    'post',
-    'page',
-    'file',
-    'static',
-    'archive',
-    'feed',
-    'tag',
-    'category',
-]
+#writers = [
+#    'post', 'page', 'file', 'static', 'archive', 'archive_feed',
+#    'tag', 'category', 'category_feed'
+#]
 writers_variables = {
-    # ArchiveWriter
     'archive_output': 'archive.html',
 }
 
 #: template variables for rewrite themes variables
 template_variables = {
-    'nav_items': [
+}
+
+#: template filters
+template_filters = {
+}
+
+#: theme variables
+theme_variables = {
+    'navigation': [
         ('Blog', '/archive/'),
         ('Life', '/life/'),
         ('Work', '/work/'),
         ('About', '/about/'),
     ],
-    'social_items': [
+    'elsewhere': [
         ('GitHub', 'https://github.com/lepture'),
         ('Twitter', 'https://twitter.com/lepture'),
     ],
-    'support': {
-        #'disqus': 'lepture',
-        #'analytics': 'UA-21475122-1',
-    }
-}
-
-#: template filters
-template_filters = {
 }
