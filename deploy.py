@@ -55,7 +55,7 @@ template_variables = {
         ('Blog', '/archive/'),
         ('Life', '/life/'),
         ('Work', '/work/'),
-        ('Links', '/links/'),
+        ('About', '/about/'),
     ],
     'social_items': [
         ('GitHub', 'https://github.com/lepture'),

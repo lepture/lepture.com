@@ -1,9 +1,10 @@
-# Just lepture
+# About
 
+- template: note.html
 
 ---------
 
-## About Me
+## Hsiaoming Yang
 
 Hi! My name is **Hsiaoming Young** (aka **lepture** elsewhere).
 
@@ -19,7 +20,7 @@ You can reach me with:
 - sending a message on [Github](https://github.com/lepture)
 
 
-## About My Work
+## Open Source
 
 All open source can be found on Github , and they are all under BSD License,
 which means you can do whatever you want. You may have a glance at my
@@ -28,7 +29,7 @@ which means you can do whatever you want. You may have a glance at my
 Check my [Wishlist](https://www.amazon.com/registry/wishlist/373NY7OIMSWGJ),
 buy me a kindle book for supporting my works.
 
-## About this Website
+## Just lepture
 
 I have tried lots of blog platforms, and have written some blog platforms, and I hope this is
 the very end of it.
