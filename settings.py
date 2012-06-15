@@ -30,13 +30,11 @@ authors = {
 }
 
 #: active readers
-# readers = ['markdown', 'rst']
+# readers = {}
 
 #: active writers
-#writers = [
-#    'post', 'page', 'file', 'static', 'archive', 'archive_feed',
-#    'tag', 'category', 'category_feed'
-#]
+#writers = {}
+
 writers_variables = {
     'archive_output': 'archive.html',
 }

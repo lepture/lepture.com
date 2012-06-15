@@ -4,7 +4,7 @@ build:
 	liquidluck
 
 deploy:
-	liquidluck -v -f deploy.py
+	liquidluck -v -s deploy.py
 
 clean:
 	rm -fr _site/
