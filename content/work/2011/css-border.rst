@@ -6,6 +6,7 @@ CSS Border
 
 :date: 2011-10-21
 :folder: work
+:public: false
 :tags:
     - html
     - css

@@ -3,6 +3,7 @@
 
 :date: 2012-02-01 10:30
 :folder: work
+:public: false
 :github: lepture/dotfiles
 :tags:
     - vim

@@ -4,6 +4,7 @@ Django with uwsgi
 :summary: Django with uwsgi, virtualenv, supervisor and nginx
 :date: 2011-08-29
 :folder: work
+:public: false
 :tags:
     - python
     - django

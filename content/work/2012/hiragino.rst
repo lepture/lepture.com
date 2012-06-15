@@ -6,6 +6,7 @@ Hiragino
     - font
     - chinese
 :folder: work
+:public: false
 :date: 2012-01-03 21:10
 
 

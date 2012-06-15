@@ -4,6 +4,7 @@ jQuery Tags
 :summary: jquery.tag.js, beautiful tags ui plugin for jquery
 :date: 2011-06-22
 :folder: work
+:public: false
 :tags:
     - javascript
     - design

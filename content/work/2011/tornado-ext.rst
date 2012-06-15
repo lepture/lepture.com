@@ -4,6 +4,7 @@ Tornado with SQLAlchemy and wtForms
 :summary: Tornado integerated with SQLAlchemy and wtForms. Make Tornado easy to use.
 :date: 2011-09-20
 :folder: work
+:public: false
 :github: lepture/tornado.ext
 :tags:
     - python

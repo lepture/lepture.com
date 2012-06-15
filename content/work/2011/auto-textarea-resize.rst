@@ -6,6 +6,7 @@ Auto Textarea Resize
 
 :date: 2011-11-22
 :folder: work
+:public: false
 :tags:
     - javascript
     - jquery
