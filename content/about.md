@@ -6,7 +6,7 @@
 
 ## Hsiaoming Yang
 
-Hi! My name is **Hsiaoming Young** (aka **lepture** elsewhere).
+Hi! My name is **Hsiaoming Yang** (aka **lepture** elsewhere).
 
 I am a creative web developer, fan of python. I love everything that worth the word beauty.
 I am currently living in Hangzhou, employed as a front end developer at Alipay.
