@@ -9,7 +9,7 @@ output = '_site'
 static_output = '_site/static'
 
 #: theme, load theme from _themes
-theme = 'default'
+theme = 'moment'
 
 permalink = '{{category}}/{{filename}}/'
 

@@ -3,5 +3,5 @@ _build
 deploy
 _site
 tmp
-deploy.ini
+deploy.py
 tmp.*

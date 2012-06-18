@@ -25,4 +25,5 @@ buy me a kindle book for supporting my works.
 
 ## Just lepture
 
-All articles are (c) Hsiaoming Yang, all rights are reserved.
+All articles are (c) Hsiaoming Yang, all rights reserved. They are **not**
+under any public domain.
