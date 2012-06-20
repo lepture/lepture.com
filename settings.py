@@ -7,6 +7,7 @@ source = 'content'
 #: generate html to ouput
 output = '_site'
 static_output = '_site/static'
+# static_prefix = '/static/'
 
 #: theme, load theme from _themes
 theme = 'moment'
