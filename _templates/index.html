@@ -1,20 +1,26 @@
 {% extends "layout.html" %}
 
-{% block main %}
-<h1>{{post.title}}</h1>
+{% block nav %}
+<nav id="nav" role="navigation">
+    <a href="/archive/">Blog</a>
+    <a href="/life/">Life</a>
+    <a href="/work/">Work</a>
+    <a href="http://project.lepture.com">Project</a>
+</nav>
+{% endblock %}
 
+{% block main %}
 <div class="entry-content">
     {{post.content}}
 </div>
 
-<hr class="end" />
+<h2>Recent Updates</h2>
 <div class="entry-list">
     {% for post in resource.posts[:6] %}
     <div class="entry-item">
         <time class="updated" datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%b, %d, %Y")}}</time>
-        <h3><a href="{{ post|permalink }}">{{post.title}}</a></h3>
+        <a href="{{ post|permalink }}">{{post.title}}</a>
     </div>
     {% endfor %}
 </div>
-
 {% endblock %}
