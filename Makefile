@@ -1,10 +1,10 @@
 publish: build upload
 
 build:
-	liquidluck
+	liquidluck build
 
 deploy:
-	liquidluck -v -s deploy.py
+	liquidluck build -v -s deploy.py
 
 clean:
 	rm -fr _site/
