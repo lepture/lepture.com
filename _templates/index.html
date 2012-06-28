@@ -1,5 +1,18 @@
 {% extends "layout.html" %}
 
+{% block afterstyle %}
+<style type="text/css">
+    #main h2 {
+        font: normal normal 12px "Helvetica", arial, sans-serif;
+        text-transform: uppercase;
+        color: #bcbcbc;
+    }
+    #main h3 {
+        font-family: "Helvetica", arial, sans-serif;
+    }
+</style>
+{% endblock %}
+
 {% block nav %}
 <nav id="nav" role="navigation">
     <a href="/archive/">Blog</a>
@@ -16,11 +29,15 @@
 
 <h2>Recent Updates</h2>
 <div class="entry-list">
-    {% for post in resource.posts[:6] %}
+    {% for cat in resource.category -%}
+    <h3>{{cat|title}}</h3>
+    {% set posts = resource.category[cat][:5] -%}
+    {% for post in posts -%}
     <div class="entry-item">
         <time class="updated" datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%b, %d, %Y")}}</time>
         <a href="{{ post|permalink }}">{{post.title}}</a>
     </div>
+    {%- endfor %}
     {% endfor %}
 </div>
 {% endblock %}
