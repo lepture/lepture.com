@@ -1,29 +1,78 @@
-# About
+# Résumé
 
 - template: note.html
 
 ---------
 
-## Hsiaoming Yang
+## About
 
 Hi! My name is **Hsiaoming Yang** (aka **lepture** elsewhere).
 
-I am currently living in Hangzhou, China. You can reach me by
-[Twitter](https://twitter.com/lepture) or contact <lepture@me.com>.
+I am a creative web developer, firm believer in open source software.
+I love everything that worth the word beauty.
+
+I did, do and will always believe in
+
+> Love its people, but never trust its government.
+
+## Contact
+
+I am currently living in Hangzhou, China.
+
+You can reach me by
+
+- [Twitter](https://twitter.com/lepture)
+- <lepture@me.com>
 
 
-## Open Source
+## Projects
 
 All open source can be found on [Github](https://github.com/lepture),
-and they are all under BSD License,
-except that I have declared it under another License.
-You may have a glance at my [Project](http://project.lepture.com) page.
+and they are all under BSD License, except that I have declared it under
+another License.
 
-Check my [Wishlist](https://www.amazon.com/registry/wishlist/373NY7OIMSWGJ),
-buy me a kindle book for supporting my works.
+## Skills
+
+I am familiar with:
+
+- Python (Language)
+- JavaScript (Language)
+- CSS / HTML (Language)
+- Git (Version Control)
+
+I have a little knowledge about:
+
+- C (Language)
+- Objective-C (Language)
+- Ruby (Language)
+- MySQL (Database)
+- MongoDB (Database)
 
 
-## Just lepture
+## Experience
 
-All articles are (c) Hsiaoming Yang, all rights reserved. They are **not**
-under any public domain.
+**Alipay.com**
+
+This is my first job.
+
+- Position: Front End Developer
+- Location: Hangzhou, China
+- Dates: Jul. 2011 - Present
+
+
+**Kingsoft.com**
+
+This is my first and only internship.
+
+- Position: Web Developer
+- Location: Zhuhai, China
+- Dates: Jul. 2010 - Oct. 2010
+
+
+## Education
+
+**Wuhan University**
+
+- Fields: Electronics(optical) and Information
+- Dates: Sep. 2007 - Jul. 2011
+- Location: Wuhan, China
