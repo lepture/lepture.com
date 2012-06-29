@@ -1,5 +1,3 @@
-publish: build upload
-
 build:
 	liquidluck build
 
@@ -8,6 +6,3 @@ deploy:
 
 clean:
 	rm -fr _site/
-
-upload:
-	rsync -av --del _site/ linode.lepture.com:/home/lepture/www/lepture.com
