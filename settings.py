@@ -11,8 +11,8 @@ static_output = '_site/static'
 
 #: theme, load theme from _themes
 theme = 'moment'
-
 permalink = '{{category}}/{{filename}}/'
+timezone = '+08:00'
 
 
 #: site information
