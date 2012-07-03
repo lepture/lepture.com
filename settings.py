@@ -56,6 +56,8 @@ theme_variables = {
     'disqus': 'lepture',
     'analytics': 'UA-21475122-1',
 
+    'allow_comment_on_secret_post': True,
+
     'navigation': [
         ('Blog', '/archive/'),
         ('Life', '/life/'),
