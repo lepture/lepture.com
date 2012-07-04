@@ -3,6 +3,7 @@
 - date: 2009-10-05
 - category: life
 - tags: reading, essay
+- review: 雨季不再來
 
 --------------
 
