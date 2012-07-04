@@ -35,6 +35,7 @@ authors = {
 
 #: active writers
 writers = {
+    'tag': None,
     'tagcloud': 'liquidluck.writers.core.TagCloudWriter'
 }
 
