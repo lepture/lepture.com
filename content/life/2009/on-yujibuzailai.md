@@ -4,6 +4,7 @@
 - category: life
 - tags: reading, essay
 - review: 雨季不再來
+- rating: 4.5
 
 --------------
 

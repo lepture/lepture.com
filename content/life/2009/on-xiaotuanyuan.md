@@ -5,6 +5,7 @@
 - category: life
 - tags: reading, novel
 - review: 小團圓
+- rating: 3.5
 
 -------------
 
