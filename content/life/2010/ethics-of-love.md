@@ -4,6 +4,8 @@
 - date: 2010-09-20
 - category: life
 - tags: reading, novel
+- review: 心經
+- rating: 3.5
 
 ----------
 

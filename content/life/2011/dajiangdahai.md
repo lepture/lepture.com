@@ -5,6 +5,8 @@
 - date: 2011-09-05
 - category: life
 - tags: reading, history, china
+- review: 大江大海 一九四九
+- rating: 4.5
 
 ------------------
 

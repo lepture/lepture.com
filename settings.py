@@ -63,7 +63,7 @@ theme_variables = {
         ('Blog', '/archive/'),
         ('Life', '/life/'),
         ('Work', '/work/'),
-        (u'Résumé', '/about/'),
+        (u'Résumé', '/resume/'),
     ],
     'elsewhere': [
         ('GitHub', 'https://github.com/lepture'),
