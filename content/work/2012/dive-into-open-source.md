@@ -75,7 +75,7 @@ What means Quality?
 
 There is a great place for unit tests: [travis](http://www.travis-ci.org/). Run your test on travis could be easy. Have a look at the [documentation](http://about.travis-ci.org/).
 
-It's not that really neccessory to fulfill the whole things when you are doing a small project. But it's neccessory to take it into account when you are in your development.
+It's not that really necessary to fulfill the whole things when you are doing a small project. But it's necessary to take it into account when you are in your development.
 
 References for quality coding:
 
