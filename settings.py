@@ -53,7 +53,6 @@ template_filters = {
 
 #: theme variables
 theme_variables = {
-    'tagcloud': True,
     'disqus': 'lepture',
     'analytics': 'UA-21475122-1',
 
