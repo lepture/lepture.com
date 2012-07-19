@@ -13,15 +13,6 @@
 </style>
 {% endblock %}
 
-{% block nav %}
-<nav id="nav" role="navigation">
-    <a href="/archive/">Blog</a>
-    <a href="/life/">Life</a>
-    <a href="/work/">Work</a>
-    <a href="http://project.lepture.com">Project</a>
-</nav>
-{% endblock %}
-
 {% block main %}
 <div class="entry-content">
     {{post.content}}
@@ -34,7 +25,7 @@
     {% set posts = resource.category[cat][:5] -%}
     {% for post in posts -%}
     <div class="entry-item">
-        <time class="updated" datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%b, %d, %Y")}}</time>
+        <time class="updated" datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%Y-%m-%d")}}</time>
         <a href="{{ post|permalink }}">{{post.title}}</a>
     </div>
     {%- endfor %}
