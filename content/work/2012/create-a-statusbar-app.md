@@ -59,7 +59,6 @@ We will create the menu first.
 4. Connect the menu to your code outlet
 
     ![connect menu outlet](https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg)
-    ![connect menu outlet](https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg)
 
 
 ### StatusBar
@@ -109,6 +108,8 @@ Fix it in ``StatusBarApp-Info.plist``, add a row:
 ```
 Application is agent (UIElement)  = YES
 ```
+
+![connect menu outlet](https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg)
 
 Run your application again, it won't be on the dock, it won't show the menu.
 
