@@ -20,6 +20,7 @@ site = {
     'name': 'Just lepture',
     'url': 'http://lepture.com',
     'feed': 'http://feeds.lepture.com/lepture',
+    'showtag': True,
 }
 author = 'lepture'
 authors = {
