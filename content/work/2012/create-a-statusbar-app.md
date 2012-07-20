@@ -11,7 +11,7 @@ Unlike python, the documentation of cocoa tortures me a lot.
 
 I am still new to cocoa development. And this post will be part of my learning series.
 I didn't mean to teach you anything, on the contrary, it is a track of my learing.
-But it may be a little help to you.
+But it may be a little helpful to you.
 
 
 ## StatusBar App
