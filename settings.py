@@ -32,7 +32,9 @@ authors = {
 }
 
 #: active readers
-# readers = {}
+readers = {
+    'rst': 'liquidluck.readers.restructuredtext.RestructuredTextReader',
+}
 
 #: active writers
 writers = {
