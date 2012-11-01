@@ -5,7 +5,7 @@ CSS Border
     Create triangle with pure css, via css border property.
 
 :date: 2011-10-21
-:folder: work
+:category: work
 :public: false
 :tags:
     - html

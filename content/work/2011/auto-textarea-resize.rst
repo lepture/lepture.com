@@ -5,7 +5,7 @@ Auto Textarea Resize
     Auto resize textarea's height according to the content it contains.
 
 :date: 2011-11-22
-:folder: work
+:category: work
 :public: false
 :tags:
     - javascript

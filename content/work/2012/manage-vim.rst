@@ -2,7 +2,7 @@
 ========
 
 :date: 2012-02-01 10:30
-:folder: work
+:category: work
 :public: false
 :github: lepture/dotfiles
 :tags:

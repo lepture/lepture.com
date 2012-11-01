@@ -5,7 +5,7 @@ Vim Color Scheme
     How to write your own vim colorscheme ? It's a bit fuzzy, if you don't know the color name.
 :date: 2011-12-09
 :public: false
-:folder: work
+:category: work
 :tags:
     - vim
 :github: lepture/dotfiles

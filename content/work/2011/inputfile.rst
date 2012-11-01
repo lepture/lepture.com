@@ -5,7 +5,7 @@ Styling a file input
     It is a bit annoying for styling a file input field. And I will cover it with a javascript way, not to style it. Instead, we hide it.
     
 :date: 2011-11-08
-:folder: work
+:category: work
 :tags:
     - javascript
     - css

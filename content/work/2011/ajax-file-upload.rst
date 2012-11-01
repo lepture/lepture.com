@@ -5,7 +5,7 @@ Ajax file uploading
     The ajax file uploading is not really an ajax way, instead, it behaves like ajax. But we don't send any XMLHttpRequest.
 
 :date: 2011-11-17
-:folder: work
+:category: work
 :tags:
     - javascript
     - jquery

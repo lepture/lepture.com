@@ -6,7 +6,7 @@
 :tags:
     - css
     - font
-:folder: work
+:category: work
 
 
 之前是打算寫一個完整的 Font 知識庫的，發現太龐大了，非一時所能解決，所以打算先介紹點日常生活中不太常用的幾點。

@@ -1,7 +1,7 @@
 Iconic Fonts
 ==============
 
-:folder: work
+:category: work
 :date: 2012-05-11 15:23
 :public: false
 :tags:

@@ -4,7 +4,7 @@ Microdata vs Microformat
 :summary: microdata vs microformat, the better way for format your data: microdata with microformat
 :date: 2011-10-11
 :public: false
-:folder: work
+:category: work
 :tags:
     - html
     - seo

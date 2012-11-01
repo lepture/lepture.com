@@ -4,7 +4,7 @@ PAC解析及其它
 :summary: 編寫屬於自己的Proxy Auto Config，其實不難。如果你是前端的話，那簡直是小兒科了。
 :date: 2011-09-29
 :public: false
-:folder: work
+:category: work
 :tags:
     - javascript
 

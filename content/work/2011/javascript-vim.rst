@@ -4,7 +4,7 @@ Vim on the Web Page
 :summary: javascript - let your web page  be a vim
 :date: 2011-05-02
 :public: false
-:folder: work
+:category: work
 :tags:
     - vim
     - javascript

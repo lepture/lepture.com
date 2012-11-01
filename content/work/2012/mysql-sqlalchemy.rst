@@ -1,7 +1,7 @@
 MySQL and SQLAlchemy in tornado
 ================================
 
-:folder: work
+:category: work
 :date: 2012-02-09 21:15
 :github: lepture/tornado.ext
 :tags:
