@@ -14,6 +14,7 @@ I love everything that worth the word beauty.
 I did, do and will always believe in
 
 > Love its people, but never trust its government.
+> Believe evolution rather than revolution.
 
 ## Contact
 
@@ -22,6 +23,8 @@ I am currently living in Hangzhou, China.
 You can reach me by
 
 - [Twitter](https://twitter.com/lepture)
+- [Facebook](https://facebook.com/lepture)
+- [Weibo](http://weibo.com/lepture)
 - <lepture@me.com>
 
 
