@@ -34,6 +34,24 @@ All open source can be found on [Github](https://github.com/lepture),
 and they are all under BSD License, except that I have declared it under
 another License.
 
+I do have a [Projects](http://lab.lepture.com/) page, head over as your wish.
+
+## Working On
+
+**[Yuehu](http://yuehu.me)**
+
+Yuehu is a reading platform and a read later service. It's under heavy
+development right now.
+
+I am proud that it provides a more readable content than instapaper,
+  readability and pocket.
+
+
+**[Python China](http://python-china.org)**
+
+I am busy, deactive now
+
+
 ## Skills
 
 I am familiar with:
@@ -79,3 +97,8 @@ This is my first and only internship.
 - Fields: Electronics(optical) and Information
 - Dates: Sep. 2007 - Jul. 2011
 - Location: Wuhan, China
+
+## Travel
+
+- Thailand: Sep. 24 2012 - Oct. 24 2012
+- Malaysia: Oct. 24 2012 - Oct. 28 2012
