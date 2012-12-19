@@ -1,11 +1,8 @@
 build:
 	liquidluck build
 
-deploy:
-	liquidluck build -v -s deploy.py
-
 server:
-	liquidluck server -s deploy.py
+	liquidluck server
 
 clean:
 	rm -fr _site/
