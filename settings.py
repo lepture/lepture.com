@@ -15,7 +15,7 @@ config = {
     'output': '_site',
     'static': '_site/static',
     #'static_prefix': '/static/',
-    'permalink': '{{category}}/{{filename}}/',
+    'permalink': '{{category}}/{{filename}}',
     'relative_url': False,
     'timezone': '+08:00',
 }

@@ -1,7 +1,5 @@
 _build
 .DS_Store
-deploy
 _site
 tmp
-deploy.py
 tmp.*
