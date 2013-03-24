@@ -69,10 +69,10 @@ theme = {
         'allow_comment_on_secret_post': True,
 
         'navigation': [
-            {'name': 'Blog', 'link': '/archive/'},
-            {'name': 'Life', 'link': '/life/'},
-            {'name': 'Work', 'link': '/work/'},
-            {'name': u'Résumé', 'link': '/resume/'},
+            {'title': 'Blog', 'link': '/archive'},
+            {'title': 'Life', 'link': '/life/'},
+            {'title': 'Work', 'link': '/work/'},
+            {'title': u'Résumé', 'link': '/resume/'},
         ],
         'elsewhere': [
             {'name': 'GitHub', 'link': 'https://github.com/lepture'},
