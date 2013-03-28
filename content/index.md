@@ -9,7 +9,7 @@
 Hi! My name is **Hsiaoming Yang** (aka **lepture** elsewhere).
 
 I am currently living in Hangzhou, China. You can reach me by
-[Twitter](https://twitter.com/lepture) or contact <lepture@me.com>.
+[Twitter](https://twitter.com/lepture) or contact <me@lepture.com>.
 
 
 ## Open Source

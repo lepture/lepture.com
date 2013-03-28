@@ -25,7 +25,7 @@ You can reach me by
 - [Twitter](https://twitter.com/lepture)
 - [Facebook](https://facebook.com/lepture)
 - [Weibo](http://weibo.com/lepture)
-- <lepture@me.com>
+- <me@lepture.com>
 
 
 ## Projects
