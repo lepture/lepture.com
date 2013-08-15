@@ -1,7 +1,5 @@
 # Note / 筆記
 
-- template: note.html
-
 -------------
 
 ## Apr 16, 2012

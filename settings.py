@@ -72,7 +72,7 @@ theme = {
             {'title': 'Blog', 'link': '/archive'},
             {'title': 'Life', 'link': '/life/'},
             {'title': 'Work', 'link': '/work/'},
-            {'title': u'Résumé', 'link': '/resume/'},
+            {'title': u'Résumé', 'link': '/resume'},
         ],
         'elsewhere': [
             {'name': 'GitHub', 'link': 'https://github.com/lepture'},

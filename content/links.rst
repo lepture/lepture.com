@@ -1,7 +1,6 @@
 Links / 交集
 ============
 
-:template: note.html
 
 Tools
 --------

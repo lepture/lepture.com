@@ -1,34 +1,21 @@
 {% extends "layout.html" %}
 
-{% block afterstyle %}
-<style type="text/css">
-    #main h2 {
-        font: normal normal 12px "Helvetica", arial, sans-serif;
-        text-transform: uppercase;
-        color: #bcbcbc;
-    }
-    #main h3 {
-        font-family: "Helvetica", arial, sans-serif;
-    }
-</style>
-{% endblock %}
 
 {% block main %}
 <div class="entry-content">
-    {{post.content}}
+  {{post.content}}
 </div>
 
-<h2>Recent Updates</h2>
+{% for cat in resource.category -%}
 <div class="entry-list">
-    {% for cat in resource.category -%}
-    <h3>{{cat|title}}</h3>
-    {% set posts = resource.category[cat][:5] -%}
-    {% for post in posts -%}
-    <div class="entry-item">
-        <time class="updated" datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%Y-%m-%d")}}</time>
-        <a href="{{ post|permalink }}">{{post.title}}</a>
-    </div>
-    {%- endfor %}
-    {% endfor %}
+  <h2 class="entry-item-title">{{cat|title}}</h2>
+  {% set posts = resource.category[cat][:5] -%}
+  {% for post in posts -%}
+  <div class="entry-item">
+    <time class="updated" datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%Y-%m-%d")}}</time>
+    <a href="{{ post|permalink }}">{{post.title}}</a>
+  </div>
+  {%- endfor %}
 </div>
+{% endfor %}
 {% endblock %}
