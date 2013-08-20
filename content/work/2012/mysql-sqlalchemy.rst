@@ -4,11 +4,13 @@ MySQL and SQLAlchemy in tornado
 :category: work
 :date: 2012-02-09 21:15
 :github: lepture/tornado.ext
+:public: false
 :tags:
     - python
     - mysql
     - tornado
 
+**This is outdated, DON'T READ IT.**
 
 Fix MySQL has gone away
 -----------------------

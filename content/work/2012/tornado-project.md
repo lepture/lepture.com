@@ -2,10 +2,12 @@
 
 - date: 2012-03-13 17:13
 - category: work
+- public: false
 - tags: python, tornado, vim
 
 -----------
 
+**This is an outdated post. DON'T READ IT.**
 
 For the past year, I have been working on all my web projects in tornado,
 in order to make it easier to manage a project, I have build some useful tools,

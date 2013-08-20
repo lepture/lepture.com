@@ -6,9 +6,12 @@ Ajax file uploading
 
 :date: 2011-11-17
 :category: work
+:public: false
 :tags:
     - javascript
     - jquery
+
+**This is outdated, DON'T READ IT.**
 
 For professional visitors, you may want to have a quick look at pure code. Don't waste your time here, just `go ahead <http://d.pr/fIvq>`_ ! I wrote it in a jQuery plugin way.
 

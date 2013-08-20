@@ -1,16 +1,16 @@
 # Velocity Syntax for VIM
 
-- summary: 
-    Velocity Syntax for VIM, a better replacement for the one on vim.org. For people who are using VIM and have to deal with velocity.
 - date: 2011-12-26 23:30
 - category: work
 - github: lepture/vim-velocity
-- tags: vim, Alipay
+- tags: vim, alipay
 
+Velocity Syntax for VIM, a better replacement for the one on vim.org. For people who are using VIM and have to deal with velocity.
 
 -----------------
 
 ## Who need this ?
+
 People who:
 
 + are using VIM

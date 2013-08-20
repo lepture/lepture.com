@@ -102,4 +102,4 @@ There is a great site for hosting your documentation: [Read the Docs](http://rea
 
 It's really embarrassed that I have a few projects that can be really called an open source project.
 
-I would like to introduce a project named "Felix Felicis" in my next posts. Oh, it can be called an open source project now.
+Find them on http://lab.lepture.com/

@@ -11,6 +11,7 @@ Styling a file input
     - css
     - html
 
+**This is outdated. DON'T READ IT.**
 
 It is a bit annoying for styling a file input field. You can use ``opacity`` property to style it with css, but the result is not always graceful.
 
