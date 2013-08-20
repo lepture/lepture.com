@@ -6,6 +6,7 @@ Styling a file input
     
 :date: 2011-11-08
 :category: work
+:public: false
 :tags:
     - javascript
     - css
