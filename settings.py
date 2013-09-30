@@ -27,7 +27,7 @@ author = {
         'lepture': {
             'name': 'Hsiaoming Yang',
             'website': 'http://lepture.com',
-            'email': 'lepture@me.com',
+            'email': 'me@lepture.com',
         }
     }
 }
