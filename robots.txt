@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /_assets/
+Disallow: /life/
+Disallow: /work/

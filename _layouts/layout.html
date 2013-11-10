@@ -25,6 +25,7 @@
       {% endfor %}
       {% set item = site.social[-1] %}
       and <a href="{{ item.url }}">{{ item.name }}</a>.
+      {% block feed %}{% endblock %}
     </div>
   </div>
   <div id="main">
