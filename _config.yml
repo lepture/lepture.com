@@ -2,7 +2,6 @@ name: Just lepture
 author: Hsiaoming Yang
 baseurl: "http://lepture.com"
 permalink: "/:dirname/:filename"
-includes: ["_assets"]
 
 per_page: 10
 paginator_style: "page/:num/"
