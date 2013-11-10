@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vundle vs Pathogen — Just lepture</title>
+<link rel="stylesheet" href="/assets/yue.css">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <div id="header">
+    <div class="container yue">
+      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
+      <div id="nav" role="navigation">
+          <a href="/resume">About</a>
+          <a href="/zh/">Chinese</a>
+          <a href="/en/">English</a>
+      </div>
+    </div>
+  </div>
+  <div id="social">
+    <div class="container yue">
+      Contact me via
+      <a href="mailto:me@lepture.com">Email</a>,
+      <a href="https://twitter.com/lepture">Twitter</a>,
+      <a href="http://weibo.com/lepture">Weibo</a>,
+      and <a href="https://github.com/lepture">GitHub</a>.
+    </div>
+  </div>
+  <div id="main">
+    <div class="container yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">Vundle vs Pathogen</h1>
+    <time class="entry-meta updated" datetime="2012-05-02T00:00:00Z" itemprop="datePublished" pubdate>
+      May 02, 2012
+    </time>
+  <div class="entry-content" itemprop="articleBody">
+    <p>Most people just want an answer. Yes, vundle is better.</p>
+
+<h2>Pathogen</h2>
+
+<p>Pathogen created a new way to organize vim plugins, it provides the possibility
+to make vim plugins a bundle.</p>
+
+<p>The original vim plugin system is somewhat a centered plugin system, but pathogen makes
+it a distributing system. The original way:</p>
+<pre><code>vim/
+    syntax/
+        html.vim
+    indent/
+        html.vim
+</code></pre>
+<p>The pathogen way:</p>
+<pre><code>vim/bundle/
+    html/
+        syntax/
+            html.vim
+        indent/
+            html.vim
+</code></pre>
+<p>Now, you can take <code>html</code> as a bundle (or app), you need not copy every file to the right
+directory, everything is well maintained by the plugin creator.</p>
+
+<p>It&#39;s almost the end of the world, the vim plugin system should be distributed. And I&#39;m glad
+that so many plugins are compatible with pathogen.</p>
+
+<p>I tried pathogen, and <a href="http://lepture.com/work/manage-vim/">wrote a post</a> (in Chinese) about
+it.</p>
+
+<h2>Vundle</h2>
+
+<p>At that time, I knew vundle, and I mentioned it in the post, but I didn&#39;t try it.
+I wish if only I had tried it.</p>
+
+<p>Vundle is inspired by Pathogen, it can do everything pathogen can do,
+it is compatible with pathogen, which means if a plugin declares it supporting
+pathogen, it supports vundle.</p>
+
+<p>But vundle does more, it improved the way to get and update vim plugins.
+I mentioned in my post, that I was trying git-submodule with pathogen,
+it was brilliant, but vundle is more elegent:</p>
+<div class="highlight"><pre><span class="k">set</span> <span class="nb">nocompatible</span>               <span class="c">&quot; be iMproved</span>
+<span class="k">filetype</span> off                   <span class="c">&quot; required!</span>
+
+<span class="k">set</span> <span class="nb">rtp</span><span class="p">+=~</span><span class="sr">/.vim/</span>bundle<span class="sr">/vundle/</span>
+<span class="k">call</span> vundle#rc<span class="p">()</span>
+
+<span class="c">&quot; let Vundle manage Vundle</span>
+<span class="c">&quot; required! </span>
+Bundle <span class="s1">&#39;gmarik/vundle&#39;</span>
+
+<span class="c">&quot; My Bundles here:</span>
+<span class="c">&quot;</span>
+<span class="c">&quot; original repos on github</span>
+Bundle <span class="s1">&#39;tpope/vim-fugitive&#39;</span>
+Bundle <span class="s1">&#39;Lokaltog/vim-easymotion&#39;</span>
+Bundle <span class="s1">&#39;rstacruz/sparkup&#39;</span><span class="p">,</span> {<span class="s1">&#39;rtp&#39;</span>: <span class="s1">&#39;vim/&#39;</span>}
+Bundle <span class="s1">&#39;tpope/vim-rails.git&#39;</span>
+<span class="c">&quot; vim-scripts repos</span>
+Bundle <span class="s1">&#39;L9&#39;</span>
+Bundle <span class="s1">&#39;FuzzyFinder&#39;</span>
+<span class="c">&quot; non github repos</span>
+Bundle <span class="s1">&#39;git://git.wincent.com/command-t.git&#39;</span>
+</pre></div>
+
+<p>Launch vim and run <code>:BundleInstall</code> , everything will be ready for you.
+All things you should do is trying it.</p>
+
+<p>Save my words, save your time, head over to
+<a href="https://github.com/gmarik/vundle">Vundle</a> immediately.</p>
+
+  </div>
+</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'lepture';
+  var disqus_title = 'Vundle vs Pathogen';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>    </div>
+  </div>
+  <div id="footer">
+    <div class="container">
+      <p>&copy; Copyright by Hsiaoming Yang.</p>
+    </div>
+  </div>
+</body>
+</html>
