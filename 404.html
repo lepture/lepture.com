@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}404 — {{ site.name }}{% endblock %}
+
+{% block main %}
+<div class="entry-content">
+  <p>This page is missing, check somewhere else.</p>
+</div>
+
+<div class="lists">
+  <ul class="unstyled">
+    {% for item in site.posts(count=5) %}
+    <li><time>{{ item.date.strftime('%Y-%m-%d') }}</time> — <a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
