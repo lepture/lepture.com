@@ -1,0 +1,4 @@
+name: Just lepture
+author: Hsiaoming Yang
+baseurl: "http://lepture.com"
+permalink: "/:dirname/:filename"
