@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{{ site.name }}{% endblock %}</title>
+  {% include "head.html" %}
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <div id="header">
+    <div class="container yue">
+      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
+      <div id="nav" role="navigation">
+        {% for item in site.links %}
+          <a href="{{ item.url }}">{{ item.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div id="social">
+    <div class="container yue">
+      Contact me via
+      {% for item in site.social[:-1] %}
+      <a href="{{ item.url }}">{{ item.name }}</a>,
+      {% endfor %}
+      {% set item = site.social[-1] %}
+      and <a href="{{ item.url }}">{{ item.name }}</a>.
+    </div>
+  </div>
+  <div id="main">
+    <div class="container yue">
+      {% block main %}{% endblock %}
+    </div>
+  </div>
+  <div id="footer">
+    <div class="container">
+      <p>&copy; Copyright by {{ site.author }}.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ site.name }}</title>
-</head>
-<body>
-  <h1>{{ page.title }}</h1>
-  <div class="content">
-    {{ page.body | markdown }}
-  </div>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
+
+{% block main %}
+  {% if page.review %}
+    {% include "review.html" %}
+  {% else %}
+    {% include "article.html" %}
+  {% endif %}
+  {% if site.disqus and page.disqus != 'false' %}
+    {% include "disqus.html" %}
+  {% endif %}
+{% endblock %}

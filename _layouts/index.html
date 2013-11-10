@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<ul class="entry-list">
+  {% for page in paginator.posts %}
+  <li class="entry-item">
+    <time class="updated">{{ page.date.strftime('%b %d, %Y') }}</time>
+    <div class="detail">
+      <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+      {% if page.description %}
+        <p class="description">{{ page.description }}</p>
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% block paginator %}
+  {% if paginator.has_prev or paginator.has_next %}
+    {% include "paginator.html" %}
+  {% endif %}
+{% endblock %}
+{% endblock %}

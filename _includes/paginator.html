@@ -1,0 +1,13 @@
+<div class="paginator" role="pagination">
+  {% if paginator.has_prev %}
+    <a class="previous" href="{{ paginator.prev_url }}">Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  — <strong>{{ paginator.page }}</strong> —
+  {% if paginator.has_next %}
+    <a class="next" href="{{ paginator.next_url }}">Next</a>
+  {% else %}
+    <span class="next">Next</span>
+  {% endif %}
+</div>

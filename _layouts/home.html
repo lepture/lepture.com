@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block extra_head %}
+<style>
+  .entry-content h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: sans-serif;
+    color: #999;
+  }
+  .lists time {
+    color: #666;
+    font-family: monospace;
+    font-size: 14px;
+  }
+</style>
+{% endblock %}
+
+{% block main %}
+<div class="entry-content">
+  {{ page.body|markdown }}
+</div>
+
+<div class="entry-content lists">
+  <h2>Lates Updates</h2>
+  <ul class="unstyled">
+    {% for item in site.posts(count=5) %}
+    <li><time>{{ item.date.strftime('%Y-%m-%d') }}</time> — <a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

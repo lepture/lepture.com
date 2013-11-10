@@ -1,0 +1,160 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+.yue ::selection {
+  background-color: #222;
+  color: #f9f9f9;
+}
+
+.container {
+  max-width: 650px;
+  *width: 650px;
+  margin: 0 auto;
+  zoom: 1;
+}
+.container:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+a {
+  color: #434344;
+  -webkit-transition: all 0.25 ease-in;
+  -moz-transition: all 0.25 ease-in;
+  transition: all 0.25 ease-in;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+#header {
+  padding: 60px 0 30px;
+  text-align: center;
+}
+#social {
+  background: #fbfbfa;
+  padding: 16px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+#social .yue {
+  color: #565656;
+  font-size: 15px;
+  font-family: "Avenir Next", "Avenir", "Helvetica Neue", sans-serif;
+}
+#header a {
+  color: #444;
+  font-family: "Avenir Next", "Avenir", "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+#header a:hover {
+  opacity: 1;
+  color: #222;;
+}
+#brand a {
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 14px;
+}
+#nav a {
+  font-size: 16px;
+  margin-right: 15px;
+}
+#nav a:hover {
+  border-bottom: 2px solid #222;
+}
+
+#main {
+  padding: 30px 0;
+}
+#footer .container {
+  padding: 10px 0 20px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  color: #999;
+  font-size: 13px;
+  font-family: "Optima", "Helvetica Neue", sans-serif;
+}
+
+#main .entry-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.entry-list .entry-item {
+  margin: 25px 0;
+  line-height: 25px;
+}
+
+.entry-list time {
+  float: left;
+  width: 120px;
+  text-align: right;
+  font-size: 14px;
+  font-family: "Optima", "Helvetica Neue", sans-serif;
+}
+.entry-list .detail {
+  margin-left: 140px;
+}
+.entry-list h2 {
+  margin: 5px 0 8px;
+  font-size: 18px;
+}
+.entry-list a {
+  text-decoration: none;
+}
+.entry-list .description {
+  font-size: 18px;
+}
+
+.entry-title {
+  text-align: center;
+}
+.entry-meta {
+  display: block;
+  margin-bottom: 26px;
+  text-align: center;
+  font-size: 14px;
+  font-family: "Optima", "Helvetica Neue", sans-serif;
+}
+.entry-review {
+  color: #999;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.paginator {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Avenir Next", "Avenir", "Helvetica Neue", sans-serif;
+}
+.paginator span {
+  color: #656565;
+  font-weight: 300;
+}
+.paginator .previous:before {
+  content: "«";
+}
+.paginator .next:after {
+  content: "»";
+}
+
+@media (max-width: 650px) {
+  .container {
+    padding: 0 18px;
+  }
+  .entry-list time {
+    float: none;
+    display: block;
+    text-align: left;
+    width: auto;
+  }
+  .entry-list .detail {
+    margin-left: 0;
+  }
+}
