@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create a StatusBar App — Just lepture</title>
+<link rel="stylesheet" href="/_assets/yue.css">
+<link rel="stylesheet" href="/_assets/site.css">
+</head>
+<body>
+  <div id="header">
+    <div class="container yue">
+      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
+      <div id="nav" role="navigation">
+          <a href="/resume">About</a>
+          <a href="/zh/">Chinese</a>
+          <a href="/en/">English</a>
+      </div>
+    </div>
+  </div>
+  <div id="social">
+    <div class="container yue">
+      Contact me via
+      <a href="mailto:me@lepture.com">Email</a>,
+      <a href="https://twitter.com/lepture">Twitter</a>,
+      <a href="http://weibo.com/lepture">Weibo</a>,
+      and <a href="https://github.com/lepture">GitHub</a>.
+    </div>
+  </div>
+  <div id="main">
+    <div class="container yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">Create a StatusBar App</h1>
+    <time class="entry-meta updated" datetime="2012-07-20T21:15:00Z" itemprop="datePublished" pubdate>
+      Jul 20, 2012
+    </time>
+  <div class="entry-content" itemprop="articleBody">
+    <p>It has been months since I decided to learn cocoa development, but in vain.
+Unlike python, the documentation of cocoa tortures me a lot.</p>
+
+<p>I am still new to cocoa development. And this post will be part of my learning series.
+I didn&#39;t mean to teach you anything, on the contrary, it is a track of my learing.
+But it may be a little helpful to you.</p>
+
+<h2>StatusBar App</h2>
+
+<p>A <strong>StatusBar App</strong> is what on the right side of the menu bar, it doesn&#39;t contain a main window.
+For example, the volumn control is a StatusBar App.</p>
+
+<h2>Demo Time</h2>
+
+<p>It&#39;s the time to create a StatusBar App now.</p>
+
+<ol>
+<li><p>Open your Xcode (I am on Xcode 4.3.3)</p></li>
+<li><p>Create a cocoa application project</p>
+
+<p><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg" alt="create a project"></p></li>
+<li><p>Name the project <strong>StatusBarApp</strong></p></li>
+<li><p>Run for testing</p></li>
+</ol>
+
+<p>Now you will get an App with window. However, our app is a StatusBar App, it has no window.</p>
+
+<p>The final app should be like:</p>
+
+<p><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/application.jpg" alt="application"></p>
+
+<h3>Menu</h3>
+
+<p>We will create the menu first.</p>
+
+<ol>
+<li><p>Drag a menu to the interface builder</p>
+
+<p><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg" alt="drag a menu"></p></li>
+<li><p>Edit the menu item</p>
+
+<p><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg" alt="edit menu item"></p></li>
+<li><p>Decorate the menu with seprator</p>
+
+<p><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg" alt="decorate with seprator"></p></li>
+<li><p>Connect the menu to your code outlet</p>
+
+<p><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg" alt="connect menu outlet"></p></li>
+</ol>
+
+<h3>StatusBar</h3>
+
+<p>Create the statusBar property in your <code>AppDelegate.h</code> file:</p>
+<div class="highlight"><pre><span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSStatusItem</span> <span class="o">*</span><span class="n">statusBar</span><span class="p">;</span>
+</pre></div>
+
+<p>Synthesize it in the <code>AppDelegate.m</code> file:</p>
+<div class="highlight"><pre><span class="k">@synthesize</span> <span class="n">statusBar</span> <span class="o">=</span> <span class="n">_statusBar</span><span class="p">;</span>
+</pre></div>
+
+<p>Initialize the statusBar:</p>
+<div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">awakeFromNib</span> <span class="p">{</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">statusBar</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSStatusBar</span> <span class="n">systemStatusBar</span><span class="p">]</span> <span class="n">statusItemWithLength</span><span class="o">:</span><span class="n">NSVariableStatusItemLength</span><span class="p">];</span>
+
+    <span class="n">self</span><span class="p">.</span><span class="n">statusBar</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">@&quot;G&quot;</span><span class="p">;</span>
+
+    <span class="c1">// you can also set an image</span>
+    <span class="c1">//self.statusBar.image =</span>
+
+    <span class="n">self</span><span class="p">.</span><span class="n">statusBar</span><span class="p">.</span><span class="n">menu</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">statusMenu</span><span class="p">;</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">statusBar</span><span class="p">.</span><span class="n">highlightMode</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>awakeFromNib</code> is earlier than <code>applicationDidFinishLaunching</code> in the lifecycle.</p>
+
+<h3>App Go</h3>
+
+<p>Let&#39;s test this application.</p>
+
+<ol>
+<li>Run you app now. You will see a <strong>G</strong> in the menu bar.</li>
+<li>Delete the useless window in your <code>MainMenu.xib</code>, and run your app again.</li>
+</ol>
+
+<p>It works! But it doesn&#39;t work the right way. It is on the dock, it shows the menu on the left.</p>
+
+<p>Fix it in <code>StatusBarApp-Info.plist</code>, add a row:</p>
+<pre><code>Application is agent (UIElement)  = YES
+</code></pre>
+<p><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg" alt="connect menu outlet"></p>
+
+<p>Run your application again, it won&#39;t be on the dock, it won&#39;t show the menu.</p>
+
+<h3>Do More</h3>
+
+<p>But you can&#39;t quit the application, that could be annoying. We did have a Quit item on the application, but it won&#39;t work right now.</p>
+
+<p>Fix it:</p>
+
+<p><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step7.jpg" alt="quit"></p>
+
+<h2>Source Code</h2>
+
+<p>Get the latest source code at <a href="https://github.com/lepture/StatusBarApp">GitHub</a>.</p>
+
+<p>Follow me on <a href="https://github.com/lepture">GitHub</a>.</p>
+
+<h2>Reference:</h2>
+
+<ul>
+<li><a href="http://cocoatutorial.grapewave.com/2010/01/creating-a-status-bar-application/">Creating a Status Bar Application</a></li>
+<li><a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSStatusItem_Class/Reference/Reference.html">NSStatusItem Class Reference</a></li>
+</ul>
+
+  </div>
+</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'lepture';
+  var disqus_title = 'Create a StatusBar App';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>    </div>
+  </div>
+  <div id="footer">
+    <div class="container">
+      <p>&copy; Copyright by Hsiaoming Yang.</p>
+    </div>
+  </div>
+</body>
+</html>
