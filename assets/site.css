@@ -1,8 +1,27 @@
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lora'), url('lora-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lora Bold'), local('Lora-Bold'), url('lora-bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Lora Italic'), local('Lora-Italic'), url('lora-italic') format('woff');
+}
+
 html, body {
   padding: 0;
   margin: 0;
 }
-.yue ::selection {
+::selection, .yue ::selection {
   background-color: #222;
   color: #f9f9f9;
 }
@@ -27,6 +46,13 @@ a {
 }
 a:hover {
   opacity: 0.8;
+}
+
+.yue {
+  font-family: "Lora", "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+}
+.yue p {
+  margin-bottom: 1.4em;
 }
 
 #header {
@@ -56,9 +82,17 @@ a:hover {
   color: #222;;
 }
 #brand a {
+  display: inline-block;
   font-size: 30px;
   font-weight: 300;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
+  border-bottom: 4px solid #eee;
+  -webkit-transition: all 0.25 ease-in;
+  -moz-transition: all 0.25 ease-in;
+  transition: all 0.25 ease-in;
+}
+#brand a:hover {
+  border-color: #444;
 }
 #nav a {
   font-size: 16px;
@@ -145,6 +179,9 @@ a:hover {
 }
 
 @media (max-width: 650px) {
+  #header {
+    padding-top: 40px;
+  }
   .container {
     padding: 0 18px;
   }
