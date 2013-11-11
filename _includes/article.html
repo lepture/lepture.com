@@ -8,4 +8,7 @@
   <div class="entry-content" itemprop="articleBody">
     {{ page.body|markdown }}
   </div>
+  {% if page.github %}
+    <script src="http://lab.lepture.com/github-cards/widget.js"></script>
+  {% endif %}
 </div>
