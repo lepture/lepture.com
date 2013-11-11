@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2013-11-11T02:53:22Z</updated>
+    <updated>2013-11-11T03:39:52Z</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[紹興淺嘗]]></title>
@@ -298,7 +298,7 @@ For example, the volumn control is a StatusBar App.</p>
 
 <p>Get the latest source code at <a href="https://github.com/lepture/StatusBarApp">GitHub</a>.</p>
 
-<p>Follow me on <a href="https://github.com/lepture">GitHub</a>.</p>
+<div class="github-card" data-github="lepture/StatusBarApp"></div>
 
 <h2>Reference:</h2>
 

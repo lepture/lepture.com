@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width">
   <title>Create a StatusBar App — Just lepture</title>
 <link rel="stylesheet" href="/assets/yue.css">
-<link rel="stylesheet" href="/assets/site.css?v=26a448">
+<link rel="stylesheet" href="/assets/site.css?v=9c3b278">
 <script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-21475122-1']);
@@ -32,12 +32,7 @@
   </div>
   <div id="subheader">
     <div class="container yue">
-        Contact me via
-      <a href="mailto:me@lepture.com">Email</a>,
-      <a href="https://twitter.com/lepture">Twitter</a>,
-      <a href="http://weibo.com/lepture">Weibo</a>,
-      and <a href="https://github.com/lepture">GitHub</a>.
-
+  A StatusBar App is what on the right side of the menu bar, it doesn&#39;t contain a main window.
     </div>
   </div>
   <div id="main">
@@ -154,7 +149,7 @@ For example, the volumn control is a StatusBar App.</p>
 
 <p>Get the latest source code at <a href="https://github.com/lepture/StatusBarApp">GitHub</a>.</p>
 
-<p>Follow me on <a href="https://github.com/lepture">GitHub</a>.</p>
+<div class="github-card" data-github="lepture/StatusBarApp"></div>
 
 <h2>Reference:</h2>
 
@@ -164,11 +159,13 @@ For example, the volumn control is a StatusBar App.</p>
 </ul>
 
   </div>
+    <script src="http://lab.lepture.com/github-cards/widget.js"></script>
 </div><div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'lepture';
   var disqus_title = 'Create a StatusBar App';
   (function() {
+    if (location.port) return;
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
