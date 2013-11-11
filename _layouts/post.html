@@ -2,6 +2,14 @@
 
 {% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
 
+{% block subheader %}
+{% if page.description %}
+  {{ page.description }}
+{% else %}
+  {{ super() }}
+{% endif %}
+{% endblock %}
+
 {% block main %}
   {% if page.review %}
     {% include "review.html" %}

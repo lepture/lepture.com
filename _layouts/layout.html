@@ -18,15 +18,16 @@
       </div>
     </div>
   </div>
-  <div id="social">
+  <div id="subheader">
     <div class="container yue">
+      {% block subheader %}
       Contact me via
       {% for item in site.social[:-1] %}
       <a href="{{ item.url }}">{{ item.name }}</a>,
       {% endfor %}
       {% set item = site.social[-1] %}
       and <a href="{{ item.url }}">{{ item.name }}</a>.
-      {% block feed %}{% endblock %}
+      {% endblock %}
     </div>
   </div>
   <div id="main">
