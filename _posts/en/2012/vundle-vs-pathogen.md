@@ -59,7 +59,7 @@ pathogen, it supports vundle.
 
 But vundle does more, it improved the way to get and update vim plugins.
 I mentioned in my post, that I was trying git-submodule with pathogen,
-it was brilliant, but vundle is more elegent:
+it was brilliant, but vundle is more elegant:
 
 ```vim
 set nocompatible               " be iMproved
