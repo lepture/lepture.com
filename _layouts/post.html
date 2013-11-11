@@ -2,6 +2,12 @@
 
 {% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
 
+{% block extra_head %}
+  {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+  {% endif %}
+{% endblock %}
+
 {% block subheader %}
 {% if page.description %}
   {{ page.description }}
