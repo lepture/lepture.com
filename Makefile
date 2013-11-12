@@ -4,7 +4,9 @@ assets:
 	@cat _assets/font.css >> _site/assets/site.css
 	@cat _assets/site.css >> _site/assets/site.css
 
+build:
+	@writeup build
+
 publish:
-	@rm -f _site/Makefile
 	@ghp-import _site -p
 	@git push origin master

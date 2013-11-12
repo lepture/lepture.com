@@ -6,6 +6,8 @@ permalink: "/:dirname/:filename"
 per_page: 10
 paginator_style: "page/:num/"
 
+excludes: ["Makefile", "_config.yml"]
+
 links:
   - name: About
     url: /resume

@@ -3,9 +3,14 @@
 {% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
 
 {% block extra_head %}
+  <meta name="twitter:title" content="{{ page.title }}">
   {% if page.description %}
     <meta name="description" content="{{ page.description }}">
+    <meta name="twitter:description" content="{{ page.description }}">
   {% endif %}
+  <meta name="twitter:site" content="@lepture">
+  <meta name="twitter:creator" content="@lepture">
+  <meta name="twitter:domain" content="lepture.com">
 {% endblock %}
 
 {% block subheader %}
