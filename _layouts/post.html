@@ -3,6 +3,7 @@
 {% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
 
 {% block extra_head %}
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{ page.title }}">
   {% if page.description %}
     <meta name="description" content="{{ page.description }}">
