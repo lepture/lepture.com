@@ -3,8 +3,78 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2013-11-12T11:57:56Z</updated>
+    <updated>2013-11-12T14:35:06Z</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[長微博及其它]]></title>
+        <link href="http://lepture.com/zh/2013/anti-long-weibo"/>
+        <updated>2013-11-12T22:34:00Z</updated>
+        <published>2013-11-12T22:34:00Z</published>
+        <id>zh-2013-anti-long-weibo</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>長微博這個詞像警世的寓言，頗有一股諷刺意味，正好比我們說方方正正的圓圈，規規矩矩的放蕩。</p>
+
+<p>我微博用得不勤，話多在 Twitter。一方面是微博的界面入不得眼，另一方面就是文字圖片（所謂長微博者）的濫用。微博也意識到了這點，可是又不思進取，以爲提供一個官方的文字圖片生成工具就算是解決問題了。</p>
+
+<p>前些時候，濟南中院微博直播薄熙來案庭審，算是開創性的大事吧。而文字直播所用的方式竟然是這長微博，也就是圖片。起先，濟南中院整理出純文本稿，而後將此文本生成圖片發表於微博，最後再由網易小編整理成純文本稿，不知花費人力幾何？信息量未變，而圖片在其傳播過程中又浪費網絡資源幾何？</p>
+
+<p>我不知也。假使我有點情懷，也該矯情地說一句：「也請偶爾爲這個宇宙考慮考慮吧。」</p>
+
+<h2>Twitter 的思路</h2>
+
+<p>批評有時顯得蒼白無力，需要一點建設性意見。我們也偶爾需要承認，外國的月亮確實要圓一點。看看 Twitter 是如何做的。</p>
+
+<p>Twitter 有一個特性叫作 <a href="https://dev.twitter.com/cards">Twitter Cards</a>，用來展示嵌入內容。它可以是摘要，可以是圖片，可以是視頻，還可以是 App。</p>
+
+<p>當你發出一條包含網址的 Tweet 時，Twitter 會去查看該網址是否包含可展示的內容。具體的要求則是該網址包含 Twitter 所要求的標記。比如：</p>
+
+<pre><code class="html">&lt;meta name=&quot;twitter:card&quot; content=&quot;summary&quot;&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;長微博及其它&quot;&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;....&quot;&gt;
+</code></pre>
+
+<p>然後向 Twitter 提交你的網站，待 Twitter 認證後，包含你網站的 Tweet 便會展示相關摘要了。請放心，這一步相當快，Twitter 的審覈在幾分鍾內就完成了。</p>
+
+<h2>標準的價值</h2>
+
+<p>Twitter 的方案並非原創，是模仿的 <a href="http://ogp.me/">Open Graph</a>。這一方案的好處是顯而易見的，一種包羅萬象的大氣。所謂互聯網者，當互聯也，關起門來獨攬全活叫自閉而非互聯。而協議就是這互聯的基礎。</p>
+
+<p>Open Graph 是由臉書提出的，Twitter 繼承而生 Twitter Cards，而 <a href="https://developers.google.com/+/web/snippet/">Google+</a> 兼而得之。</p>
+
+<p>尤其值得一提的是 <a href="http://schema.org/">Schema</a> 標準，真正有一股描述世界的霸氣：</p>
+
+<pre><code class="html">&lt;body itemscope itemtype=&quot;http://schema.org/Product&quot;&gt;
+  &lt;h1 itemprop=&quot;name&quot;&gt;Shiny Trinket&lt;/h1&gt;
+  &lt;img itemprop=&quot;image&quot; src=&quot;{image-url}&quot; /&gt;
+  &lt;p itemprop=&quot;description&quot;&gt;Shiny trinkets are shiny.&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>標準需要的不一定是技術，有時只是一個想法就足夠了。比如說 RSS、Atom。</p>
+
+<h2>對微博建議</h2>
+
+<p>文字圖片的弊端也不再述了，我也知道中國人的獨特需求，他們喜歡被圈養，不太願意跳出圍城。但是這並不意味着我們就需要污染環境。</p>
+
+<p>正如 Twitter 模仿 Open Graph，我們也可以模仿 Schema：</p>
+
+<pre><code class="html">&lt;div itemscope itemtype=&quot;http://weibo.com/LongWeibo&quot;&gt;
+  &lt;meta name=&quot;creator&quot; content=&quot;@lepture&quot;&gt;
+  &lt;h1 itemprop=&quot;name&quot;&gt;Article Title&lt;/h1&gt;
+  &lt;img itemprop=&quot;image&quot; src=&quot;{image-url}&quot; /&gt;
+  &lt;p itemprop=&quot;description&quot;&gt;Shiny trinkets are shiny.&lt;/p&gt;
+  &lt;div itemprop=&quot;content&quot;&gt;
+    {content}
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>當我們分享一條鏈接時，微博便去索引此篇文章，找到全文內容，儲存爲純文本，在需要的時候展示全文。</p>
+
+<p>這個想法是免費的，隨時歡迎微博取用。也衷心希望對這個世界溫柔一點，儘量使用更低能耗的純文本。珍愛世界，從我做起，如果你的郵箱簽名帶有圖片，請把圖片去掉。</p>
+ ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[紹興淺嘗]]></title>
         <link href="http://lepture.com/zh/2013/hello-shaoxing"/>
@@ -860,31 +930,6 @@ All things you should do is trying it.</p>
 <p>正在寫東西的時候總有人來瞄上兩眼，我覺得很煩，不想給人看。他們說，你寫了不是也一樣要給人看的嗎？我自然是要給人看的。可是有哪個孕婦會給你看她生小孩的過程呢，她最多給你看一下她的小孩。</p>
 
 <p>寫作就像生育，過程是不願給別人看的，能看的是結果。而且生產者喜歡誇耀自己的作品，無論這個作品是優秀還是拙劣。</p>
- ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[雲想霓裳•一曲尤唱]]></title>
-        <link href="http://lepture.com/zh/2009/autumn-fashion"/>
-        <updated>2009-09-15T00:00:00Z</updated>
-        <published>2009-09-15T00:00:00Z</published>
-        <id>zh-2009-autumn-fashion</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>屬於伶人的舞台,一段段的俳優，光艷的兩瓣緋紅胭脂夾住瓊瑤鼻，走過，唱了，笑了，袖子遮住了嘴……幾千年的事,人已經散了，舞台還在，可是換了主人。   </p>
-
-<p>還是殘留有幾息時間的落影,《國韻》,《漢韻》在“雲想霓裳”的舞台傳唱,傳唱這千年的文明。然而是一種不落實的空嘆，也有掌聲，帶些敷衍的意思，只有本系的人是會心的出於肺腑。   </p>
-
-<p>這已經是武大第十九屆金秋藝術節了。一件件的服飾飄然過，流光溢彩的曼妙，掠影浮過般不著一絲痕跡。古典的，摩登的，詩意潺潺的，情意綿綿的；主旋律永遠的男女搭檔的愛戀，一對對地走上T台，一對對地退下場來，伴著台下的掌聲啪啪啪啪。也有個別例的。</p>
-
-<p>全場第一次的轟動由新聞傳播學院締造，叫作《Transform》。主持人的聲音淹沒於尖叫聲的洪荒里，顯得無情而且無辜。舞台前的記者團，觀眾席後排的歡呼者，大約都是新聞學院的吧，轟轟烈烈地熱鬧著，尖叫著，吶喊著，噼里啪啦的。中間卻是嘈雜--可是夠了，足以威懾全場。   </p>
-
-<p>然後是第二波，《Scent of a woman》--藝術院的。也就是上一屆棄權比賽的學院。主持人的介紹很有必要一提，演員陣容頗為強大，一個個的全國甚麼甚麼的小姐，頭銜很響，震聾了耳朵，所以聽得並太清楚。走馬的表演過，留給人最深的印象是演員的笑容，也是全場唯一戴有表情的組合。也不是說其他人就沒了表情，他們是那種嚴峻的，淡漠的，毫無情緒的表情，感覺上隔得很近離得很遠，空落落的心緒。自然可以預見，這一組便是今晚的冠軍。</p>
-
-<p>也有令人悵惘的，例如《Dream Autumn》，名字很好，然而也只能名字起得好，很可惜並沒能表現出多少秋韻。音樂倒是配得不錯，沒有斷弦。一陣陣的轟隆，啪啪啪啪，是雷聲，彷彿這就是秋的氣候。</p>
-
-<p>快到曲終的表演顯得乏味，是一種冗長的單調，絮絮叨叨的蹩腳的續集。我看著看著，便睡眼惺忪了。觀眾席上，扎堆兒閒聊著，也有玩手機了，大家做自己的事，偶爾地瞟上兩眼。     我那時一直覺得歷史學院的《喚醒》做得很好，可惜分數不太高。與學院相關，他們的服飾秀展現的是歷史，不是中國的歷史，沒有龍袍。埃及的，希臘的，羅馬的幾點滄桑；有法老，也有神話，最後阿波羅載著達芙妮離開了，留下空蕩的博物館裡的哀嘆。挺有意境的。我倒記得他們學院的口號，“歷史學院，喚醒經典，爭奇鬥艷，魅力無限”，我自己並不是歷史學院的人。</p>
-
-<p>曲終了，人散了，都走了。一簾幕布，空寂的舞台，台上的散落的五色屑兒；熱鬧過，一切都沈寂了。然而並沒有頒奬，對於台下的人倒沒甚麼。屬於舞台的名次、榮譽就留在舞台上吧，下了舞台就是生活--生活經不起榮耀。</p>
  ]]>
         </content>
     </entry>
