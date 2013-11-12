@@ -11,7 +11,7 @@
         <link href="{{ site.baseurl }}{{ item.url }}"/>
         <updated>{{ item.date|xmldatetime }}</updated>
         <published>{{ item.date|xmldatetime }}</published>
-        <id>{{item.id}}</id>
+        <id>{{ site.baseurl }}{{ item.url }}</id>
         <content type="html" xml:base="{{ site.baseurl }}/" xml:lang="en">
             <![CDATA[ {{ item.body|markdown(highlight=False) }} ]]>
         </content>

@@ -31,6 +31,8 @@ Twitter 有一個特性叫作 [Twitter Cards](https://dev.twitter.com/cards)，�
 
 然後向 Twitter 提交你的網站，待 Twitter 認證後，包含你網站的 Tweet 便會展示相關摘要了。請放心，這一步相當快，Twitter 的審覈在幾分鍾內就完成了。
 
+![Twitter Cards](http://ww1.sinaimg.cn/large/5d261318gw1eaim6pgktij20ei0b0t9q.jpg)
+
 ## 標準的價值
 
 Twitter 的方案並非原創，是模仿的 [Open Graph](http://ogp.me/)。這一方案的好處是顯而易見的，一種包羅萬象的大氣。所謂互聯網者，當互聯也，關起門來獨攬全活叫自閉而非互聯。而協議就是這互聯的基礎。
