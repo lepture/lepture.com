@@ -3,14 +3,14 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2013-11-12T14:35:06Z</updated>
+    <updated>2013-11-12T14:49:09Z</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[長微博及其它]]></title>
         <link href="http://lepture.com/zh/2013/anti-long-weibo"/>
         <updated>2013-11-12T22:34:00Z</updated>
         <published>2013-11-12T22:34:00Z</published>
-        <id>zh-2013-anti-long-weibo</id>
+        <id>http://lepture.com/zh/2013/anti-long-weibo</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>長微博這個詞像警世的寓言，頗有一股諷刺意味，正好比我們說方方正正的圓圈，規規矩矩的放蕩。</p>
 
@@ -34,6 +34,8 @@
 </code></pre>
 
 <p>然後向 Twitter 提交你的網站，待 Twitter 認證後，包含你網站的 Tweet 便會展示相關摘要了。請放心，這一步相當快，Twitter 的審覈在幾分鍾內就完成了。</p>
+
+<p><img src="http://ww1.sinaimg.cn/large/5d261318gw1eaim6pgktij20ei0b0t9q.jpg" alt="Twitter Cards"></p>
 
 <h2>標準的價值</h2>
 
@@ -80,7 +82,7 @@
         <link href="http://lepture.com/zh/2013/hello-shaoxing"/>
         <updated>2013-10-20T10:30:00Z</updated>
         <published>2013-10-20T10:30:00Z</published>
-        <id>zh-2013-hello-shaoxing</id>
+        <id>http://lepture.com/zh/2013/hello-shaoxing</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>紹興的老街像小時候的夢，又破又舊又瑰麗。青瓦的層疊的屋頂，白粉的斑駁的牆壁，小橋，流水，人家。</p>
 
@@ -119,7 +121,7 @@
         <link href="http://lepture.com/zh/2013/typography-and-markdown"/>
         <updated>2013-03-24T16:35:00Z</updated>
         <published>2013-03-24T16:35:00Z</published>
-        <id>zh-2013-typography-and-markdown</id>
+        <id>http://lepture.com/zh/2013/typography-and-markdown</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>許多年前，我也曾想過將來要做一個文字工作者，結果現在從事了互聯網行業。這次單從互聯網從業人員的角度談文字排印。</p>
 
@@ -205,7 +207,7 @@ _emphasize_    __strong__
         <link href="http://lepture.com/zh/2012/hello-bangkok"/>
         <updated>2012-11-22T00:00:00Z</updated>
         <published>2012-11-22T00:00:00Z</published>
-        <id>zh-2012-hello-bangkok</id>
+        <id>http://lepture.com/zh/2012/hello-bangkok</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <blockquote>
 <p>沒有睡過機場的旅行不完整。</p>
@@ -255,7 +257,7 @@ _emphasize_    __strong__
         <link href="http://lepture.com/en/2012/create-a-statusbar-app"/>
         <updated>2012-07-20T21:15:00Z</updated>
         <published>2012-07-20T21:15:00Z</published>
-        <id>en-2012-create-a-statusbar-app</id>
+        <id>http://lepture.com/en/2012/create-a-statusbar-app</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>It has been months since I decided to learn cocoa development, but in vain.
 Unlike python, the documentation of cocoa tortures me a lot.</p>
@@ -384,7 +386,7 @@ For example, the volumn control is a StatusBar App.</p>
         <link href="http://lepture.com/zh/2012/girl-at-cafe"/>
         <updated>2012-06-24T03:00:00Z</updated>
         <published>2012-06-24T03:00:00Z</published>
-        <id>zh-2012-girl-at-cafe</id>
+        <id>http://lepture.com/zh/2012/girl-at-cafe</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>天陰沉沉的，一副含雨欲滴的樣子，可是雨水躲在了雲層裡始終不肯落下來。我還奢求著下一點點小雨，一個人不撐傘地漫步於這雨中，營造一份詩意呢。然而不免要失望了。</p>
 
@@ -407,7 +409,7 @@ For example, the volumn control is a StatusBar App.</p>
         <link href="http://lepture.com/en/2012/vundle-vs-pathogen"/>
         <updated>2012-05-02T00:00:00Z</updated>
         <published>2012-05-02T00:00:00Z</published>
-        <id>en-2012-vundle-vs-pathogen</id>
+        <id>http://lepture.com/en/2012/vundle-vs-pathogen</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>Most people just want an answer. Yes, vundle is better.</p>
 
@@ -495,7 +497,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2011/unwritten-story"/>
         <updated>2011-12-11T00:00:00Z</updated>
         <published>2011-12-11T00:00:00Z</published>
-        <id>zh-2011-unwritten-story</id>
+        <id>http://lepture.com/zh/2011/unwritten-story</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>許多年前，其實也就是四五年前，我曾想過寫點小說。可是終於沒有動筆，大抵因為人生閱歷過於膚淺，總不能寫出滿意的文字。尤其，我對故事並不能特別喜好，反而過分糾纏於文字，糾纏於遣詞造句，捨本求末地關注於表象。即使是現在，也深深影響著我的工作，也大約正因了此，才終於選擇了這樣一個職業。</p>
 
@@ -522,7 +524,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2011/dajiangdahai"/>
         <updated>2011-09-05T00:00:00Z</updated>
         <published>2011-09-05T00:00:00Z</published>
-        <id>zh-2011-dajiangdahai</id>
+        <id>http://lepture.com/zh/2011/dajiangdahai</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <h2>PART 1</h2>
 
@@ -591,7 +593,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2010/about-se"/>
         <updated>2010-10-11T00:00:00Z</updated>
         <published>2010-10-11T00:00:00Z</published>
-        <id>zh-2010-about-se</id>
+        <id>http://lepture.com/zh/2010/about-se</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>這大約又是普遍的誤會，一提起男女之事，總免不了有人要說孔夫子說過“食色性也”，用以辯駁。且不言這話是不是孔子說的，單就文字上的理解，亦是叫人失望，又是個誤會。可是跟人解釋，一般人又不願意聽，以為是藐視了他。</p>
 
@@ -616,7 +618,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2010/movie-outdoor"/>
         <updated>2010-10-03T00:00:00Z</updated>
         <published>2010-10-03T00:00:00Z</published>
-        <id>zh-2010-movie-outdoor</id>
+        <id>http://lepture.com/zh/2010/movie-outdoor</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>夜，最可愛的時候還是在夏季。當然，不是今時的夏，是往昔。往昔的夏夜裡的月影樹下的乘涼，閒話，長舌婦的月夜；雖然俗氣，因為時間的隔閡，是難以遇見的了，朦朧得竟或有些許詩意了。現在的時光，也只有在停電的時候，村子里的人才肯出來坐坐，從容聊幾句。</p>
 
@@ -651,7 +653,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2010/be-lazy"/>
         <updated>2010-09-23T00:00:00Z</updated>
         <published>2010-09-23T00:00:00Z</published>
-        <id>zh-2010-be-lazy</id>
+        <id>http://lepture.com/zh/2010/be-lazy</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>梁實秋先生嘗談“懶”，謂“懶”字原作“嬾”，從女旁。漢字的考究則不必了，一是目下實行簡體，一是書同文，自然作“嬾”亦是不會有誤的。</p>
 
@@ -678,7 +680,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2010/ethics-of-love"/>
         <updated>2010-09-20T00:00:00Z</updated>
         <published>2010-09-20T00:00:00Z</published>
-        <id>zh-2010-ethics-of-love</id>
+        <id>http://lepture.com/zh/2010/ethics-of-love</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>近來的風氣格外大膽，同志盛行，各處漫延著基友、搞基之類的詞彙，彷彿homosexuality已經不是大膽話題，相反，正是流行所向。然而沒有美感。</p>
 
@@ -709,7 +711,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2010/stealing-money"/>
         <updated>2010-09-03T00:00:00Z</updated>
         <published>2010-09-03T00:00:00Z</published>
-        <id>zh-2010-stealing-money</id>
+        <id>http://lepture.com/zh/2010/stealing-money</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>說起來也是因為看過三毛的《膽小鬼》才起意要寫。但是如果再早幾年，也就三五年的樣子，我是斷然不肯寫的，以為是羞恥。現在的心境，可以坦然面對以往的過失，更多的是將其當作了童趣。少年時代的事，很輕易就淡化了其中的不齒，再有瑕疵，也不值一哂。</p>
 
@@ -734,7 +736,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2010/the-very-dog"/>
         <updated>2010-08-29T00:00:00Z</updated>
         <published>2010-08-29T00:00:00Z</published>
-        <id>zh-2010-the-very-dog</id>
+        <id>http://lepture.com/zh/2010/the-very-dog</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>我竟無法理解小的時候是怎樣的一種心情了，每逢舊曆年總是格外興奮，又不像一般人家還有壓歲錢，是分文沒有的，就算偶爾有了，也總不能自己支配，是被父母代管了。這樣說彷彿是鑽進了錢眼裡，可是雖然是小朋友，也有想要花錢的時候，例如買點小電動車之類的玩具，問母親要，自然是不肯給買的，這個時候就想著有壓歲錢的好處了。但是沒有，也還是很高興過年。</p>
 
@@ -775,7 +777,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2009/on-chess"/>
         <updated>2009-11-30T00:00:00Z</updated>
         <published>2009-11-30T00:00:00Z</published>
-        <id>zh-2009-on-chess</id>
+        <id>http://lepture.com/zh/2009/on-chess</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>說起來，距離上一次下棋應該已經很久遠了吧；棋盤倒還常見，一是在電腦屏幕上，一是在過天橋的時候。然而并沒有甚麼，又不是棋迷，甚至于在下棋，我算是個面目可憎的人了。</p>
 
@@ -812,7 +814,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2009/love-as-sun"/>
         <updated>2009-10-18T00:00:00Z</updated>
         <published>2009-10-18T00:00:00Z</published>
-        <id>zh-2009-love-as-sun</id>
+        <id>http://lepture.com/zh/2009/love-as-sun</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>其實是昨天的事，知道的也太晚了。說起來還是一個學校，可是隔了一條街，車來車往的，仿佛母子間的隔閡，一切的交流變得異樣困難了。他也是中午吃飯的時候聽人說的，然而料不到竟會是她。</p>
 
@@ -845,7 +847,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2009/on-guihuazheng"/>
         <updated>2009-10-12T00:00:00Z</updated>
         <published>2009-10-12T00:00:00Z</published>
-        <id>zh-2009-on-guihuazheng</id>
+        <id>http://lepture.com/zh/2009/on-guihuazheng</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>第一次聽說這個詞當然是在張愛玲，是那篇《桂花蒸·阿小悲秋》；其實別處倒沒聽說過。是不是她自己造的詞呢？恐怕不見得，就算是，至少也是炎櫻造的。因為開篇就有： </p>
 
@@ -880,7 +882,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2009/on-yujibuzailai"/>
         <updated>2009-10-05T00:00:00Z</updated>
         <published>2009-10-05T00:00:00Z</published>
-        <id>zh-2009-on-yujibuzailai</id>
+        <id>http://lepture.com/zh/2009/on-yujibuzailai</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>回想起來，一生中最輝煌的時候還是在少年，尤其是小學時候。然而這話說起來是多麼地蒼白無力，一生呵，其實只不過二十出頭的光景，連戀愛都還未曾有過。大約還是因為學習成績，總是被老師寵著，那時的同學們自然因為老師的這層關系格外的喜歡著我，況且我那時又不像現在般傲慢，還肯與人相處。無論如何，少年時代是沒有什麼痛苦的經歷的，即使是被學校逼著回家向父母討要學費，也只當是提前放學了般；到後來小學畢業了，這學費學校也還是沒追回去，衹能算了。中學雖然討厭，刁難倒是沒有，無非是生封閉式教育的氣！一路的平坦地度過了，小的坑坑窪窪也有，然而算不上顛簸。</p>
 
@@ -907,7 +909,7 @@ All things you should do is trying it.</p>
         <link href="http://lepture.com/zh/2008/murmurs"/>
         <updated>2009-09-15T00:00:00Z</updated>
         <published>2009-09-15T00:00:00Z</published>
-        <id>zh-2008-murmurs</id>
+        <id>http://lepture.com/zh/2008/murmurs</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>謊言是必須的，它給這戲劇性的人生又憑添了一重戲劇感。我經常說謊，以為是很快樂的事情。當然總是在說過後向別人解釋一下，這是一個謊言。</p>
 
