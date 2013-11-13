@@ -4,13 +4,13 @@
   function js(u){
     var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
   }
-  {% if site.disqus and page.disqus %}
+  {% if site.disqus and page.disqus != False %}
     var disqus_shortname='{{ site.disqus }}';
     var disqus_title='{{ page.title }}';
   {% endif %}
   (function() {
     if(location.port)return;
-    {% if site.disqus and page.disqus %}
+    {% if site.disqus and page.disqus != False %}
       js('http://'+disqus_shortname+'.disqus.com/embed.js');
     {% endif %}
     js('https://platform.twitter.com/widgets.js').onload = function(){
