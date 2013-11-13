@@ -5,7 +5,7 @@ permalink: "/:dirname/:filename"
 timezone: Asia/Chongqing
 
 per_page: 10
-paginator_style: "page/:num/"
+paginator_style: "page/:num"
 
 excludes: ["Makefile", "_config.yml"]
 
