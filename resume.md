@@ -18,7 +18,7 @@ I did, do and will always believe in
 
 ## Contact
 
-I am currently living in Hangzhou, China.
+I am currently living in Shenzhen, China.
 
 You can reach me by
 
@@ -98,4 +98,3 @@ This is my first and only internship.
 
 - Thailand: Sep. 24 2012 - Oct. 24 2012
 - Malaysia: Oct. 24 2012 - Oct. 28 2012
-- China: Oct. 18 2013 - Present
