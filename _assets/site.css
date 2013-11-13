@@ -158,6 +158,12 @@ a:hover {
 .paginator .next:after {
   content: "»";
 }
+.twitter-share-button {
+  display: none;
+}
+.twttr-rendered .twitter-share-button {
+  display: block;
+}
 
 @media (max-width: 650px) {
   #header {
