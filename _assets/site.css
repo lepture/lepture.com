@@ -164,6 +164,9 @@ a:hover {
 .twttr-rendered .twitter-share-button {
   display: block;
 }
+#disqus_thread {
+  margin-top: 18px;
+}
 
 @media (max-width: 650px) {
   #header {

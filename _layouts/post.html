@@ -28,7 +28,5 @@
   {% else %}
     {% include "article.html" %}
   {% endif %}
-  {% if site.disqus and page.disqus != 'false' %}
-    {% include "scripts.html" %}
-  {% endif %}
+  {% include "scripts.html" %}
 {% endblock %}
