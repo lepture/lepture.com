@@ -70,8 +70,11 @@
   function js(u){
     var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
   }
+    var disqus_shortname='lepture';
+    var disqus_title='侍狗的女子';
   (function() {
     if(location.port)return;
+      js('http://'+disqus_shortname+'.disqus.com/embed.js');
     js('https://platform.twitter.com/widgets.js').onload = function(){
       document.body.className += ' twttr-rendered';
     };
