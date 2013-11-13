@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>汝良 — Just lepture</title>
-<link rel="stylesheet" href="/assets/site.css?v=e2819">
+<link rel="stylesheet" href="/assets/site.css?v=8d9b7">
 <script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-21475122-1']);
@@ -86,15 +86,20 @@
 <p>汝良躺在床上，依舊睜著眼睛，瞪著一片漆黑，一時不能入睡。可是還是要睡下的，他只是在等待，等著睡意。黑夜肆意蔓延，將所有的光景塗黑。然而明天，明天一切都會好的，一樣是光明的一天。</p>
 
   </div>
-</div><div id="disqus_thread"></div>
+</div>  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/zh/2008/peace-of-a-family" data-text="汝良" data-via="lepture" data-size="large" data-dnt="true">Tweet</a>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
-  var disqus_shortname = 'lepture';
-  var disqus_title = '汝良';
+  var disqus_shortname='lepture';
+  var disqus_title='汝良';
+  function js(u){
+    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
   (function() {
-    if (location.port) return;
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    if(location.port)return;
+    js('http://'+disqus_shortname+'.disqus.com/embed.js');
+    js('https://platform.twitter.com/widgets.js').onload = function(){
+      document.body.className += ' twttr-rendered';
+    };
   })();
 </script>    </div>
   </div>

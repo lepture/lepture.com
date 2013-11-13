@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>露天電影 — Just lepture</title>
-<link rel="stylesheet" href="/assets/site.css?v=e2819">
+<link rel="stylesheet" href="/assets/site.css?v=8d9b7">
 <script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-21475122-1']);
@@ -76,15 +76,20 @@
 <p>可是究竟看了甚麼，電影叫甚麼名字，有甚麼情節，是一概不知的；也許是因為當時還小，記得不太牢。可是有甚麼關係呢，電影本來並沒甚麼要緊。</p>
 
   </div>
-</div><div id="disqus_thread"></div>
+</div>  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/zh/2010/movie-outdoor" data-text="露天電影" data-via="lepture" data-size="large" data-dnt="true">Tweet</a>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
-  var disqus_shortname = 'lepture';
-  var disqus_title = '露天電影';
+  var disqus_shortname='lepture';
+  var disqus_title='露天電影';
+  function js(u){
+    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
   (function() {
-    if (location.port) return;
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    if(location.port)return;
+    js('http://'+disqus_shortname+'.disqus.com/embed.js');
+    js('https://platform.twitter.com/widgets.js').onload = function(){
+      document.body.className += ' twttr-rendered';
+    };
   })();
 </script>    </div>
   </div>
