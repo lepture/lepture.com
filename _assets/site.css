@@ -103,6 +103,7 @@ a:hover {
 .entry-list .entry-item {
   margin: 25px 0;
   line-height: 25px;
+  min-height: 50px;
   clear: both;
 }
 
@@ -162,6 +163,11 @@ a:hover {
   color: #656565;
   font-weight: 300;
 }
+.paginator em:before, .paginator em:after {
+  font-style: normal;
+  color: #999;
+  content: ' — ';
+}
 .paginator .previous:before {
   content: "«";
 }
@@ -185,11 +191,17 @@ a:hover {
   .container {
     padding: 0 18px;
   }
-  .entry-list time {
+  .entry-list .entry-meta {
     float: none;
     display: block;
     text-align: left;
     width: auto;
+  }
+  .entry-list .entry-meta time {
+    display: inline;
+  }
+  .entry-list .entry-meta time:after {
+    content: ' — ';
   }
   .entry-list .detail {
     margin-left: 0;
