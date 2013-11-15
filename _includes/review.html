@@ -1,17 +1,21 @@
 <div class="hentry" itemscope itemtype="http://schema.org/Review">
   <h1 class="entry-title" itemprop="itemReviewed">{{ page.title }}</h1>
+  {% if page.date %}
+    <div class="entry-meta">
+      <time class="updated" datetime="{{ page.date|xmldatetime }}" itemprop="dtreviewed" pubdate>
+        {{ page.date.strftime('%b %d, %Y') }}
+      </time>
+      <em>{{ page.body|wordcount }} words</em>
+    </div>
+  {% endif %}
   <div class="entry-content" itemprop="description">
     {{ page.body|markdown }}
   </div>
   <div class="entry-review">
     <span itemprop="itemreviewed">{{ page.review }}</span>
-
     Reviewed by <span itemprop="reviewer">{{ site.author }}</span>
-
     {% if page.rating %}
-    , Rating <span itemprop="rating">{{ page.rating }}</span>
+    — Rating <span itemprop="rating">{{ page.rating }}</span>
     {% endif %}
-
-    , At <time class="updated" datetime="{{ page.date|xmldatetime }}" itemprop="dtreviewed" pubdate>{{ page.date }}</time>
   </div>
 </div>

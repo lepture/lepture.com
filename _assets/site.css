@@ -103,14 +103,21 @@ a:hover {
 .entry-list .entry-item {
   margin: 25px 0;
   line-height: 25px;
+  clear: both;
 }
 
-.entry-list time {
+.entry-list .entry-meta {
   float: left;
   width: 120px;
   text-align: right;
   font-size: 14px;
   font-family: "Optima", "Helvetica Neue", sans-serif;
+}
+.entry-list .entry-meta time {
+  display: block;
+}
+.entry-list .entry-meta em {
+  font-size: 13px;
 }
 .entry-list .detail {
   margin-left: 140px;
@@ -126,17 +133,20 @@ a:hover {
   font-size: 18px;
 }
 
-.entry-title {
+.hentry .entry-title {
   text-align: center;
 }
-.entry-meta {
+.hentry .entry-meta {
   display: block;
   margin-bottom: 26px;
   text-align: center;
   font-size: 14px;
   font-family: "Optima", "Helvetica Neue", sans-serif;
 }
-.entry-review {
+.hentry .entry-meta .updated:after {
+  content: ' — ';
+}
+.hentry .entry-review {
   color: #999;
   font-weight: 300;
   font-size: 14px;
