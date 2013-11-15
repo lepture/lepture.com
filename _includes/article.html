@@ -11,6 +11,11 @@
   <div class="entry-content" itemprop="articleBody">
     {{ page.body|markdown }}
   </div>
+  <div class="hide">
+    <span class="author vcard">
+      <span class="fn" itemprop="author">{{ site.author }}</span>
+    </span>
+  </div>
   {% if page.github %}
     <script src="http://lab.lepture.com/github-cards/widget.js"></script>
   {% endif %}

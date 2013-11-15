@@ -7,6 +7,9 @@ html, body {
   color: #f9f9f9;
 }
 
+.hide {
+  display: none;
+}
 .container {
   max-width: 650px;
   *width: 650px;
@@ -147,7 +150,7 @@ a:hover {
 .hentry .entry-meta .updated:after {
   content: ' — ';
 }
-.hentry .entry-review {
+.hentry .entry-footer {
   color: #999;
   font-weight: 300;
   font-size: 14px;
