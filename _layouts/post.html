@@ -28,5 +28,12 @@
   {% else %}
     {% include "article.html" %}
   {% endif %}
+  {% if page.tags %}
+    <div class="entry-tags">
+      {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
   {% include "scripts.html" %}
 {% endblock %}

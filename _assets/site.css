@@ -177,6 +177,18 @@ a:hover {
 .paginator .next:after {
   content: "»";
 }
+.entry-tags {
+  margin-bottom: 20px;
+}
+.entry-tags .tag {
+  text-decoration: none;
+  margin-right: 6px;
+  font-size: 13px;
+}
+.entry-tags .tag:before {
+  content: '#';
+  color: #999;
+}
 .twitter-share-button {
   display: none;
 }
