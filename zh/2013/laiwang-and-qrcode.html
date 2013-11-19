@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>不相來往 — Just lepture</title>
+  <link rel="author" href="https://plus.google.com/117887319435448092628">
+<link rel="stylesheet" href="/assets/site.css?v=6fa29">
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21475122-1']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+  (function() {
+    if (location.port) return;
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="不相來往">
+    <meta name="description" content="二維碼的濫用正像有聲電影誕生時對聲音的濫用，有時我們需要原始一點的無聲。">
+    <meta name="twitter:description" content="二維碼的濫用正像有聲電影誕生時對聲音的濫用，有時我們需要原始一點的無聲。">
+  <meta name="twitter:site" content="@lepture">
+  <meta name="twitter:creator" content="@lepture">
+  <meta name="twitter:domain" content="lepture.com">
+</head>
+<body>
+  <div id="header">
+    <div class="container yue">
+      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
+      <div id="nav" role="navigation">
+          <a href="/resume">About</a>
+          <a href="/zh/">Chinese</a>
+          <a href="/en/">English</a>
+      </div>
+    </div>
+  </div>
+  <div id="subheader">
+    <div class="container yue">
+  二維碼的濫用正像有聲電影誕生時對聲音的濫用，有時我們需要原始一點的無聲。
+    </div>
+  </div>
+  <div id="main">
+    <div class="container yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">不相來往</h1>
+    <div class="entry-meta">
+      <time class="updated" datetime="2013-11-19T13:34:00+08:00" itemprop="datePublished" pubdate>
+        Nov 19, 2013
+      </time>
+      <em>276 words</em>
+    </div>
+  <div class="entry-content" itemprop="articleBody">
+    <p>前同事在微信羣裏發來往的二維碼，我其實也很想加，但是嫌麻煩，就略過了。</p>
+
+<p>我實在不能理解這樣的傳播方式。我至少需要兩部手機，相互掃描二維碼，才能加來往好友，但是我不是土豪。後來聽說不需要兩部手機，把圖片保存下來，來往可以掃描本地圖片，但是我不是阿裏員工。</p>
+
+<p>肉食者鄙，常常做出一些想當然的決策。具體到這件事來說，二維碼是不適合在手機間傳播的。那麼什麼合適呢？我以爲還是 URI 比較好，雖然不夠新潮。比如：</p>
+<pre><code>laiwang://user/lepture
+</code></pre>
+<p>但是微信不會解析該協議，可是微信會解析 HTTP，那我們做一次重定向:</p>
+<pre><code>http://laiwang.com/app/user/lepture
+=&gt; laiwang://user/lepture
+</code></pre>
+<p>我知道這樣不夠新潮，可是你確定你追求的是新潮？</p>
+
+<p>這篇上接<a href="http://lepture.com/zh/2013/anti-long-weibo">《長微博及其它》</a>，喚爲：</p>
+
+<blockquote>
+<p>You are doing it wrong !</p>
+</blockquote>
+
+<p>肉食者鄙，而下不能達上，大公司通病也。</p>
+
+  </div>
+  <div class="hide">
+    <span class="author vcard">
+      <span class="fn" itemprop="author">Hsiaoming Yang</span>
+    </span>
+  </div>
+</div>    <div class="entry-tags">
+        <span class="tag">thought</span>
+        <span class="tag">wrong</span>
+    </div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/zh/2013/laiwang-and-qrcode" data-text="不相來往" data-via="lepture" data-size="large" data-dnt="true">Tweet</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  function js(u){
+    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
+    var disqus_shortname='lepture';
+    var disqus_title='不相來往';
+  (function() {
+    if(location.port)return;
+      js('http://'+disqus_shortname+'.disqus.com/embed.js');
+    js('https://platform.twitter.com/widgets.js').onload = function(){
+      document.body.className += ' twttr-rendered';
+    };
+  })();
+</script>    </div>
+  </div>
+  <div id="footer">
+    <div class="container">
+      <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>
+    </div>
+  </div>
+</body>
+</html>
