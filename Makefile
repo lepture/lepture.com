@@ -13,4 +13,3 @@ build:
 
 publish:
 	@ghp-import _site -p
-	@git push origin master

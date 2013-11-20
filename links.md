@@ -7,7 +7,7 @@
 
 ## Blogs
 
-Friends who are still blogging.
+Friends who are still blogging, especially in Chinese.
 
 ### The Qlog
 
@@ -19,7 +19,7 @@ Blog of Quyi (aka rangerqu), he blogs about life, economics, laws, and etc.
 
 ### Rei
 
-Blog of Rei, he blogs about ruby, comics, thoughts, and etc.
+Rei's Blog, he talks about ruby, comics, thoughts, and etc.
 
 - [Blog](http://chloerei.com/)
 - [Twitter](https://twitter.com/chloerei)
