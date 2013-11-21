@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2013-11-21T17:23:52+08:00</updated>
+    <updated>2013-11-21T17:33:19+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[Create an OAuth Server]]></title>
@@ -434,6 +434,9 @@ redis instead.</p>
 <p>That&#39;s why I put the SQLAlchemy stuff in the <code>contrib</code> module. It is not
 finished yet, and I need your contribution.
 Find out what&#39;s going on in <a href="https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib">contrib</a>.</p>
+
+<p>And one more thing, it is better if we put those temporary tokens in cache,
+for example request token, verifier, timestamp, nonce and grant token.</p>
 
 <p>Remember that every links are important, if you missed one link, you may
 miss the target. Chances are that you&#39;ve already lost your patience.</p>

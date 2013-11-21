@@ -53,7 +53,7 @@ in a flavor of Flask with the help of Flask-OAuthlib.
       <time class="updated" datetime="2013-11-21T16:30:00+08:00" itemprop="datePublished" pubdate>
         Nov 21, 2013
       </time>
-      <em>2595 words</em>
+      <em>2620 words</em>
     </div>
   <div class="entry-content" itemprop="articleBody">
     <p>I&#39;ve searched the whole internet on how to create an OAuth server or
@@ -461,6 +461,9 @@ redis instead.</p>
 <p>That&#39;s why I put the SQLAlchemy stuff in the <code>contrib</code> module. It is not
 finished yet, and I need your contribution.
 Find out what&#39;s going on in <a href="https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib">contrib</a>.</p>
+
+<p>And one more thing, it is better if we put those temporary tokens in cache,
+for example request token, verifier, timestamp, nonce and grant token.</p>
 
 <p>Remember that every links are important, if you missed one link, you may
 miss the target. Chances are that you&#39;ve already lost your patience.</p>
