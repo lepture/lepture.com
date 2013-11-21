@@ -83,7 +83,7 @@ All these mess things are designed for authentication and security.
 OAuth 2 is much easier, we do need only one **grant token** for exchanging
 the final access token.
 
-OAuth 2 requires SSL over the connection for security, it simplified the
+OAuth 2 requires SSL over the connection for security, it simplifies the
 way for getting access token. However, SSL is also suggested on OAuth 1 in
 your final production.
 
@@ -173,8 +173,7 @@ And this is the template of `home.html`:
 </html>
 ```
 
-You can download these files from this [commit#6cfb8db](https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef). And I will continue
-work on this repo, browser the revisions for more details.
+You can download these files from this [commit#6cfb8db](https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef). And I will continue working on this repo, browser the revisions for more details.
 
 ## Creating OAuth 1 Server
 
@@ -241,7 +240,7 @@ and visit `/client`.
 
 ### Implement OAuth 1 Provider
 
-It is the time to create a provider now. However, before we initialize a
+It is time to create a provider now. However, before we initialize a
 provider, we need to update the configuration.
 
 ```python
@@ -395,7 +394,7 @@ the job. However, OAuthlib has a mechanism for us to debug on HTTP, that is
 the environ variable `DEBUG`.
 
 When we do coding, we make mistakes. You have to keep an eye on the error
-stack, find out what is wrong, and fix them. Yes, I do fixed some bugs in
+stack, find out what is wrong, and fix it. Yes, I did fix some bugs in
 this commit.
 
 And now start the server and client, visit `http://localhost:8000/`, and you
@@ -433,8 +432,8 @@ Find out what's going on in [contrib](https://github.com/lepture/flask-oauthlib/
 And one more thing, it is better if we put those temporary tokens in cache,
 for example request token, verifier, timestamp, nonce and grant token.
 
-Remember that every links are important, if you missed one link, you may
-miss the target. Chances are that you've already lost your patience.
+Remember that every link is important, if you miss one, you may miss the
+target. Chances are that you've already lost your patience.
 
 **TL;DR**
 
