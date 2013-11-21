@@ -430,6 +430,9 @@ That's why I put the SQLAlchemy stuff in the `contrib` module. It is not
 finished yet, and I need your contribution.
 Find out what's going on in [contrib](https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib).
 
+And one more thing, it is better if we put those temporary tokens in cache,
+for example request token, verifier, timestamp, nonce and grant token.
+
 Remember that every links are important, if you missed one link, you may
 miss the target. Chances are that you've already lost your patience.
 
