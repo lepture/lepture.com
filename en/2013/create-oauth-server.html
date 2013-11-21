@@ -53,7 +53,7 @@ in a flavor of Flask with the help of Flask-OAuthlib.
       <time class="updated" datetime="2013-11-21T16:30:00+08:00" itemprop="datePublished" pubdate>
         Nov 21, 2013
       </time>
-      <em>2620 words</em>
+      <em>2618 words</em>
     </div>
   <div class="entry-content" itemprop="articleBody">
     <p>I&#39;ve searched the whole internet on how to create an OAuth server or
@@ -137,7 +137,7 @@ a timestamp and a nonce.</p>
 <p>OAuth 2 is much easier, we do need only one <strong>grant token</strong> for exchanging
 the final access token.</p>
 
-<p>OAuth 2 requires SSL over the connection for security, it simplified the
+<p>OAuth 2 requires SSL over the connection for security, it simplifies the
 way for getting access token. However, SSL is also suggested on OAuth 1 in
 your final production.</p>
 
@@ -223,8 +223,7 @@ identify the current user. But we can skip the registration part.</p>
 <span class="nt">&lt;/html&gt;</span>
 </pre></div>
 
-<p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue
-work on this repo, browser the revisions for more details.</p>
+<p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p>
 
 <h2>Creating OAuth 1 Server</h2>
 
@@ -289,7 +288,7 @@ and visit <code>/client</code>.</p>
 
 <h3>Implement OAuth 1 Provider</h3>
 
-<p>It is the time to create a provider now. However, before we initialize a
+<p>It is time to create a provider now. However, before we initialize a
 provider, we need to update the configuration.</p>
 <div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
     <span class="s">&#39;OAUTH1_PROVIDER_ENFORCE_SSL&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
@@ -429,7 +428,7 @@ the job. However, OAuthlib has a mechanism for us to debug on HTTP, that is
 the environ variable <code>DEBUG</code>.</p>
 
 <p>When we do coding, we make mistakes. You have to keep an eye on the error
-stack, find out what is wrong, and fix them. Yes, I do fixed some bugs in
+stack, find out what is wrong, and fix it. Yes, I did fix some bugs in
 this commit.</p>
 
 <p>And now start the server and client, visit <code>http://localhost:8000/</code>, and you
@@ -465,8 +464,8 @@ Find out what&#39;s going on in <a href="https://github.com/lepture/flask-oauthl
 <p>And one more thing, it is better if we put those temporary tokens in cache,
 for example request token, verifier, timestamp, nonce and grant token.</p>
 
-<p>Remember that every links are important, if you missed one link, you may
-miss the target. Chances are that you&#39;ve already lost your patience.</p>
+<p>Remember that every link is important, if you miss one, you may miss the
+target. Chances are that you&#39;ve already lost your patience.</p>
 
 <p><strong>TL;DR</strong></p>
 
