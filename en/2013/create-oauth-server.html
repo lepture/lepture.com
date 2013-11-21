@@ -53,7 +53,7 @@ in a flavor of Flask with the help of Flask-OAuthlib.
       <time class="updated" datetime="2013-11-21T16:30:00+08:00" itemprop="datePublished" pubdate>
         Nov 21, 2013
       </time>
-      <em>2590 words</em>
+      <em>2595 words</em>
     </div>
   <div class="entry-content" itemprop="articleBody">
     <p>I&#39;ve searched the whole internet on how to create an OAuth server or
@@ -346,8 +346,8 @@ the client server with:</p>
 <p>We visit <code>http://localhost:8000/</code>, everything should work correctly. We
 will be navigated to a confirm page, if we choose yes, client will obtain
 a pair of access token and secret. If anything wrong happened, don&#39;t
-hesitate to tell me. You can also debug it your self, since we enabled the
-logging for Flask-OAuthlib.</p>
+hesitate to tell me. You can also debug it yourself. We enabled the
+logging for Flask-OAuthlib so that you can debug easily.</p>
 
 <p>The last part of this tutorial on OAuth 1 is protecting user resources. It
 is easy with a decorator <code>require_oauth</code>:</p>
@@ -361,14 +361,14 @@ is easy with a decorator <code>require_oauth</code>:</p>
 <p>This <code>req</code> parameter is an oauth request object, it contains many useful
 data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p>
 
-<p>Now, find the final client.py at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
+<p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
 This commit added a tokengetter, and fixed some bugs I created. After the
 client obtained an access token, visit <code>http://localhost:8000/</code>, and you
 will see the information of current user.</p>
 
-<p>There are more we should do, but we would finish it right now. Since this
-is a simple tutorial, it will not cover any advanced skills. However, I
-would give some suggestions in the end of this article.</p>
+<p>There are more works we should do, but we would finish it right now.
+Since this is a simple tutorial, it will not cover any advanced skills.
+However, I would give some suggestions in the end of this article.</p>
 
 <h2>Creating OAuth 2 Server</h2>
 
@@ -376,8 +376,8 @@ would give some suggestions in the end of this article.</p>
 means I designed the API for OAuth 2 provider first, and OAuth 1 provider
 shares the same API with OAuth 2 provider.</p>
 
-<p>The setup of OAuth 2 server is the same as above. First we created a basic
-simple server with a user system. You can find the code at
+<p>The setup of OAuth 2 server is the same as above. First, we created a
+basic simple server with a user system. You can find the code at
 <a href="https://github.com/lepture/example-oauth2-server/commit/d1e3b6de1982894b97a719b04d9f0161e5739074">commit#d1e3b6d</a>.</p>
 
 <p>Then we created a Client model and a client handler. Here are the differences,
@@ -435,8 +435,8 @@ this commit.</p>
 <p>And now start the server and client, visit <code>http://localhost:8000/</code>, and you
 will finally get an access token.</p>
 
-<p>We do OAuth, because we want to protect some resource. This is the last part
-of this tutorial on OAuth 2 server. We protect them with a decorator
+<p>We do OAuth, because we want to protect some resources. This is the last
+part of this tutorial on OAuth 2 server. We protect them with a decorator
 <code>@oauth.require_oauth</code>, and this decorator will add an additional paramter
 to the handler.</p>
 <div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
@@ -452,7 +452,7 @@ the source code and enjoy it yourself.</p>
 
 <p>I must confess that it is not easy to setup an OAuth server. You need to
 learn lots of concepts for understanding. This tutorial hasn&#39;t taught you
-the realms and scopes staff, you can learn these parts from the <a href="https://flask-oauthlib.readthedocs.org/">Flask-OAuthlib documentation</a>.</p>
+the realms and scopes stuff, you can learn these parts from the <a href="https://flask-oauthlib.readthedocs.org/">Flask-OAuthlib documentation</a>.</p>
 
 <p>We did waste lots of time on creating the models and handlers. In fact we
 don&#39;t have to do such boring things. However, I don&#39;t want to set a limitation, and force you to use SQLAlchemy. There are chances that you want to use
