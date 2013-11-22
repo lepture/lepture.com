@@ -13,17 +13,17 @@ provider, but failed every time. Sometimes it was the language that stopped
 me, and sometimes it was something that didn't even work.
 
 And one day, I found [Flask-OAuthProvider][flask_provider], which was a
-great piece of work. But it only implemented the OAuth 1 server, and I need
+great piece of work. But it only implements the OAuth 1 server, and I need
 the OAuth 2 part at that time. This was the first time I met OAuthlib.
 
 > OAuthlib is the future of OAuth for Python.
 
 A quote from Kenneth Reitz, and I can't agree more. It is really great and
-rfc-aware. However, it is undervalued with less than 450 stars on GitHub.
+RFC-aware. However, it is undervalued with fewer than 450 stars on GitHub.
 The code of [OAuthlib][oauthlib] is well written, so is the documentation,
-and so is the test cases, you should star it. Everything is perfect, except
+and so is the test cases. You should star it. Everything is perfect, except
 its fame. That's why I sent [a pull request][oauth.net#55] to oauth.net,
-made it known by the world.
+making it known by the world.
 
 OAuthlib is far more brilliant than rauth. It is a generic, spec-compliant
 library, without any specific HTTP request library. It focuses on the
@@ -34,12 +34,12 @@ definition of RFCs.
 It has been 6 months since I started this project named as [Flask-OAuthlib][flask_oauthlib], which is a successor of Flask-OAuthProvider and Flask-OAuth.
 
 With the great work of OAuthlib, I finished the client part in 4 days, and
-made it a replacement of Flask-OAuth. It was well designed with a good
+made it a replacement of Flask-OAuth. It is well designed with a good
 intention for compatability of the non-standard oauth servers. If you are
-still using Flask-OAuth, I think you should take account into this project.
+still using Flask-OAuth, I recommend you take this project into account.
 
 I completed the OAuth 2 provider part at version 0.2.0, OAuth 1 provider
-at version 0.3.0. And now this project has moved to version 0.4.0. And I
+at version 0.3.0. And now this project has moved to version 0.4.0. So I
 think it is the right time to write some introduction now.
 
 Thanks for the help of [Ib Lundgren][ib] who is the maintainer of OAuthlib.
@@ -48,11 +48,11 @@ You can find them on the [authors list][authors_list].
 
 ## Terminology & Knowledge
 
-There are knowledges and terminologies that you should know. We will build
+There are knowledge and terminologies that you should know. We will build
 a server in Flask web framework, it is okay even if you haven't used Flask.
 You can still learn something that worth the time.
 
-Since you are going to build an OAuth server, you may need some knowledges
+Since you are going to build an OAuth server, you may need some knowledge
 on these terminologies.
 
 * **client**: also known as application, for example Twitter for iPhone
@@ -76,7 +76,7 @@ a timestamp and a nonce.
 * **timestamp**: a timestamp of current request
 * **nonce**: a random token that makes current request unique
 
-All these mess things are designed for authentication and security.
+All these messy things are designed for authentication and security.
 
 ### OAuth 2
 
@@ -177,13 +177,13 @@ You can download these files from this [commit#6cfb8db](https://github.com/leptu
 
 ## Creating OAuth 1 Server
 
-Before implementing the actual OAuth part, we need to define a OAuth 1
+Before implementing the actual OAuth part, we need to define an OAuth 1
 Client. A client requires client_key, client_secret, redirect_uris,
-default_redirect_uri and default_realms. Find more on the [Documentation][oauth1_client].
+default_redirect_uri and default_realms. Find more in the [Documentation][oauth1_client].
 
 All clients are bound to a developer (developer is a user). The developer
-need to fill a form, describe the application. In this simple demo, we will
-skip this part. It will create a client when you visit `/client`.
+need to fill a form and describe the application. In this simple demo, we
+will skip this part. It will create a client when you visit `/client`.
 
 ```python
 from flask import jsonify
@@ -277,7 +277,7 @@ is done with the help of documentation on [Timestamp and Nonce](https://flask-oa
 
 We will finish all the data models when [access token is created](https://github.com/lepture/example-oauth1-server/commit/88dee8057eb1864d90e1df1895a47efdbad4ee66).
 
-The next big thing is the handlers. How we handle the authorization flow,
+The next big thing is the handlers - how we handle the authorization flow,
 the request token and access token. Check [commit#55664c4](https://github.com/lepture/example-oauth1-server/commit/55664c43951f593efa545e8968b1371b9d01659c).
 
 In this commit, we implemented all required handlers. And we also fixed
@@ -301,8 +301,8 @@ the client server with:
     $ python client.py
 
 We visit `http://localhost:8000/`, everything should work correctly. We
-will be navigated to a confirm page, if we choose yes, client will obtain
-a pair of access token and secret. If anything wrong happened, don't
+will be redirected to a confirm page, if we choose yes, client will obtain
+a pair of access token and secret. If anything wrong happens, don't
 hesitate to tell me. You can also debug it yourself. We enabled the
 logging for Flask-OAuthlib so that you can debug easily.
 
@@ -325,9 +325,9 @@ This commit added a tokengetter, and fixed some bugs I created. After the
 client obtained an access token, visit `http://localhost:8000/`, and you
 will see the information of current user.
 
-There are more works we should do, but we would finish it right now.
+There are more works we should do, but we will finish it right now.
 Since this is a simple tutorial, it will not cover any advanced skills.
-However, I would give some suggestions in the end of this article.
+However, I would give some suggestions at the end of this article.
 
 ## Creating OAuth 2 Server
 
@@ -342,7 +342,7 @@ basic simple server with a user system. You can find the code at
 Then we created a Client model and a client handler. Here are the differences,
 Client for OAuth 2 use `client_id` instead of `client_key`, `default_scopes`
 instead of `default_realms`, and it has a client type (which is public in
-this case). Discover the code at [commit#3f1c8f2](https://github.com/lepture/example-oauth2-server/commit/3f1c8f2f86b408be6105593c3206cad814dfcb73).
+this case). See the code at [commit#3f1c8f2](https://github.com/lepture/example-oauth2-server/commit/3f1c8f2f86b408be6105593c3206cad814dfcb73).
 We created the Client following the documentation on [Client (Application)](https://flask-oauthlib.readthedocs.org/en/latest/oauth2.html#client-application).
 
 ### Implement OAuth 2 Provider
@@ -364,9 +364,9 @@ Then we would [create Grant Token](https://github.com/lepture/example-oauth2-ser
 [Access Token](https://github.com/lepture/example-oauth2-server/commit/ba1fd40293e673ae35180a1c10f95820c6a93d23) , and their getters and setters. It is
 much simpler than OAuth 1, since we don't have to create timestamp and nonce.
 
-OAuth 2 has no Request Token, the handlers are simple too. What you need is
-a token handler that response with access token or refresh token, and an
-authorize handler for user to confirm the request.
+OAuth 2 has no Request Token. The handlers are simple too. What you need is
+a token handler that handles response with access token or refresh token,
+and an authorize handler for user to confirm the request.
 
 ```python
 @app.route('/oauth/token')
@@ -376,12 +376,12 @@ def access_token():
 ```
 
 Flask-OAuthlib has done all the tricks, you don't need to handle the data
-yourself. However, you can return some thing that matters. They are
+yourself. However, you can return things that matter to you. They are
 advanced skills, and I will not cover it here.
 
 Changes can be found at [commit#cbc3e12](https://github.com/lepture/example-oauth2-server/commit/cbc3e12a3123f4bbc9d68eb8438247357f213583).
 
-Now it is the time for testing. We would [create a client.py](https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22) to do the job. Here is a little trick:
+Now it is time for testing. We would [create a client.py](https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22) to do the job. Here is a little trick:
 
 ```python
 import os
@@ -389,16 +389,17 @@ os.environ['DEBUG'] = 'true'
 ```
 
 Remember what I have said? OAuth 2 requires SSL all the time, since we are
-developing on a local machine, we don't have HTTPS, it is hard to finish
-the job. However, OAuthlib has a mechanism for us to debug on HTTP, that is
-the environ variable `DEBUG`.
+developing on a local machine, we don't have HTTPS, As a result, it is
+hard to meet this requirement. Fortunately, OAuthlib has a mechanism for
+us to debug on HTTP, that is the environ variable `DEBUG`.
+(Which is contributed by me).
 
-When we do coding, we make mistakes. You have to keep an eye on the error
+When we code, we make mistakes. You have to keep an eye on the error
 stack, find out what is wrong, and fix it. Yes, I did fix some bugs in
 this commit.
 
-And now start the server and client, visit `http://localhost:8000/`, and you
-will finally get an access token.
+And now start the server and client and visit `http://localhost:8000/`.
+You will finally get an access token.
 
 We do OAuth, because we want to protect some resources. This is the last
 part of this tutorial on OAuth 2 server. We protect them with a decorator
@@ -418,19 +419,21 @@ the source code and enjoy it yourself.
 ## References & Other Resources
 
 I must confess that it is not easy to setup an OAuth server. You need to
-learn lots of concepts for understanding. This tutorial hasn't taught you
-the realms and scopes stuff, you can learn these parts from the [Flask-OAuthlib documentation](https://flask-oauthlib.readthedocs.org/).
+learn lots of concepts for understanding. This tutorial don't teach you
+the realms and scopes stuff - you can learn these parts from the [Flask-OAuthlib documentation](https://flask-oauthlib.readthedocs.org/).
 
 We did waste lots of time on creating the models and handlers. In fact we
-don't have to do such boring things. However, I don't want to set a limitation, and force you to use SQLAlchemy. There are chances that you want to use
-redis instead.
+don't have to do such boring things. A demo is just, a demo. I don't mean
+to set limitations, and force you to use SQLAlchemy. There are chances
+that you want to use redis instead.
 
 That's why I put the SQLAlchemy stuff in the `contrib` module. It is not
 finished yet, and I need your contribution.
 Find out what's going on in [contrib](https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib).
 
-And one more thing, it is better if we put those temporary tokens in cache,
-for example request token, verifier, timestamp, nonce and grant token.
+And one more thing, it would be better if we put those temporary tokens
+in cache, for example request token, verifier, timestamp, nonce and
+grant token.
 
 Remember that every link is important, if you miss one, you may miss the
 target. Chances are that you've already lost your patience.
