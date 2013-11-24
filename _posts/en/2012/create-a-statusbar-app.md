@@ -123,12 +123,6 @@ Fix it:
 
 ![quit](https://github.com/lepture/StatusBarApp/raw/master/assets/Step7.jpg)
 
-## Source Code
-
-Get the latest source code at [GitHub](https://github.com/lepture/StatusBarApp).
-
-<div class="github-card" data-github="lepture/StatusBarApp"></div>
-
 ## Reference:
 
 - [Creating a Status Bar Application](http://cocoatutorial.grapewave.com/2010/01/creating-a-status-bar-application/)

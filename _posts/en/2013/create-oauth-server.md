@@ -2,6 +2,7 @@
 
 - date: 2013-11-21 16:30
 - tags: oauth, python, flask
+- github: lepture/flask-oauthlib
 
 A guide on creating an OAuth server, both OAuth 1 and OAuth 2,
 in a flavor of Flask with the help of Flask-OAuthlib.
