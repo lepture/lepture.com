@@ -26,6 +26,8 @@ social:
     url: "http://weibo.com/lepture"
   - name: GitHub
     url: "https://github.com/lepture"
+  - name: Feed
+    url: "http://feeds.lepture.com/lepture"
 
 disqus: lepture
 google_analytics: "UA-21475122-1"
