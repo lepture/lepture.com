@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=aac8d">
+<link rel="stylesheet" href="/assets/site.css?v=0d32a">
 <script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-21475122-1']);
@@ -61,50 +61,31 @@
     </div>
   <div class="entry-content" itemprop="articleBody">
     <p>Most people just want an answer. Yes, vundle is better.</p>
-
 <h2>Pathogen</h2>
-
 <p>Pathogen created a new way to organize vim plugins, it provides the possibility
-to make vim plugins a bundle.</p>
-
-<p>The original vim plugin system is somewhat a centered plugin system, but pathogen makes
-it a distributing system. The original way:</p>
-<pre><code>vim/
+to make vim plugins a bundle.</p><p>The original vim plugin system is somewhat a centered plugin system, but pathogen makes
+it a distributing system. The original way:</p><pre><code>vim/
     syntax/
         html.vim
     indent/
         html.vim
-</code></pre>
-<p>The pathogen way:</p>
-<pre><code>vim/bundle/
+</code></pre><p>The pathogen way:</p><pre><code>vim/bundle/
     html/
         syntax/
             html.vim
         indent/
             html.vim
-</code></pre>
-<p>Now, you can take <code>html</code> as a bundle (or app), you need not copy every file to the right
-directory, everything is well maintained by the plugin creator.</p>
-
-<p>It&#39;s almost the end of the world, the vim plugin system should be distributed. And I&#39;m glad
-that so many plugins are compatible with pathogen.</p>
-
-<p>I tried pathogen, and <a href="http://lepture.com/work/manage-vim/">wrote a post</a> (in Chinese) about
+</code></pre><p>Now, you can take <code>html</code> as a bundle (or app), you need not copy every file to the right
+directory, everything is well maintained by the plugin creator.</p><p>It&#39;s almost the end of the world, the vim plugin system should be distributed. And I&#39;m glad
+that so many plugins are compatible with pathogen.</p><p>I tried pathogen, and <a href="http://lepture.com/work/manage-vim/">wrote a post</a> (in Chinese) about
 it.</p>
-
 <h2>Vundle</h2>
-
 <p>At that time, I knew vundle, and I mentioned it in the post, but I didn&#39;t try it.
-I wish if only I had tried it.</p>
-
-<p>Vundle is inspired by Pathogen, it can do everything pathogen can do,
+I wish if only I had tried it.</p><p>Vundle is inspired by Pathogen, it can do everything pathogen can do,
 it is compatible with pathogen, which means if a plugin declares it supporting
-pathogen, it supports vundle.</p>
-
-<p>But vundle does more, it improved the way to get and update vim plugins.
+pathogen, it supports vundle.</p><p>But vundle does more, it improved the way to get and update vim plugins.
 I mentioned in my post, that I was trying git-submodule with pathogen,
-it was brilliant, but vundle is more elegant:</p>
-<div class="highlight"><pre><span class="k">set</span> <span class="nb">nocompatible</span>               <span class="c">&quot; be iMproved</span>
+it was brilliant, but vundle is more elegant:</p><div class="highlight"><pre><span class="k">set</span> <span class="nb">nocompatible</span>               <span class="c">&quot; be iMproved</span>
 <span class="k">filetype</span> off                   <span class="c">&quot; required!</span>
 
 <span class="k">set</span> <span class="nb">rtp</span><span class="p">+=~</span><span class="sr">/.vim/</span>bundle<span class="sr">/vundle/</span>
@@ -127,13 +108,9 @@ Bundle <span class="s1">&#39;FuzzyFinder&#39;</span>
 <span class="c">&quot; non github repos</span>
 Bundle <span class="s1">&#39;git://git.wincent.com/command-t.git&#39;</span>
 </pre></div>
-
 <p>Launch vim and run <code>:BundleInstall</code> , everything will be ready for you.
-All things you should do is trying it.</p>
-
-<p>Save my words, save your time, head over to
+All things you should do is trying it.</p><p>Save my words, save your time, head over to
 <a href="https://github.com/gmarik/vundle">Vundle</a> immediately.</p>
-
   </div>
   <div class="hide">
     <span class="author vcard">

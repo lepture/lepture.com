@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>The Unpleasant Part of Open Source — Just lepture</title>
+  <link rel="author" href="https://plus.google.com/117887319435448092628">
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
+  <link rel="logo" type="image/svg" href="/logo.svg" />
+  <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
+<link rel="stylesheet" href="/assets/site.css?v=0d32a">
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21475122-1']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+  (function() {
+    if (location.port) return;
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Unpleasant Part of Open Source">
+    <meta name="description" content="I appreciate open source, I open source sometimes. But there are unpleasant
+things in open source.">
+    <meta name="twitter:description" content="I appreciate open source, I open source sometimes. But there are unpleasant
+things in open source.">
+  <meta name="twitter:site" content="@lepture">
+  <meta name="twitter:creator" content="@lepture">
+  <meta name="twitter:domain" content="lepture.com">
+</head>
+<body>
+  <div id="header">
+    <div class="container yue">
+      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
+      <div id="nav" role="navigation">
+          <a href="/resume">About</a>
+          <a href="/zh/">Chinese</a>
+          <a href="/en/">English</a>
+      </div>
+    </div>
+  </div>
+  <div id="subheader">
+    <div class="container yue">
+  I appreciate open source, I open source sometimes. But there are unpleasant
+things in open source.
+    </div>
+  </div>
+  <div id="main">
+    <div class="container yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">The Unpleasant Part of Open Source</h1>
+    <div class="entry-meta">
+      <time class="updated" datetime="2013-12-06T16:40:00+08:00" itemprop="datePublished" pubdate>
+        Dec 06, 2013
+      </time>
+      <em>602 words</em>
+    </div>
+  <div class="entry-content" itemprop="articleBody">
+    <p>It has been 9 months since I sent the <a href="https://github.com/chjj/marked/pull/129">renderer feature</a> to marked.
+It was merged some days ago, when I finally lost my patience and created
+a forked project named <a href="https://github.com/lepture/markit">markit</a>.</p><p>I do not suggest you use markit right now. We are working on marked. And
+we hope that renderer feature will be available soon.</p>
+<hr>
+<p>Why it takes so much time for one pull request? Reason varies from people
+to people. Maybe he is focusing on other projects. Maybe he just doesn&#39;t
+like this feature. Maybe FUD.</p><blockquote class="cite-quote"><p>marked does so many weird optimizations that I&#39;m worried only I understand
+</p><cite>Christopher Jeffrey</cite></blockquote><p>I don&#39;t blame <a href="chjj">Christopher Jeffrey</a>. On the contrary, he did a
+great job. marked is a well written, good designed project. I appreciate
+his humility for I&#39;ve read the code of markdown-js which I am just too
+stupid to understand.</p><p>It is usually the fear of breaking things, the uncertainty of the changes,
+and the doubt of the people that stops us.</p>
+<hr>
+<p>We open source not because people need us. We just happen to open source
+things that solve our problems, and wish it may help other people. Open
+source can be a business for a company, but not for individuals.</p><blockquote class="cite-quote"><p>Lots of people in the Open Source community develop something that solve
+particular problems they have themselves.
+</p><cite>Armin Ronacher</cite></blockquote><p>I created <a href="create-oauth-server">Flask-OAuthlib</a> for my own, because I
+needed to create an OAuth 2 server at that time. I contribute to OAuthLib,
+because I need to fix that bug or add that feature for Flask-OAuthlib. I
+don&#39;t contribute for my own amusement.</p><p>Armin Roncher wrote in his recent post <a href="http://lucumr.pocoo.org/2013/11/28/emotional-programming/">Emotional Programming in Open Source</a>:</p><blockquote><p>I found it quite hard this year to work on my own projects because the
+bug trackers were full of things I personally did not really care about.
+The things I wrote over the last few years all work so well for me, that
+I don&#39;t need to fix problems or add things.</p></blockquote><p>That is true for individual devlopers. At least that is true for me.</p><p>Individual developers open source in their own time, they don&#39;t get paid.
+However, sometimes, they are too good to accept features that they don&#39;t
+care. This is the time for us to give our thanks, our stars and our tweets.</p>
+<hr>
+<p>Our stars and tweets matter a lot. A good library should be promoted. Yes,
+I mean <a href="https://github.com/idan/oauthlib">OAuthLib</a>. The funny things is that python-oauth2 has
+more stars than OAuthLib. python-oauth2 is not really designed for OAuth 2,
+it is OAuth 1. What a sarcastic reality!</p><p>That&#39;s why we should promote the good libraries. Let them to be known. This
+encourages developers and makes them happy -- but sometimes it may be a
+burden to them.</p><p>It takes time to build a good library -- the design, the documentation, and
+the test cases.</p>
+<hr>
+<p>Somtimes, when you finish a good project, a good name for your project is
+already taken by another people. And when you find out that it is only a
+spawn of a unix command, you feel angry that you have to name your project
+as &quot;something 2&quot;. That is really disappointed.</p><p>May you happy, may the developers happy.</p><blockquote><p>high quality of lots of Open Source code is that the developers are
+generally happier writing it</p></blockquote>
+  </div>
+  <div class="hide">
+    <span class="author vcard">
+      <span class="fn" itemprop="author">Hsiaoming Yang</span>
+    </span>
+  </div>
+</div><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/en/2013/unpleasant-open-source" data-text="The Unpleasant Part of Open Source" data-via="lepture" data-size="large" data-dnt="true">Tweet</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  function js(u){
+    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
+    var disqus_shortname='lepture';
+    var disqus_title='The Unpleasant Part of Open Source';
+  (function() {
+    if(location.port)return;
+      js('http://'+disqus_shortname+'.disqus.com/embed.js');
+    js('https://platform.twitter.com/widgets.js').onload = function(){
+      document.body.className += ' twttr-rendered';
+    };
+  })();
+</script>    </div>
+  </div>
+  <div id="footer">
+    <div class="container">
+      <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>
+    </div>
+  </div>
+</body>
+</html>
