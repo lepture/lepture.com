@@ -38,6 +38,27 @@ a:hover {
 .yue p {
   margin-bottom: 1.4em;
 }
+.yue .cite-quote {
+  font-size: 24px;
+  text-align: left;
+  margin: 36px;
+  border: 0;
+  padding: 0;
+}
+.yue .cite-quote cite {
+  display: block;
+  text-align: right;
+  font-size: 20px;
+  font-style: normal;
+  color: #999;
+}
+.yue .cite-quote p + cite {
+  margin-top: -10px;
+}
+.yue .cite-quote cite:before {
+  content: '——';
+  margin-right: 14px;
+}
 
 #header {
   padding: 60px 0 30px;
@@ -223,7 +244,7 @@ a:hover {
   }
 }
 
-.highlight pre {
+.yue pre {
   border: 0 none;
   border-left: 3px solid #dadada;
   padding-left: 10px;
@@ -261,4 +282,13 @@ a:hover {
 }
 .gist table td {
   border: 0 none;
+}
+@media (min-width: 980px) {
+  .highlight {
+    margin: 0 -30px;
+  }
+  .yue .cite-quote {
+    text-align: center;
+    margin: 36px -60px;
+  }
 }

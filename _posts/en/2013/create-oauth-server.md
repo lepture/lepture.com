@@ -20,7 +20,7 @@ the OAuth 2 part at that time. This was the first time I met OAuthlib.
 > OAuthlib is the future of OAuth for Python.
 
 A quote from Kenneth Reitz, and I can't agree more. It is really great and
-RFC-aware. However, it is undervalued with fewer than 450 stars on GitHub.
+RFC-aware. However, it is undervalued with ~~fewer than 450~~ stars on GitHub.
 The code of [OAuthlib][oauthlib] is well written, so is the documentation,
 and so is the test cases. You should star it. Everything is perfect, except
 its fame. That's why I sent [a pull request][oauth.net#55] to oauth.net,
