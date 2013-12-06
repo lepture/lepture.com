@@ -21,14 +21,15 @@ to people. Maybe he is focusing on other projects. Maybe he just doesn't
 like this feature. Maybe FUD.
 
 > marked does so many weird optimizations that I'm worried only I understand
-> -- chjj
+> -- Christopher Jeffrey
 
-I don't blame @chjj. On the contrary, he did a great job. marked is a well
-written, good designed project. I appreciate his humility for I've read
-the code of markdown-js. Maybe I am just too stupid for markdown-js.
+I don't blame [Christopher Jeffrey](chjj). On the contrary, he did a
+great job. marked is a well written, good designed project. I appreciate
+his humility for I've read the code of markdown-js which I am just too
+stupid to understand.
 
 It is usually the fear of breaking things, the uncertainty of the changes,
-the doubt of the people that stops us.
+and the doubt of the people that stops us.
 
 ----
 
@@ -85,6 +86,7 @@ May you happy, may the developers happy.
 > generally happier writing it
 
 
-[#129]: https://github.com/chjj/marked/pull/129#issuecomment-29781069
+[#129]: https://github.com/chjj/marked/pull/129
 [markit]: https://github.com/lepture/markit
 [oauthlib]: https://github.com/idan/oauthlib
+[chjj]: https://github.com/chjj/marked
