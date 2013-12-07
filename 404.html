@@ -9,9 +9,27 @@
 
 <div class="lists">
   <ul class="unstyled">
-    {% for item in site.posts(count=5) %}
-    <li><time>{{ item.date.strftime('%Y-%m-%d') }}</time> — <a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% for item in site.posts() %}
+    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
     {% endfor %}
   </ul>
 </div>
+<script>
+  var items = document.getElementsByTagName('a');
+  function similar(a, b) {
+    a = a.split('/');
+    b = b.split('/');
+    if (a[a.length-1] === b[b.length-1]) {
+      return true;
+    }
+    return false;
+  }
+  for (var i = 0; i < items.length; i++) {
+    (function(href) {
+      if (similar(href, location.pathname)) {
+        location.href = href;
+      }
+    })(items[i].href);
+  }
+</script>
 {% endblock %}
