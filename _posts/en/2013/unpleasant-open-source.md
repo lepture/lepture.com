@@ -1,6 +1,7 @@
 # The Unpleasant Part of Open Source
 
 - date: 2013-12-06 16:40
+- tags: thought
 
 I appreciate open source, I open source sometimes. But there are unpleasant
 things in open source.
