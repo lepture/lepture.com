@@ -1,6 +1,7 @@
 # About
 
 - template: home.html
+- nocache: true
 
 ---------
 

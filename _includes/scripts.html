@@ -1,20 +1,12 @@
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ site.baseurl }}{{ page.url }}" data-text="{{ page.title }}" data-via="lepture" data-size="large" data-dnt="true">Tweet</a>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-  function js(u){
-    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
-  }
   {% if site.disqus and page.disqus != False %}
     var disqus_shortname='{{ site.disqus }}';
     var disqus_title='{{ page.title }}';
+    js('http://'+disqus_shortname+'.disqus.com/embed.js');
   {% endif %}
-  (function() {
-    if(location.port)return;
-    {% if site.disqus and page.disqus != False %}
-      js('http://'+disqus_shortname+'.disqus.com/embed.js');
-    {% endif %}
-    js('https://platform.twitter.com/widgets.js').onload = function(){
-      document.body.className += ' twttr-rendered';
-    };
-  })();
+  js('https://platform.twitter.com/widgets.js').onload = function(){
+    document.body.className += ' twttr-rendered';
+  };
 </script>
