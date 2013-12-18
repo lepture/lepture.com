@@ -23,7 +23,7 @@
 </div>
 
 <div class="entry-content lists">
-  <h2>Lates Updates</h2>
+  <h2>Latest Updates</h2>
   <ul class="unstyled">
     {% for item in site.posts(count=5) %}
     <li><time>{{ item.date.strftime('%Y-%m-%d') }}</time> — <a href="{{ item.url }}">{{ item.title }}</a></li>

@@ -5,6 +5,10 @@
 
 ---------
 
+## Advertisement
+
+[寫一篇武俠等讀者](/zh/2013/wuxia-novel) is waiting for subscribers.
+
 ## Hsiaoming Yang
 
 Hi! My name is **Hsiaoming Yang** (aka **lepture** elsewhere).
