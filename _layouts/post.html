@@ -23,17 +23,24 @@
 {% endblock %}
 
 {% block main %}
-  {% if page.review %}
-    {% include "review.html" %}
-  {% else %}
-    {% include "article.html" %}
-  {% endif %}
-  {% if page.tags %}
-    <div class="entry-tags">
-      {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>
-      {% endfor %}
+  <div id="main">
+    <div class="container yue">
+      {% if page.review %}
+        {% include "review.html" %}
+      {% else %}
+        {% include "article.html" %}
+      {% endif %}
+      <div class="entry-extra">
+        {% if page.tags %}
+        <div class="entry-tags">
+          {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% include "twitter.html" %}
+      </div>
     </div>
-  {% endif %}
-  {% include "scripts.html" %}
+  </div>
+  {% include "disqus.html" %}
 {% endblock %}

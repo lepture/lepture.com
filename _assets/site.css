@@ -110,7 +110,7 @@ a:hover {
 #main {
   padding: 30px 0;
 }
-#footer .container {
+#footer {
   padding: 10px 0 20px;
   text-align: center;
   border-top: 1px solid #eee;
@@ -198,7 +198,16 @@ a:hover {
 .paginator .next:after {
   content: "»";
 }
+.entry-extra {
+  zoom: 1;
+}
+.entry-extra:after {
+  display: table;
+  content: ' ';
+  clear: both;
+}
 .entry-tags {
+  float: left;
   margin-bottom: 20px;
 }
 .entry-tags .tag {
@@ -211,13 +220,16 @@ a:hover {
   color: #999;
 }
 .twitter-share-button {
+  float: right;
   display: none;
 }
 .twttr-rendered .twitter-share-button {
   display: block;
 }
-#disqus_thread {
-  margin-top: 18px;
+.entry-comments {
+  padding: 30px 0;
+  background: #fafafa;
+  border-top: 1px solid #ddd;
 }
 
 @media (max-width: 650px) {
@@ -242,13 +254,6 @@ a:hover {
   .entry-list .detail {
     margin-left: 0;
   }
-}
-
-.yue pre {
-  border: 0 none;
-  border-left: 3px solid #dadada;
-  padding-left: 10px;
-  border-radius: 0;
 }
 .highlight-wrapper {
   overflow-x: scroll;

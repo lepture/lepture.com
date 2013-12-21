@@ -12,4 +12,4 @@ build:
 	@writeup build
 
 publish:
-	@ghp-import _site -p
+	@ghp-import _site -p -n

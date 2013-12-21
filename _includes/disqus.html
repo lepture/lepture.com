@@ -1,0 +1,10 @@
+{% if site.disqus and page.disqus != False %}
+<div class="entry-comments yue">
+  <div id="disqus_thread" class="container"></div>
+</div>
+<script>
+    var disqus_shortname='{{ site.disqus }}';
+    var disqus_title='{{ page.title }}';
+    js('http://'+disqus_shortname+'.disqus.com/embed.js');
+</script>
+{% endif %}

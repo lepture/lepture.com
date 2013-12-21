@@ -163,9 +163,11 @@
   font-family: "Inconsolata", "Menlo", monospace;
 }
 .yue pre {
+  margin: 1.64em 0;
   padding: 7px;
-  border: 1px solid #dadada;
-  border-radius: 4px;
+  border: none;
+  border-left: 3px solid #dadada;
+  padding-left: 10px;
   overflow: auto;
   line-height: 1.5;
   font-size: 0.96em;
@@ -181,6 +183,7 @@
   padding: 0;
 }
 .yue table {
+  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   margin-bottom: 1.5em;
@@ -211,6 +214,9 @@
     margin-left: -24px;
     padding-left: 20px;
     border-width: 4px;
+  }
+  .yue blockquote blockquote {
+    margin-left: 0;
   }
   .yue figure figcaption:before {
     width: 25%;
