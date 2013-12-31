@@ -12,20 +12,18 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=0d32a">
+<link rel="stylesheet" href="/assets/site.css?v=8cf40">
 <script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-21475122-1']);
-  _gaq.push(['_trackPageview']);
-  _gaq.push(['_trackPageLoadTime']);
-  (function() {
-    if (location.port) return;
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-</head>
+  function js(u){
+    if (location.port) return {onload: null};
+    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-21475122-1']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    js('https://ssl.google-analytics.com/ga.js');
+</script></head>
 <body>
   <div id="header">
     <div class="container yue">
@@ -47,9 +45,8 @@
       and <a href="http://feeds.lepture.com/lepture">Feed</a>.
     </div>
   </div>
-  <div id="main">
-    <div class="container yue">
-<ul class="entry-list">
+    <div id="main">
+      <div class="container yue"><ul class="entry-list">
   <li class="entry-item">
     <div class="entry-meta">
       <time class="updated">Dec 03, 2013</time>
@@ -155,8 +152,8 @@
     <span class="previous">Previous</span>
   <em>1</em>
     <a class="next" href="/zh/page/2">Next</a>
-</div>    </div>
-  </div>
+</div></div>
+    </div>
   <div id="footer">
     <div class="container">
       <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>

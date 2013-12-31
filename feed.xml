@@ -3,8 +3,94 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2013-12-07T10:53:44.404409+08:00</updated>
+    <updated>2013-12-31T13:29:05.979537+08:00</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[New life of livereload]]></title>
+        <link href="http://lepture.com/en/2013/new-life-of-livereload"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2013-12-31T13:30:00+08:00</updated>
+        <published>2013-12-31T13:30:00+08:00</published>
+        <id>http://lepture.com/en/2013/new-life-of-livereload</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>I created <a href="https://github.com/lepture/python-livereload">livereload</a>
+(implemented in Python) one year and 8 months ago. The first version was
+released on May 4th, 2012. I had been working on it for a while, but I
+didn&#39;t enjoy it myself.</p><p><a href="http://livereload.com/">LiveReload</a> is a Mac software that monitors
+changes in the file system. A quote from the official website:</p><blockquote><p>As soon as you save a file, it is preprocessed as needed, and the browser
+is refreshed.</p></blockquote><p>And my implementation in Python is a command line tool that simulates the
+behavior of LiveReload, a bit like <a href="https://github.com/guard/guard">guard</a>.</p><p>The reason why I created this project is pretty simple. I was working in a
+Python-only development environment, it would be nice that everything is
+in Python. However, things changed in the last year, I am more a front end
+developer than a back end pythonist. I enjoy nodejs, I also enjoy other
+languages like ruby and golang.</p><p>Anyway, I don&#39;t like to start another server for watching file changes only,
+the original design of Guardfile is not good enough, at least I am not
+satisfied. The simulation just doesn&#39;t work for me.</p><blockquote class="cite-quote"><p>most things have some design behind,
+as people copy it, the original design gets obscured and forgotten,
+the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher -- <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p>
+<h2>Create something I will use in the daily life</h2>
+<p>The original copied one has nothing new, nothing special for Python that
+I wouldn&#39;t use it in my daily life. This makes me sad. So I have no much
+enthusiasm in the maintainence of it.</p><p>But I do believe that livereload is a good idea. Maybe I just did it wrong.
+One day, a brilliant idea came to me -- livereload for wsgi.</p><p>A simple example of the idea:</p>
+<pre><code class="python">from livereload import Server
+
+server = Server(wsgi_app)
+server.watch(&#39;static/app.css&#39;)
+server.serve()
+</code></pre>
+<p>Wow, that looks good. It seems something that I will use in my daily life.
+Since I prefer Flask, I can write the scripts with Flask-Script in a
+<code>manage.py</code> file:</p>
+<pre><code class="python">app = create_app()
+
+@manager.command
+def liveserver(port=5000):
+    from livereload import Server
+    server = Server(app.wsgi_app)
+    server.watch(&#39;static/*.css&#39;)
+    server.serve(port=port)
+</code></pre>
+<p>And whenenver a css file changes, the browser will refresh it itself.</p><p>Actually, my environment of front end development is far more complex,
+I use rework for css processing, component for javascript modular. The
+real example would be gorgeous.</p><p>Take a peep of my scripts:</p>
+<pre><code class="python">@manager.command
+def liveserver(port=5000):
+    from livereload import Server
+
+    server = Server(app.wsgi_app)
+    server.watch(&#39;assets/styles/*.css&#39;, &#39;make -C assets rework&#39;)
+    server.watch(&#39;assets/lib/*.js&#39;, &#39;make -C assets build&#39;)
+    server.watch(&#39;app/templates&#39;)
+    server.serve(port)
+</code></pre>
+
+<h2>Do one job, and do it well</h2>
+<p>Version 2.0 of livereload is more a library rather than an application.
+So that other libraries in Python can easily bundle it in. I hope it can
+be a great library.</p><p>The executable command line tool is removed from livereload. It may come
+back again, but not soon. The compilers like uglifyjs, lesscss, slim,
+CoffeeScript are removed from livereload too.</p><p>For now, livereload will focus on one thing -- livereload. And livereload
+well.</p><p>The lack of compilers does not affect much. Since livereload provides you
+a way to execute shell command. As you can see in the above example that
+<code>server.watch</code> supports executing shell commands, so that we can do:</p>
+<pre><code class="python">server.watch(&#39;src/foo.js&#39;, &#39;uglifyjs src/foo.js -m -o build/foo.js&#39;)
+</code></pre>
+<p>That&#39;s why compilers are removed, since every compiler is some sort of a
+shell command, there is no reason for wrapping them in Python any more.</p><p>By removing compilers, livereload focuses on the server implementation,
+and file watcher. The core code is much simple now.</p>
+<h2>The future</h2>
+<p>The rewritted version 2.0 of livereload was released days ago. There are
+features not implmented, bugs not fixed, but the concept works well. It
+is not just an implementation <strong>of Python</strong>, it is an implementation
+<strong>for Python</strong>.</p><p>The code is much more pretty than before. It is well documented and tested.
+I hope people will enjoy it. It is a library now, I am looking forward to
+libraries that depend on this project and making the web development of
+more fun.</p> ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[The Unpleasant Part of Open Source]]></title>
         <link href="http://lepture.com/en/2013/unpleasant-open-source"/>
@@ -22,8 +108,7 @@ we hope that renderer feature will be available soon.</p>
 <hr>
 <p>Why it takes so much time for one pull request? Reason varies from people
 to people. Maybe he is focusing on other projects. Maybe he just doesn&#39;t
-like this feature. Maybe FUD.</p><blockquote class="cite-quote"><p>marked does so many weird optimizations that I&#39;m worried only I understand
-</p><cite>Christopher Jeffrey</cite></blockquote><p>I don&#39;t blame <a href="chjj">Christopher Jeffrey</a>. On the contrary, he did a
+like this feature. Maybe FUD.</p><blockquote class="cite-quote"><p>marked does so many weird optimizations that I&#39;m worried only I understand</p><cite>Christopher Jeffrey</cite></blockquote><p>I don&#39;t blame <a href="chjj">Christopher Jeffrey</a>. On the contrary, he did a
 great job. marked is a well written, good designed project. I appreciate
 his humility for I&#39;ve read the code of markdown-js which I am just too
 stupid to understand.</p><p>It is usually the fear of breaking things, the uncertainty of the changes,
@@ -32,8 +117,7 @@ and the doubt of the people that stops us.</p>
 <p>We open source not because people need us. We just happen to open source
 things that solve our problems, and wish it may help other people. Open
 source can be a business for a company, but not for individuals.</p><blockquote class="cite-quote"><p>Lots of people in the Open Source community develop something that solve
-particular problems they have themselves.
-</p><cite>Armin Ronacher</cite></blockquote><p>I created <a href="create-oauth-server">Flask-OAuthlib</a> for my own, because I
+particular problems they have themselves.</p><cite>Armin Ronacher</cite></blockquote><p>I created <a href="create-oauth-server">Flask-OAuthlib</a> for my own, because I
 needed to create an OAuth 2 server at that time. I contribute to OAuthLib,
 because I need to fix that bug or add that feature for Flask-OAuthlib. I
 don&#39;t contribute for my own amusement.</p><p>Armin Roncher wrote in his recent post <a href="http://lucumr.pocoo.org/2013/11/28/emotional-programming/">Emotional Programming in Open Source</a>:</p><blockquote><p>I found it quite hard this year to work on my own projects because the
@@ -818,19 +902,6 @@ All things you should do is trying it.</p><p>Save my words, save your time, head
         <id>http://lepture.com/zh/2010/the-very-dog</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>我竟無法理解小的時候是怎樣的一種心情了，每逢舊曆年總是格外興奮，又不像一般人家還有壓歲錢，是分文沒有的，就算偶爾有了，也總不能自己支配，是被父母代管了。這樣說彷彿是鑽進了錢眼裡，可是雖然是小朋友，也有想要花錢的時候，例如買點小電動車之類的玩具，問母親要，自然是不肯給買的，這個時候就想著有壓歲錢的好處了。但是沒有，也還是很高興過年。</p><p>也不知道是甚麼時候開始討厭起來的，每到新年時候心情就低落許多。大約是親戚們之間的應酬，而且又不得不面對討厭的幾個親戚，煙呀酒呀討厭的東西總是層出不窮；又或者親戚們的語重心長，甚麼為人世故啦，甚麼酒還是要喝的啦，人際關係要處理好啦。而且偏偏是在這個時候，總是大魚大肉，難得見點青菜。</p><p>除夕的這一天，例畢是要去祭墳的。也還是如同中學時候的感想：小的時候尚且相信鬼神，祭墳的時候便格外虔誠，等到長大了，心中不再有神明瞭，於是祭墳成了一種儀式。自然，本來就是一種儀式。</p><p>我們與別家又不同，團年飯是在除夕這一天，其實年三十也有一餐團年飯。早餐吃得很遲，但是一早被母親叫醒了，又沒甚麼可乾的事情，便出去轉轉。可是也沒甚麼可逛的，鄉下的風光並非影畫里的田園，是令人嚮往的所在。我弟弟亦出去玩了，回來的時候竟帶了一條狗，真真是嚇人一跳。</p><p>說起來我們家養狗的歷史真是駭人，彷彿每一條狗都不得善終。不是被車撞死了就是被人毒死了。最長的時候，一條狗養了兩年，天天用鍊子索著，也怪可憐的。也總要我在家的時候才會帶它出去溜溜，父母是只管它吃飯的。後來有一回幫它解了索鏈，結果便被撞死了，真是夠氣人的。</p><p>問弟弟這狗是哪裡來的。弟弟亦說不知道，突然就出現了，一直跟著他，趕都趕不走。是一條成年狗，灰撲撲的毛色，遢耳朵，很長的一張臉，是普通的土狗，沒有名貴的出生，但是也不算醜。自然，鄉下也不太可能養寵物狗，而且一般的狗我是都喜歡的。也不知道是被誰拋棄了的吧。</p><p>正巧趕上了新年，骨頭特別多。</p><p>吃過了早餐，少不了逗逗狗，呼來喚去的，聽話極了。在它眼前晃一晃手，便跟著跳起來，可是偏偏又舔不到手，再晃，也一樣地跳立。是一條很精神的狗呀。父親見了亦是喜歡，說就留下來看門吧。</p><p>十點鐘的光景，大家要去小爹那邊，因為祖先們的墳都是小爹他們灣子里。我跟弟弟妹妹先走，自然狗是會跟來的，大家一興奮，說把狗帶過去吧。其實又不難，實在是太粘人的狗了，很容易帶著走呢。大家說說笑笑，像是撿了個大便宜。於是就有人說，現在狗便宜得很，大概還不值十塊錢。我正想給狗取個名字，一聽到就高興了，於是說：“不如這狗就叫十塊錢吧。”</p><p>大家自然是覺得不好，因為它是還不值十塊錢的，那麼就“五塊錢”吧，也不能再低了，再低就不像話了。可是如果真要是也能值五塊錢的話，那它主人幹甚麼又不要它了呢？這樣聽話的一條狗。</p><p>當然“小灰”“小白”之類的名字也會提出來。妹妹想到她家以前的狗了，叫西虎，於是提議這狗就叫西虎吧。</p><p>西虎自然是已經沒了的。跟了妹妹家有四五年吧，一家人都很喜歡。每每談起狗來，小媽總不禁想起西虎，一時黯然，絮絮叨叨說起西虎的往昔，是怎樣的聽話的一條狗，是怎樣忠實的一條狗。又例畢是要提到它的一次光輝事跡，也就是一次盜竊事件。可是，西虎是黑色的呀，不像這只這般灰撲撲的。所以我打定了主意叫它五塊錢。</p><p>我們快到墳地的時候，父母們已經到了。其實是我們先走的，他們開了摩托車過來的。遠遠的就聽見了鞭炮聲，五塊錢這個時候就有些不悅了，想來是怕這聲音，可是還是跟著我們往前走。可是再近了一些的時候，它突然轉身，瘋了似的飛奔走了。</p><p>然而我們又不得不去上墳，弟弟這個時候說不去了，他去找狗。我們也由了他，反正祭墳只是個儀式，儀式是可以被代表的。我和妹妹便代表了他。</p><p>大家祭過墳後回家，路上遇到了弟弟，問結果，可想而知咯。如果找到了，也就會看見狗了。我們仨都很失望，真真悔恨起來。如果當時留下一個人陪著狗，也不至於弄丟了。可是大家又還抱了希望，希望五塊錢可以自己原路返回。自己安慰一下自己，也只好這樣了。</p><p>懷著希望，結果回了家沒見到。問在母親，自然是說沒看見的。弟弟又出去轉一轉，希望還可以再見到它。也終於只是一個希望而已。</p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[下棋]]></title>
-        <link href="http://lepture.com/zh/2009/on-chess"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2009-11-30T00:00:00+08:00</updated>
-        <published>2009-11-30T00:00:00+08:00</published>
-        <id>http://lepture.com/zh/2009/on-chess</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>說起來，距離上一次下棋應該已經很久遠了吧；棋盤倒還常見，一是在電腦屏幕上，一是在過天橋的時候。然而并沒有甚麼，又不是棋迷，甚至于在下棋，我算是個面目可憎的人了。</p><p>梁實秋先生說：“有一種人我最不喜歡和他下棋，那便是太有涵養的人。殺死他一大塊，或是抽了他一個車，他神色自若，不動火，不生氣，好象是無關痛癢，使你覺得索然無味。”</p><p>我之謂也。</p><p>其實真是件奇怪的事，所謂君子無所爭，然而在旁的事情上倒又掙得厲害，下棋又或者玩牌竟點都不在乎。當然，下棋又叫弈棋，玩牌算作賭博，“自古博弈并稱”，算是在同一件事情上的不在乎。大約因為博弈而無賭資，所以心無所系；若是有了賭資而在乎，那也算不得在意于博弈本身，而是這阿堵物上了。算是一個無趣的人。</p><p>然而觀棋又是另一回事了，仿佛倒成了有切身利益了；雖然棋藝不精，也總想著指點一二，竟也跟著喜跟著憂，全不似笠翁所說的“人勝而我為之喜，人敗而我不必為之憂”。總該又是皇上不急太監急咯。這當然說的是象棋。</p><p>中國的棋，一般說來無非兩種，一個是圍棋，梁實秋所謂殺死他一大塊者；一個就是象棋，所謂或是抽了他一個車者。算是都會一點，隱約知道規則罷了。</p><p>一般人大約都有這樣的矛盾，自己下棋的時候總嫌觀者多嘴多舌，而到了自己作觀棋者時又免不了指點江山，抱怨下棋者不聽己言而錯失數子，心裡甚至於要罵傻屄了。也是所謂旁觀者清，當局者迷。也許正是因為了旁觀者，當局者才會迷，這也未可知；身邊圍了一群人嘀咕，蒼蠅似的，仿佛『大話西遊』裡的唐僧，總讓人受不了，頭腦自然不能清醒。</p><p>憶得少年時候，自然是因為現在沒有過下棋，只得回憶童稚時了。其實也忘了是什麼時候學會象棋的，有一件事卻記得相當清楚。我們小學裡學生要記日記，每天都要寫，第二天早上交給老師。想起來就覺得不可思議，那麼小的年紀，一大清早就要去上學了，到了迫暮才下學，一天的時光就花費在了學校裡，也無非就是上課下課的，課間也許會有點小打小鬧，也不竟然，到底有什麼可以記的呢！</p><p>那個時候就已經開始下棋了。因為記得自己日記裡就寫下棋，而且幾乎一周有好幾篇都是記下象棋，實在是沒什麼可寫的了。比較幸運的是我有一個弟弟，下了學後兩個人回家，鋪開了棋盤，我便攤開作業本，每動一子就記錄下來，無非就是當頭炮，然後我走馬，我弟弟走車之類的。</p><p>有一回，大約是老師實在無法忍受了，叫了我過去，道：“下回能不能換一下開局？怎麼老是當頭炮！例如你可以先動卒的嘛。”也真回去換了一下開局，下次的日記裡便寫道“按老師教的，開局我先拱了卒”。現在想想，也不知當時老師作何感想。</p><p>圍棋卻要到了高中時候才接觸。</p><p>還是在三味書屋買的一套棋子棋盤，不比象棋，圍棋要貴得多，也是因為棋子多了這許多。我一向零用錢少，當時也是猶豫良久，還是下定了決心，也順帶買了本圍棋入門教程。</p><p>和我下棋的是超超同學，他亦是零基礎的，可是學得比我快。因為是我買的書，理所當然的我看的時間多，可是也只有最開始的時候下得贏超超，實戰了些時候，大約一兩周吧，我已不是超超的敵手。當時的窘況，邪惡的想不再借書超超同學了。大約我真不是下棋的料。</p><p>這樣說來，不在乎的姿態并非豁達，而是技拙的掩飾。真是夠面目可憎的了！</p> ]]>
         </content>
     </entry>
 </feed>

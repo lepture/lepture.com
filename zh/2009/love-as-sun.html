@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,20 +12,18 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=0d32a">
+<link rel="stylesheet" href="/assets/site.css?v=8cf40">
 <script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-21475122-1']);
-  _gaq.push(['_trackPageview']);
-  _gaq.push(['_trackPageLoadTime']);
-  (function() {
-    if (location.port) return;
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-  <meta name="twitter:card" content="summary">
+  function js(u){
+    if (location.port) return {onload: null};
+    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-21475122-1']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    js('https://ssl.google-analytics.com/ga.js');
+</script>  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="暖日">
     <meta name="description" content="哦，昨天也是一樣的溫柔的醉人的午後的暖日。">
     <meta name="twitter:description" content="哦，昨天也是一樣的溫柔的醉人的午後的暖日。">
@@ -67,27 +65,27 @@
       <span class="fn" itemprop="author">Hsiaoming Yang</span>
     </span>
   </div>
-</div>    <div class="entry-tags">
-        <span class="tag">love</span>
-        <span class="tag">girl</span>
+</div>      <div class="entry-extra">
+        <div class="entry-tags">
+          <span class="tag">love</span>
+          <span class="tag">girl</span>
+        </div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/zh/2009/love-as-sun" data-text="暖日" data-via="lepture" data-size="small" data-dnt="true">Tweet</a>
+<script>
+  js('https://platform.twitter.com/widgets.js').onload = function(){
+    document.body.className += ' twttr-rendered';
+  };
+</script>      </div>
     </div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/zh/2009/love-as-sun" data-text="暖日" data-via="lepture" data-size="large" data-dnt="true">Tweet</a>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-  function js(u){
-    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
-  }
+  </div>
+<div class="entry-comments yue">
+  <div id="disqus_thread" class="container"></div>
+</div>
+<script>
     var disqus_shortname='lepture';
     var disqus_title='暖日';
-  (function() {
-    if(location.port)return;
-      js('http://'+disqus_shortname+'.disqus.com/embed.js');
-    js('https://platform.twitter.com/widgets.js').onload = function(){
-      document.body.className += ' twttr-rendered';
-    };
-  })();
-</script>    </div>
-  </div>
+    js('http://'+disqus_shortname+'.disqus.com/embed.js');
+</script>
   <div id="footer">
     <div class="container">
       <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>

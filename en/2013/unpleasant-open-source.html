@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,20 +12,18 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=0d32a">
+<link rel="stylesheet" href="/assets/site.css?v=8cf40">
 <script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-21475122-1']);
-  _gaq.push(['_trackPageview']);
-  _gaq.push(['_trackPageLoadTime']);
-  (function() {
-    if (location.port) return;
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-  <meta name="twitter:card" content="summary">
+  function js(u){
+    if (location.port) return {onload: null};
+    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-21475122-1']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    js('https://ssl.google-analytics.com/ga.js');
+</script>  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="The Unpleasant Part of Open Source">
     <meta name="description" content="I appreciate open source, I open source sometimes. But there are unpleasant
 things in open source.">
@@ -70,8 +68,7 @@ we hope that renderer feature will be available soon.</p>
 <hr>
 <p>Why it takes so much time for one pull request? Reason varies from people
 to people. Maybe he is focusing on other projects. Maybe he just doesn&#39;t
-like this feature. Maybe FUD.</p><blockquote class="cite-quote"><p>marked does so many weird optimizations that I&#39;m worried only I understand
-</p><cite>Christopher Jeffrey</cite></blockquote><p>I don&#39;t blame <a href="chjj">Christopher Jeffrey</a>. On the contrary, he did a
+like this feature. Maybe FUD.</p><blockquote class="cite-quote"><p>marked does so many weird optimizations that I&#39;m worried only I understand</p><cite>Christopher Jeffrey</cite></blockquote><p>I don&#39;t blame <a href="chjj">Christopher Jeffrey</a>. On the contrary, he did a
 great job. marked is a well written, good designed project. I appreciate
 his humility for I&#39;ve read the code of markdown-js which I am just too
 stupid to understand.</p><p>It is usually the fear of breaking things, the uncertainty of the changes,
@@ -80,8 +77,7 @@ and the doubt of the people that stops us.</p>
 <p>We open source not because people need us. We just happen to open source
 things that solve our problems, and wish it may help other people. Open
 source can be a business for a company, but not for individuals.</p><blockquote class="cite-quote"><p>Lots of people in the Open Source community develop something that solve
-particular problems they have themselves.
-</p><cite>Armin Ronacher</cite></blockquote><p>I created <a href="create-oauth-server">Flask-OAuthlib</a> for my own, because I
+particular problems they have themselves.</p><cite>Armin Ronacher</cite></blockquote><p>I created <a href="create-oauth-server">Flask-OAuthlib</a> for my own, because I
 needed to create an OAuth 2 server at that time. I contribute to OAuthLib,
 because I need to fix that bug or add that feature for Flask-OAuthlib. I
 don&#39;t contribute for my own amusement.</p><p>Armin Roncher wrote in his recent post <a href="http://lucumr.pocoo.org/2013/11/28/emotional-programming/">Emotional Programming in Open Source</a>:</p><blockquote><p>I found it quite hard this year to work on my own projects because the
@@ -110,26 +106,26 @@ generally happier writing it</p></blockquote>
       <span class="fn" itemprop="author">Hsiaoming Yang</span>
     </span>
   </div>
-</div>    <div class="entry-tags">
-        <span class="tag">thought</span>
+</div>      <div class="entry-extra">
+        <div class="entry-tags">
+          <span class="tag">thought</span>
+        </div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/en/2013/unpleasant-open-source" data-text="The Unpleasant Part of Open Source" data-via="lepture" data-size="small" data-dnt="true">Tweet</a>
+<script>
+  js('https://platform.twitter.com/widgets.js').onload = function(){
+    document.body.className += ' twttr-rendered';
+  };
+</script>      </div>
     </div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/en/2013/unpleasant-open-source" data-text="The Unpleasant Part of Open Source" data-via="lepture" data-size="large" data-dnt="true">Tweet</a>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-  function js(u){
-    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
-  }
+  </div>
+<div class="entry-comments yue">
+  <div id="disqus_thread" class="container"></div>
+</div>
+<script>
     var disqus_shortname='lepture';
     var disqus_title='The Unpleasant Part of Open Source';
-  (function() {
-    if(location.port)return;
-      js('http://'+disqus_shortname+'.disqus.com/embed.js');
-    js('https://platform.twitter.com/widgets.js').onload = function(){
-      document.body.className += ' twttr-rendered';
-    };
-  })();
-</script>    </div>
-  </div>
+    js('http://'+disqus_shortname+'.disqus.com/embed.js');
+</script>
   <div id="footer">
     <div class="container">
       <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>

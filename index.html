@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,20 +12,18 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=0d32a">
+<link rel="stylesheet" href="/assets/site.css?v=8cf40">
 <script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-21475122-1']);
-  _gaq.push(['_trackPageview']);
-  _gaq.push(['_trackPageLoadTime']);
-  (function() {
-    if (location.port) return;
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-<style>
+  function js(u){
+    if (location.port) return {onload: null};
+    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-21475122-1']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    js('https://ssl.google-analytics.com/ga.js');
+</script><style>
   .entry-content h2 {
     font-size: 13px;
     text-transform: uppercase;
@@ -61,10 +59,11 @@
       and <a href="http://feeds.lepture.com/lepture">Feed</a>.
     </div>
   </div>
-  <div id="main">
-    <div class="container yue">
-<div class="entry-content">
-  <h2>Hsiaoming Yang</h2>
+    <div id="main">
+      <div class="container yue"><div class="entry-content">
+  <h2>Advertisement</h2>
+<p><a href="/zh/2013/wuxia-novel">寫一篇武俠等讀者</a> is waiting for subscribers.</p>
+<h2>Hsiaoming Yang</h2>
 <p>Hi! My name is <strong>Hsiaoming Yang</strong> (aka <strong>lepture</strong> elsewhere).</p><p>I am currently living in Shenzhen, China. You can reach me by
 <a href="https://twitter.com/lepture">Twitter</a> or contact <a href="mailto:me@lepture.com">me@lepture.com</a>.</p>
 <h2>Open Source</h2>
@@ -81,17 +80,17 @@ under any public domain.</p>
 </div>
 
 <div class="entry-content lists">
-  <h2>Lates Updates</h2>
+  <h2>Latest Updates</h2>
   <ul class="unstyled">
-    <li><time>2013-12-06</time> — <a href="/en/2013/unpleasant-open-source">The Unpleasant Part of Open Source</a></li>
-    <li><time>2013-12-03</time> — <a href="/zh/2013/wuxia-novel">寫一篇武俠等讀者</a></li>
-    <li><time>2013-11-21</time> — <a href="/en/2013/create-oauth-server">Create an OAuth Server</a></li>
-    <li><time>2013-11-19</time> — <a href="/zh/2013/laiwang-and-qrcode">不相來往</a></li>
-    <li><time>2013-11-12</time> — <a href="/zh/2013/anti-long-weibo">長微博及其它</a></li>
+      <li><time>2013-12-31</time> — <a href="/en/2013/new-life-of-livereload">New life of livereload</a></li>
+      <li><time>2013-12-06</time> — <a href="/en/2013/unpleasant-open-source">The Unpleasant Part of Open Source</a></li>
+      <li><time>2013-12-03</time> — <a href="/zh/2013/wuxia-novel">寫一篇武俠等讀者</a></li>
+      <li><time>2013-11-21</time> — <a href="/en/2013/create-oauth-server">Create an OAuth Server</a></li>
+      <li><time>2013-11-19</time> — <a href="/zh/2013/laiwang-and-qrcode">不相來往</a></li>
   </ul>
 </div>
+</div>
     </div>
-  </div>
   <div id="footer">
     <div class="container">
       <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>
