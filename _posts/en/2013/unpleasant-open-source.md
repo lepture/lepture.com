@@ -22,6 +22,7 @@ to people. Maybe he is focusing on other projects. Maybe he just doesn't
 like this feature. Maybe FUD.
 
 > marked does so many weird optimizations that I'm worried only I understand
+>
 > -- Christopher Jeffrey
 
 I don't blame [Christopher Jeffrey](chjj). On the contrary, he did a
@@ -40,6 +41,7 @@ source can be a business for a company, but not for individuals.
 
 > Lots of people in the Open Source community develop something that solve
 > particular problems they have themselves.
+>
 > -- Armin Ronacher
 
 I created [Flask-OAuthlib](create-oauth-server) for my own, because I
