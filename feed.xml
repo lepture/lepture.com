@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2013-12-31T13:29:05.979537+08:00</updated>
+    <updated>2013-12-31T15:53:32.014462+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[New life of livereload]]></title>
@@ -32,7 +32,7 @@ as people copy it, the original design gets obscured and forgotten,
 the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher -- <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p>
 <h2>Create something I will use in the daily life</h2>
 <p>The original copied one has nothing new, nothing special for Python that
-I wouldn&#39;t use it in my daily life. This makes me sad. So I have no much
+I would use it in my daily life. This makes me sad. So I have no much
 enthusiasm in the maintainence of it.</p><p>But I do believe that livereload is a good idea. Maybe I just did it wrong.
 One day, a brilliant idea came to me -- livereload for wsgi.</p><p>A simple example of the idea:</p>
 <pre><code class="python">from livereload import Server
@@ -81,6 +81,15 @@ a way to execute shell command. As you can see in the above example that
 <p>That&#39;s why compilers are removed, since every compiler is some sort of a
 shell command, there is no reason for wrapping them in Python any more.</p><p>By removing compilers, livereload focuses on the server implementation,
 and file watcher. The core code is much simple now.</p>
+<h2>Take advantage of existed tools</h2>
+<p>We programers like to reinvent tools. Sometimes we create things better
+than the old ones, sometimes we fail. The most valuable tool I learned
+in the last two years is Makefile.</p><p>I think every programer should know Makefile, and take the advantage of
+it. Like what I did/do in my daily life. The examples above are using
+Makefile:</p>
+<pre><code>server.watch(&#39;assets/styles/*.css&#39;, &#39;make -C assets rework&#39;)
+</code></pre>
+
 <h2>The future</h2>
 <p>The rewritted version 2.0 of livereload was released days ago. There are
 features not implmented, bugs not fixed, but the concept works well. It
