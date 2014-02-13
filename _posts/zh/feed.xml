@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title><![CDATA[{{ site.name }}]]></title>
+    <link href="{{ site.baseurl }}/zh/feed.xml" rel="self" />
+    <link href="{{ site.baseurl }}/zh/" />
+    <updated>{{ site.now|xmldatetime }}</updated>
+    <id>{{ site.baseurl }}/</id>
+    {% for item in site.posts(subdirectory='zh', count=20) %}
+    <entry>
+        <title type="html"><![CDATA[{{ item.title }}]]></title>
+        <link href="{{ site.baseurl }}{{ item.url }}"/>
+        <author>
+            <name>{{ site.author }}</name>
+        </author>
+        <updated>{{ item.date|xmldatetime }}</updated>
+        <published>{{ item.date|xmldatetime }}</published>
+        <id>{{ site.baseurl }}{{ item.url }}</id>
+        <content type="html" xml:base="{{ site.baseurl }}/" xml:lang="en">
+            <![CDATA[ {{ item.body|markdown(highlight=False) }} ]]>
+        </content>
+    </entry>
+    {% endfor %}
+</feed>

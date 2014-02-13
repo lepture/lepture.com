@@ -58,7 +58,7 @@ We will create the menu first.
 
     ![decorate with seprator](https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg)
 
-4. Connect the menu to your code outlet
+4. Connect the menu to your code outlet, and name it `statusMenu`
 
     ![connect menu outlet](https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg)
 

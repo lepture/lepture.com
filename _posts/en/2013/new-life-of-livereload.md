@@ -43,7 +43,7 @@ This is a slide of a talk by Armin Ronacher -- [Thinking Outside The Box](https:
 ## Create something I will use in the daily life
 
 The original copied one has nothing new, nothing special for Python that
-I wouldn't use it in my daily life. This makes me sad. So I have no much
+I would use it in my daily life. This makes me sad. So I have no much
 enthusiasm in the maintainence of it.
 
 But I do believe that livereload is a good idea. Maybe I just did it wrong.
@@ -120,6 +120,18 @@ shell command, there is no reason for wrapping them in Python any more.
 
 By removing compilers, livereload focuses on the server implementation,
 and file watcher. The core code is much simple now.
+
+## Take advantage of existed tools
+
+We programers like to reinvent tools. Sometimes we create things better
+than the old ones, sometimes we fail. The most valuable tool I learned
+in the last two years is Makefile.
+
+I think every programer should know Makefile, and take the advantage of
+it. Like what I did/do in my daily life. The examples above are using
+Makefile:
+
+    server.watch('assets/styles/*.css', 'make -C assets rework')
 
 ## The future
 
