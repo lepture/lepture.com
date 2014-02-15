@@ -4,7 +4,7 @@
 - tags: reading, essay
 - review: 雨季不再來
 - rating: 4.5
-- image: http://img3.douban.com/lpic/s3664304.jpg
+- image: http://dn-lepture.qbox.me/blog/yujibuzailai.jpg
 
 回想起來，一生中最輝煌的時候還是在少年，尤其是小學時候。然而這話說起來是多麼地蒼白無力，一生呵，其實只不過二十出頭的光景，連戀愛都還未曾有過。
 

@@ -4,7 +4,7 @@
 - tags: reading, novel
 - review: 小團圓
 - rating: 3.5
-- image: http://img5.douban.com/lpic/s3590138.jpg
+- image: http://dn-lepture.qbox.me/blog/xiaotuanyuan.jpg
 
 是張愛玲的遺作。遺作這兩個字就已經夠驚艷了，何況又還貼上了張愛玲的標籤！書當然賣得火，然而我卻覺著了些遺憾。
 

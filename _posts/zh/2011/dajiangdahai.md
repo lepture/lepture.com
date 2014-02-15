@@ -4,7 +4,7 @@
 - tags: reading, history, china
 - review: 大江大海 一九四九
 - rating: 4.5
-- image: http://upload.wikimedia.org/wikipedia/zh/a/a9/Dajiangdahai1949.png
+- image: http://dn-lepture.qbox.me/blog/dajiangdahai.png
 
 港大女教授龍應台所著的這本《大江大海一九四九》在大陸是禁書，2009年出版。今年是2011年。
 

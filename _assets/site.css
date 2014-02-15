@@ -16,10 +16,30 @@ html, body {
   margin: 0 auto;
   zoom: 1;
 }
+.book {
+  margin: 20px 0 40px;
+  zoom: 1;
+}
+.book:after,
 .container:after {
   display: table;
   content: "";
   clear: both;
+}
+.book .book-cover {
+  float: left;
+  margin-right: 20px;
+}
+.book .book-cover img {
+  box-shadow: 0 1px 2px #ddd;
+  width: 120px;
+}
+.book .book-meta {
+  float: left;
+}
+.book .book-title {
+  font-size: 24px;
+  text-decoration: none;
 }
 
 a {
