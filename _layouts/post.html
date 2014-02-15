@@ -12,6 +12,9 @@
   <meta name="twitter:site" content="@lepture">
   <meta name="twitter:creator" content="@lepture">
   <meta name="twitter:domain" content="lepture.com">
+  {% if page.image %}
+    <meta name="twitter:image" content="{{ page.image }}">
+  {% endif %}
 {% endblock %}
 
 {% block subheader %}
