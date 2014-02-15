@@ -3,7 +3,11 @@
 {% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
 
 {% block extra_head %}
-  <meta name="twitter:card" content="summary">
+  {% if page.cover %}
+    <meta name="twitter:card" content="summary_large_image">
+  {% else %}
+    <meta name="twitter:card" content="summary">
+  {% endif %}
   <meta name="twitter:title" content="{{ page.title }}">
   {% if page.description %}
     <meta name="description" content="{{ page.description }}">
@@ -12,7 +16,9 @@
   <meta name="twitter:site" content="@lepture">
   <meta name="twitter:creator" content="@lepture">
   <meta name="twitter:domain" content="lepture.com">
-  {% if page.image %}
+  {% if page.cover %}
+    <meta name="twitter:image" content="{{ page.cover }}">
+  {% elif page.image %}
     <meta name="twitter:image" content="{{ page.image }}">
   {% endif %}
 {% endblock %}
