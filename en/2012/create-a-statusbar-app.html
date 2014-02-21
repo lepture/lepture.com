@@ -12,18 +12,23 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=8cf40">
+<link rel="stylesheet" href="/assets/site.css?v=b30e7">
 <script>
   function js(u){
     if (location.port) return {onload: null};
-    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+    var d=document,a='script',s=d.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
   }
+  (function(d) {
+    var s=d.createElement('link'),f=d.getElementsByTagName('link')[0];
+    s.href="/assets/font.css?v=bed34";
+    s.rel="stylesheet";f.parentNode.insertBefore(s,f);
+  })(document);
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-21475122-1']);
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
-</script>  <meta name="twitter:card" content="summary">
+</script>    <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Create a StatusBar App">
     <meta name="description" content="A StatusBar App is what on the right side of the menu bar, it doesn&#39;t contain a main window.">
     <meta name="twitter:description" content="A StatusBar App is what on the right side of the menu bar, it doesn&#39;t contain a main window.">
@@ -55,7 +60,7 @@
       <time class="updated" datetime="2012-07-20T21:15:00+08:00" itemprop="datePublished" pubdate>
         Jul 20, 2012
       </time>
-      <em>519 words</em>
+      <em>523 words</em>
     </div>
   <div class="entry-content" itemprop="articleBody">
     <p>It has been months since I decided to learn cocoa development, but in vain.
@@ -69,7 +74,10 @@ For example, the volumn control is a StatusBar App.</p>
 <p>It&#39;s the time to create a StatusBar App now.</p>
 <ol>
 <li><p>Open your Xcode (I am on Xcode 4.3.3)</p></li>
-<li><p>Create a cocoa application project</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg" alt="create a project" /></figure></li>
+<li><p>Create a cocoa application project</p></li>
+</ol>
+<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg" alt="create a project" /></p>
+<ol>
 <li><p>Name the project <strong>StatusBarApp</strong></p></li>
 <li><p>Run for testing</p></li>
 </ol>
@@ -77,12 +85,21 @@ For example, the volumn control is a StatusBar App.</p>
 <h3>Menu</h3>
 <p>We will create the menu first.</p>
 <ol>
-<li><p>Drag a menu to the interface builder</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg" alt="drag a menu" /></figure></li>
-<li><p>Edit the menu item</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg" alt="edit menu item" /></figure></li>
-<li><p>Decorate the menu with seprator</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg" alt="decorate with seprator" /></figure></li>
-<li><p>Connect the menu to your code outlet</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg" alt="connect menu outlet" /></figure></li>
+<li>Drag a menu to the interface builder</li>
 </ol>
-
+<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg" alt="drag a menu" /></p>
+<ol>
+<li>Edit the menu item</li>
+</ol>
+<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg" alt="edit menu item" /></p>
+<ol>
+<li>Decorate the menu with seprator</li>
+</ol>
+<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg" alt="decorate with seprator" /></p>
+<ol>
+<li>Connect the menu to your code outlet, and name it <code>statusMenu</code></li>
+</ol>
+<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg" alt="connect menu outlet" /></p>
 <h3>StatusBar</h3>
 <p>Create the statusBar property in your <code>AppDelegate.h</code> file:</p><div class="highlight"><pre><span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSStatusItem</span> <span class="o">*</span><span class="n">statusBar</span><span class="p">;</span>
 </pre></div>
@@ -149,7 +166,7 @@ For example, the volumn control is a StatusBar App.</p>
 </script>
   <div id="footer">
     <div class="container">
-      <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2014 by Hsiaoming Yang.</p>
     </div>
   </div>
 </body>

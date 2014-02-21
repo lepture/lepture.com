@@ -1,156 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title><![CDATA[Just lepture]]></title>
-    <link href="http://lepture.com/feed.xml" rel="self" />
-    <link href="http://lepture.com/" />
+    <link href="http://lepture.com/zh/feed.xml" rel="self" />
+    <link href="http://lepture.com/zh/" />
     <updated>2014-02-21T12:23:10.017054+08:00</updated>
     <id>http://lepture.com/</id>
-    <entry>
-        <title type="html"><![CDATA[New life of livereload]]></title>
-        <link href="http://lepture.com/en/2013/new-life-of-livereload"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2013-12-31T13:30:00+08:00</updated>
-        <published>2013-12-31T13:30:00+08:00</published>
-        <id>http://lepture.com/en/2013/new-life-of-livereload</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>I created <a href="https://github.com/lepture/python-livereload">livereload</a>
-(implemented in Python) one year and 8 months ago. The first version was
-released on May 4th, 2012. I had been working on it for a while, but I
-didn&#39;t enjoy it myself.</p><p><a href="http://livereload.com/">LiveReload</a> is a Mac software that monitors
-changes in the file system. A quote from the official website:</p><blockquote><p>As soon as you save a file, it is preprocessed as needed, and the browser
-is refreshed.</p></blockquote><p>And my implementation in Python is a command line tool that simulates the
-behavior of LiveReload, a bit like <a href="https://github.com/guard/guard">guard</a>.</p><p>The reason why I created this project is pretty simple. I was working in a
-Python-only development environment, it would be nice that everything is
-in Python. However, things changed in the last year, I am more a front end
-developer than a back end pythonist. I enjoy nodejs, I also enjoy other
-languages like ruby and golang.</p><p>Anyway, I don&#39;t like to start another server for watching file changes only,
-the original design of Guardfile is not good enough, at least I am not
-satisfied. The simulation just doesn&#39;t work for me.</p><blockquote class="cite-quote"><p>most things have some design behind,
-as people copy it, the original design gets obscured and forgotten,
-the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher — <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p>
-<h2>Create something I will use in the daily life</h2>
-<p>The original copied one has nothing new, nothing special for Python that
-I would use it in my daily life. This makes me sad. So I have no much
-enthusiasm in the maintainence of it.</p><p>But I do believe that livereload is a good idea. Maybe I just did it wrong.
-One day, a brilliant idea came to me — livereload for wsgi.</p><p>A simple example of the idea:</p>
-<pre><code class="python">from livereload import Server
-
-server = Server(wsgi_app)
-server.watch(&#39;static/app.css&#39;)
-server.serve()
-</code></pre>
-<p>Wow, that looks good. It seems something that I will use in my daily life.
-Since I prefer Flask, I can write the scripts with Flask-Script in a
-<code>manage.py</code> file:</p>
-<pre><code class="python">app = create_app()
-
-@manager.command
-def liveserver(port=5000):
-    from livereload import Server
-    server = Server(app.wsgi_app)
-    server.watch(&#39;static/*.css&#39;)
-    server.serve(port=port)
-</code></pre>
-<p>And whenenver a css file changes, the browser will refresh it itself.</p><p>Actually, my environment of front end development is far more complex,
-I use rework for css processing, component for javascript modular. The
-real example would be gorgeous.</p><p>Take a peep of my scripts:</p>
-<pre><code class="python">@manager.command
-def liveserver(port=5000):
-    from livereload import Server
-
-    server = Server(app.wsgi_app)
-    server.watch(&#39;assets/styles/*.css&#39;, &#39;make -C assets rework&#39;)
-    server.watch(&#39;assets/lib/*.js&#39;, &#39;make -C assets build&#39;)
-    server.watch(&#39;app/templates&#39;)
-    server.serve(port)
-</code></pre>
-
-<h2>Do one job, and do it well</h2>
-<p>Version 2.0 of livereload is more a library rather than an application.
-Which means other libraries in Python can easily bundle it in. I hope it
-can be a great library.</p><p>The executable command line tool is removed from livereload. It may come
-back again, but not soon. The compilers like uglifyjs, lesscss, slim,
-CoffeeScript are removed from livereload too.</p><p>For now, livereload will focus on one thing — livereload. And livereload
-well.</p><p>The lack of compilers does not affect much. Since livereload provides you
-a way to execute shell command. As you can see in the above example that
-<code>server.watch</code> supports executing shell commands, so that we can do:</p>
-<pre><code class="python">server.watch(&#39;src/foo.js&#39;, &#39;uglifyjs src/foo.js -m -o build/foo.js&#39;)
-</code></pre>
-<p>That&#39;s why compilers are removed, since every compiler is some sort of a
-shell command, there is no reason for wrapping them in Python any more.</p><p>By removing compilers, livereload focuses on the server implementation,
-and file watcher. The core code is much simple now.</p>
-<h2>Take advantage of existed tools</h2>
-<p>We programers like to reinvent tools. Sometimes we create things better
-than the old ones, sometimes we fail. The most valuable tool I learned
-in the last two years is Makefile.</p><p>I think every programer should know Makefile, and take the advantage of
-it. Like what I did/do in my daily life. The examples above are using
-Makefile:</p>
-<pre><code>server.watch(&#39;assets/styles/*.css&#39;, &#39;make -C assets rework&#39;)
-</code></pre>
-
-<h2>The future</h2>
-<p>The rewritted version 2.0 of livereload was released days ago. There are
-features not implmented, bugs not fixed, but the concept works well. It
-is not just an implementation <strong>of Python</strong>, it is an implementation
-<strong>for Python</strong>.</p><p>The code is much more pretty than before. It is well documented and tested.
-I hope people will enjoy it. It is a library now, I am looking forward to
-libraries that depend on this project and making the web development of
-more fun.</p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[The Unpleasant Part of Open Source]]></title>
-        <link href="http://lepture.com/en/2013/unpleasant-open-source"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2013-12-06T16:40:00+08:00</updated>
-        <published>2013-12-06T16:40:00+08:00</published>
-        <id>http://lepture.com/en/2013/unpleasant-open-source</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>It has been 9 months since I sent the <a href="https://github.com/chjj/marked/pull/129">renderer feature</a> to marked.
-It was merged some days ago, when I finally lost my patience and created
-a forked project named <a href="https://github.com/lepture/markit">markit</a>.</p><p>I do not suggest you use markit right now. We are working on marked. And
-we hope that renderer feature will be available soon.</p>
-<hr>
-<p>Why it takes so much time for one pull request? Reason varies from people
-to people. Maybe he is focusing on other projects. Maybe he just doesn&#39;t
-like this feature. Maybe FUD.</p><blockquote class="cite-quote"><p>marked does so many weird optimizations that I&#39;m worried only I understand</p><cite>Christopher Jeffrey</cite></blockquote><p>I don&#39;t blame <a href="chjj">Christopher Jeffrey</a>. On the contrary, he did a
-great job. marked is a well written, good designed project. I appreciate
-his humility for I&#39;ve read the code of markdown-js which I am just too
-stupid to understand.</p><p>It is usually the fear of breaking things, the uncertainty of the changes,
-and the doubt of the people that stops us.</p>
-<hr>
-<p>We open source not because people need us. We just happen to open source
-things that solve our problems, and wish it may help other people. Open
-source can be a business for a company, but not for individuals.</p><blockquote class="cite-quote"><p>Lots of people in the Open Source community develop something that solve
-particular problems they have themselves.</p><cite>Armin Ronacher</cite></blockquote><p>I created <a href="create-oauth-server">Flask-OAuthlib</a> for my own, because I
-needed to create an OAuth 2 server at that time. I contribute to OAuthLib,
-because I need to fix that bug or add that feature for Flask-OAuthlib. I
-don&#39;t contribute for my own amusement.</p><p>Armin Roncher wrote in his recent post <a href="http://lucumr.pocoo.org/2013/11/28/emotional-programming/">Emotional Programming in Open Source</a>:</p><blockquote><p>I found it quite hard this year to work on my own projects because the
-bug trackers were full of things I personally did not really care about.
-The things I wrote over the last few years all work so well for me, that
-I don&#39;t need to fix problems or add things.</p></blockquote><p>That is true for individual devlopers. At least that is true for me.</p><p>Individual developers open source in their own time, they don&#39;t get paid.
-However, sometimes, they are too good to accept features that they don&#39;t
-care. This is the time for us to give our thanks, our stars and our tweets.</p>
-<hr>
-<p>Our stars and tweets matter a lot. A good library should be promoted. Yes,
-I mean <a href="https://github.com/idan/oauthlib">OAuthLib</a>. The funny things is that python-oauth2 has
-more stars than OAuthLib. python-oauth2 is not really designed for OAuth 2,
-it is OAuth 1. What a sarcastic reality!</p><p>That&#39;s why we should promote the good libraries. Let them to be known. This
-encourages developers and makes them happy -- but sometimes it may be a
-burden to them.</p><p>It takes time to build a good library -- the design, the documentation, and
-the test cases.</p>
-<hr>
-<p>Somtimes, when you finish a good project, a good name for your project is
-already taken by another people. And when you find out that it is only a
-spawn of a unix command, you feel angry that you have to name your project
-as &quot;something 2&quot;. That is really disappointed.</p><p>May you happy, may the developers happy.</p><blockquote><p>high quality of lots of Open Source code is that the developers are
-generally happier writing it</p></blockquote> ]]>
-        </content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[寫一篇武俠等讀者]]></title>
         <link href="http://lepture.com/zh/2013/wuxia-novel"/>
@@ -182,325 +36,6 @@ generally happier writing it</p></blockquote> ]]>
 她忽而莫名的兴奋起来，“既然小姐可以逃走，为什么我不可以呢！”</p><p>这大胆的想法萦绕心间，诱惑着她，她愈想愈是后悔，当初就应该跟着小姐一起出逃的，但是就算是现在，那也不算太迟，毕竟她还没有嫁人。鸣翠望着那钩月，终于下定了决心。</p><p>出走并不难，难的是出走以后的谋生。她不像她小姐，可以带出一大堆盘缠，她知道分寸，她只带上属于自己的衣物，也许是为以后留下后路，免得落下盗窃的口垢，纵然穷途后想回来也是不可能了。</p><p>夜深，人亦静。</p><p>荆州不如扬州般柔情，扬州的夜是温柔乡胭脂坊，荆州的夜永远都如战士般冷清冷静，是战场上的肃穆——只是没有战士。鸣翠一个人走在大街上，只有自己的脚步声同天幕的弯月伴随着她；她听着这声音，望着那弯月，这才暂时忘却了孤独，忘却了这骇人的寂静的夜。</p><p>太平盛世里的城，永远都是脆弱的，禁不起敌人的攻击。城门大开，没有守城的兵，鸣翠就这样轻轻松松地出了城，一路向南走去。她这时一身青布衣，灰土裤子，小帽，布履，近于男子的装束，肩负着青花纹的布包袱，步履轻快。</p><p>郊外自然本该更见清静，但是偶而还有虫鸣有草动，鸣翠在月光里走了一程，前面竟然热闹了起来，依稀见到了几点灯火。</p><p>是一片空林地，近百人围着一个圈，也不知在做什么游戏。鸣翠踌躇了些时候，觉得去打扰他们总是不太好，并且看那些人的架势，倒并不好惹；然而她还是按捺不住内心的好奇心，她竟一点一点向那里逼近，偷偷猫在一棵大树旁。</p><p>鸣翠的眼睛真好，她竟依稀觉得圈子里被围着的是她小姐李溆茗。</p>
 <hr>
 <p>被围着的并不只溆茗，还有言公子，还有她同言公子的小公子。</p><p>言公子仍旧是一袭淡桃色无绣丝制长袍，拦腰一围浅黄色丝巾玉绦，下面是灰白描翠的裤子，脚蹬土色布履，也依旧不曾束冠，形容俊雅。溆茗一身白，白帽白衣白裙白履，是隐机子留下的衣物，她手里牵着小孩子，依傍在言公子身旁。</p><p>小孩子突然道：“妈妈，我饿了，我要吃饭饭。”</p><p>溆茗低头看了看他，抬手抚摸起他的头，轻声道：“丹青，乖。等爸爸办完了事，妈妈给你买糖糖吃。”</p><p>小孩子听见有糖吃，果然不再闹了，很乖顺地挨着他母亲，静待这莫名的游戏的结束。他是这次出门后才吃过糖的，第一次吃糖便喜欢上了糖果。现在那些大叔叔大婶婶们围着一个圈是做什么呢？他啃起指甲，仔细琢磨起来，然而想破了小脑袋也想不明白。</p><p>言公子开口道：“各位错了，大错特错。既然挑在了晚上，那就不该在今天晚上。既然挑在了今天晚上，就不应该到这时还不出手。既然到这时还不出手，那我们妻儿可就要走了。”</p><p>“姓言的，你以为今天走得了么！六年前我师兄惨死于你手下，今日我便要为他报仇，以慰我师兄的在天之灵。”说话的是一个矮小精悍的白面小生，手执一把山河图的纸扇，一脸激愤而又偏偏装得从容镇定。</p><p>一石激起千层浪，他这一句话可谓是抛砖引玉，大伙儿马上就沸腾了，纷纷怒喝起来，有人道，“还我师傅命来”，还有人道，“还家父命来”，还有人道，“我要为我丈夫报仇”，但是更多的人只是辱骂，从言公子的祖宗十八代骂到孙子十八代，仿佛这样可以杀掉言公子似的，偏偏就没人敢上前动手，因为谁也不想第一个送命。</p><p>言公子叹道：“哎，冤冤相报何时了。各位又何必如此执著？我本意是想放各位一条生路，为什么各位就不肯给我这个机会呢？”</p><p>众人不免一笑。一位老先生站出来道：“姓言的，你休出狂言。我等百人，难道竟奈何不了你么！你还是束手就擒的好。我担保绝不为难你妻儿。”</p><p>“怎么能放过他们！斩草要除根。”</p><p>“血债需血偿，杀他妻儿也不为过。”……</p><p>老先生面色如铁，厉喝道：“老夫说过不许为难他妻儿，众位没长耳朵么！”</p><p>“阎老鬼，你以为你是谁呀。你这个阎可不是他那个言，没必要去维护他吧。所谓民意不可违，老鬼你还是省省吧。”</p><p>“阎罗清，你哪根葱？你说话就是圣旨了？就是圣旨，老子也把它当个屁！给老子滚一边去。”说话的是一个油光满面的胖子。</p><p>阎罗清一阵狂啸，大喝一声：“找死！”右手如爪，直扑过去。那人毫无防备，不禁一谔，便在此时，喉头已入了阎罗清之手，只需阎罗清稍一用力，他这喉头怕是不保；眼见危在旦息，他不由得全身酸软，说不出话来，看来这人只是口上功夫厉害的草包。</p><p>阎罗清笑道：“无知狂徒，老夫说不许为难他妻儿便是不许为难他妻儿。”他那一身黑衣劲装伴了这夜色再加了他诡异的身手再与他鹰一般的眼睛相合，众人只觉心里一寒。阎罗清心下不免得意，他自从死了弟弟后便狠下心来刻苦习武，六年来闭门不出，武功精进也是意料中的事，这次一试，果真不可与过去同日而语。</p><p>人一高兴就忘乎所以，这是不变的真理。阎罗清正自得意，他的手便已被人从那喉头卸下，又给人紧握在了手里，他扭头一看，是一个和尚。武林中人一见了会武功的和尚便以为是少林寺的和尚，这想法在绝大部分时候是对的，言公子却知道这和尚不是，他根本就没到北方去过，也不至于得罪少林寺的人。</p><p>但是言公子猜错了，这和尚偏偏就是少林寺的。只听阎罗清道：“原来是少林寺的空明和尚，失敬，失敬。”便这两声“失敬”，他手一缩，已经从空明手里脱了出来。</p><p>空明和尚笑道：“阎施主慈悲，和尚钦佩。然劲敌尚还未除，我等便已生内讧，不免使敌人有可趁之机。阎施主所言甚是，和尚担保没人敢去伤他妻儿。”</p><p>言公子重重的叹了口气，道：“各位为了在下而伤和气，在下实在觉得愧疚，即是如此，在下这条命赠与各位又有何妨。且容我与妻子说几句话。”他说着便俯到溆茗耳边嘀咕了几声。溆茗不禁脸上起了红晕，咬了咬唇，低下头轻声问道：“真要这样么，星哥？”</p><p>言公子点了点头，然后便解了玉绦，散开这一身的淡桃红的长袍，露出如女子的白净的胸脯，他竟只穿了这一件长袍。溆茗犹豫了些时候，两眼注视着言公子，可是，他并没有改变想法的意思，她也只好解了衣襟。</p><p>众人眼见了这等奇事，不禁大骇，以为言公子要施展什么法术了；又眼见了溆茗一件一件卸去了衣衫，不禁色心大起，直愣愣地瞧着她，也懒得再理会言公子的法术了。</p><p>等溆茗脱去了里背心，言公子便给她披上了自己的那件长袍。淡桃红的衣裳，衬着淡桃红的面颊，溆茗脸上一阵滚烫。言公子紧握住溆茗的手，在她滚烫的面颊上吻了一下，又俯到她耳边嘱咐了几句。</p><p>溆茗点了点头，眼角沁出泪来，已经哽咽了，她哑声道：“你真的不顾我们了么？”</p><p>言公子依旧握着溆茗的手，面容越发白净了。</p><p>他抬头向众位武林人士道：“各位可知在下为何要取各位亲友性命？只因在下喜欢他们的血。世人多有收集的嗜好，在下亦然；有的人喜欢收集石头，有的人喜欢收集树叶，有的人喜欢收集宝剑，有的人喜欢收集金银，还有的人喜欢收集女子，在下不才，在下的嗜好便是收集人血，只可惜到目前为此才收集到一百三十六人之血。懂得收集的人必然知道，收集倘若不收集珍奇的事物，还不若不收集！在下若要收集，自然会收集那些比较有名望一点的武林君子的血，也就是各位的亲友的血。在下所求也并不过份，只不过一滴血而已，但是向他们求这一滴血实在比登天还难！世人只知道流血是一件很痛苦的事，他们不愿意承受这痛苦，在下求之不得，也曾心下悔恨，自己亦觉得过于自私了，怎么可以将自己的快乐建立在别人的痛苦之上呢！然而偏偏又有了这么个嗜好，也没有办法。于是在下便想到了一个一举两得的方法，既可以满足在下的嗜好，又可以免除他人的痛苦。现在想来，在下还是错了。在下只考虑到流血之人的痛苦，而没有考虑到流血之人的亲友的痛苦，大错特错。为了弥补在下的过错，在下本来亦准备解决各位的痛苦。但是现下又改变主意了，只怕解决了各位的痛苦，各位的亲友便又痛苦起来。罢了罢了，索性还在下大方一点吧……”</p><p>言公子说着，忽而飞跃而起，到得一黑衣女子身前，剪手夺过她手里的匕首，便又退至中间，匕首便已插在了他白净的胸膛上。血沿着匕首一点一点滴下来，在这如烟的空气中凝聚，又一滴一滴溅在草地上。</p><p>众人面面相觑，左右顾盼，实难理解这一幕。他们看着言公子流血，看着他的血落在地上，又看着他倒在了地上，可是言公子却依旧嘴角含笑着。</p><p>空明和尚双手合十，拜了一拜，默念数语向各位道：“既然此人已死，我们走吧。”</p><p>胖子问道：“那这两个人呢？”</p><p>阎罗清不禁动怒道：“空明和尚说过放这二人一条生路，各位没有听见么！”</p><p>溆茗哼了哼，笑道：“各位就真这样走了？”</p><p>阎罗清安慰道：“姑娘，在下担保没人敢伤姑娘。姑娘这就回去吧。”</p><p>溆茗冷眼瞪着他，哼道：“刚才……刚才你都看见了？”</p><p>众人纷纷笑起来，遇了这样的事，大家不去瞧仔细了，难道还会闭着眼睛不成？阎罗清想了想，若说看见了，别人姑娘脸上不好看，若说没看见吧，那又是自欺欺人，思量一二，他也只好点了点头。</p><p>溆茗叹道：“既是如此，各位就想这样走了么！还是留下各位的眼睛再走吧！”</p><p>众人又是一笑，这姑娘说话简直是不知天高地厚！在这笑声中，溆茗长袖飞舞，跳动着脚步，踏着这笑声的旋律起落盘旋。众人冷眼瞧着，然而只是一瞬，就再也瞧不见了，血水与黑水从众人眼中激射出来，溅到溆茗的衣袖上，在衣袖上渗透，然后混为一体，淡桃色的长袍越染越深，变作桃色长袍，而后又变作梅色长袍。</p><p>在这一片嚎叫声里，十多盏灯笼飞散出去，在空中划出几记华美的淡黄的弧迹，落在了地上。溆茗牵起小孩子，一个飞跃，落在鸣翠身边，一把掐住她肩胛。鸣翠“啊”地尖叫了一声，道：“小姐，是我！”</p><p>溆茗这才认清，便放开了手。鸣翠蹲下来摸了摸小孩子的头，问道：“这位是小少爷？”</p><p>溆茗点了点头，“走吧。鸣翠，你也跟我们一起去吧。”</p><p>鸣翠犹豫着，可是还是点头同意了，她望那边看去，道：“那姑爷的尸体呢？”</p><p>溆茗神色黯然，摇了摇头，“算了，不管他了。这就走吧，我实在懒得见到这些人。”</p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Create an OAuth Server]]></title>
-        <link href="http://lepture.com/en/2013/create-oauth-server"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2013-11-21T16:30:00+08:00</updated>
-        <published>2013-11-21T16:30:00+08:00</published>
-        <id>http://lepture.com/en/2013/create-oauth-server</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>I&#39;ve searched the whole internet on how to create an OAuth server or
-provider, but failed every time. Sometimes it was the language that stopped
-me, and sometimes it was something that didn&#39;t even work.</p><p>And one day, I found <a href="https://github.com/ib-lundgren/flask-oauthprovider">Flask-OAuthProvider</a>, which was a
-great piece of work. But it only implements the OAuth 1 server, and I need
-the OAuth 2 part at that time. This was the first time I met OAuthlib.</p><blockquote><p>OAuthlib is the future of OAuth for Python.</p></blockquote><p>A quote from Kenneth Reitz, and I can&#39;t agree more. It is really great and
-RFC-aware. However, it is undervalued with <del>fewer than 450</del> stars on GitHub.
-The code of <a href="https://github.com/idan/oauthlib">OAuthlib</a> is well written, so is the documentation,
-and so is the test cases. You should star it. Everything is perfect, except
-its fame. That&#39;s why I sent <a href="https://github.com/aaronpk/oauth.net/pull/55">a pull request</a> to oauth.net,
-making it known by the world.</p><p>OAuthlib is far more brilliant than rauth. It is a generic, spec-compliant
-library, without any specific HTTP request library. It focuses on the
-definition of RFCs.</p>
-<h2>Flask-OAuthlib</h2>
-<p>It has been 6 months since I started this project named as <a href="https://github.com/lepture/flask-oauthlib">Flask-OAuthlib</a>, which is a successor of Flask-OAuthProvider and Flask-OAuth.</p><p>With the great work of OAuthlib, I finished the client part in 4 days, and
-made it a replacement of Flask-OAuth. It is well designed with a good
-intention for compatability of the non-standard oauth servers. If you are
-still using Flask-OAuth, I recommend you take this project into account.</p><p>I completed the OAuth 2 provider part at version 0.2.0, OAuth 1 provider
-at version 0.3.0. And now this project has moved to version 0.4.0. So I
-think it is the right time to write some introduction now.</p><p>Thanks for the help of <a href="https://github.com/ib-lundgren">Ib Lundgren</a> who is the maintainer of OAuthlib.
-Thanks for the contribution of Randy Topliffe and Mackenzie B. Thompson.
-You can find them on the <a href="https://flask-oauthlib.readthedocs.org/en/latest/authors.html">authors list</a>.</p>
-<h2>Terminology &amp; Knowledge</h2>
-<p>There are knowledge and terminologies that you should know. We will build
-a server in Flask web framework, it is okay even if you haven&#39;t used Flask.
-You can still learn something that worth the time.</p><p>Since you are going to build an OAuth server, you may need some knowledge
-on these terminologies.</p>
-<ul>
-<li><strong>client</strong>: also known as application, for example Twitter for iPhone
-is a client</li>
-<li><strong>resource owner</strong>: it is usually the user of a website, for example me
-on Twitter: <a href="https://twitter.com/lepture">twitter.com/lepture</a></li>
-<li><strong>access token</strong>: this is the key for a client to get resource from a
-resource owner</li>
-</ul>
-<p>There are differences between OAuth 1 and OAuth 2. A client will need some
-temporary tokens for exchanging the final access tokens. They do have their
-own terminologies.</p>
-<h3>OAuth 1</h3>
-<p>OAuth 1 needs more temporary tokens, it has a request token, a verifier,
-a timestamp and a nonce.</p>
-<ul>
-<li><strong>request token</strong>: designed for exchanging the final access token</li>
-<li><strong>verifier</strong>: designed for verifying the current authenticated user</li>
-<li><strong>timestamp</strong>: a timestamp of current request</li>
-<li><strong>nonce</strong>: a random token that makes current request unique</li>
-</ul>
-<p>All these messy things are designed for authentication and security.</p>
-<h3>OAuth 2</h3>
-<p>OAuth 2 is much easier, we do need only one <strong>grant token</strong> for exchanging
-the final access token.</p><p>OAuth 2 requires SSL over the connection for security, it simplifies the
-way for getting access token. However, SSL is also suggested on OAuth 1 in
-your final production.</p>
-<h2>Writing a Server</h2>
-<p>We need a normal server with a user system before starting the OAuth part.
-Any site which has OAuth service has a user system.</p><p>Since this is just a demo, we will not create something that big. Let&#39;s
-think about it, we need a user system, we need it because we want to
-identify the current user. But we can skip the registration part.</p><p>This is a basic, simple, yet functional server:</p>
-<pre><code class="py"># coding: utf-8
-
-from flask import Flask
-from flask import session, request
-from flask import render_template, redirect
-from flask_sqlalchemy import SQLAlchemy
-
-
-app = Flask(__name__, template_folder=&#39;templates&#39;)
-app.debug = True
-app.secret_key = &#39;secret&#39;
-app.config.update({
-    &#39;SQLALCHEMY_DATABASE_URI&#39;: &#39;sqlite:///db.sqlite&#39;,
-})
-db = SQLAlchemy(app)
-
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), unique=True)
-
-
-def current_user():
-    if &#39;id&#39; in session:
-        uid = session[&#39;id&#39;]
-        return User.query.get(uid)
-    return None
-
-
-@app.route(&#39;/&#39;, methods=(&#39;GET&#39;, &#39;POST&#39;))
-def home():
-    if request.method == &#39;POST&#39;:
-        username = request.form.get(&#39;username&#39;)
-        user = User.query.filter_by(username=username).first()
-        if not user:
-            user = User(username=username)
-            db.session.add(user)
-            db.session.commit()
-        session[&#39;id&#39;] = user.id
-        return redirect(&#39;/&#39;)
-    user = current_user()
-    return render_template(&#39;home.html&#39;, user=user)
-
-
-if __name__ == &#39;__main__&#39;:
-    db.create_all()
-    app.run()
-</code></pre>
-<p>And this is the template of <code>home.html</code>:</p>
-<pre><code class="html+jinja">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  {% if user %}
-    &lt;p&gt;You are {{ user.username }}&lt;/p&gt;
-  {% else %}
-    &lt;p&gt;You are not authenticated&lt;/p&gt;
-  {% endif %}
-
-  &lt;p&gt;Type any username:&lt;/p&gt;
-  &lt;form method=&quot;post&quot; action=&quot;/&quot;&gt;
-    &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;
-    &lt;input type=&quot;submit&quot;&gt;
-  &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p>
-<h2>Creating OAuth 1 Server</h2>
-<p>Before implementing the actual OAuth part, we need to define an OAuth 1
-Client. A client requires client_key, client_secret, redirect_uris,
-default_redirect_uri and default_realms. Find more in the <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#client-application">Documentation</a>.</p><p>All clients are bound to a developer (developer is a user). The developer
-need to fill a form and describe the application. In this simple demo, we
-will skip this part. It will create a client when you visit <code>/client</code>.</p>
-<pre><code class="python">from flask import jsonify
-from werkzeug.security import gen_salt
-
-
-class Client(db.Model):
-    client_key = db.Column(db.String(40), primary_key=True)
-    client_secret = db.Column(db.String(55), index=True, nullable=False)
-
-    # creator of the client
-    user_id = db.Column(db.ForeignKey(&#39;user.id&#39;))
-    user = db.relationship(&#39;User&#39;)
-    _realms = db.Column(db.Text)
-    _redirect_uris = db.Column(db.Text)
-
-    @property
-    def redirect_uris(self):
-        if self._redirect_uris:
-            return self._redirect_uris.split()
-        return []
-
-    @property
-    def default_redirect_uri(self):
-        return self.redirect_uris[0]
-
-    @property
-    def default_realms(self):
-        if self._realms:
-            return self._realms.split()
-        return []
-
-
-@app.route(&#39;/client&#39;)
-def client():
-    user = current_user()
-    if not user:
-        return redirect(&#39;/&#39;)
-    item = Client(
-        client_key=gen_salt(40),
-        client_secret=gen_salt(50),
-        user_id=user.id,
-    )
-    db.session.add(item)
-    db.session.commit()
-    return jsonify(
-        client_key=item.client_key,
-        client_secret=item.client_secret
-    )
-</code></pre>
-<p>You can find the whole new code at <a href="https://github.com/lepture/example-oauth1-server/tree/2cafa624dd8e82054a5208ce7c156f024d0bb109">commit#2cafa62</a>. Now, run the script
-and visit <code>/client</code>.</p>
-<h3>Implement OAuth 1 Provider</h3>
-<p>It is time to create a provider now. However, before we initialize a
-provider, we need to update the configuration.</p>
-<pre><code class="python">app.config.update({
-    &#39;OAUTH1_PROVIDER_ENFORCE_SSL&#39;: False,
-    &#39;OAUTH1_PROVIDER_KEY_LENGTH&#39;: (10, 100),
-})
-</code></pre>
-<p>Because we are developing on a local machine, it would be easier for us
-to implement it over HTTP. This is why we set <code>OAUTH1_PROVIDER_ENFORCE_SSL</code>
-to <code>False</code>. After this, we can create a provider:</p>
-<pre><code class="python">from flask_oauthlib.provider import OAuth1Provider
-oauth = OAuth1Provider(app)
-
-@oauth.clientgetter
-def load_client(client_key):
-    return Client.query.filter_by(client_key=client_key).first()
-</code></pre>
-<p>Check code at <a href="https://github.com/lepture/example-oauth1-server/tree/78f6cf5ebbad01694ff3d5e78ad827acfefbea86">commit#78f6cf5</a>.</p><p>There will be lots of code, and they would flush this article. In this case,
-I would keep them in a repo, and create a revision every time a milestone
-finished. You need to follow the links to view the changes.</p><p>The next step is <a href="https://github.com/lepture/example-oauth1-server/commit/860850e57d7f5f07441d3019ce7cf0eaaffd0561">creating request token and verifier</a>, we did this by following the documentation of <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#request-token-and-verifier">Request Token and Verifier</a>.</p><p>Like request token and verifier, we mix timestamp and nonce together.
-Find out how we <a href="https://github.com/lepture/example-oauth1-server/commit/679d9a614cf10b5769f63ac76c45fd9aecb27181">create timestamp and nonce</a>. This
-is done with the help of documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#timestamp-and-nonce">Timestamp and Nonce</a>.</p><p>We will finish all the data models when <a href="https://github.com/lepture/example-oauth1-server/commit/88dee8057eb1864d90e1df1895a47efdbad4ee66">access token is created</a>.</p><p>The next big thing is the handlers - how we handle the authorization flow,
-the request token and access token. Check <a href="https://github.com/lepture/example-oauth1-server/commit/55664c43951f593efa545e8968b1371b9d01659c">commit#55664c4</a>.</p><p>In this commit, we implemented all required handlers. And we also fixed
-some bugs, added a logger for debugging. There was a change in <code>/client</code>
-handler, we added a redirect uri data to the model, and we would use it
-later.</p><p>Now that we have finished the authorization part of OAuth 1 server, we need
-a client to verify it. We created a client with Flask-OAuthlib itself at
-<a href="https://github.com/lepture/example-oauth1-server/commit/f8b1d09b17f3bbcc9ecc41b44e061185e0e87e51">commit#f8b1d09</a>.</p><p>Let&#39;s have a game. Start your provider server with:</p>
-<pre><code>$ python app.py
-</code></pre>
-<p>We visit <code>http://127.0.0.1:5000/</code> and fill a username. And then we visit
-<code>http://127.0.0.1:5000/client</code>, take the client key and client secret, and
-modify our <code>client.py</code> script with the key and secret. Now, we can start
-the client server with:</p>
-<pre><code>$ python client.py
-</code></pre>
-<p>We visit <code>http://localhost:8000/</code>, everything should work correctly. We
-will be redirected to a confirm page, if we choose yes, client will obtain
-a pair of access token and secret. If anything wrong happens, don&#39;t
-hesitate to tell me. You can also debug it yourself. We enabled the
-logging for Flask-OAuthlib so that you can debug easily.</p><p>The last part of this tutorial on OAuth 1 is protecting user resources. It
-is easy with a decorator <code>require_oauth</code>:</p>
-<pre><code class="python">@app.route(&#39;/api/me&#39;)
-@oauth.require_oauth()
-def me(req):
-    user = req.user
-    return jsonify(username=user.username)
-</code></pre>
-<p>This <code>req</code> parameter is an oauth request object, it contains many useful
-data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p><p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
-This commit added a tokengetter, and fixed some bugs I created. After the
-client obtained an access token, visit <code>http://localhost:8000/</code>, and you
-will see the information of current user.</p><p>There are more works we should do, but we will finish it right now.
-Since this is a simple tutorial, it will not cover any advanced skills.
-However, I would give some suggestions at the end of this article.</p>
-<h2>Creating OAuth 2 Server</h2>
-<p>I created OAuth 2 provider in Flask-OAuthlib before OAuth 1 provider. That
-means I designed the API for OAuth 2 provider first, and OAuth 1 provider
-shares the same API with OAuth 2 provider.</p><p>The setup of OAuth 2 server is the same as above. First, we created a
-basic simple server with a user system. You can find the code at
-<a href="https://github.com/lepture/example-oauth2-server/commit/d1e3b6de1982894b97a719b04d9f0161e5739074">commit#d1e3b6d</a>.</p><p>Then we created a Client model and a client handler. Here are the differences,
-Client for OAuth 2 use <code>client_id</code> instead of <code>client_key</code>, <code>default_scopes</code>
-instead of <code>default_realms</code>, and it has a client type (which is public in
-this case). See the code at <a href="https://github.com/lepture/example-oauth2-server/commit/3f1c8f2f86b408be6105593c3206cad814dfcb73">commit#3f1c8f2</a>.
-We created the Client following the documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth2.html#client-application">Client (Application)</a>.</p>
-<h3>Implement OAuth 2 Provider</h3>
-<p>The next step is the implementation for OAuth 2 Provider since we have
-finished all preparation works. It is the same as OAuth 1 provider, except
-we don&#39;t have to make any configuration. via <a href="https://github.com/lepture/example-oauth2-server/commit/3b60b5d769b807b1549157f76cd46151dd3b8f1d">commit#3b60b5d</a>.</p>
-<pre><code class="python">from flask_oauthlib.provider import OAuth2Provider
-oauth = OAuth2Provider(app)
-
-@oauth.clientgetter
-def load_client(client_id):
-    return Client.query.filter_by(client_id=client_id).first()
-</code></pre>
-<p>Then we would <a href="https://github.com/lepture/example-oauth2-server/commit/a10c376b6f48bfde52d5fa2d6a8c5cd50e3096e1">create Grant Token</a> and
-<a href="https://github.com/lepture/example-oauth2-server/commit/ba1fd40293e673ae35180a1c10f95820c6a93d23">Access Token</a> , and their getters and setters. It is
-much simpler than OAuth 1, since we don&#39;t have to create timestamp and nonce.</p><p>OAuth 2 has no Request Token. The handlers are simple too. What you need is
-a token handler that handles response with access token or refresh token,
-and an authorize handler for user to confirm the request.</p>
-<pre><code class="python">@app.route(&#39;/oauth/token&#39;)
-@oauth.token_handler
-def access_token():
-    return None
-</code></pre>
-<p>Flask-OAuthlib has done all the tricks, you don&#39;t need to handle the data
-yourself. However, you can return things that matter to you. They are
-advanced skills, and I will not cover it here.</p><p>Changes can be found at <a href="https://github.com/lepture/example-oauth2-server/commit/cbc3e12a3123f4bbc9d68eb8438247357f213583">commit#cbc3e12</a>.</p><p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p>
-<pre><code class="python">import os
-os.environ[&#39;DEBUG&#39;] = &#39;true&#39;
-</code></pre>
-<p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
-developing on a local machine, we don&#39;t have HTTPS, As a result, it is
-hard to meet this requirement. Fortunately, OAuthlib has a mechanism for
-us to debug on HTTP, that is the environ variable <code>DEBUG</code>.
-(Which is contributed by me).</p><p>When we code, we make mistakes. You have to keep an eye on the error
-stack, find out what is wrong, and fix it. Yes, I did fix some bugs in
-this commit.</p><p>And now start the server and client and visit <code>http://localhost:8000/</code>.
-You will finally get an access token.</p><p>We do OAuth, because we want to protect some resources. This is the last
-part of this tutorial on OAuth 2 server. We protect them with a decorator
-<code>@oauth.require_oauth</code>, and this decorator will add an additional paramter
-to the handler.</p>
-<pre><code class="python">@app.route(&#39;/api/me&#39;)
-@oauth.require_oauth()
-def me(req):
-    return jsonify(username=req.user.username)
-</code></pre>
-<p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
-the source code and enjoy it yourself.</p>
-<h2>References &amp; Other Resources</h2>
-<p>I must confess that it is not easy to setup an OAuth server. You need to
-learn lots of concepts for understanding. This tutorial don&#39;t teach you
-the realms and scopes stuff - you can learn these parts from the <a href="https://flask-oauthlib.readthedocs.org/">Flask-OAuthlib documentation</a>.</p><p>We did waste lots of time on creating the models and handlers. In fact we
-don&#39;t have to do such boring things. A demo is just, a demo. I don&#39;t mean
-to set limitations, and force you to use SQLAlchemy. There are chances
-that you want to use redis instead.</p><p>That&#39;s why I put the SQLAlchemy stuff in the <code>contrib</code> module. It is not
-finished yet, and I need your contribution.
-Find out what&#39;s going on in <a href="https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib">contrib</a>.</p><p>And one more thing, it would be better if we put those temporary tokens
-in cache, for example request token, verifier, timestamp, nonce and
-grant token.</p><p>Remember that every link is important, if you miss one, you may miss the
-target. Chances are that you&#39;ve already lost your patience.</p><p><strong>TL;DR</strong></p> ]]>
         </content>
     </entry>
     <entry>
@@ -649,95 +184,6 @@ _emphasize_    __strong__
         </content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Create a StatusBar App]]></title>
-        <link href="http://lepture.com/en/2012/create-a-statusbar-app"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2012-07-20T21:15:00+08:00</updated>
-        <published>2012-07-20T21:15:00+08:00</published>
-        <id>http://lepture.com/en/2012/create-a-statusbar-app</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>It has been months since I decided to learn cocoa development, but in vain.
-Unlike python, the documentation of cocoa tortures me a lot.</p><p>I am still new to cocoa development. And this post will be part of my learning series.
-I didn&#39;t mean to teach you anything, on the contrary, it is a track of my learing.
-But it may be a little helpful to you.</p>
-<h2>StatusBar App</h2>
-<p>A <strong>StatusBar App</strong> is what on the right side of the menu bar, it doesn&#39;t contain a main window.
-For example, the volumn control is a StatusBar App.</p>
-<h2>Demo Time</h2>
-<p>It&#39;s the time to create a StatusBar App now.</p>
-<ol>
-<li><p>Open your Xcode (I am on Xcode 4.3.3)</p></li>
-<li><p>Create a cocoa application project</p></li>
-</ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg" alt="create a project" /></p>
-<ol>
-<li><p>Name the project <strong>StatusBarApp</strong></p></li>
-<li><p>Run for testing</p></li>
-</ol>
-<p>Now you will get an App with window. However, our app is a StatusBar App, it has no window.</p><p>The final app should be like:</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/application.jpg" alt="application" /></figure>
-<h3>Menu</h3>
-<p>We will create the menu first.</p>
-<ol>
-<li>Drag a menu to the interface builder</li>
-</ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg" alt="drag a menu" /></p>
-<ol>
-<li>Edit the menu item</li>
-</ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg" alt="edit menu item" /></p>
-<ol>
-<li>Decorate the menu with seprator</li>
-</ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg" alt="decorate with seprator" /></p>
-<ol>
-<li>Connect the menu to your code outlet, and name it <code>statusMenu</code></li>
-</ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg" alt="connect menu outlet" /></p>
-<h3>StatusBar</h3>
-<p>Create the statusBar property in your <code>AppDelegate.h</code> file:</p>
-<pre><code class="objc">@property (strong, nonatomic) NSStatusItem *statusBar;
-</code></pre>
-<p>Synthesize it in the <code>AppDelegate.m</code> file:</p>
-<pre><code class="objc">@synthesize statusBar = _statusBar;
-</code></pre>
-<p>Initialize the statusBar:</p>
-<pre><code class="objc">- (void) awakeFromNib {
-    self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-
-    self.statusBar.title = @&quot;G&quot;;
-
-    // you can also set an image
-    //self.statusBar.image =
-
-    self.statusBar.menu = self.statusMenu;
-    self.statusBar.highlightMode = YES;
-}
-</code></pre>
-<p><code>awakeFromNib</code> is earlier than <code>applicationDidFinishLaunching</code> in the lifecycle.</p>
-<h3>App Go</h3>
-<p>Let&#39;s test this application.</p>
-<ol>
-<li>Run you app now. You will see a <strong>G</strong> in the menu bar.</li>
-<li>Delete the useless window in your <code>MainMenu.xib</code>, and run your app again.</li>
-</ol>
-<p>It works! But it doesn&#39;t work the right way. It is on the dock, it shows the menu on the left.</p><p>Fix it in <code>StatusBarApp-Info.plist</code>, add a row:</p>
-<pre><code>Application is agent (UIElement)  = YES
-</code></pre>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg" alt="connect menu outlet" /></figure><p>Run your application again, it won&#39;t be on the dock, it won&#39;t show the menu.</p>
-<h3>Do More</h3>
-<p>But you can&#39;t quit the application, that could be annoying. We did have a Quit item on the application, but it won&#39;t work right now.</p><p>Fix it:</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step7.jpg" alt="quit" /></figure>
-<h2>Reference:</h2>
-
-<ul>
-<li><a href="http://cocoatutorial.grapewave.com/2010/01/creating-a-status-bar-application/">Creating a Status Bar Application</a></li>
-<li><a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSStatusItem_Class/Reference/Reference.html">NSStatusItem Class Reference</a></li>
-</ul>
- ]]>
-        </content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[喜歡]]></title>
         <link href="http://lepture.com/zh/2012/girl-at-cafe"/>
         <author>
@@ -748,74 +194,6 @@ For example, the volumn control is a StatusBar App.</p>
         <id>http://lepture.com/zh/2012/girl-at-cafe</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>天陰沉沉的，一副含雨欲滴的樣子，可是雨水躲在了雲層裡始終不肯落下來。我還奢求著下一點點小雨，一個人不撐傘地漫步於這雨中，營造一份詩意呢。然而不免要失望了。</p><p>杭州比較叫人喜歡的一點就是綠蔭，窗外雖然是馬路，可是仿佛是從樹叢裡切開來的，不像別處的街道，樹木不是點綴，而是主體，馬路只是這綠蔭的陪襯。</p><p>這一家可莎蜜兒麵包店位於杭大路與西溪路的交叉處，店不算大，但是別致。麵包其實我不算喜歡，可是下午起得遲，還沒有吃飯，聊以充饑罷了。點了兩份麵包加一份豆漿，坐在靠門的位子上，靜靜欣賞來去的行人。</p><p>店裡進來一群女孩子，人群中一眼望去，注意到的只有一人。她著一身白色短袖T恤，齊劉海的短髪，戴黑框眼鏡，臉有點小－－大約是被頭髮遮住的原因－－把眼鏡襯得偏大。她同她的朋友們說笑著，大家一起選過了幾樣蛋糕又或者麵包，就結帳離開了。</p><p>她們在店外揮手告別，有一個朋友同她們不是一路，向另一個方向去了。隔著玻璃窗，看著她著白色短袖一頭短髪的身影離去，消失在綠蔭叢中。</p><p>倒不是因為有多漂亮，也並非因為陪襯的關係。可是一眼就注意到了她，只注意到了她。現在想來多半因為她的笑容了。不是所謂的淑女的不露齒的笑，是開心的、爽朗的、迷人的笑容。</p><p>喜歡 Keira Knightley，是喜歡她在傲慢與偏見裡笑時的酒窩，喜歡她笑時眯起的眼睛。</p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vundle vs Pathogen]]></title>
-        <link href="http://lepture.com/en/2012/vundle-vs-pathogen"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2012-05-02T00:00:00+08:00</updated>
-        <published>2012-05-02T00:00:00+08:00</published>
-        <id>http://lepture.com/en/2012/vundle-vs-pathogen</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>Most people just want an answer. Yes, vundle is better.</p>
-<h2>Pathogen</h2>
-<p>Pathogen created a new way to organize vim plugins, it provides the possibility
-to make vim plugins a bundle.</p><p>The original vim plugin system is somewhat a centered plugin system, but pathogen makes
-it a distributing system. The original way:</p>
-<pre><code>vim/
-    syntax/
-        html.vim
-    indent/
-        html.vim
-</code></pre>
-<p>The pathogen way:</p>
-<pre><code>vim/bundle/
-    html/
-        syntax/
-            html.vim
-        indent/
-            html.vim
-</code></pre>
-<p>Now, you can take <code>html</code> as a bundle (or app), you need not copy every file to the right
-directory, everything is well maintained by the plugin creator.</p><p>It&#39;s almost the end of the world, the vim plugin system should be distributed. And I&#39;m glad
-that so many plugins are compatible with pathogen.</p><p>I tried pathogen, and <a href="http://lepture.com/work/manage-vim/">wrote a post</a> (in Chinese) about
-it.</p>
-<h2>Vundle</h2>
-<p>At that time, I knew vundle, and I mentioned it in the post, but I didn&#39;t try it.
-I wish if only I had tried it.</p><p>Vundle is inspired by Pathogen, it can do everything pathogen can do,
-it is compatible with pathogen, which means if a plugin declares it supporting
-pathogen, it supports vundle.</p><p>But vundle does more, it improved the way to get and update vim plugins.
-I mentioned in my post, that I was trying git-submodule with pathogen,
-it was brilliant, but vundle is more elegant:</p>
-<pre><code class="vim">set nocompatible               &quot; be iMproved
-filetype off                   &quot; required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-&quot; let Vundle manage Vundle
-&quot; required! 
-Bundle &#39;gmarik/vundle&#39;
-
-&quot; My Bundles here:
-&quot;
-&quot; original repos on github
-Bundle &#39;tpope/vim-fugitive&#39;
-Bundle &#39;Lokaltog/vim-easymotion&#39;
-Bundle &#39;rstacruz/sparkup&#39;, {&#39;rtp&#39;: &#39;vim/&#39;}
-Bundle &#39;tpope/vim-rails.git&#39;
-&quot; vim-scripts repos
-Bundle &#39;L9&#39;
-Bundle &#39;FuzzyFinder&#39;
-&quot; non github repos
-Bundle &#39;git://git.wincent.com/command-t.git&#39;
-</code></pre>
-<p>Launch vim and run <code>:BundleInstall</code> , everything will be ready for you.
-All things you should do is trying it.</p><p>Save my words, save your time, head over to
-<a href="https://github.com/gmarik/vundle">Vundle</a> immediately.</p> ]]>
         </content>
     </entry>
     <entry>
@@ -922,6 +300,71 @@ All things you should do is trying it.</p><p>Save my words, save your time, head
         <id>http://lepture.com/zh/2010/the-very-dog</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>我竟無法理解小的時候是怎樣的一種心情了，每逢舊曆年總是格外興奮，又不像一般人家還有壓歲錢，是分文沒有的，就算偶爾有了，也總不能自己支配，是被父母代管了。這樣說彷彿是鑽進了錢眼裡，可是雖然是小朋友，也有想要花錢的時候，例如買點小電動車之類的玩具，問母親要，自然是不肯給買的，這個時候就想著有壓歲錢的好處了。但是沒有，也還是很高興過年。</p><p>也不知道是甚麼時候開始討厭起來的，每到新年時候心情就低落許多。大約是親戚們之間的應酬，而且又不得不面對討厭的幾個親戚，煙呀酒呀討厭的東西總是層出不窮；又或者親戚們的語重心長，甚麼為人世故啦，甚麼酒還是要喝的啦，人際關係要處理好啦。而且偏偏是在這個時候，總是大魚大肉，難得見點青菜。</p><p>除夕的這一天，例畢是要去祭墳的。也還是如同中學時候的感想：小的時候尚且相信鬼神，祭墳的時候便格外虔誠，等到長大了，心中不再有神明瞭，於是祭墳成了一種儀式。自然，本來就是一種儀式。</p><p>我們與別家又不同，團年飯是在除夕這一天，其實年三十也有一餐團年飯。早餐吃得很遲，但是一早被母親叫醒了，又沒甚麼可乾的事情，便出去轉轉。可是也沒甚麼可逛的，鄉下的風光並非影畫里的田園，是令人嚮往的所在。我弟弟亦出去玩了，回來的時候竟帶了一條狗，真真是嚇人一跳。</p><p>說起來我們家養狗的歷史真是駭人，彷彿每一條狗都不得善終。不是被車撞死了就是被人毒死了。最長的時候，一條狗養了兩年，天天用鍊子索著，也怪可憐的。也總要我在家的時候才會帶它出去溜溜，父母是只管它吃飯的。後來有一回幫它解了索鏈，結果便被撞死了，真是夠氣人的。</p><p>問弟弟這狗是哪裡來的。弟弟亦說不知道，突然就出現了，一直跟著他，趕都趕不走。是一條成年狗，灰撲撲的毛色，遢耳朵，很長的一張臉，是普通的土狗，沒有名貴的出生，但是也不算醜。自然，鄉下也不太可能養寵物狗，而且一般的狗我是都喜歡的。也不知道是被誰拋棄了的吧。</p><p>正巧趕上了新年，骨頭特別多。</p><p>吃過了早餐，少不了逗逗狗，呼來喚去的，聽話極了。在它眼前晃一晃手，便跟著跳起來，可是偏偏又舔不到手，再晃，也一樣地跳立。是一條很精神的狗呀。父親見了亦是喜歡，說就留下來看門吧。</p><p>十點鐘的光景，大家要去小爹那邊，因為祖先們的墳都是小爹他們灣子里。我跟弟弟妹妹先走，自然狗是會跟來的，大家一興奮，說把狗帶過去吧。其實又不難，實在是太粘人的狗了，很容易帶著走呢。大家說說笑笑，像是撿了個大便宜。於是就有人說，現在狗便宜得很，大概還不值十塊錢。我正想給狗取個名字，一聽到就高興了，於是說：“不如這狗就叫十塊錢吧。”</p><p>大家自然是覺得不好，因為它是還不值十塊錢的，那麼就“五塊錢”吧，也不能再低了，再低就不像話了。可是如果真要是也能值五塊錢的話，那它主人幹甚麼又不要它了呢？這樣聽話的一條狗。</p><p>當然“小灰”“小白”之類的名字也會提出來。妹妹想到她家以前的狗了，叫西虎，於是提議這狗就叫西虎吧。</p><p>西虎自然是已經沒了的。跟了妹妹家有四五年吧，一家人都很喜歡。每每談起狗來，小媽總不禁想起西虎，一時黯然，絮絮叨叨說起西虎的往昔，是怎樣的聽話的一條狗，是怎樣忠實的一條狗。又例畢是要提到它的一次光輝事跡，也就是一次盜竊事件。可是，西虎是黑色的呀，不像這只這般灰撲撲的。所以我打定了主意叫它五塊錢。</p><p>我們快到墳地的時候，父母們已經到了。其實是我們先走的，他們開了摩托車過來的。遠遠的就聽見了鞭炮聲，五塊錢這個時候就有些不悅了，想來是怕這聲音，可是還是跟著我們往前走。可是再近了一些的時候，它突然轉身，瘋了似的飛奔走了。</p><p>然而我們又不得不去上墳，弟弟這個時候說不去了，他去找狗。我們也由了他，反正祭墳只是個儀式，儀式是可以被代表的。我和妹妹便代表了他。</p><p>大家祭過墳後回家，路上遇到了弟弟，問結果，可想而知咯。如果找到了，也就會看見狗了。我們仨都很失望，真真悔恨起來。如果當時留下一個人陪著狗，也不至於弄丟了。可是大家又還抱了希望，希望五塊錢可以自己原路返回。自己安慰一下自己，也只好這樣了。</p><p>懷著希望，結果回了家沒見到。問在母親，自然是說沒看見的。弟弟又出去轉一轉，希望還可以再見到它。也終於只是一個希望而已。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[下棋]]></title>
+        <link href="http://lepture.com/zh/2009/on-chess"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2009-11-30T00:00:00+08:00</updated>
+        <published>2009-11-30T00:00:00+08:00</published>
+        <id>http://lepture.com/zh/2009/on-chess</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>說起來，距離上一次下棋應該已經很久遠了吧；棋盤倒還常見，一是在電腦屏幕上，一是在過天橋的時候。然而并沒有甚麼，又不是棋迷，甚至于在下棋，我算是個面目可憎的人了。</p><p>梁實秋先生說：“有一種人我最不喜歡和他下棋，那便是太有涵養的人。殺死他一大塊，或是抽了他一個車，他神色自若，不動火，不生氣，好象是無關痛癢，使你覺得索然無味。”</p><p>我之謂也。</p><p>其實真是件奇怪的事，所謂君子無所爭，然而在旁的事情上倒又掙得厲害，下棋又或者玩牌竟點都不在乎。當然，下棋又叫弈棋，玩牌算作賭博，“自古博弈并稱”，算是在同一件事情上的不在乎。大約因為博弈而無賭資，所以心無所系；若是有了賭資而在乎，那也算不得在意于博弈本身，而是這阿堵物上了。算是一個無趣的人。</p><p>然而觀棋又是另一回事了，仿佛倒成了有切身利益了；雖然棋藝不精，也總想著指點一二，竟也跟著喜跟著憂，全不似笠翁所說的“人勝而我為之喜，人敗而我不必為之憂”。總該又是皇上不急太監急咯。這當然說的是象棋。</p><p>中國的棋，一般說來無非兩種，一個是圍棋，梁實秋所謂殺死他一大塊者；一個就是象棋，所謂或是抽了他一個車者。算是都會一點，隱約知道規則罷了。</p><p>一般人大約都有這樣的矛盾，自己下棋的時候總嫌觀者多嘴多舌，而到了自己作觀棋者時又免不了指點江山，抱怨下棋者不聽己言而錯失數子，心裡甚至於要罵傻屄了。也是所謂旁觀者清，當局者迷。也許正是因為了旁觀者，當局者才會迷，這也未可知；身邊圍了一群人嘀咕，蒼蠅似的，仿佛『大話西遊』裡的唐僧，總讓人受不了，頭腦自然不能清醒。</p><p>憶得少年時候，自然是因為現在沒有過下棋，只得回憶童稚時了。其實也忘了是什麼時候學會象棋的，有一件事卻記得相當清楚。我們小學裡學生要記日記，每天都要寫，第二天早上交給老師。想起來就覺得不可思議，那麼小的年紀，一大清早就要去上學了，到了迫暮才下學，一天的時光就花費在了學校裡，也無非就是上課下課的，課間也許會有點小打小鬧，也不竟然，到底有什麼可以記的呢！</p><p>那個時候就已經開始下棋了。因為記得自己日記裡就寫下棋，而且幾乎一周有好幾篇都是記下象棋，實在是沒什麼可寫的了。比較幸運的是我有一個弟弟，下了學後兩個人回家，鋪開了棋盤，我便攤開作業本，每動一子就記錄下來，無非就是當頭炮，然後我走馬，我弟弟走車之類的。</p><p>有一回，大約是老師實在無法忍受了，叫了我過去，道：“下回能不能換一下開局？怎麼老是當頭炮！例如你可以先動卒的嘛。”也真回去換了一下開局，下次的日記裡便寫道“按老師教的，開局我先拱了卒”。現在想想，也不知當時老師作何感想。</p><p>圍棋卻要到了高中時候才接觸。</p><p>還是在三味書屋買的一套棋子棋盤，不比象棋，圍棋要貴得多，也是因為棋子多了這許多。我一向零用錢少，當時也是猶豫良久，還是下定了決心，也順帶買了本圍棋入門教程。</p><p>和我下棋的是超超同學，他亦是零基礎的，可是學得比我快。因為是我買的書，理所當然的我看的時間多，可是也只有最開始的時候下得贏超超，實戰了些時候，大約一兩周吧，我已不是超超的敵手。當時的窘況，邪惡的想不再借書超超同學了。大約我真不是下棋的料。</p><p>這樣說來，不在乎的姿態并非豁達，而是技拙的掩飾。真是夠面目可憎的了！</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[暖日]]></title>
+        <link href="http://lepture.com/zh/2009/love-as-sun"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2009-10-18T00:00:00+08:00</updated>
+        <published>2009-10-18T00:00:00+08:00</published>
+        <id>http://lepture.com/zh/2009/love-as-sun</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>其實是昨天的事，知道的也太晚了。說起來還是一個學校，可是隔了一條街，車來車往的，仿佛母子間的隔閡，一切的交流變得異樣困難了。他也是中午吃飯的時候聽人說的，然而料不到竟會是她。</p><p>又是一下午的無聊索然的馬哲課，偏偏講授的仿佛又不是馬克思哲學，壓根就與哲學沾不上邊，可是又能怎麼樣呢，不得不去，遇上了那樣不識趣的一個老師，也實在是無可奈何。許超一早的去了教室，搶了後排靠窗的位子坐了下來。早入了秋，午後的陽光透了翠葉過了未拉上窗簾的玻璃散開，沒了炙氣，是暖日，催人欲睡的氤氳。</p><p>他今天倒不想睡過這節課，也許只是無法入睡！</p><p>是昨天下午的事，他們學校有同學自殺了。中午打電話問朱，才知道居然是Lousia。他當時聽了，竟懵了會兒，一時無措，跟考試時一樣的頭腦空白。過後想起來，又打電話去責怪朱，問他為什麼不早告訴他，仿佛他能挽回似的；朱也是才剛知道，可見消息是封鎖得厲害，可是跟許超解釋，許又不聽，只是一味指責他的不是。這時想起來，竟或許是自責。</p><p>是因為他自己麼！許不敢十分肯定又或者否定。他們分手是幾個星期前的事了，按理，如果因為他的話，也不該是現在的事，早為什麼又沒有發生呢，也不至於過了這許多天突然發作，像現在流行的疾病般還有潛伏期。況且那時分手，兩個人也都同意，算是心平氣和，也沒有十分留戀的樣子。然而畢竟是他提出的分手！</p><p>教授馬哲的老師已經開啟了電腦，前排的窗簾也都拉上了，算是開始上課了。投影儀的五彩的光射向幕布，又是滿屏的花花綠綠的字，他們老師便開始念起了課來；身後那一橫塗了墨綠的粉筆板，仿佛害了羞的少女，被幕布遮住了半邊臉，“猶抱琵琶半遮面”似的。</p><p>許超覺得很驚奇，這樣索然無味的課，還是有那麼些個女同學們認認真真地聽著講認認真真地做著筆記，也真是可歌可泣了。</p><p>Lousia 倒不像這樣的。還是去歲的時候，她是上思修課，經常的逃課，是約了他一起去——他其實是正好那時候有空。兩個人跑去登珞珈山，一起讀Austen——這當然是Lousia的主意——想起來有夠傻的，也時有碰到側目的人，兩人也不理會，自顧自地素然。可是，回想起來，這倒是他最真切的甜蜜的回憶了，白開水似的純潔的戀愛，然而究竟也算不上浪漫。</p><p>他那天該是懷了怎樣的心情，竟一時頭腦發熱地說要分手，現在倒模糊了那麼決絕的理由了，也許又有點後悔了。雖然那麼想，他如果不提出分手的話，後面的事情又會有所不同，蝴蝶效應嘛，他這一小步，在當時看不到影響，可是如同滾雪球。況且又不見得Lousia是真泰然，不過表面上的堅強罷了。然而他除了回憶與自責外還能做什麼呢，他都那樣遲才知道Lousia的死訊，可以見得是不太關心了。</p><p>他急切的想知道Lousia是為了什麼，當然是有為自己考慮，可是大約Lousia並沒有留下遺書之類的，又或者縱然有，一時半會還不能知道，總會被學校掖著藏著。</p><p>教授馬哲的老師突然停下了課，翻起名簿點起名來。許超鼻孔嗤嗤冷氣，心下罵到：“這老師真賤，居然上了一半的課點起名來！”也不理會，側頭睨了眼窗外——</p><p>哦，昨天也是一樣的溫柔的醉人的午後的暖日。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[桂花蒸與常識]]></title>
+        <link href="http://lepture.com/zh/2009/on-guihuazheng"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2009-10-12T00:00:00+08:00</updated>
+        <published>2009-10-12T00:00:00+08:00</published>
+        <id>http://lepture.com/zh/2009/on-guihuazheng</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>第一次聽說這個詞當然是在張愛玲，是那篇《桂花蒸·阿小悲秋》；其實別處倒沒聽說過。是不是她自己造的詞呢？恐怕不見得，就算是，至少也是炎櫻造的。因為開篇就有： </p><blockquote><p>“秋是一個歌，但是‘桂花蒸’的夜，像在廚裏吹的簫調，白天像小孩子唱的歌，又熱又熟又清又濕。”——炎櫻</p></blockquote><p>當時是不解，上網去查，排在第一的是個新浪的blog，叫郭楠的，居然是這樣寫的：</p><blockquote><p>张爱玲有一个短篇叫《桂花蒸－阿小悲秋》。在此借用一下，小的时候看张爱玲一直不知道“桂花蒸”到底是什么东西，想来是某一种江南一带的甜点，后来在苏州的时候在寒山寺附近看见有卖桂花蒸的，果然是一种糕，但是但凡这种有历史的小吃，总是会不断变化的。</p></blockquote><p>當時看了就覺得好笑，完全的不著調！怎麼可能是小吃呢？後來再看《桂花蒸·阿小悲秋》，突然一下子明白了，也是之前太匆匆於結束這個故事。像炎櫻的比喻，秋是一個歌，其實就已經很明白了；再加上後面的比喻，也實在再淺顯不過，自己也覺得好笑，竟會去不著調的去google之。“白天像小孩子唱的歌”其實是有省略，完整的應該是“‘桂花蒸’的白天像小孩子唱的歌”，與之前的“‘桂花蒸’的夜”對應。這也就再明白不過了，其實是在說天氣，“又熱又熟又清又濕”。</p><p>於是也就有了這個百度詞條（哎呀，暴露名字了）：</p><blockquote><p>農曆八月又稱為桂月，因其時正當桂花綻放之時，故名之曰桂月。在這個時期，會出現幾天異乎尋常的悶熱天氣，這種天氣通常出現於南方，北方很少。用蒸字形像地描繪出這種悶熱天氣，富有詩意，又因其時桂花多開，故命名為桂花蒸。</p></blockquote><p>其實普通也有個說法，叫作秋老虎，不過太俗，沒有桂花蒸來著雅罷了（雖然“桂花蒸”也是土白）。很高興的是這個詞條已經在google搜索“桂花蒸”排在了第一，蓋過了那位新浪的小姑娘。</p><p>當時寫詞條，也問過幾個人，看來普通也都覺得不過是個糕點，仿佛桂花糕！問楊迎，她也是這樣以為的，跟她解釋了一番後，也覺得我的解釋是對的，竟給找出了個有力的憑證，也就是豐子愷的那副漫畫（百度詞條那兒有的）。</p><p>話外：有個同學說我寫東西罗嗦，看著總覺得要說一些很深刻的東西，結果看完了後，甚麼也沒有，頗為失望。我不過是寫常識罷了，常識怎麼會深奧呢？其實就像這篇，本來不過百字就可以解釋清楚的，總是覺得一篇blog字太少，不好，也就逼著自己罗嗦點咯，也是有一點自虐的傾向。而且雖然說是常識，總是因為自己有不同的見解，或者是覺得被大眾誤解了才寫的——當然，我自己也不總對，所以衹是個參考，也請不要被我誤導。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[《雨季不再來》書評]]></title>
+        <link href="http://lepture.com/zh/2009/on-yujibuzailai"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2009-10-05T00:00:00+08:00</updated>
+        <published>2009-10-05T00:00:00+08:00</published>
+        <id>http://lepture.com/zh/2009/on-yujibuzailai</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>回想起來，一生中最輝煌的時候還是在少年，尤其是小學時候。然而這話說起來是多麼地蒼白無力，一生呵，其實只不過二十出頭的光景，連戀愛都還未曾有過。大約還是因為學習成績，總是被老師寵著，那時的同學們自然因為老師的這層關系格外的喜歡著我，況且我那時又不像現在般傲慢，還肯與人相處。無論如何，少年時代是沒有什麼痛苦的經歷的，即使是被學校逼著回家向父母討要學費，也只當是提前放學了般；到後來小學畢業了，這學費學校也還是沒追回去，衹能算了。中學雖然討厭，刁難倒是沒有，無非是生封閉式教育的氣！一路的平坦地度過了，小的坑坑窪窪也有，然而算不上顛簸。</p><p>所以很難體會三毛的處境，那樣悲楚的少年時代，無論如何，是我這樣的人無法體悟的。因為沒有經歷過，丁點的相似的悲哀也沒有過，縱然也覺得了淒慘，這份同情心卻還是遠遠不夠，所謂切膚之痛者，這樣的悲苦，大約旁人是永遠無法體會的。經歷是人生無可逾越的溝閡，也許正是因了此，人生才經得起玩味。然而恐怕共識是，現在的人生已經不起玩味了。</p><p>早年上學，整個的竟或是個悲劇，及至後來竟鬧得要《逃學為讀書》了，也算是傳奇了。戲劇的人生中的幽默感，大抵如此，多麼的嘲諷！其實是三毛被嘲諷了，是她的一個數學老師，因為她三次數學小考都得了滿分，總是覺得不可能，這樣一個平日數學並不夠優秀的孩子是沒有資格得滿分的，完全地沒有資格。所以當場讓三毛出糗了——單獨地給她出了張試卷，她偏生又不爭氣，得了零分——這足以明證是作弊了！可是這倒不算嘲諷，生為師者，竟邪惡至侮辱學生了，當眾在三毛的臉上畫鴨蛋，更要命的是這鴨蛋還不僅僅是給班上學生的觀賞，竟是給全校的觀摩！她那時該是怎樣的心境？總該是流了淚的，雖然她並不曾這樣寫。仿佛撒了一出胡椒粉，避無可避，總要辣糊淚眼，況且又還是個小女孩子。也正是因了此，才終於自閉，完全地將自己鎖在了“二毛”的小世界裏。</p><p>然而人生是不該折斷了來看的，純粹的悲與喜的人生是經不住品閱的，縱使淒苦，其間也總有欣慰的事，異彩又或者點滴卑微的滿足。她母親要去參加一個同學會，倒是從沒有過的事，而且還要帶了她同姐姐一起去。大概算作小學作文裏《記最難忘的一件事》了。可是結局是如此的悵然。同學會的那天，她母親與姐姐一同去學裏接她，本來就已經遲了，偏偏又還下起了雨，可想而知是沒有趕上的，還淋了個落湯雞。可是至少穿上了新衣服，口裏雖然啃定了不喜歡，其實如同情侶的打情罵俏般。而且等待的過程是喜悅的，她母親突然有了那許多回憶，給她們講故事，講年輕時候的故事；多少也是可喜的，較平日裏自然平添了生趣，也不必喊出“母親，你再用愛來逼我，我要瘋了”——這倒是我的心聲。</p><p>我其實很不情願用“自閉”這個詞，也是不敢用“自閉”這個詞，因為據說，閱讀也是交流，而且是神交。三毛雖然將自己鎖了起來，可是無時無刻不在閱讀，也自然就是無時無刻不在交流了，這如何可以稱她為自閉呢？當然，否認了閱讀的交流性，也自然就可以稱其為自閉了。其實是令我欣羨的，我整個的童年一片荒蕪，不是書香門第，也沒有自己掏錢買書看過，到中學時候看第一本小說《圍城》，又還被父母責罵為看閒書不肯用功學習；嫉妒之心也就難免了。到我真正開始閱讀，竟是高中了。</p><p>我是怎樣愛上文學的，怎樣從一個討厭語文的學生突而轉變為了所謂文藝青年的（也還是討厭語文），說起來又是全叔明老師了，算是對我影響最大的老師了。然而沒有顧福生那樣的名氣，鄉下地方嘛，用星宿派的說辭也就是，螢燭之火哪能與日月爭輝！</p><p>她去顧福生那兒學畫，雖然沒有受委屈，老師又和藹，可是畫得不好，衹能越發地自卑。是顧福生幫她投了稿子，人生的轉捩這才顯現。學畫終歸不是她的長處，雖然也有得獎，比起來還是文章要好得多。按自己的說法，也是這樣，她這一生的扭轉真虧了顧福生，是他的耐心，他的推薦。第一篇印成鉛字的稿子是《惑》，也錄在了《雨季不再來》的集子裏。大約也是有顧福生同白先勇的交情在裏面，自己也這樣說，“《現代文學》作品的刊出，是顧福生和白先勇的幫助，不能算是投稿 ”。可是畢竟是個開始，也有了自信，也有了第二次自己的投稿。</p><p>白先勇跟她也是認識，因為原來是近鄰，說起來仿佛又多了層關係了。特特地來說白先勇不過是因為驚奇，是我知道的那個白先勇麼！結果居然真的是同一個人。也就是去歲來漢的《牡丹亭·青春版》的白先勇。是在我校大學生活動中心上演的，離得又近，兩三分鐘的腳程。可是偏生買不到票，倒不是錢的問題，實在不知道哪裏有賣的。眼睜睜看著來了，眼睜睜看著又去了，那麼近，可該氣死人了。也就又添了份醋意，怎麼陳平這麼好福氣呢！劉禹錫的《陋室銘》中的句子——“談笑有鴻儒，往來無白丁”——真真羨煞人也。而況還有後來的兩位老師，韓湘寧與彭萬墀。</p><p>旅歐旅美都是後話了，也都緣起於顧福生，這話想來是說得過去的；不然，一輩子真鑽進書裡去了，也就沒有現在的三毛了；像一般人，還不過三十，人生仿佛就看到了盡頭，似斷了弦的琴，再怎麼奏，也出不了華章。然而，三毛的人生還沒有清淺到一望而知的地步，真是可喜。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[碎碎念]]></title>
+        <link href="http://lepture.com/zh/2008/murmurs"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2009-09-15T00:00:00+08:00</updated>
+        <published>2009-09-15T00:00:00+08:00</published>
+        <id>http://lepture.com/zh/2008/murmurs</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>謊言是必須的，它給這戲劇性的人生又憑添了一重戲劇感。我經常說謊，以為是很快樂的事情。當然總是在說過後向別人解釋一下，這是一個謊言。</p><p>我們背負著父母的夢時，又常常被安慰著：“書是為自己讀的。”倘使這樣，我想，我們就應該有權利選擇自己所應該讀的書。</p><p>小的時候，十分相信鬼神，因而祭墳的時候特別虔誠，生怕褻瀆了神靈。後來上了學，開始相信無神論，以後那祭墳便成了一種儀式。大人們也許相信這世上還是有鬼神的，可是祭墳都是祭的自家的墳，他們大概認為那些親戚鬼魂們是不會來加害自己的。</p><p>父母送了我們去讀書，可是他們自己還是迷信著算命，總是在大考時候去算上一卦。我覺得這很有趣，跟他們理論，他們是不會認同的我的觀點的；既然如此，那又為何要送我們去讀書呢！自己都不相信！</p><p>想成為藝術家而又沒有甚麼天賦的人，不妨去學畢加索；要玩文學，又資質尚淺的，大可以去作現代詩。這是我對畢加索和現代詩的偏見，我對自己不大瞭解的事物總是懷了偏見。</p><p>小的時候想當畫家，我媽媽不許，說我長大了就不會想當畫家了；但是我現在還是想當畫家，我媽媽又說，那是因為我還沒有長大。我覺得這很不可思議。</p><p>我媽媽時常向我叨嘮著，我們村子里像我這樣大的有好多都結婚了，有的連孩子都好幾歲了。可是她又時常擔心我在學校里談戀愛。看來我是真的還沒有長大，大人們的心思實在無法參透。</p><p>孔子說，唯小人與女子難養也。也不知道是不是孔子說的。我覺得大概不是孔子說的吧，他其實很冤枉，時常要被人附會。如果孔子真說了這樣一句話，他的妻子們應該同他離婚。</p><p>我喜歡女子，不喜歡小人，也不喜歡君子。孔子的原意大概是這樣的，唯小人與君子難養也。但是這句話被君子們給篡改了。君子是一個很可怕的群體，也是一個魚龍混雜的群體，但是龍很少，魚很多。</p><p>正在寫東西的時候總有人來瞄上兩眼，我覺得很煩，不想給人看。他們說，你寫了不是也一樣要給人看的嗎？我自然是要給人看的。可是有哪個孕婦會給你看她生小孩的過程呢，她最多給你看一下她的小孩。</p><p>寫作就像生育，過程是不願給別人看的，能看的是結果。而且生產者喜歡誇耀自己的作品，無論這個作品是優秀還是拙劣。</p> ]]>
         </content>
     </entry>
 </feed>

@@ -12,18 +12,23 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=8cf40">
+<link rel="stylesheet" href="/assets/site.css?v=b30e7">
 <script>
   function js(u){
     if (location.port) return {onload: null};
-    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+    var d=document,a='script',s=d.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
   }
+  (function(d) {
+    var s=d.createElement('link'),f=d.getElementsByTagName('link')[0];
+    s.href="/assets/font.css?v=bed34";
+    s.rel="stylesheet";f.parentNode.insertBefore(s,f);
+  })(document);
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-21475122-1']);
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
-</script>  <meta name="twitter:card" content="summary">
+</script>    <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="New life of livereload">
     <meta name="description" content="This is not a changelog of a project. It is what I learned in the development of livereload.">
     <meta name="twitter:description" content="This is not a changelog of a project. It is what I learned in the development of livereload.">
@@ -72,12 +77,12 @@ languages like ruby and golang.</p><p>Anyway, I don&#39;t like to start another 
 the original design of Guardfile is not good enough, at least I am not
 satisfied. The simulation just doesn&#39;t work for me.</p><blockquote class="cite-quote"><p>most things have some design behind,
 as people copy it, the original design gets obscured and forgotten,
-the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher -- <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p>
+the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher — <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p>
 <h2>Create something I will use in the daily life</h2>
 <p>The original copied one has nothing new, nothing special for Python that
 I would use it in my daily life. This makes me sad. So I have no much
 enthusiasm in the maintainence of it.</p><p>But I do believe that livereload is a good idea. Maybe I just did it wrong.
-One day, a brilliant idea came to me -- livereload for wsgi.</p><p>A simple example of the idea:</p><div class="highlight"><pre><span class="kn">from</span> <span class="nn">livereload</span> <span class="kn">import</span> <span class="n">Server</span>
+One day, a brilliant idea came to me — livereload for wsgi.</p><p>A simple example of the idea:</p><div class="highlight"><pre><span class="kn">from</span> <span class="nn">livereload</span> <span class="kn">import</span> <span class="n">Server</span>
 
 <span class="n">server</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="n">wsgi_app</span><span class="p">)</span>
 <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;static/app.css&#39;</span><span class="p">)</span>
@@ -109,10 +114,10 @@ real example would be gorgeous.</p><p>Take a peep of my scripts:</p><div class="
 
 <h2>Do one job, and do it well</h2>
 <p>Version 2.0 of livereload is more a library rather than an application.
-So that other libraries in Python can easily bundle it in. I hope it can
-be a great library.</p><p>The executable command line tool is removed from livereload. It may come
+Which means other libraries in Python can easily bundle it in. I hope it
+can be a great library.</p><p>The executable command line tool is removed from livereload. It may come
 back again, but not soon. The compilers like uglifyjs, lesscss, slim,
-CoffeeScript are removed from livereload too.</p><p>For now, livereload will focus on one thing -- livereload. And livereload
+CoffeeScript are removed from livereload too.</p><p>For now, livereload will focus on one thing — livereload. And livereload
 well.</p><p>The lack of compilers does not affect much. Since livereload provides you
 a way to execute shell command. As you can see in the above example that
 <code>server.watch</code> supports executing shell commands, so that we can do:</p><div class="highlight"><pre><span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;src/foo.js&#39;</span><span class="p">,</span> <span class="s">&#39;uglifyjs src/foo.js -m -o build/foo.js&#39;</span><span class="p">)</span>
@@ -166,7 +171,7 @@ more fun.</p>
 </script>
   <div id="footer">
     <div class="container">
-      <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2014 by Hsiaoming Yang.</p>
     </div>
   </div>
 </body>

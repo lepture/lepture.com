@@ -12,24 +12,30 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=8cf40">
+<link rel="stylesheet" href="/assets/site.css?v=b30e7">
 <script>
   function js(u){
     if (location.port) return {onload: null};
-    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+    var d=document,a='script',s=d.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
   }
+  (function(d) {
+    var s=d.createElement('link'),f=d.getElementsByTagName('link')[0];
+    s.href="/assets/font.css?v=bed34";
+    s.rel="stylesheet";f.parentNode.insertBefore(s,f);
+  })(document);
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-21475122-1']);
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
-</script>  <meta name="twitter:card" content="summary">
+</script>    <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="紹興淺嘗">
     <meta name="description" content="紹興的老街像小時候的夢，又破又舊又瑰麗。">
     <meta name="twitter:description" content="紹興的老街像小時候的夢，又破又舊又瑰麗。">
   <meta name="twitter:site" content="@lepture">
   <meta name="twitter:creator" content="@lepture">
   <meta name="twitter:domain" content="lepture.com">
+    <meta name="twitter:image" content="http://dn-lepture.qbox.me/blog/shaoxing-denglong.jpg">
 </head>
 <body>
   <div id="header">
@@ -88,7 +94,7 @@
 </script>
   <div id="footer">
     <div class="container">
-      <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2014 by Hsiaoming Yang.</p>
     </div>
   </div>
 </body>

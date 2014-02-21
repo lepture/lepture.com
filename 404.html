@@ -12,12 +12,17 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=8cf40">
+<link rel="stylesheet" href="/assets/site.css?v=b30e7">
 <script>
   function js(u){
     if (location.port) return {onload: null};
-    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+    var d=document,a='script',s=d.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
   }
+  (function(d) {
+    var s=d.createElement('link'),f=d.getElementsByTagName('link')[0];
+    s.href="/assets/font.css?v=bed34";
+    s.rel="stylesheet";f.parentNode.insertBefore(s,f);
+  })(document);
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-21475122-1']);
     _gaq.push(['_trackPageview']);
@@ -45,47 +50,48 @@
       and <a href="http://feeds.lepture.com/lepture">Feed</a>.
     </div>
   </div>
-<div class="entry-content">
-  <p>This page is missing, check somewhere else.</p>
-</div>
-
-<div class="lists">
-  <ul class="unstyled">
-    <li><a href="/en/2013/new-life-of-livereload">New life of livereload</a></li>
-    <li><a href="/en/2013/unpleasant-open-source">The Unpleasant Part of Open Source</a></li>
-    <li><a href="/zh/2013/wuxia-novel">寫一篇武俠等讀者</a></li>
-    <li><a href="/en/2013/create-oauth-server">Create an OAuth Server</a></li>
-    <li><a href="/zh/2013/laiwang-and-qrcode">不相來往</a></li>
-    <li><a href="/zh/2013/anti-long-weibo">長微博及其它</a></li>
-    <li><a href="/zh/2013/hello-shaoxing">紹興淺嘗</a></li>
-    <li><a href="/zh/2013/typography-and-markdown">文字排印與標記語言</a></li>
-    <li><a href="/zh/2012/hello-bangkok">早安曼谷</a></li>
-    <li><a href="/en/2012/create-a-statusbar-app">Create a StatusBar App</a></li>
-    <li><a href="/zh/2012/girl-at-cafe">喜歡</a></li>
-    <li><a href="/en/2012/vundle-vs-pathogen">Vundle vs Pathogen</a></li>
-    <li><a href="/zh/2011/unwritten-story">未下筆的故事</a></li>
-    <li><a href="/zh/2011/dajiangdahai">大江大海</a></li>
-    <li><a href="/zh/2010/about-se">談色</a></li>
-    <li><a href="/zh/2010/movie-outdoor">露天電影</a></li>
-    <li><a href="/zh/2010/be-lazy">懶</a></li>
-    <li><a href="/zh/2010/ethics-of-love">心經</a></li>
-    <li><a href="/zh/2010/stealing-money">偷錢</a></li>
-    <li><a href="/zh/2010/the-very-dog">除夕的狗</a></li>
-    <li><a href="/zh/2009/on-chess">下棋</a></li>
-    <li><a href="/zh/2009/love-as-sun">暖日</a></li>
-    <li><a href="/zh/2009/on-guihuazheng">桂花蒸與常識</a></li>
-    <li><a href="/zh/2009/on-yujibuzailai">《雨季不再來》書評</a></li>
-    <li><a href="/zh/2008/murmurs">碎碎念</a></li>
-    <li><a href="/zh/2009/autumn-fashion">雲想霓裳•一曲尤唱</a></li>
-    <li><a href="/zh/2009/on-xiaotuanyuan">有經歷的故事</a></li>
-    <li><a href="/zh/2009/the-unknown-girl">陌生人</a></li>
-    <li><a href="/zh/2008/on-zhangzhi">莊周·夢</a></li>
-    <li><a href="/zh/2008/peace-of-a-family">汝良</a></li>
-    <li><a href="/zh/2008/moving-away">遺忘</a></li>
-    <li><a href="/zh/2008/past-in-highschool">遺夢：遠去的人事浮沈</a></li>
-    <li><a href="/zh/2008/dog-and-its-girl-owner">侍狗的女子</a></li>
-    <li><a href="/zh/2005/the-river">淺溪</a></li>
-  </ul>
+<div class="container">
+  <div class="entry-content">
+    <p>This page is missing, check somewhere else.</p>
+  </div>
+  <div class="lists">
+    <ul class="unstyled">
+      <li><a href="/en/2013/new-life-of-livereload">New life of livereload</a></li>
+      <li><a href="/en/2013/unpleasant-open-source">The Unpleasant Part of Open Source</a></li>
+      <li><a href="/zh/2013/wuxia-novel">寫一篇武俠等讀者</a></li>
+      <li><a href="/en/2013/create-oauth-server">Create an OAuth Server</a></li>
+      <li><a href="/zh/2013/laiwang-and-qrcode">不相來往</a></li>
+      <li><a href="/zh/2013/anti-long-weibo">長微博及其它</a></li>
+      <li><a href="/zh/2013/hello-shaoxing">紹興淺嘗</a></li>
+      <li><a href="/zh/2013/typography-and-markdown">文字排印與標記語言</a></li>
+      <li><a href="/zh/2012/hello-bangkok">早安曼谷</a></li>
+      <li><a href="/en/2012/create-a-statusbar-app">Create a StatusBar App</a></li>
+      <li><a href="/zh/2012/girl-at-cafe">喜歡</a></li>
+      <li><a href="/en/2012/vundle-vs-pathogen">Vundle vs Pathogen</a></li>
+      <li><a href="/zh/2011/unwritten-story">未下筆的故事</a></li>
+      <li><a href="/zh/2011/dajiangdahai">大江大海</a></li>
+      <li><a href="/zh/2010/about-se">談色</a></li>
+      <li><a href="/zh/2010/movie-outdoor">露天電影</a></li>
+      <li><a href="/zh/2010/be-lazy">懶</a></li>
+      <li><a href="/zh/2010/ethics-of-love">心經</a></li>
+      <li><a href="/zh/2010/stealing-money">偷錢</a></li>
+      <li><a href="/zh/2010/the-very-dog">除夕的狗</a></li>
+      <li><a href="/zh/2009/on-chess">下棋</a></li>
+      <li><a href="/zh/2009/love-as-sun">暖日</a></li>
+      <li><a href="/zh/2009/on-guihuazheng">桂花蒸與常識</a></li>
+      <li><a href="/zh/2009/on-yujibuzailai">《雨季不再來》書評</a></li>
+      <li><a href="/zh/2008/murmurs">碎碎念</a></li>
+      <li><a href="/zh/2009/autumn-fashion">雲想霓裳•一曲尤唱</a></li>
+      <li><a href="/zh/2009/on-xiaotuanyuan">有經歷的故事</a></li>
+      <li><a href="/zh/2009/the-unknown-girl">陌生人</a></li>
+      <li><a href="/zh/2008/on-zhangzhi">莊周·夢</a></li>
+      <li><a href="/zh/2008/peace-of-a-family">汝良</a></li>
+      <li><a href="/zh/2008/moving-away">遺忘</a></li>
+      <li><a href="/zh/2008/past-in-highschool">遺夢：遠去的人事浮沈</a></li>
+      <li><a href="/zh/2008/dog-and-its-girl-owner">侍狗的女子</a></li>
+      <li><a href="/zh/2005/the-river">淺溪</a></li>
+    </ul>
+  </div>
 </div>
 <script>
   var items = document.getElementsByTagName('a');
@@ -107,7 +113,7 @@
 </script>
   <div id="footer">
     <div class="container">
-      <p>&copy; Copyright 2013 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2014 by Hsiaoming Yang.</p>
     </div>
   </div>
 </body>
