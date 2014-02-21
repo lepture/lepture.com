@@ -1,14 +1,10 @@
 <link rel="stylesheet" href="{{ static_url('_assets/site.css', '/assets/site.css') }}">
+<link rel="stylesheet" href="{{ static_url('_assets/font.css', '/assets/font.css') }}">
 <script>
   function js(u){
     if (location.port) return {onload: null};
     var d=document,a='script',s=d.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
   }
-  (function(d) {
-    var s=d.createElement('link'),f=d.getElementsByTagName('link')[0];
-    s.href="{{ static_url('_assets/font.css', '/assets/font.css') }}";
-    s.rel="stylesheet";f.parentNode.insertBefore(s,f);
-  })(document);
   {% if site.google_analytics %}
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '{{ site.google_analytics }}']);
