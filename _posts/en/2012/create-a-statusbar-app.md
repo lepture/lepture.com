@@ -30,7 +30,7 @@ It's the time to create a StatusBar App now.
 
 2. Create a cocoa application project
 
-    ![create a project](https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg)
+   ![create a project](https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg)
 
 3. Name the project **StatusBarApp**
 
@@ -48,30 +48,30 @@ We will create the menu first.
 
 1. Drag a menu to the interface builder
 
-    ![drag a menu](https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg)
+   ![drag a menu](https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg)
 
 2. Edit the menu item
 
-    ![edit menu item](https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg)
+   ![edit menu item](https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg)
 
 3. Decorate the menu with seprator
 
-    ![decorate with seprator](https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg)
+   ![decorate with seprator](https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg)
 
 4. Connect the menu to your code outlet, and name it `statusMenu`
 
-    ![connect menu outlet](https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg)
+   ![connect menu outlet](https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg)
 
 
 ### StatusBar
 
-Create the statusBar property in your ``AppDelegate.h`` file:
+Create the statusBar property in your `AppDelegate.h` file:
 
 ```objc
 @property (strong, nonatomic) NSStatusItem *statusBar;
 ```
 
-Synthesize it in the ``AppDelegate.m`` file:
+Synthesize it in the `AppDelegate.m` file:
 
 ```objc
 @synthesize statusBar = _statusBar;
@@ -93,7 +93,7 @@ Initialize the statusBar:
 }
 ```
 
-``awakeFromNib`` is earlier than ``applicationDidFinishLaunching`` in the lifecycle.
+`awakeFromNib` is earlier than `applicationDidFinishLaunching` in the lifecycle.
 
 
 ### App Go
@@ -101,11 +101,11 @@ Initialize the statusBar:
 Let's test this application.
 
 1. Run you app now. You will see a **G** in the menu bar.
-2. Delete the useless window in your ``MainMenu.xib``, and run your app again.
+2. Delete the useless window in your `MainMenu.xib`, and run your app again.
 
 It works! But it doesn't work the right way. It is on the dock, it shows the menu on the left.
 
-Fix it in ``StatusBarApp-Info.plist``, add a row:
+Fix it in `StatusBarApp-Info.plist`, add a row:
 
 ```
 Application is agent (UIElement)  = YES

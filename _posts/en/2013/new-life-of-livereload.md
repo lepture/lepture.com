@@ -38,7 +38,7 @@ satisfied. The simulation just doesn't work for me.
 >
 > -- Armin Ronacher
 
-This is a slide of a talk by Armin Ronacher -- [Thinking Outside The Box](https://speakerdeck.com/mitsuhiko/thinking-outside-the-box).
+This is a slide of a talk by Armin Ronacher — [Thinking Outside The Box](https://speakerdeck.com/mitsuhiko/thinking-outside-the-box).
 
 ## Create something I will use in the daily life
 
@@ -47,7 +47,7 @@ I would use it in my daily life. This makes me sad. So I have no much
 enthusiasm in the maintainence of it.
 
 But I do believe that livereload is a good idea. Maybe I just did it wrong.
-One day, a brilliant idea came to me -- livereload for wsgi.
+One day, a brilliant idea came to me — livereload for wsgi.
 
 A simple example of the idea:
 
@@ -97,14 +97,14 @@ def liveserver(port=5000):
 ## Do one job, and do it well
 
 Version 2.0 of livereload is more a library rather than an application.
-So that other libraries in Python can easily bundle it in. I hope it can
-be a great library.
+Which means other libraries in Python can easily bundle it in. I hope it
+can be a great library.
 
 The executable command line tool is removed from livereload. It may come
 back again, but not soon. The compilers like uglifyjs, lesscss, slim,
 CoffeeScript are removed from livereload too.
 
-For now, livereload will focus on one thing -- livereload. And livereload
+For now, livereload will focus on one thing — livereload. And livereload
 well.
 
 The lack of compilers does not affect much. Since livereload provides you

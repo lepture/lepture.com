@@ -31,7 +31,7 @@ Twitter 有一個特性叫作 [Twitter Cards](https://dev.twitter.com/cards)，�
 
 然後向 Twitter 提交你的網站，待 Twitter 認證後，包含你網站的 Tweet 便會展示相關摘要了。請放心，這一步相當快，Twitter 的審覈在幾分鍾內就完成了。
 
-![Twitter Cards](http://ww1.sinaimg.cn/large/5d261318gw1eaim6pgktij20ei0b0t9q.jpg)
+![Twitter Cards](http://ww1.sinaimg.cn/large/5d261318gw1edquzpeksnj20eb0akjsf.jpg)
 
 ## 標準的價值
 

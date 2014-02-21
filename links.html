@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}Friends — {{ site.name }}{% endblock %}
+
+{% block extra_head %}
+  <style>
+    .site { margin-bottom: 30px; }
+    .site h3 { margin-bottom: 10px; }
+    .site a { text-decoration: none; }
+    .site .description { color: #666; }
+    .social {
+      padding: 20px 0;
+    }
+    .social a {
+      border: 3px solid rgba(0, 0, 0, 0.07);
+      padding: 6px 20px;
+      margin-right: 20px;
+      border-radius: 3px;
+      color: #666666;
+      font-weight: 600;
+      font-family: sans-serif;
+      -webkit-transition: border 0.2s ease;
+      -moz-transition: border 0.2s ease;
+      transition: border 0.2s ease;
+    }
+    .social a.twitter:hover {
+      border-color: rgba(85, 172, 238, 0.8);
+    }
+    .social a.weibo:hover {
+      border-color: #d74040;
+    }
+  </style>
+  <meta name="description" content="Friends who are still blogging, especially in Chinese.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Friends">
+  <meta name="twitter:description" content="Friends who are still blogging, especially in Chinese.">
+  <meta name="twitter:site" content="@lepture">
+  <meta name="twitter:creator" content="@lepture">
+  <meta name="twitter:domain" content="lepture.com">
+{% endblock %}
+
+{% macro Blog(title, description, link, weibo=None, twitter=None) %}
+  <div class="site">
+    <h3><a href="{{ link }}">{{ title }}</a></h3>
+    <a class="description" href="{{ link }}">{{ description }}</a>
+    <div class="social">
+      {% if twitter %}
+      <a class="twitter" href="https://twitter.com/{{twitter}}">@{{twitter}}</a>
+      {% endif %}
+      {% if weibo %}
+        <a class="weibo" href="http://weibo.com/{{weibo}}">{{weibo}}</a>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% block main %}
+<div id="main">
+  <div class="container yue">
+    <p class="entry-description">Friends who are still blogging, especially in Chinese.</p>
+
+    {{ Blog('光陰海', "Shun's weblog, he writes about life, stories, poems, and etc.", 'http://blog.lishun.me/', weibo="riverscn") }}
+
+    {{ Blog('The Qlog', 'Blog of Quyi (aka rangerqu), he writes about life, economics, laws, and etc.', 'http://imquyi.com/blog/', 'rangerqu', 'rangerqu') }}
+
+    {{ Blog('Rei', "Rei's Blog, he talks about ruby, comics, thoughts, and etc.", 'http://chloerei.com/', twitter='chloerei') }}
+  </div>
+</div>
+{% endblock %}
