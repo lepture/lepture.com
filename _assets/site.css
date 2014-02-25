@@ -309,6 +309,23 @@ a:hover {
 .gist table td {
   border: 0 none;
 }
+.footnote-ref a {
+  font-size: 13px;
+  padding: 0 2px;
+}
+.footnotes {
+  margin-top: 60px;
+  padding-top: 14px;
+  border-top: 1px solid #dededc;
+  color: #686869;
+  font-size: 15px;
+}
+.footnotes a {
+  color: #686869;
+}
+.footnotes a[rev=footnote] {
+  margin-left: 4px;
+}
 @media (min-width: 980px) {
   .highlight {
     margin: 0 -30px;

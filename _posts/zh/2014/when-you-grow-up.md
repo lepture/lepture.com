@@ -9,9 +9,12 @@
 
 > 你這樣做又有什麼用呢？這在天朝算個什麼事！
 
-你時常能聽到這樣的聲音吧？或許你就是這聲音的吟誦者。你一點一點長大，失去了好奇心，失去了探索欲，妥協，退讓，連帶着連別人的反抗也要嗤之以鼻了。你把這叫成熟。
+你時常能聽到這樣的聲音吧？或許你就是這聲音的吟誦者。你一點一點長大，失去了好奇心，失去了探索欲，妥協[^compromise]，退讓，連帶着連別人的反抗也要嗤之以鼻了。你把這叫成熟[^not-accomplished]。
 
 哦，這說的不是你，也許是我，未來的我。請你不要介懷。我時常擔心自己也會麻木，需要點自我暗示。有時想想，其實有點多餘，因爲我經常能被稱作幼稚呢！
+
+[^compromise]: 中文妥協一詞與英文 compromise 頗不相同，中文的妥協更多時候只是一方的退讓。
+[^not-accomplished]: 當我談成熟時，這個成熟只限定於本文的意義。它是非普適的，亦不是你認爲的意義。
 
 ---
 
@@ -25,7 +28,11 @@
 
 > 你可能不是第一个申诉，但也不会是最后一个。
 
-这句评论颇有点巴士运动的味道，因为「帕克斯不是第一位在巴士上拒絕讓座給白人的黑人」。Rosa Parks 在当时也不是名人，与「李开复、周鸿祎」更是没得比。
+这句评论颇有点巴士运动[^bus-boycott]的味道，因为「帕克斯不是第一位在巴士上拒絕讓座給白人的黑人」。Rosa Parks[^rosa-parks] 在当时也不是名人，与「李开复、周鸿祎」更是没得比。
+
+[^bus-boycott]: The Montgomery Bus Boycott, a seminal event in the U.S. civil rights movement, was a political and social protest campaign against the policy of racial segregation on the public transit system of Montgomery, Alabama.
+
+[^rosa-parks]: Rosa Louise McCauley Parks was an African-American civil rights activist, whom the United States Congress called "the first lady of civil rights" and "the mother of the freedom movement".
 
 稍晚些時候，收到 rnw.org 的採訪郵件，詢問我對 GitHub 被屏蔽一事的看法，以及此事對我的影響。因爲忙於寫[一個庫](https://github.com/lepture/mistune)，沒能及時回覆，深表歉意。
 
