@@ -23,7 +23,7 @@ like this feature. Maybe FUD.
 
 > marked does so many weird optimizations that I'm worried only I understand
 >
-> -- Christopher Jeffrey
+> — Christopher Jeffrey
 
 I don't blame [Christopher Jeffrey](chjj). On the contrary, he did a
 great job. marked is a well written, good designed project. I appreciate
@@ -42,7 +42,7 @@ source can be a business for a company, but not for individuals.
 > Lots of people in the Open Source community develop something that solve
 > particular problems they have themselves.
 >
-> -- Armin Ronacher
+> — Armin Ronacher
 
 I created [Flask-OAuthlib](create-oauth-server) for my own, because I
 needed to create an OAuth 2 server at that time. I contribute to OAuthLib,
@@ -70,10 +70,10 @@ more stars than OAuthLib. python-oauth2 is not really designed for OAuth 2,
 it is OAuth 1. What a sarcastic reality!
 
 That's why we should promote the good libraries. Let them to be known. This
-encourages developers and makes them happy -- but sometimes it may be a
+encourages developers and makes them happy — but sometimes it may be a
 burden to them.
 
-It takes time to build a good library -- the design, the documentation, and
+It takes time to build a good library — the design, the documentation, and
 the test cases.
 
 ----

@@ -36,7 +36,7 @@ satisfied. The simulation just doesn't work for me.
 > as people copy it, the original design gets obscured and forgotten,
 > the original design might no longer apply
 >
-> -- Armin Ronacher
+> — Armin Ronacher
 
 This is a slide of a talk by Armin Ronacher — [Thinking Outside The Box](https://speakerdeck.com/mitsuhiko/thinking-outside-the-box).
 
