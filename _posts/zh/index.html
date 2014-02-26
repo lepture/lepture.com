@@ -1,1 +1,9 @@
 {% extends "index.html" %}
+{% block title %}Chinese — {{ site.name }}{% endblock %}
+{% block extra_head %}
+  <link rel="alternate" type="application/atom+xml" title="Subscribe Chinese Feed" href="http://feeds.lepture.com/lepture/chinese">
+{% endblock %}
+
+{% block subheader %}
+Articles in Chinese. <a href="http://feeds.lepture.com/lepture/chinese">Subscribe Chinese Feed</a>
+{% endblock %}

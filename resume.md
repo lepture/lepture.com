@@ -2,6 +2,8 @@
 
 - disqus: false
 
+Love its people, but never trust its government. Believe in evolution rather than revolution.
+
 ---------
 
 ## About
@@ -14,7 +16,7 @@ I love everything that worth the word beauty.
 I did, do and will always believe in
 
 > Love its people, but never trust its government.
-> Believe evolution rather than revolution.
+> Believe in evolution rather than revolution.
 
 ## Contact
 
