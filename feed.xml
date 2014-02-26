@@ -3,8 +3,142 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2014-02-22T01:17:01.844576+08:00</updated>
+    <updated>2014-02-26T15:12:57.545942+08:00</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[Markdown Parsers in Python]]></title>
+        <link href="http://lepture.com/en/2014/markdown-parsers-in-python"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2014-02-26T16:55:00+08:00</updated>
+        <published>2014-02-26T16:55:00+08:00</published>
+        <id>http://lepture.com/en/2014/markdown-parsers-in-python</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>There are many markdown parsers in Python. Misaka was my favorite one.
+However, misaka is deprecated now, and the successor which is called
+hoedown still has issues to solve. That's why it is a <strong>was</strong>. But I still
+love it.</p><p>Here is a list of markdown parsers for Python in my knowledge:</p><ul>
+<li>Misaka: A python binding for Sundown. (CPython required)</li>
+<li>Hoedown: A python binding for Hoedown, successor of Misaka.</li>
+<li>Discount: A python binding for Discount. (CPython required)</li>
+<li>cMarkdown: Markdown for Python, accelerated by C. (CPython required)</li>
+<li>Markdown: A pure markdown parser, the very first implementation.</li>
+<li>Markdown2: Another pure markdown parser.</li>
+</ul>
+<p>And I've just released another pure markdown parser too, which is called
+<strong><a href="https://github.com/lepture/mistune">mistune</a></strong>.</p><h2>Misaka</h2>
+<p><a href="https://github.com/FSX/misaka">Misaka</a> was my favorite markdown parser. It
+is a python binding of Sundown, which means that it has all the features
+that Sundown provides.</p><p>It is super fast! Actually, it is the top one in my benchmarks. Since it is
+a binding of a C library, no wonder that it is this fast. If speed is what
+you want, you should try misaka, and as well as other bindings of a C library.</p><p>But misaka is more than speed. It is the custom renderer feature that catches
+my heart. I am so fond of it, that's why I implement the custom renderer
+feature in my own markdown parser <strong>mistune</strong>.</p><p>A quick and very useful sample is <a href="http://misaka.61924.nl/manual/#toc_15">code highlighting</a>.</p><p>However, it is a binding of a C libary. It requires CPython, if you prefer
+PyPy, you have no access to it. Some App Engines have a limitation on compiling
+C libraries too, you can't use misaka in this case. And even if you are
+using CPython, it is still difficult to install it on a Windows OS.</p><blockquote><p>Visual Studio's support for C is not optimal and most VS compilers are
+missing stdint.h, which is needed to compile Misaka.</p></blockquote><p>If you are on a Windows, may god helps you. I don't care it a shit.</p><p>Footnote feature is missing in Misaka. Maybe many of you don't need such a
+thing, in this case, misaka has nothing bad. It is stable, efficient, and
+has many GFM features.</p><p>The only trouble is Sundown is deprecated.<sup class="footnote-ref" id="fnref-sundown-deprecated"><a href="#fn-sundown-deprecated" rel="footnote">1</a></sup></p><h2>Hoedown</h2>
+<p>Because the Sundown library is deprecated, here comes hoedown<sup class="footnote-ref" id="fnref-c-hoedown"><a href="#fn-c-hoedown" rel="footnote">2</a></sup>,
+which is the fork of the original Sundown. It has a Python binding also
+called as hoedown.</p><p>Since Hoedown is the successor of Sundown, and <a href="https://github.com/hhatto/python-hoedown">python-hoedown</a> is the successor of Misaka, all features
+that misaka has, python-hoedown has them too. But python-hoedown is more
+than that.</p><ol>
+<li>It is PyPy compatible.</li>
+<li>It has footnote feature.</li>
+</ol>
+<p>It looks promissing, and even misaka's author recommends it. I've tried it,
+but failed with one issue, <a href="https://github.com/hhatto/python-hoedown/issues/5">a magic error</a> that I can't do anything:</p><pre><code>terminated by signal SIGSEGV (Address boundary error)
+
+
+</code></pre>
+<p>This isssue is not fixed yet. Once it does, hoedown would be a good choice
+for non-AE users.</p><h2>cMarkdown &amp; Discount</h2>
+<p><a href="https://github.com/paulsmith/cMarkdown">cMarkdown</a> is much like Misaka,
+except that it is based on upskirt<sup class="footnote-ref" id="fnref-upskirt"><a href="#fn-upskirt" rel="footnote">3</a></sup> rather than sundown. The
+history is very interesting, sundown is a fork of upskirt, hoedown is a
+fork of sundown. And now, sundown is deprecated, upskirt is missing. The
+new markdown parser that vmg promised is still not available.</p><p>cMarkdown has all the disadvantages of Misaka, and it is a little slower
+than Misaka. This means you really should use misaka instead of cMarkdown.</p><hr>
+<p>Discount is a joke for me, I can't even install it successfully! There is
+not much to say. But I do know that Discount is slower than Sundown.</p><h2>Markdown &amp; Markdown2</h2>
+<p><a href="https://github.com/waylan/Python-Markdown">Python-Markdown</a> is the very first markdown parser in pure Python. It is
+good, except the documentation. However, I miss the renderer feature in
+misaka, which is not in Python-Markdown.</p><p>Python-Markdown is not that slow as I expected, since Python-Markdown2
+calls itself as:</p><blockquote><p>A fast and complete implementation of Markdown in Python.</p></blockquote><p>But it is not true. Python-Markdown2 is much slower than Python-Markdown.
+I have no idea why it says itself fast. All features that 2 has, the older
+one has too.</p><p>The benchmark shows that Python-Markdown2 is almost twice slower than
+Python-Markdown. No wonder it is 2.</p><h2>Mistune</h2>
+<p><a href="https://github.com/lepture/mistune">Mistune</a> is a new (just released)
+markdown parser. It is the <strong>fastest</strong> one in all pure Python implementations.
+Almost <strong>4 times faster</strong><sup class="footnote-ref" id="fnref-bench"><a href="#fn-bench" rel="footnote">4</a></sup> than Python-Markdown in pure Python
+environment, almost <strong>5 times faster</strong> with Cython's help.</p><p>I didn't expect it to be so fast when I wrote it. I know it would be a fast
+one, but I didn't know that it would be 4 times faster and even 5 times
+faster.</p><hr>
+<p>I have never thought of creating a Markdown parser my own. But it has been
+months since I reported the issue to Hoedown. The issue is still there,
+not solved a bit. Because it is a C binding, I am not able to do any help,
+the only thing I can do is waiting.</p><p>I don't use Python-Markdown or Python-Markdown2, because they have no renderer
+feature, and they are slow.</p><p>I have <a href="/en/2013/unpleasant-open-source">introduced renderer feature to marked</a>, which is
+finally merged. And now I am trying to add the <a href="https://github.com/chjj/marked/pull/351">footnote feature</a>.
+It occured to me that I can port marked to Python, since I know marked well,
+and I know it is the fastest in all pure JavaScript implementations. It
+would be fast in Python too, and it really does.</p><hr>
+<p>If you are looking for a fast, full featured<sup class="footnote-ref" id="fnref-mistune-features"><a href="#fn-mistune-features" rel="footnote">5</a></sup> and pure
+Python implementation, Mistune is a good choice. It also has renderer
+feature just like Misaka. You can always influnce the rendering results
+with custom renderers.</p><pre><code class="lang-python">import mistune
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters import HtmlFormatter
+
+class MyRenderer(mistune.Renderer):
+    def block_code(code, lang):
+        if not lang:
+            return &#39;\n&lt;pre&gt;&lt;code&gt;%s&lt;/code&gt;&lt;/pre&gt;\n&#39; % \
+                mistune.escape(code.strip())
+        lexer = get_lexer_by_name(lang, stripall=True)
+        formatter = HtmlFormatter()
+        return highlight(text, lexer, formatter)
+
+renderer = MyRenderer()
+md = mistune.Markdown(renderer=renderer)
+print(md.render(&#39;Some Markdown text.&#39;))
+</code>
+</pre><h2>Additional Notes</h2>
+<p>I did a benchmark on my MacBook Air, <a href="https://github.com/lepture/mistune/issues/1">view the results</a>.
+You can run the benchmark script yourself: <a href="https://github.com/lepture/mistune/blob/master/tests/bench.py">bench.py</a></p><pre><code>Parsing the Markdown Syntax document 1000 times...
+Mistune: 12.7255s
+Mistune (with Cython): 9.74075s
+Misaka: 0.550502s
+Markdown: 46.4342s
+Markdown2: 78.2267s
+cMarkdown: 0.664128s
+Discount is not available
+</code></pre>
+<hr>
+<p>Mistune can be compiled with Cython if you have Cython installed already.</p><pre><code>$ pip install cython mistune
+
+
+</code></pre>
+<p>The magic happens in the <code>setup.py</code> script. I'd like to introduce this part
+another time.</p><p><em>This post and all posts in markdown format on this site are rendered with
+mistune.</em></p><div class="footnotes">
+<ol><li id="fn-sundown-deprecated"><p>Sundown is deprecated a year ago with a <a href="https://github.com/vmg/sundown/commit/37728fb2d7137ff7c37d0a474cb827a8d6d846d8">commit</a> by vmg, but the new markdown parser is still missing.<a href="#fnref-sundown-deprecated" rev="footnote">&#8617;</a></p></li>
+<li id="fn-c-hoedown"><p>Hoedown is a fork of Sundown, it is a C library. It reverted the <a href="https://github.com/hoedown/hoedown/commit/aa43a77283c613662033039eddb477f2e0fd3d63">deprecated message</a> 5 months ago.<a href="#fnref-c-hoedown" rev="footnote">&#8617;</a></p></li>
+<li id="fn-upskirt"><p>Links about upskirt are missing now, they are all 404.<a href="#fnref-upskirt" rev="footnote">&#8617;</a></p></li>
+<li id="fn-bench"><p>I've did a benchmark on all markdown parsers I know. <a href="https://github.com/lepture/mistune/issues/1">Checkout the Benchmarks</a>.<a href="#fnref-bench" rev="footnote">&#8617;</a></p></li>
+<li id="fn-mistune-features"><p>Mistune is full featured, it has autolink, strikethrough, table,
+fenced code, footnotes. And you can't disable them. I believe that
+it is a good design to enable all these features, since they are the
+standards in the real world now.<a href="#fnref-mistune-features" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+ ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[成熟這種病]]></title>
         <link href="http://lepture.com/zh/2014/when-you-grow-up"/>
@@ -15,20 +149,17 @@
         <published>2014-02-21T00:00:00+08:00</published>
         <id>http://lepture.com/zh/2014/when-you-grow-up</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <blockquote><p>你這樣做又有什麼用呢？這在天朝算個什麼事！</p></blockquote><p>你時常能聽到這樣的聲音吧？或許你就是這聲音的吟誦者。你一點一點長大，失去了好奇心，失去了探索欲，妥協，退讓，連帶着連別人的反抗也要嗤之以鼻了。你把這叫成熟。</p><p>哦，這說的不是你，也許是我，未來的我。請你不要介懷。我時常擔心自己也會麻木，需要點自我暗示。有時想想，其實有點多餘，因爲我經常能被稱作幼稚呢！</p>
-<hr>
-<p>昨天 @chloerei 提了一句「<a href="https://twitter.com/chloerei/status/436499925652602882">自己不做，还要泼别人冷水</a>」。這說的是 V2EX 上的一篇帖子，<a href="https://www.v2ex.com/t/100888?p=1">我向工业信息化部发了一份申诉，为了 GitHub</a>。</p><p>其實我並不知道 GitHub 又出問題了，因爲之前出過一次，已經把 fastly 的 CDN 加入到代理列表裏了。可惜沒有邁出投訴的一步。無論如何，有人邁出了這一步，而後還有附議者，總是叫人高興的。</p><p>於這幸事之中又不免打擊之言——「我不怀疑，肯定无效」。</p><p>也許吧。即使是徒勞的反抗，但那又怎麼樣！有些事的意義不在於做成功了，而在於做的過程。更何況，我是相信有效果的。</p><blockquote><p>你可能不是第一个申诉，但也不会是最后一个。</p></blockquote><p>这句评论颇有点巴士运动的味道，因为「帕克斯不是第一位在巴士上拒絕讓座給白人的黑人」。Rosa Parks 在当时也不是名人，与「李开复、周鸿祎」更是没得比。</p><p>稍晚些時候，收到 rnw.org 的採訪郵件，詢問我對 GitHub 被屏蔽一事的看法，以及此事對我的影響。因爲忙於寫<a href="https://github.com/lepture/mistune">一個庫</a>，沒能及時回覆，深表歉意。</p>
-<hr>
-<p>這件事倒讓我想起之前的<a href="https://www.v2ex.com/t/57677">每日投诉电信计划</a>了，是關於中國電信在網頁中插廣告的事。結果挺好的，中國電信停止向寬帶用戶推送第三方廣告。（那電信自己的呢？，存疑。）</p><p>雖然我不能肯定自己起到了什麼作用，恐怕主要還是靠 @Fenng 等關注者多的人，因爲名人的影響力在那裏嘛。但是做過了，而且堅持了那麼久，還是挺開心的，當作形爲藝術罷。</p><p>這過程裏，傷害了不少客服的心，頗過意不去。也收穫了詆譭與讚譽。譭之者不過言「蚍蜉撼大樹」，仿佛我不知道似的。</p>
-<hr>
-<p>知乎有一句廣告辭——<strong>認真你就贏了</strong>。深得我心。成熟卻讓你失去了較真的勇氣，總是在關鍵時刻提醒著你：這樣做又有什麼用呢？更何況，還有「被送快遞」的風險。</p><p>政治味稍微多了點，談一個更生活化的例子。比如說智能手機，即使你一遍遍地教過了父母，但是他們依然手足無措。你給一個小孩子玩，什麼都不用教，過會兒他就會用了，即使他還不識字。</p><p>小孩子無所畏懼，拿到手上左按按右按按，按得多了也就會了。但是父母不會，他們從不左按右按，總是依照你所教的步驟一步一步按下去，還總是擔心按錯了。這就是成熟病呀。他們不曾想，即使按錯了也沒什麼大不了的。正如你想多了一樣，「查水表」這種事並不會輕易發生。</p><p>你看，雖然我寫得一塌糊涂，完全不知所云，但是仍然有發表出來的勇氣，也見得暫未患這成熟病了。最後送上顾城的一首詩，望君喜歡。</p><blockquote><p>天是灰色的<br>
-路是灰色的<br>
-楼是灰色的<br>
-雨是灰色的<br>
-在一片死灰中<br>
-走过两个孩子<br>
-一个鲜红<br>
-一个淡绿</p></blockquote> ]]>
+            <![CDATA[ <blockquote><p>你這樣做又有什麼用呢？這在天朝算個什麼事！</p></blockquote><p>你時常能聽到這樣的聲音吧？或許你就是這聲音的吟誦者。你一點一點長大，失去了好奇心，失去了探索欲，妥協<sup class="footnote-ref" id="fnref-compromise"><a href="#fn-compromise" rel="footnote">1</a></sup>，退讓，連帶着連別人的反抗也要嗤之以鼻了。你把這叫成熟<sup class="footnote-ref" id="fnref-not-accomplished"><a href="#fn-not-accomplished" rel="footnote">2</a></sup>。</p><p>哦，這說的不是你，也許是我，未來的我。請你不要介懷。我時常擔心自己也會麻木，需要點自我暗示。有時想想，其實有點多餘，因爲我經常能被稱作幼稚呢！</p><hr>
+<p>昨天 @chloerei 提了一句「<a href="https://twitter.com/chloerei/status/436499925652602882">自己不做，还要泼别人冷水</a>」。這說的是 V2EX 上的一篇帖子，<a href="https://www.v2ex.com/t/100888?p=1">我向工业信息化部发了一份申诉，为了 GitHub</a>。</p><p>其實我並不知道 GitHub 又出問題了，因爲之前出過一次，已經把 fastly 的 CDN 加入到代理列表裏了。可惜沒有邁出投訴的一步。無論如何，有人邁出了這一步，而後還有附議者，總是叫人高興的。</p><p>於這幸事之中又不免打擊之言——「我不怀疑，肯定无效」。</p><p>也許吧。即使是徒勞的反抗，但那又怎麼樣！有些事的意義不在於做成功了，而在於做的過程。更何況，我是相信有效果的。</p><blockquote><p>你可能不是第一个申诉，但也不会是最后一个。</p></blockquote><p>这句评论颇有点巴士运动<sup class="footnote-ref" id="fnref-bus-boycott"><a href="#fn-bus-boycott" rel="footnote">3</a></sup>的味道，因为「帕克斯不是第一位在巴士上拒絕讓座給白人的黑人」。Rosa Parks<sup class="footnote-ref" id="fnref-rosa-parks"><a href="#fn-rosa-parks" rel="footnote">4</a></sup> 在当时也不是名人，与「李开复、周鸿祎」更是没得比。</p><p>稍晚些時候，收到 rnw.org 的採訪郵件，詢問我對 GitHub 被屏蔽一事的看法，以及此事對我的影響。因爲忙於寫<a href="https://github.com/lepture/mistune">一個庫</a>，沒能及時回覆，深表歉意。</p><hr>
+<p>這件事倒讓我想起之前的<a href="https://www.v2ex.com/t/57677">每日投诉电信计划</a>了，是關於中國電信在網頁中插廣告的事。結果挺好的，中國電信停止向寬帶用戶推送第三方廣告。（那電信自己的呢？，存疑。）</p><p>雖然我不能肯定自己起到了什麼作用，恐怕主要還是靠 @Fenng 等關注者多的人，因爲名人的影響力在那裏嘛。但是做過了，而且堅持了那麼久，還是挺開心的，當作形爲藝術罷。</p><p>這過程裏，傷害了不少客服的心，頗過意不去。也收穫了詆譭與讚譽。譭之者不過言「蚍蜉撼大樹」，仿佛我不知道似的。</p><hr>
+<p>知乎有一句廣告辭——<strong>認真你就贏了</strong>。深得我心。成熟卻讓你失去了較真的勇氣，總是在關鍵時刻提醒著你：這樣做又有什麼用呢？更何況，還有「被送快遞」的風險。</p><p>政治味稍微多了點，談一個更生活化的例子。比如說智能手機，即使你一遍遍地教過了父母，但是他們依然手足無措。你給一個小孩子玩，什麼都不用教，過會兒他就會用了，即使他還不識字。</p><p>小孩子無所畏懼，拿到手上左按按右按按，按得多了也就會了。但是父母不會，他們從不左按右按，總是依照你所教的步驟一步一步按下去，還總是擔心按錯了。這就是成熟病呀。他們不曾想，即使按錯了也沒什麼大不了的。正如你想多了一樣，「查水表」這種事並不會輕易發生。</p><p>你看，雖然我寫得一塌糊涂，完全不知所云，但是仍然有發表出來的勇氣，也見得暫未患這成熟病了。最後送上顾城的一首詩，望君喜歡。</p><blockquote><p>天是灰色的<br>路是灰色的<br>楼是灰色的<br>雨是灰色的<br>在一片死灰中<br>走过两个孩子<br>一个鲜红<br>一个淡绿</p></blockquote><div class="footnotes">
+<ol><li id="fn-compromise"><p>中文妥協一詞與英文 compromise 頗不相同，中文的妥協更多時候只是一方的退讓。<a href="#fnref-compromise" rev="footnote">&#8617;</a></p></li>
+<li id="fn-not-accomplished"><p>當我談成熟時，這個成熟只限定於本文的意義。它是非普適的，亦不是你認爲的意義。<a href="#fnref-not-accomplished" rev="footnote">&#8617;</a></p></li>
+<li id="fn-bus-boycott"><p>The Montgomery Bus Boycott, a seminal event in the U.S. civil rights movement, was a political and social protest campaign against the policy of racial segregation on the public transit system of Montgomery, Alabama.<a href="#fnref-bus-boycott" rev="footnote">&#8617;</a></p></li>
+<li id="fn-rosa-parks"><p>Rosa Louise McCauley Parks was an African-American civil rights activist, whom the United States Congress called "the first lady of civil rights" and "the mother of the freedom movement".<a href="#fnref-rosa-parks" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+ ]]>
         </content>
     </entry>
     <entry>
@@ -44,33 +175,30 @@
             <![CDATA[ <p>I created <a href="https://github.com/lepture/python-livereload">livereload</a>
 (implemented in Python) one year and 8 months ago. The first version was
 released on May 4th, 2012. I had been working on it for a while, but I
-didn&#39;t enjoy it myself.</p><p><a href="http://livereload.com/">LiveReload</a> is a Mac software that monitors
+didn't enjoy it myself.</p><p><a href="http://livereload.com/">LiveReload</a> is a Mac software that monitors
 changes in the file system. A quote from the official website:</p><blockquote><p>As soon as you save a file, it is preprocessed as needed, and the browser
 is refreshed.</p></blockquote><p>And my implementation in Python is a command line tool that simulates the
 behavior of LiveReload, a bit like <a href="https://github.com/guard/guard">guard</a>.</p><p>The reason why I created this project is pretty simple. I was working in a
 Python-only development environment, it would be nice that everything is
 in Python. However, things changed in the last year, I am more a front end
 developer than a back end pythonist. I enjoy nodejs, I also enjoy other
-languages like ruby and golang.</p><p>Anyway, I don&#39;t like to start another server for watching file changes only,
+languages like ruby and golang.</p><p>Anyway, I don't like to start another server for watching file changes only,
 the original design of Guardfile is not good enough, at least I am not
-satisfied. The simulation just doesn&#39;t work for me.</p><blockquote class="cite-quote"><p>most things have some design behind,
+satisfied. The simulation just doesn't work for me.</p><blockquote class="cite-quote"><p>most things have some design behind,
 as people copy it, the original design gets obscured and forgotten,
-the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher — <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p>
-<h2>Create something I will use in the daily life</h2>
+the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher — <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p><h2>Create something I will use in the daily life</h2>
 <p>The original copied one has nothing new, nothing special for Python that
 I would use it in my daily life. This makes me sad. So I have no much
 enthusiasm in the maintainence of it.</p><p>But I do believe that livereload is a good idea. Maybe I just did it wrong.
-One day, a brilliant idea came to me — livereload for wsgi.</p><p>A simple example of the idea:</p>
-<pre><code class="python">from livereload import Server
+One day, a brilliant idea came to me — livereload for wsgi.</p><p>A simple example of the idea:</p><pre><code class="lang-python">from livereload import Server
 
 server = Server(wsgi_app)
 server.watch(&#39;static/app.css&#39;)
 server.serve()
-</code></pre>
-<p>Wow, that looks good. It seems something that I will use in my daily life.
+</code>
+</pre><p>Wow, that looks good. It seems something that I will use in my daily life.
 Since I prefer Flask, I can write the scripts with Flask-Script in a
-<code>manage.py</code> file:</p>
-<pre><code class="python">app = create_app()
+<code>manage.py</code> file:</p><pre><code class="lang-python">app = create_app()
 
 @manager.command
 def liveserver(port=5000):
@@ -78,11 +206,10 @@ def liveserver(port=5000):
     server = Server(app.wsgi_app)
     server.watch(&#39;static/*.css&#39;)
     server.serve(port=port)
-</code></pre>
-<p>And whenenver a css file changes, the browser will refresh it itself.</p><p>Actually, my environment of front end development is far more complex,
+</code>
+</pre><p>And whenenver a css file changes, the browser will refresh it itself.</p><p>Actually, my environment of front end development is far more complex,
 I use rework for css processing, component for javascript modular. The
-real example would be gorgeous.</p><p>Take a peep of my scripts:</p>
-<pre><code class="python">@manager.command
+real example would be gorgeous.</p><p>Take a peep of my scripts:</p><pre><code class="lang-python">@manager.command
 def liveserver(port=5000):
     from livereload import Server
 
@@ -91,9 +218,8 @@ def liveserver(port=5000):
     server.watch(&#39;assets/lib/*.js&#39;, &#39;make -C assets build&#39;)
     server.watch(&#39;app/templates&#39;)
     server.serve(port)
-</code></pre>
-
-<h2>Do one job, and do it well</h2>
+</code>
+</pre><h2>Do one job, and do it well</h2>
 <p>Version 2.0 of livereload is more a library rather than an application.
 Which means other libraries in Python can easily bundle it in. I hope it
 can be a great library.</p><p>The executable command line tool is removed from livereload. It may come
@@ -101,21 +227,19 @@ back again, but not soon. The compilers like uglifyjs, lesscss, slim,
 CoffeeScript are removed from livereload too.</p><p>For now, livereload will focus on one thing — livereload. And livereload
 well.</p><p>The lack of compilers does not affect much. Since livereload provides you
 a way to execute shell command. As you can see in the above example that
-<code>server.watch</code> supports executing shell commands, so that we can do:</p>
-<pre><code class="python">server.watch(&#39;src/foo.js&#39;, &#39;uglifyjs src/foo.js -m -o build/foo.js&#39;)
-</code></pre>
-<p>That&#39;s why compilers are removed, since every compiler is some sort of a
+<code>server.watch</code> supports executing shell commands, so that we can do:</p><pre><code class="lang-python">server.watch(&#39;src/foo.js&#39;, &#39;uglifyjs src/foo.js -m -o build/foo.js&#39;)
+</code>
+</pre><p>That's why compilers are removed, since every compiler is some sort of a
 shell command, there is no reason for wrapping them in Python any more.</p><p>By removing compilers, livereload focuses on the server implementation,
-and file watcher. The core code is much simple now.</p>
-<h2>Take advantage of existed tools</h2>
+and file watcher. The core code is much simple now.</p><h2>Take advantage of existed tools</h2>
 <p>We programers like to reinvent tools. Sometimes we create things better
 than the old ones, sometimes we fail. The most valuable tool I learned
 in the last two years is Makefile.</p><p>I think every programer should know Makefile, and take the advantage of
 it. Like what I did/do in my daily life. The examples above are using
-Makefile:</p>
-<pre><code>server.watch(&#39;assets/styles/*.css&#39;, &#39;make -C assets rework&#39;)
-</code></pre>
+Makefile:</p><pre><code>server.watch('assets/styles/*.css', 'make -C assets rework')
 
+
+</code></pre>
 <h2>The future</h2>
 <p>The rewritted version 2.0 of livereload was released days ago. There are
 features not implmented, bugs not fixed, but the concept works well. It
@@ -139,41 +263,37 @@ more fun.</p> ]]>
             <![CDATA[ <p>It has been 9 months since I sent the <a href="https://github.com/chjj/marked/pull/129">renderer feature</a> to marked.
 It was merged some days ago, when I finally lost my patience and created
 a forked project named <a href="https://github.com/lepture/markit">markit</a>.</p><p>I do not suggest you use markit right now. We are working on marked. And
-we hope that renderer feature will be available soon.</p>
-<hr>
+we hope that renderer feature will be available soon.</p><hr>
 <p>Why it takes so much time for one pull request? Reason varies from people
-to people. Maybe he is focusing on other projects. Maybe he just doesn&#39;t
-like this feature. Maybe FUD.</p><blockquote class="cite-quote"><p>marked does so many weird optimizations that I&#39;m worried only I understand</p><cite>Christopher Jeffrey</cite></blockquote><p>I don&#39;t blame <a href="chjj">Christopher Jeffrey</a>. On the contrary, he did a
+to people. Maybe he is focusing on other projects. Maybe he just doesn't
+like this feature. Maybe FUD.</p><blockquote class="cite-quote"><p>marked does so many weird optimizations that I'm worried only I understand</p><cite>Christopher Jeffrey</cite></blockquote><p>I don't blame <a href="chjj">Christopher Jeffrey</a>. On the contrary, he did a
 great job. marked is a well written, good designed project. I appreciate
-his humility for I&#39;ve read the code of markdown-js which I am just too
+his humility for I've read the code of markdown-js which I am just too
 stupid to understand.</p><p>It is usually the fear of breaking things, the uncertainty of the changes,
-and the doubt of the people that stops us.</p>
-<hr>
+and the doubt of the people that stops us.</p><hr>
 <p>We open source not because people need us. We just happen to open source
 things that solve our problems, and wish it may help other people. Open
 source can be a business for a company, but not for individuals.</p><blockquote class="cite-quote"><p>Lots of people in the Open Source community develop something that solve
 particular problems they have themselves.</p><cite>Armin Ronacher</cite></blockquote><p>I created <a href="create-oauth-server">Flask-OAuthlib</a> for my own, because I
 needed to create an OAuth 2 server at that time. I contribute to OAuthLib,
 because I need to fix that bug or add that feature for Flask-OAuthlib. I
-don&#39;t contribute for my own amusement.</p><p>Armin Roncher wrote in his recent post <a href="http://lucumr.pocoo.org/2013/11/28/emotional-programming/">Emotional Programming in Open Source</a>:</p><blockquote><p>I found it quite hard this year to work on my own projects because the
+don't contribute for my own amusement.</p><p>Armin Roncher wrote in his recent post <a href="http://lucumr.pocoo.org/2013/11/28/emotional-programming/">Emotional Programming in Open Source</a>:</p><blockquote><p>I found it quite hard this year to work on my own projects because the
 bug trackers were full of things I personally did not really care about.
 The things I wrote over the last few years all work so well for me, that
-I don&#39;t need to fix problems or add things.</p></blockquote><p>That is true for individual devlopers. At least that is true for me.</p><p>Individual developers open source in their own time, they don&#39;t get paid.
-However, sometimes, they are too good to accept features that they don&#39;t
-care. This is the time for us to give our thanks, our stars and our tweets.</p>
-<hr>
+I don't need to fix problems or add things.</p></blockquote><p>That is true for individual devlopers. At least that is true for me.</p><p>Individual developers open source in their own time, they don't get paid.
+However, sometimes, they are too good to accept features that they don't
+care. This is the time for us to give our thanks, our stars and our tweets.</p><hr>
 <p>Our stars and tweets matter a lot. A good library should be promoted. Yes,
 I mean <a href="https://github.com/idan/oauthlib">OAuthLib</a>. The funny things is that python-oauth2 has
 more stars than OAuthLib. python-oauth2 is not really designed for OAuth 2,
-it is OAuth 1. What a sarcastic reality!</p><p>That&#39;s why we should promote the good libraries. Let them to be known. This
-encourages developers and makes them happy -- but sometimes it may be a
-burden to them.</p><p>It takes time to build a good library -- the design, the documentation, and
-the test cases.</p>
-<hr>
+it is OAuth 1. What a sarcastic reality!</p><p>That's why we should promote the good libraries. Let them to be known. This
+encourages developers and makes them happy — but sometimes it may be a
+burden to them.</p><p>It takes time to build a good library — the design, the documentation, and
+the test cases.</p><hr>
 <p>Somtimes, when you finish a good project, a good name for your project is
 already taken by another people. And when you find out that it is only a
 spawn of a unix command, you feel angry that you have to name your project
-as &quot;something 2&quot;. That is really disappointed.</p><p>May you happy, may the developers happy.</p><blockquote><p>high quality of lots of Open Source code is that the developers are
+as "something 2". That is really disappointed.</p><p>May you happy, may the developers happy.</p><blockquote><p>high quality of lots of Open Source code is that the developers are
 generally happier writing it</p></blockquote> ]]>
         </content>
     </entry>
@@ -187,26 +307,17 @@ generally happier writing it</p></blockquote> ]]>
         <published>2013-12-03T21:11:00+08:00</published>
         <id>http://lepture.com/zh/2013/wuxia-novel</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>這是一篇武俠小說，是 2008 年寫作的，可是未完成。前些時候，翻閱以前練手的作品，無意間發現的，可是竟想不起來要寫一個甚麼樣的故事了。</p><p>這一系列，前後快五萬字了，但是我對後面的故事並不滿意。即使滿意了，也不知道接下來要寫些甚麼，所以不如推倒重來，重新構思一個故事。遺憾的是，我並不擅長寫故事，我喜歡寫景，寫環境，寫氛圍，寫心理，唯獨故事是個軟肋。如果將這些裝飾去掉，這個故事恐怕又無趣極了。</p><p>但是楔子部分我還是挺喜歡的，雖然很多情節的發展無法理解，有些情景又過於飄逸，人物塑造沒有特點。可是畢竟是自己寫的，總忍不住要包庇一下。如果有可能的話，希望能夠寫完。</p><p>之前申請了一個郵件列表 <a href="http://tinyletter.com/lepture">tinyletter.com/lepture</a>，我將在這個郵件列表裡更新新的章節。如果有興趣的話，請訂閱之。訂閱者多於 200 人後，我將開始構思這個故事。所以想要繼續看下去的同學，廣泛傳播之。</p><p>下面先預覽一下我將保留的楔子部分吧。</p>
-<h2>楔子</h2>
-<p>桂花蒸的夜，到处弥漫着一股热烘烘的清新。刚过了中秋，月还是银盘似的满月，然而月光不像平时般清冷，是暖玉里散发出的光泽，温润莹澈。</p><p>月光照朱楼，照在二楼的丫鬟鸣翠身上。她着一袭翠竹底色的描白敞袖褂子，下面是藕合色齐踝长裙，发钗已经退去了，头发顺背直披下来。这时候她正凭栏远望那一轮圆月，凭空里轻声叹了口气。她卷起袖子，两只胳膊搭在栏干上，月光直泻过来，越发显得她膀子白净了，然而偏偏于这白净的手臂上刻下了几道血痕，是鞭子抽打过的。鸣翠低头瞟了瞟，咬了咬嘴，便又向着月亮瞧去。</p><p>她屋里还有两个丫鬟同住，下人们的住所自然是略嫌挤些，倒没什么可抱怨的。她听到身后有动静，便回过头来看了看，是鸣微。</p><p>鸣翠便放下了袖子，问她道：“你怎么醒了？”</p><p>鸣微掀起毯子下床过来，伸了伸胳膊，舒展一下筋骨，道：“这天怪热的，竟被热醒了！你怎么还没睡？”</p><p>鸣翠便又转过头去看月亮，轻声道：“虽然热，你倒是披一件衣裳，比不得夏天，到底是入了秋，仔细着凉。你也过来看月亮吧。”</p><p>鸣微笑道：“哪里就着凉了！”说着便过去了。她只穿了一件月白色里背心，光着脚，头发是枕过后的凌乱的发式，她便张手理了理，拉顺了披到背后。鸣微道：“你倒是好心，你们大姑娘竟不曾替你想过？手伸过来给我看看，我这里还有些药膏，是上月张大夫来时我私底下向他要的，拿来给你涂涂。”</p><p>鸣翠苦笑道：“我们小姐也真是命苦了，自小便死了亲娘，而今大了些，老爷竟要将她嫁给一个傻子，换了是我，我也是不肯嫁的。”</p><p>鸣微叫道：“哎呀呀，大小姐。你左右不过一个丫鬟，将来最多不过放出去配个小厮罢了。你倒想想，楚王的傻儿子总要强过那些灰孙子的灰儿子吧。”</p><p>“你们嚷什么呢？还不睡么！”是屋子里另一个丫鬟的声音。</p><p>鸣翠轻声道：“小声点吧，别把她给吵起来了。——我们是丫鬟，小姐可不是。阖府上下，哪个不觉得把小姐嫁给个傻子委屈了小姐！就我们这样的人家，要招俊俏哥儿作上门女婿，那少说也得来个千把人。真搞不懂老爷是怎么想的，居然要将小姐嫁给个傻子！”</p><p>鸣微道：“你倒是少说点吧，仔细给人告去了老爷，又是一顿好打！其实老爷也不容易了，自从夫人去了，这么些年来也没——阿嚏！”</p><p>鸣翠道：“快进去焐一焐。我说的吧，叫你仔细着了凉，你又不听。哎呀，经你一闹，搅得人越发睡不着了，你快进去睡去，让我一个人静静，过会儿也好去睡觉。”</p><p>月影映在蟹色的暮空里，仿佛一张药膏子，贴在划破了的天空，一息突兀的沉痛。鸣翠终究没有睡下，直愣愣地瞧着远方，“不知道小姐现在怎么样了？！”</p>
-<hr>
-<p>她小姐叫李溆茗，刚过了十五岁，正是谈婚论嫁的年纪。她是从下人那里听说的，她父亲给她说了个傻子夫婿。她自然不肯，同父亲闹也没有结果，没奈何，只好求着丫鬟鸣翠帮忙打点一下，疏通疏通家里的奴仆，自己备了细软逃出府去。</p><p>买舟南下，至公安歇脚。</p><p>她这还是第一次出门，格外兴奋，对一切事物倍感新鲜。然而快乐总是不长久，包袱很快便弄丢了，也不知是被偷去了还是自己给忘在哪里了，但是结果总是一样，自己已经陷入了穷困。幸好还有些许随身的饰物可以拿去当掉，也足够回家了。</p><p>可是真的就这样回家么？她不甘心，怎么会甘心！才出走两日便回府，叫人知道了还不笑掉大牙！她咬了咬牙，狠下心来，怎么也得过上一个月再回家，现在就留在公安吧，得熬且熬。</p>
-<hr>
-<p>八月廿四，这并不是一个特殊的日子，平凡的早晨，平凡的街市，平凡的人们以及他们平凡的吵嚷声。太阳还未升起，天已经放白，菜市场里一阵喧闹，卖菜的小贩与买菜的妇人叨唠着价钱，为一文钱而争得面红耳赤。</p><p>溆茗嗤鼻而笑，她当然不能嘲笑他们的小器，她也不愿意去嘲笑这些人，有什么可笑的呢！她只是自嘲——她竟连一文钱都没有了！这实在太可笑，她连值得一当之物都没有了，只有这一身的丝绸箭袖还值些钱，但是现在恐怕也不值钱了，纵使很值钱，她也不能去当掉。她这时散步于菜市场中，蓬松的头发凌乱着，沾满了灰尘泥垢，土灰色的脸上纵横几笔无奈，土灰色的衣衫上镂空几缕破洞，是纯粹的土的灰色，一种不起眼的色彩。</p><p>菜市场并不只卖菜，有时还有卖粥卖馒头的。像屠夫的刀，也并不只是宰猪宰牛的，有时候它还可以宰人。卖粥的开始吆喝起来：“粥，热乎乎的粥，一文钱一碗咯！”卖馒头的也接着吆喝道：“馒头咯，两文钱三个咯！”</p><p>溆茗朝他们瞪了一眼，心里恨恨道：“嚷什么嚷！真烦人，把人家肚子都给叫饿了。”可是她没有钱，她第一次深陷于这潦倒的尴尬境地，只有无可奈何地叹气，甚至自己都开始怀疑起当初的决定了，心下悔恨：也许嫁给楚王的那傻儿子至少比现在强些吧。</p><p>这次的离家出走，她经历了许多的第一次，第一次出了荆州城，第一次乘船，第一次住客栈，第一次进当铺……第一次流落街头，现在又是第一次乞讨，而且还是向卖馒头的小贩乞讨，倘若被拒绝，那可真是无地自容了。幸而这小贩心还好，给了她两个馒头，溆茗心里默默祝道：“将来必定加倍奉还。”可是她没出声，说了别人也只有把她当疯子，徒惹嘲笑。</p><p>菜市场里忽然起了异样的声音，也是吵嚷，然而不似先前的那般平和的吵嚷，夹杂了几许恐慌。是几个无赖前来捣乱，一阵推扰着向溆茗这边过来，他们倒并非冲着她来的，不过正好溆茗在市场的一头，他们是从另一边砸过来的，稀稀啦啦乒乒乓乓，先来个下马威，震住了小贩们，才方便收保护费嘛。</p><p>溆茗又多了一个第一次的经历，第一次被无赖围了起来，看他们张牙舞爪地一点一点逼近。她不住地向后退去，不过三四步便抵着一块案板了。</p><p>“是个娘们，洗一洗兴许还挺标致的，咱们抓回去卖给叶大娘倒也不错。”是一个无赖的声音。很动听的声音，天生的歌喉里的声音，可是偏偏用来说了这样的句子，是对才能的浪费也是对才能的侮辱！</p><p>突然，一切都静了下来。</p><p>太阳已经露出了轮廓，在景泰蓝的天空绘出酡红的一轮圆，又将这酡红溢射出去，醉染了附近的云朵，也醉染了溆茗的面颊。无端的，于这醉人的柔和的日光里现出一张俊秀的脸庞来，线条明晰的轮廓，方脸，浓眉，鹰鼻，细唇，只是眼神里却一片散漫与颓丧，不似他身体一般的精神抖擞。他穿一件淡桃色无绣丝制长袍，拦腰一围浅黄色丝巾玉绦，下面是灰白描翠的裤子，土色布靴，没有束冠，长发披肩而下，略嫌零乱。</p><p>六个无赖定格在了那里，还是原先的姿势，唯一的不同便是多了喉头上的一滴血。他过到一个无赖身前，右手食指抹去了那一滴血，又顺手擦在了自己衣服上。他就这样依次地将六滴血都抹到了衣服上，然而衣服上没有留下血迹，血像活了一般，融入到这淡桃色里，使这份淡桃色浓了些许艳丽。</p><p>无赖们还是不动，画面永久地定格在了那里，不仔细看，连伤口都没有，简直就是活生生的动弹不得的人。他俯身到溆茗这边，伸手过来；溆茗瞧了瞧，觉得满心的愉快，也就搭手过去了。两个人离开菜市场，隐没在了人群里，菜市场也就回复了往日的平和的吵嚷，像是做了一个梦，然而现在又醒了。</p>
-<hr>
-<p>街道上开始热闹起来，大多数的店铺也已经开门做起了生意。</p><p>溆茗被带去洗过澡换过衣衫，她又回复了往昔的小姐模样，虽然衣着并不十分华贵。一袭玉黄的长布衫子，土褐色粗布裤子，黑色布靴，可是她面色红润，在这不施粉黛的眉目间透露出几许清丽脱俗，发式挽了个叠嶂的云髻，于发束插了支里黄的玉簪。溆茗觉得还满意，他应该会喜欢的。</p><p>他们走在街道上，手牵着手，招惹来路人的侧目而视。可是他们不理会，依旧我行我素旁若无人地走着。</p><p>溆茗仰头问道：“我们这是要去哪里？”</p><p>公子依旧迈步向前，答道：“荆州。”</p><p>溆茗不禁一震，仍是仰面望他道：“去荆州干什么？”</p><p>公子的回答依旧简单——“杀人。”</p><p>溆茗嘴角微微翘起，露出一息狡黠的笑，她问道：“杀谁？”</p><p>公子道：“楚君子。”</p><p>溆茗问道：“谁？”</p><p>公子道：“李君如。”</p><p>溆茗一颤，“啊”了一声，呃然问道：“为什么？为什么要杀他？”</p><p>公子停下脚步，回过头来，一脸严肃，道：“我讨厌君子。君子比无赖更叫人讨厌。我恨他们。我要杀尽天下的无赖与君子。”</p><p>溆茗紧紧握住他的手，咬牙道：“如果我求你别去杀他，你愿不愿意？”</p><p>公子摇了摇头。</p><p>“如果换作我求你别去杀他，你可愿意？”这声音来自遥远，然而仿佛又是近在咫尺，每一字都清清楚楚地落在了公子的耳朵里。</p><p>公子拦腰抱起溆茗，箭步如飞奔向那个声音。</p><p>街市一阵骚动。</p>
-<hr>
-<p>这时候出城的多是农人，才刚刚卖过了蔬菜，现在又要匆匆赶着回家，为了生计奔波。他们一刻也不停地迈着自己的步子，肩上负了扁担，扁担两头挂着的竹框也已空去，现在看上去一身轻松，这倒不是因为没有负重的关系，能够这样早就将菜给卖净，腾出时间来干点别的事，无论如何也是值得高兴的。</p><p>唯有一位槁项黄馘的老者侍立于道上，一动不动。他佝偻着身子，一头散披的白发，身穿梨花白的绣竹宽袖长裙羽衣，束玉白色龙纹宫绦，裤子给裙摆遮住了，不见风彩，脚上蹬着一双白履，只是白，白得耀眼，白得一尘不染，仿佛不是尘世里的人。</p><p>老者咳嗽了两声，自言道：“言公子来了？”</p><p>于是他又开始咳嗽起来，这一声咳嗽过了，他眼前便现出两个人来，他望着他们，细细打量了一番，又自言道：“言公子来了？”。</p><p>溆茗扭头睃了公子一眼，心下道：“唔，原来他姓言。”</p><p>言公子笑道：“先生怎知在下姓言？”</p><p>老者又咳嗽起来，顿了顿道：“能使出如此的武功，必然内力极为精湛，而放眼天下，能有如此内力的，除了言家的人外，也就止二三人罢了。然而不巧，这二三人皆是我相识的。”</p><p>言公子叹道：“先生都看见了？”</p><p>老者道：“我虽然看见了，但是要阻你一阻也是万万不能的。”</p><p>言公子笑道：“先生想必就是隐机子吧？孤竹子和松涛子在下已经见过了。”</p><p>老者又咳嗽起来，咳过后接道：“那么，我若是请公子到寒舍一叙，不知公子可愿意？哎——没有想到杨兄弟也败给了你。”他说着便迈步引路起来。</p><p>言公子便牵过溆茗的手，跟着老者向远郊走去。</p><p>言公子笑道：“松涛子倒并非败于在下手中，他一路追踪在下，在下避之唯恐不及，哪里敢同他交手！然而半路上，他不知得了什么消息，现下已经赶去长安了。”</p><p> “唔，这就难怪了，” 老者嘀咕了声，又向言公子两个道，“寒舍不远，就在前面。”说着便加紧脚步，鹤飞一般，全然不似先前的佝偻形态，正与他那一身的装束合为一体，羽化登仙。</p><p>言公子再次负起溆茗，脚下不停，紧跟上老者，心里疑惑道：“这隐机子所使的倒不似轻功。奇怪，奇怪。”</p>
-<hr>
+            <![CDATA[ <p>這是一篇武俠小說，是 2008 年寫作的，可是未完成。前些時候，翻閱以前練手的作品，無意間發現的，可是竟想不起來要寫一個甚麼樣的故事了。</p><p>這一系列，前後快五萬字了，但是我對後面的故事並不滿意。即使滿意了，也不知道接下來要寫些甚麼，所以不如推倒重來，重新構思一個故事。遺憾的是，我並不擅長寫故事，我喜歡寫景，寫環境，寫氛圍，寫心理，唯獨故事是個軟肋。如果將這些裝飾去掉，這個故事恐怕又無趣極了。</p><p>但是楔子部分我還是挺喜歡的，雖然很多情節的發展無法理解，有些情景又過於飄逸，人物塑造沒有特點。可是畢竟是自己寫的，總忍不住要包庇一下。如果有可能的話，希望能夠寫完。</p><p>之前申請了一個郵件列表 <a href="http://tinyletter.com/lepture">tinyletter.com/lepture</a>，我將在這個郵件列表裡更新新的章節。如果有興趣的話，請訂閱之。訂閱者多於 200 人後，我將開始構思這個故事。所以想要繼續看下去的同學，廣泛傳播之。</p><p>下面先預覽一下我將保留的楔子部分吧。</p><h2>楔子</h2>
+<p>桂花蒸的夜，到处弥漫着一股热烘烘的清新。刚过了中秋，月还是银盘似的满月，然而月光不像平时般清冷，是暖玉里散发出的光泽，温润莹澈。</p><p>月光照朱楼，照在二楼的丫鬟鸣翠身上。她着一袭翠竹底色的描白敞袖褂子，下面是藕合色齐踝长裙，发钗已经退去了，头发顺背直披下来。这时候她正凭栏远望那一轮圆月，凭空里轻声叹了口气。她卷起袖子，两只胳膊搭在栏干上，月光直泻过来，越发显得她膀子白净了，然而偏偏于这白净的手臂上刻下了几道血痕，是鞭子抽打过的。鸣翠低头瞟了瞟，咬了咬嘴，便又向着月亮瞧去。</p><p>她屋里还有两个丫鬟同住，下人们的住所自然是略嫌挤些，倒没什么可抱怨的。她听到身后有动静，便回过头来看了看，是鸣微。</p><p>鸣翠便放下了袖子，问她道：“你怎么醒了？”</p><p>鸣微掀起毯子下床过来，伸了伸胳膊，舒展一下筋骨，道：“这天怪热的，竟被热醒了！你怎么还没睡？”</p><p>鸣翠便又转过头去看月亮，轻声道：“虽然热，你倒是披一件衣裳，比不得夏天，到底是入了秋，仔细着凉。你也过来看月亮吧。”</p><p>鸣微笑道：“哪里就着凉了！”说着便过去了。她只穿了一件月白色里背心，光着脚，头发是枕过后的凌乱的发式，她便张手理了理，拉顺了披到背后。鸣微道：“你倒是好心，你们大姑娘竟不曾替你想过？手伸过来给我看看，我这里还有些药膏，是上月张大夫来时我私底下向他要的，拿来给你涂涂。”</p><p>鸣翠苦笑道：“我们小姐也真是命苦了，自小便死了亲娘，而今大了些，老爷竟要将她嫁给一个傻子，换了是我，我也是不肯嫁的。”</p><p>鸣微叫道：“哎呀呀，大小姐。你左右不过一个丫鬟，将来最多不过放出去配个小厮罢了。你倒想想，楚王的傻儿子总要强过那些灰孙子的灰儿子吧。”</p><p>“你们嚷什么呢？还不睡么！”是屋子里另一个丫鬟的声音。</p><p>鸣翠轻声道：“小声点吧，别把她给吵起来了。——我们是丫鬟，小姐可不是。阖府上下，哪个不觉得把小姐嫁给个傻子委屈了小姐！就我们这样的人家，要招俊俏哥儿作上门女婿，那少说也得来个千把人。真搞不懂老爷是怎么想的，居然要将小姐嫁给个傻子！”</p><p>鸣微道：“你倒是少说点吧，仔细给人告去了老爷，又是一顿好打！其实老爷也不容易了，自从夫人去了，这么些年来也没——阿嚏！”</p><p>鸣翠道：“快进去焐一焐。我说的吧，叫你仔细着了凉，你又不听。哎呀，经你一闹，搅得人越发睡不着了，你快进去睡去，让我一个人静静，过会儿也好去睡觉。”</p><p>月影映在蟹色的暮空里，仿佛一张药膏子，贴在划破了的天空，一息突兀的沉痛。鸣翠终究没有睡下，直愣愣地瞧着远方，“不知道小姐现在怎么样了？！”</p><hr>
+<p>她小姐叫李溆茗，刚过了十五岁，正是谈婚论嫁的年纪。她是从下人那里听说的，她父亲给她说了个傻子夫婿。她自然不肯，同父亲闹也没有结果，没奈何，只好求着丫鬟鸣翠帮忙打点一下，疏通疏通家里的奴仆，自己备了细软逃出府去。</p><p>买舟南下，至公安歇脚。</p><p>她这还是第一次出门，格外兴奋，对一切事物倍感新鲜。然而快乐总是不长久，包袱很快便弄丢了，也不知是被偷去了还是自己给忘在哪里了，但是结果总是一样，自己已经陷入了穷困。幸好还有些许随身的饰物可以拿去当掉，也足够回家了。</p><p>可是真的就这样回家么？她不甘心，怎么会甘心！才出走两日便回府，叫人知道了还不笑掉大牙！她咬了咬牙，狠下心来，怎么也得过上一个月再回家，现在就留在公安吧，得熬且熬。</p><hr>
+<p>八月廿四，这并不是一个特殊的日子，平凡的早晨，平凡的街市，平凡的人们以及他们平凡的吵嚷声。太阳还未升起，天已经放白，菜市场里一阵喧闹，卖菜的小贩与买菜的妇人叨唠着价钱，为一文钱而争得面红耳赤。</p><p>溆茗嗤鼻而笑，她当然不能嘲笑他们的小器，她也不愿意去嘲笑这些人，有什么可笑的呢！她只是自嘲——她竟连一文钱都没有了！这实在太可笑，她连值得一当之物都没有了，只有这一身的丝绸箭袖还值些钱，但是现在恐怕也不值钱了，纵使很值钱，她也不能去当掉。她这时散步于菜市场中，蓬松的头发凌乱着，沾满了灰尘泥垢，土灰色的脸上纵横几笔无奈，土灰色的衣衫上镂空几缕破洞，是纯粹的土的灰色，一种不起眼的色彩。</p><p>菜市场并不只卖菜，有时还有卖粥卖馒头的。像屠夫的刀，也并不只是宰猪宰牛的，有时候它还可以宰人。卖粥的开始吆喝起来：“粥，热乎乎的粥，一文钱一碗咯！”卖馒头的也接着吆喝道：“馒头咯，两文钱三个咯！”</p><p>溆茗朝他们瞪了一眼，心里恨恨道：“嚷什么嚷！真烦人，把人家肚子都给叫饿了。”可是她没有钱，她第一次深陷于这潦倒的尴尬境地，只有无可奈何地叹气，甚至自己都开始怀疑起当初的决定了，心下悔恨：也许嫁给楚王的那傻儿子至少比现在强些吧。</p><p>这次的离家出走，她经历了许多的第一次，第一次出了荆州城，第一次乘船，第一次住客栈，第一次进当铺……第一次流落街头，现在又是第一次乞讨，而且还是向卖馒头的小贩乞讨，倘若被拒绝，那可真是无地自容了。幸而这小贩心还好，给了她两个馒头，溆茗心里默默祝道：“将来必定加倍奉还。”可是她没出声，说了别人也只有把她当疯子，徒惹嘲笑。</p><p>菜市场里忽然起了异样的声音，也是吵嚷，然而不似先前的那般平和的吵嚷，夹杂了几许恐慌。是几个无赖前来捣乱，一阵推扰着向溆茗这边过来，他们倒并非冲着她来的，不过正好溆茗在市场的一头，他们是从另一边砸过来的，稀稀啦啦乒乒乓乓，先来个下马威，震住了小贩们，才方便收保护费嘛。</p><p>溆茗又多了一个第一次的经历，第一次被无赖围了起来，看他们张牙舞爪地一点一点逼近。她不住地向后退去，不过三四步便抵着一块案板了。</p><p>“是个娘们，洗一洗兴许还挺标致的，咱们抓回去卖给叶大娘倒也不错。”是一个无赖的声音。很动听的声音，天生的歌喉里的声音，可是偏偏用来说了这样的句子，是对才能的浪费也是对才能的侮辱！</p><p>突然，一切都静了下来。</p><p>太阳已经露出了轮廓，在景泰蓝的天空绘出酡红的一轮圆，又将这酡红溢射出去，醉染了附近的云朵，也醉染了溆茗的面颊。无端的，于这醉人的柔和的日光里现出一张俊秀的脸庞来，线条明晰的轮廓，方脸，浓眉，鹰鼻，细唇，只是眼神里却一片散漫与颓丧，不似他身体一般的精神抖擞。他穿一件淡桃色无绣丝制长袍，拦腰一围浅黄色丝巾玉绦，下面是灰白描翠的裤子，土色布靴，没有束冠，长发披肩而下，略嫌零乱。</p><p>六个无赖定格在了那里，还是原先的姿势，唯一的不同便是多了喉头上的一滴血。他过到一个无赖身前，右手食指抹去了那一滴血，又顺手擦在了自己衣服上。他就这样依次地将六滴血都抹到了衣服上，然而衣服上没有留下血迹，血像活了一般，融入到这淡桃色里，使这份淡桃色浓了些许艳丽。</p><p>无赖们还是不动，画面永久地定格在了那里，不仔细看，连伤口都没有，简直就是活生生的动弹不得的人。他俯身到溆茗这边，伸手过来；溆茗瞧了瞧，觉得满心的愉快，也就搭手过去了。两个人离开菜市场，隐没在了人群里，菜市场也就回复了往日的平和的吵嚷，像是做了一个梦，然而现在又醒了。</p><hr>
+<p>街道上开始热闹起来，大多数的店铺也已经开门做起了生意。</p><p>溆茗被带去洗过澡换过衣衫，她又回复了往昔的小姐模样，虽然衣着并不十分华贵。一袭玉黄的长布衫子，土褐色粗布裤子，黑色布靴，可是她面色红润，在这不施粉黛的眉目间透露出几许清丽脱俗，发式挽了个叠嶂的云髻，于发束插了支里黄的玉簪。溆茗觉得还满意，他应该会喜欢的。</p><p>他们走在街道上，手牵着手，招惹来路人的侧目而视。可是他们不理会，依旧我行我素旁若无人地走着。</p><p>溆茗仰头问道：“我们这是要去哪里？”</p><p>公子依旧迈步向前，答道：“荆州。”</p><p>溆茗不禁一震，仍是仰面望他道：“去荆州干什么？”</p><p>公子的回答依旧简单——“杀人。”</p><p>溆茗嘴角微微翘起，露出一息狡黠的笑，她问道：“杀谁？”</p><p>公子道：“楚君子。”</p><p>溆茗问道：“谁？”</p><p>公子道：“李君如。”</p><p>溆茗一颤，“啊”了一声，呃然问道：“为什么？为什么要杀他？”</p><p>公子停下脚步，回过头来，一脸严肃，道：“我讨厌君子。君子比无赖更叫人讨厌。我恨他们。我要杀尽天下的无赖与君子。”</p><p>溆茗紧紧握住他的手，咬牙道：“如果我求你别去杀他，你愿不愿意？”</p><p>公子摇了摇头。</p><p>“如果换作我求你别去杀他，你可愿意？”这声音来自遥远，然而仿佛又是近在咫尺，每一字都清清楚楚地落在了公子的耳朵里。</p><p>公子拦腰抱起溆茗，箭步如飞奔向那个声音。</p><p>街市一阵骚动。</p><hr>
+<p>这时候出城的多是农人，才刚刚卖过了蔬菜，现在又要匆匆赶着回家，为了生计奔波。他们一刻也不停地迈着自己的步子，肩上负了扁担，扁担两头挂着的竹框也已空去，现在看上去一身轻松，这倒不是因为没有负重的关系，能够这样早就将菜给卖净，腾出时间来干点别的事，无论如何也是值得高兴的。</p><p>唯有一位槁项黄馘的老者侍立于道上，一动不动。他佝偻着身子，一头散披的白发，身穿梨花白的绣竹宽袖长裙羽衣，束玉白色龙纹宫绦，裤子给裙摆遮住了，不见风彩，脚上蹬着一双白履，只是白，白得耀眼，白得一尘不染，仿佛不是尘世里的人。</p><p>老者咳嗽了两声，自言道：“言公子来了？”</p><p>于是他又开始咳嗽起来，这一声咳嗽过了，他眼前便现出两个人来，他望着他们，细细打量了一番，又自言道：“言公子来了？”。</p><p>溆茗扭头睃了公子一眼，心下道：“唔，原来他姓言。”</p><p>言公子笑道：“先生怎知在下姓言？”</p><p>老者又咳嗽起来，顿了顿道：“能使出如此的武功，必然内力极为精湛，而放眼天下，能有如此内力的，除了言家的人外，也就止二三人罢了。然而不巧，这二三人皆是我相识的。”</p><p>言公子叹道：“先生都看见了？”</p><p>老者道：“我虽然看见了，但是要阻你一阻也是万万不能的。”</p><p>言公子笑道：“先生想必就是隐机子吧？孤竹子和松涛子在下已经见过了。”</p><p>老者又咳嗽起来，咳过后接道：“那么，我若是请公子到寒舍一叙，不知公子可愿意？哎——没有想到杨兄弟也败给了你。”他说着便迈步引路起来。</p><p>言公子便牵过溆茗的手，跟着老者向远郊走去。</p><p>言公子笑道：“松涛子倒并非败于在下手中，他一路追踪在下，在下避之唯恐不及，哪里敢同他交手！然而半路上，他不知得了什么消息，现下已经赶去长安了。”</p><p> “唔，这就难怪了，” 老者嘀咕了声，又向言公子两个道，“寒舍不远，就在前面。”说着便加紧脚步，鹤飞一般，全然不似先前的佝偻形态，正与他那一身的装束合为一体，羽化登仙。</p><p>言公子再次负起溆茗，脚下不停，紧跟上老者，心里疑惑道：“这隐机子所使的倒不似轻功。奇怪，奇怪。”</p><hr>
 <p>苏子曰：可使食无肉，不可居无竹。</p><p>隐机子乃是雅士，自然深信这“不可居无竹”之劝。竹，历来就颇受文人雅士好评，一代一代的风雅之士口相传颂，即使它本身并不美好，现在也应该美好了。何况竹本身确有其高雅的风姿，一片翠微，风鸣竹间，令人望之脱俗，闻之登仙。</p><p>他们行至一片竹林，隐机子缓步下来，似乎怕打扰了这份静谧，他顾道：“寒舍便在此间，请。”</p><p>至竹林深处，突然现出一片空地来，于空地上现出一座小竹屋来。一人端坐屋前，手持羽扇，小炉清烟，炉上壶鸣，一人一桌一炉茶水，瀹茗竹间。</p><p>这人一身青翠，布弁，箭袖，绦巾，长裤，布履，无一不是竹青之色，若是隐匿竹间，几可避敌。他朝溆茗这边睃了一眼，笑道：“大哥真把他给请来了！但不知这位姑娘是谁？”</p><p>隐机子笑道：“不相干。言公子尊老，自然是不肯拒绝我的——请。”说着便将他们让进屋里。</p><p>言公子也笑了，“孤竹子竟也在这里！看来今天是走不了了。老先生，在下还是不进去的好，屋外宽敞，而况孤竹子也在屋外。”</p><p>隐机子也就止步了。屋外还有几张小竹杌子，他勾下身来挪了挪，递与言公子与溆茗。</p><p>言公子接过便坐了下来，道：“先生有何赐教，不妨早说。”</p><p>孤竹子忽然接道：“大哥倒没什么赐教，只不过想请尊兄在这里长住些时候。”
-言公子笑道：“但不知先生可有这本事请得在下？”</p><p>隐机子不禁动容，叹道：“公子还是先坐会儿，待到夕阳西下时你我再一决高下，何妨？与公子这样清雅之人交手，必然得在清雅时分，而一天之中，至清至雅之时便在这夕阳西下之时。古人诗云：‘仗剑红尘笑斜阳，疏雨江南岸两茫。’岂不快哉！”</p><p>言公子笑道：“便依先生何妨！只可惜你我并不用剑。”</p>
-<hr>
-<p>晚照，碧空，翠竹。</p><p>言公子站起身来，右手一摊，向隐机子道：“请。”</p><p>隐机子伴着一阵咳嗽声站起，“只望公子在此屈居六年，我也不敢奢求过多，望这六年里可以洗去公子身上的唳气，不至再伤人无辜。”</p><p>言公子叹道：“在下所杀之人皆是可杀之人，并无太大过错，先生何至于此！”</p><p>隐机子道：“世上本无非杀不可之人，公子此举大干人和。闲言少叙，公子若能在一个时辰内捉住我的衣襟，我也不敢再强留公子了。公子可看到地上的九个圈了？我便落于这九个圈中。若是我落在了圈外，也算我输。公子意下如何？”</p><p>这九个圈画在地上并不明显，圈很小，不过碗大一点，可是很圆很圆，似远观的太阳的圆形，散落于此间，只是零乱，不得要领。</p><p>言公子道：“这倒不用了，先生只要不出这片空地便可。”</p><p>隐机子笑道：“公子眼睛倒厉害，看出我这阵法的厉害了，我也就不便占公子的便宜，就依公子所言。——麻烦沈兄弟为我们弹奏一曲。”</p><p>孤竹子应了声，自己便进屋取琴，而后长凳轻骑，抱琴于膝，调过弦后便开始弹奏起来。琴音瑟瑟，似一缕清风，抚过空寂的山间，抚过山涧的溪流，又跟随溪流而下，一路的怪石嶙峋，风吹浪，浪拍石，石鸣中天——不是石鸣，是鹤唳。便是这一声鹤唳，言公子出手了，借了这声音，真如鹤飞一般，向隐机子击去。</p><p>微风入竹林。风声，琴声，啸声，天籁与人籁的共鸣，是一首诗，可是这诗里满怀了杀意，漫布竹间。溆茗盯着场中的两人，她自然是希望言公子可以胜过这糟老头子，但是现在不行，言公子必须得败。她一眨不眨地盯着两人，看言公子出手，看他的衣衫飞舞着，鼓动着的淡桃色映衬竹间，红与翠的默契相合，他不击则罢，这一击竟似必中的。</p><p>但是没有。她看到隐机子佝偻的身子在风中摇了摇，丝绸般随风摇曳，完全不是自己在动，倒真似被风吹动着，他竟然仿佛是飘在空中的！溆茗不禁震在了那里。</p><p>琴音澎湃，还是风声，但是已经是狂风了，风吹过松林，呼呼然作响，散落一地的松针，这松针又随了狂风纷飞，不知飞向何方。</p><p>飞向何方，何方是家乡。</p><p>风渐小，一点一点熄下来，是怡人的微风。琴音缓，缓缓入竹林。这琴音正与此情此景若合一契，混然天成，亦是微风吹拂着竹林的声响。不知是天籁知人籁，还是人籁赏天籁。</p><p>琴已歇，可是言公子仍如鹤飞，却无论怎样也不能碰到隐机子。隐机子飘于风中，任由这微风的摆弄，他现在不是他自己，他乃是这竹林的生命，和风和竹一起，筑起竹林的生命，风助他，竹亦助他。言公子等于在同整个的竹林作战，他怎么战得过！纵使战得过，他也不能战——这只能闹得玉石俱焚。</p><p>所以他停了下来，抱拳而立，道：“武林传闻，隐机子武功卓绝，看来此话不假；武林中又传闻，隐机子根本不会武功，看来此话亦不假。二十年来，先生一直是个神话，原来竟是如此，在下佩服。古人尝云列子御风而行，我尚不肯相信。今日看来，是我孤陋寡闻了。依先生这般，何止御风而行！古人曾不我欺呀！既是如此，先生要留在下，在下恭敬不如从命，就依先生所言。”</p><p>隐机子仍如绸般舞于空中，道：“如此甚好。沈兄弟，我们这就去吧。”说着便随了这阵风飘向林外，不见踪影。言公子叹道：“这阵法确实厉害。”他知道，如果真有了那九个圈，他会更多的留意那些圈，猜测隐机子将落于何圈，可是自他那一击开始，隐机子竟不曾落地，所以隐机子根本不必理会自己落于何圈，而他则又要多分些心了。</p><p>孤竹子束好琴，将琴收入屋中，整理了一番，出来同言公子道别，“竹屋下面有储藏室，每七日定有人送粮食过来，可储于此。窑里有酒，言兄若是不愿喝酒，窑里亦有往年收的雨水与雪水，言兄可以煮茶，那就告辞了。姑娘，我们这就走吧。”</p><p>溆茗望言公子道：“我留下来陪你，你愿不愿意？”</p><p>言公子没有说话。沉默那就是默认了咯，溆茗转头来笑道：“我不走，我留下来陪他。”</p><p>孤竹子叹了口气，朝溆茗望了两眼，衣襟一摆，轻功展开，倏然而逝。</p><p>溆茗拉了拉言公子的手，望他道：“进屋去吧。我做饭给你吃。”可是她过去是小姐，即使流落街头也没有轮上她自己做饭给自己吃，她又拉了拉言公子的手，害羞道：“这可是我第一次做饭。”她想，她又要多一个第一次的经历了。</p><p>言公子皱了皱眉头，叹了叹气，也就进屋去了。他可不愿意做别人的实验品，所以他自己做饭，他为她做饭。</p>
-<hr>
+言公子笑道：“但不知先生可有这本事请得在下？”</p><p>隐机子不禁动容，叹道：“公子还是先坐会儿，待到夕阳西下时你我再一决高下，何妨？与公子这样清雅之人交手，必然得在清雅时分，而一天之中，至清至雅之时便在这夕阳西下之时。古人诗云：‘仗剑红尘笑斜阳，疏雨江南岸两茫。’岂不快哉！”</p><p>言公子笑道：“便依先生何妨！只可惜你我并不用剑。”</p><hr>
+<p>晚照，碧空，翠竹。</p><p>言公子站起身来，右手一摊，向隐机子道：“请。”</p><p>隐机子伴着一阵咳嗽声站起，“只望公子在此屈居六年，我也不敢奢求过多，望这六年里可以洗去公子身上的唳气，不至再伤人无辜。”</p><p>言公子叹道：“在下所杀之人皆是可杀之人，并无太大过错，先生何至于此！”</p><p>隐机子道：“世上本无非杀不可之人，公子此举大干人和。闲言少叙，公子若能在一个时辰内捉住我的衣襟，我也不敢再强留公子了。公子可看到地上的九个圈了？我便落于这九个圈中。若是我落在了圈外，也算我输。公子意下如何？”</p><p>这九个圈画在地上并不明显，圈很小，不过碗大一点，可是很圆很圆，似远观的太阳的圆形，散落于此间，只是零乱，不得要领。</p><p>言公子道：“这倒不用了，先生只要不出这片空地便可。”</p><p>隐机子笑道：“公子眼睛倒厉害，看出我这阵法的厉害了，我也就不便占公子的便宜，就依公子所言。——麻烦沈兄弟为我们弹奏一曲。”</p><p>孤竹子应了声，自己便进屋取琴，而后长凳轻骑，抱琴于膝，调过弦后便开始弹奏起来。琴音瑟瑟，似一缕清风，抚过空寂的山间，抚过山涧的溪流，又跟随溪流而下，一路的怪石嶙峋，风吹浪，浪拍石，石鸣中天——不是石鸣，是鹤唳。便是这一声鹤唳，言公子出手了，借了这声音，真如鹤飞一般，向隐机子击去。</p><p>微风入竹林。风声，琴声，啸声，天籁与人籁的共鸣，是一首诗，可是这诗里满怀了杀意，漫布竹间。溆茗盯着场中的两人，她自然是希望言公子可以胜过这糟老头子，但是现在不行，言公子必须得败。她一眨不眨地盯着两人，看言公子出手，看他的衣衫飞舞着，鼓动着的淡桃色映衬竹间，红与翠的默契相合，他不击则罢，这一击竟似必中的。</p><p>但是没有。她看到隐机子佝偻的身子在风中摇了摇，丝绸般随风摇曳，完全不是自己在动，倒真似被风吹动着，他竟然仿佛是飘在空中的！溆茗不禁震在了那里。</p><p>琴音澎湃，还是风声，但是已经是狂风了，风吹过松林，呼呼然作响，散落一地的松针，这松针又随了狂风纷飞，不知飞向何方。</p><p>飞向何方，何方是家乡。</p><p>风渐小，一点一点熄下来，是怡人的微风。琴音缓，缓缓入竹林。这琴音正与此情此景若合一契，混然天成，亦是微风吹拂着竹林的声响。不知是天籁知人籁，还是人籁赏天籁。</p><p>琴已歇，可是言公子仍如鹤飞，却无论怎样也不能碰到隐机子。隐机子飘于风中，任由这微风的摆弄，他现在不是他自己，他乃是这竹林的生命，和风和竹一起，筑起竹林的生命，风助他，竹亦助他。言公子等于在同整个的竹林作战，他怎么战得过！纵使战得过，他也不能战——这只能闹得玉石俱焚。</p><p>所以他停了下来，抱拳而立，道：“武林传闻，隐机子武功卓绝，看来此话不假；武林中又传闻，隐机子根本不会武功，看来此话亦不假。二十年来，先生一直是个神话，原来竟是如此，在下佩服。古人尝云列子御风而行，我尚不肯相信。今日看来，是我孤陋寡闻了。依先生这般，何止御风而行！古人曾不我欺呀！既是如此，先生要留在下，在下恭敬不如从命，就依先生所言。”</p><p>隐机子仍如绸般舞于空中，道：“如此甚好。沈兄弟，我们这就去吧。”说着便随了这阵风飘向林外，不见踪影。言公子叹道：“这阵法确实厉害。”他知道，如果真有了那九个圈，他会更多的留意那些圈，猜测隐机子将落于何圈，可是自他那一击开始，隐机子竟不曾落地，所以隐机子根本不必理会自己落于何圈，而他则又要多分些心了。</p><p>孤竹子束好琴，将琴收入屋中，整理了一番，出来同言公子道别，“竹屋下面有储藏室，每七日定有人送粮食过来，可储于此。窑里有酒，言兄若是不愿喝酒，窑里亦有往年收的雨水与雪水，言兄可以煮茶，那就告辞了。姑娘，我们这就走吧。”</p><p>溆茗望言公子道：“我留下来陪你，你愿不愿意？”</p><p>言公子没有说话。沉默那就是默认了咯，溆茗转头来笑道：“我不走，我留下来陪他。”</p><p>孤竹子叹了口气，朝溆茗望了两眼，衣襟一摆，轻功展开，倏然而逝。</p><p>溆茗拉了拉言公子的手，望他道：“进屋去吧。我做饭给你吃。”可是她过去是小姐，即使流落街头也没有轮上她自己做饭给自己吃，她又拉了拉言公子的手，害羞道：“这可是我第一次做饭。”她想，她又要多一个第一次的经历了。</p><p>言公子皱了皱眉头，叹了叹气，也就进屋去了。他可不愿意做别人的实验品，所以他自己做饭，他为她做饭。</p><hr>
 <p>鸣翠依旧喜欢月亮，尤其喜欢圆月。可是多半的时候并没有圆月，月是如钩的，勾起了多少回忆，多少相思泪呵！喜欢圆月，大概也是因为圆月之不可多得吧。现在月如钩，鸣翠依旧倚朱楼，凭栏而望那一弯银月。夜是墨浸的一块白布，零零落落地几点星是幕布的底色中未被墨染的点点滴滴。</p><p>也还是在这样的夜晚，算起来似乎已经六年了，她小姐就是在这样的夜里离去的。这六年里，多少的悲欢离合演绎着，多少的欢声笑语酩酊着，可是府里依旧是府里的生活，一成不变，任岁月一点一点侵蚀。</p><p>在这一成不变里唯一变化着的只有鸣微，她做了楚王那傻儿子的妃子了，一下从奴仆变作了奴仆的主人，她们也就此失去了联系。鸣翠低下头来，似乎竟嫉妒起鸣微来，她不要就这样一辈子白搭在府里，成日里被呼来唤去的，然后嫁给一个男仆，然后再待在府里做老妈子，这不是她想要的，人生需要些许不同的经历。
-她忽而莫名的兴奋起来，“既然小姐可以逃走，为什么我不可以呢！”</p><p>这大胆的想法萦绕心间，诱惑着她，她愈想愈是后悔，当初就应该跟着小姐一起出逃的，但是就算是现在，那也不算太迟，毕竟她还没有嫁人。鸣翠望着那钩月，终于下定了决心。</p><p>出走并不难，难的是出走以后的谋生。她不像她小姐，可以带出一大堆盘缠，她知道分寸，她只带上属于自己的衣物，也许是为以后留下后路，免得落下盗窃的口垢，纵然穷途后想回来也是不可能了。</p><p>夜深，人亦静。</p><p>荆州不如扬州般柔情，扬州的夜是温柔乡胭脂坊，荆州的夜永远都如战士般冷清冷静，是战场上的肃穆——只是没有战士。鸣翠一个人走在大街上，只有自己的脚步声同天幕的弯月伴随着她；她听着这声音，望着那弯月，这才暂时忘却了孤独，忘却了这骇人的寂静的夜。</p><p>太平盛世里的城，永远都是脆弱的，禁不起敌人的攻击。城门大开，没有守城的兵，鸣翠就这样轻轻松松地出了城，一路向南走去。她这时一身青布衣，灰土裤子，小帽，布履，近于男子的装束，肩负着青花纹的布包袱，步履轻快。</p><p>郊外自然本该更见清静，但是偶而还有虫鸣有草动，鸣翠在月光里走了一程，前面竟然热闹了起来，依稀见到了几点灯火。</p><p>是一片空林地，近百人围着一个圈，也不知在做什么游戏。鸣翠踌躇了些时候，觉得去打扰他们总是不太好，并且看那些人的架势，倒并不好惹；然而她还是按捺不住内心的好奇心，她竟一点一点向那里逼近，偷偷猫在一棵大树旁。</p><p>鸣翠的眼睛真好，她竟依稀觉得圈子里被围着的是她小姐李溆茗。</p>
-<hr>
+她忽而莫名的兴奋起来，“既然小姐可以逃走，为什么我不可以呢！”</p><p>这大胆的想法萦绕心间，诱惑着她，她愈想愈是后悔，当初就应该跟着小姐一起出逃的，但是就算是现在，那也不算太迟，毕竟她还没有嫁人。鸣翠望着那钩月，终于下定了决心。</p><p>出走并不难，难的是出走以后的谋生。她不像她小姐，可以带出一大堆盘缠，她知道分寸，她只带上属于自己的衣物，也许是为以后留下后路，免得落下盗窃的口垢，纵然穷途后想回来也是不可能了。</p><p>夜深，人亦静。</p><p>荆州不如扬州般柔情，扬州的夜是温柔乡胭脂坊，荆州的夜永远都如战士般冷清冷静，是战场上的肃穆——只是没有战士。鸣翠一个人走在大街上，只有自己的脚步声同天幕的弯月伴随着她；她听着这声音，望着那弯月，这才暂时忘却了孤独，忘却了这骇人的寂静的夜。</p><p>太平盛世里的城，永远都是脆弱的，禁不起敌人的攻击。城门大开，没有守城的兵，鸣翠就这样轻轻松松地出了城，一路向南走去。她这时一身青布衣，灰土裤子，小帽，布履，近于男子的装束，肩负着青花纹的布包袱，步履轻快。</p><p>郊外自然本该更见清静，但是偶而还有虫鸣有草动，鸣翠在月光里走了一程，前面竟然热闹了起来，依稀见到了几点灯火。</p><p>是一片空林地，近百人围着一个圈，也不知在做什么游戏。鸣翠踌躇了些时候，觉得去打扰他们总是不太好，并且看那些人的架势，倒并不好惹；然而她还是按捺不住内心的好奇心，她竟一点一点向那里逼近，偷偷猫在一棵大树旁。</p><p>鸣翠的眼睛真好，她竟依稀觉得圈子里被围着的是她小姐李溆茗。</p><hr>
 <p>被围着的并不只溆茗，还有言公子，还有她同言公子的小公子。</p><p>言公子仍旧是一袭淡桃色无绣丝制长袍，拦腰一围浅黄色丝巾玉绦，下面是灰白描翠的裤子，脚蹬土色布履，也依旧不曾束冠，形容俊雅。溆茗一身白，白帽白衣白裙白履，是隐机子留下的衣物，她手里牵着小孩子，依傍在言公子身旁。</p><p>小孩子突然道：“妈妈，我饿了，我要吃饭饭。”</p><p>溆茗低头看了看他，抬手抚摸起他的头，轻声道：“丹青，乖。等爸爸办完了事，妈妈给你买糖糖吃。”</p><p>小孩子听见有糖吃，果然不再闹了，很乖顺地挨着他母亲，静待这莫名的游戏的结束。他是这次出门后才吃过糖的，第一次吃糖便喜欢上了糖果。现在那些大叔叔大婶婶们围着一个圈是做什么呢？他啃起指甲，仔细琢磨起来，然而想破了小脑袋也想不明白。</p><p>言公子开口道：“各位错了，大错特错。既然挑在了晚上，那就不该在今天晚上。既然挑在了今天晚上，就不应该到这时还不出手。既然到这时还不出手，那我们妻儿可就要走了。”</p><p>“姓言的，你以为今天走得了么！六年前我师兄惨死于你手下，今日我便要为他报仇，以慰我师兄的在天之灵。”说话的是一个矮小精悍的白面小生，手执一把山河图的纸扇，一脸激愤而又偏偏装得从容镇定。</p><p>一石激起千层浪，他这一句话可谓是抛砖引玉，大伙儿马上就沸腾了，纷纷怒喝起来，有人道，“还我师傅命来”，还有人道，“还家父命来”，还有人道，“我要为我丈夫报仇”，但是更多的人只是辱骂，从言公子的祖宗十八代骂到孙子十八代，仿佛这样可以杀掉言公子似的，偏偏就没人敢上前动手，因为谁也不想第一个送命。</p><p>言公子叹道：“哎，冤冤相报何时了。各位又何必如此执著？我本意是想放各位一条生路，为什么各位就不肯给我这个机会呢？”</p><p>众人不免一笑。一位老先生站出来道：“姓言的，你休出狂言。我等百人，难道竟奈何不了你么！你还是束手就擒的好。我担保绝不为难你妻儿。”</p><p>“怎么能放过他们！斩草要除根。”</p><p>“血债需血偿，杀他妻儿也不为过。”……</p><p>老先生面色如铁，厉喝道：“老夫说过不许为难他妻儿，众位没长耳朵么！”</p><p>“阎老鬼，你以为你是谁呀。你这个阎可不是他那个言，没必要去维护他吧。所谓民意不可违，老鬼你还是省省吧。”</p><p>“阎罗清，你哪根葱？你说话就是圣旨了？就是圣旨，老子也把它当个屁！给老子滚一边去。”说话的是一个油光满面的胖子。</p><p>阎罗清一阵狂啸，大喝一声：“找死！”右手如爪，直扑过去。那人毫无防备，不禁一谔，便在此时，喉头已入了阎罗清之手，只需阎罗清稍一用力，他这喉头怕是不保；眼见危在旦息，他不由得全身酸软，说不出话来，看来这人只是口上功夫厉害的草包。</p><p>阎罗清笑道：“无知狂徒，老夫说不许为难他妻儿便是不许为难他妻儿。”他那一身黑衣劲装伴了这夜色再加了他诡异的身手再与他鹰一般的眼睛相合，众人只觉心里一寒。阎罗清心下不免得意，他自从死了弟弟后便狠下心来刻苦习武，六年来闭门不出，武功精进也是意料中的事，这次一试，果真不可与过去同日而语。</p><p>人一高兴就忘乎所以，这是不变的真理。阎罗清正自得意，他的手便已被人从那喉头卸下，又给人紧握在了手里，他扭头一看，是一个和尚。武林中人一见了会武功的和尚便以为是少林寺的和尚，这想法在绝大部分时候是对的，言公子却知道这和尚不是，他根本就没到北方去过，也不至于得罪少林寺的人。</p><p>但是言公子猜错了，这和尚偏偏就是少林寺的。只听阎罗清道：“原来是少林寺的空明和尚，失敬，失敬。”便这两声“失敬”，他手一缩，已经从空明手里脱了出来。</p><p>空明和尚笑道：“阎施主慈悲，和尚钦佩。然劲敌尚还未除，我等便已生内讧，不免使敌人有可趁之机。阎施主所言甚是，和尚担保没人敢去伤他妻儿。”</p><p>言公子重重的叹了口气，道：“各位为了在下而伤和气，在下实在觉得愧疚，即是如此，在下这条命赠与各位又有何妨。且容我与妻子说几句话。”他说着便俯到溆茗耳边嘀咕了几声。溆茗不禁脸上起了红晕，咬了咬唇，低下头轻声问道：“真要这样么，星哥？”</p><p>言公子点了点头，然后便解了玉绦，散开这一身的淡桃红的长袍，露出如女子的白净的胸脯，他竟只穿了这一件长袍。溆茗犹豫了些时候，两眼注视着言公子，可是，他并没有改变想法的意思，她也只好解了衣襟。</p><p>众人眼见了这等奇事，不禁大骇，以为言公子要施展什么法术了；又眼见了溆茗一件一件卸去了衣衫，不禁色心大起，直愣愣地瞧着她，也懒得再理会言公子的法术了。</p><p>等溆茗脱去了里背心，言公子便给她披上了自己的那件长袍。淡桃红的衣裳，衬着淡桃红的面颊，溆茗脸上一阵滚烫。言公子紧握住溆茗的手，在她滚烫的面颊上吻了一下，又俯到她耳边嘱咐了几句。</p><p>溆茗点了点头，眼角沁出泪来，已经哽咽了，她哑声道：“你真的不顾我们了么？”</p><p>言公子依旧握着溆茗的手，面容越发白净了。</p><p>他抬头向众位武林人士道：“各位可知在下为何要取各位亲友性命？只因在下喜欢他们的血。世人多有收集的嗜好，在下亦然；有的人喜欢收集石头，有的人喜欢收集树叶，有的人喜欢收集宝剑，有的人喜欢收集金银，还有的人喜欢收集女子，在下不才，在下的嗜好便是收集人血，只可惜到目前为此才收集到一百三十六人之血。懂得收集的人必然知道，收集倘若不收集珍奇的事物，还不若不收集！在下若要收集，自然会收集那些比较有名望一点的武林君子的血，也就是各位的亲友的血。在下所求也并不过份，只不过一滴血而已，但是向他们求这一滴血实在比登天还难！世人只知道流血是一件很痛苦的事，他们不愿意承受这痛苦，在下求之不得，也曾心下悔恨，自己亦觉得过于自私了，怎么可以将自己的快乐建立在别人的痛苦之上呢！然而偏偏又有了这么个嗜好，也没有办法。于是在下便想到了一个一举两得的方法，既可以满足在下的嗜好，又可以免除他人的痛苦。现在想来，在下还是错了。在下只考虑到流血之人的痛苦，而没有考虑到流血之人的亲友的痛苦，大错特错。为了弥补在下的过错，在下本来亦准备解决各位的痛苦。但是现下又改变主意了，只怕解决了各位的痛苦，各位的亲友便又痛苦起来。罢了罢了，索性还在下大方一点吧……”</p><p>言公子说着，忽而飞跃而起，到得一黑衣女子身前，剪手夺过她手里的匕首，便又退至中间，匕首便已插在了他白净的胸膛上。血沿着匕首一点一点滴下来，在这如烟的空气中凝聚，又一滴一滴溅在草地上。</p><p>众人面面相觑，左右顾盼，实难理解这一幕。他们看着言公子流血，看着他的血落在地上，又看着他倒在了地上，可是言公子却依旧嘴角含笑着。</p><p>空明和尚双手合十，拜了一拜，默念数语向各位道：“既然此人已死，我们走吧。”</p><p>胖子问道：“那这两个人呢？”</p><p>阎罗清不禁动怒道：“空明和尚说过放这二人一条生路，各位没有听见么！”</p><p>溆茗哼了哼，笑道：“各位就真这样走了？”</p><p>阎罗清安慰道：“姑娘，在下担保没人敢伤姑娘。姑娘这就回去吧。”</p><p>溆茗冷眼瞪着他，哼道：“刚才……刚才你都看见了？”</p><p>众人纷纷笑起来，遇了这样的事，大家不去瞧仔细了，难道还会闭着眼睛不成？阎罗清想了想，若说看见了，别人姑娘脸上不好看，若说没看见吧，那又是自欺欺人，思量一二，他也只好点了点头。</p><p>溆茗叹道：“既是如此，各位就想这样走了么！还是留下各位的眼睛再走吧！”</p><p>众人又是一笑，这姑娘说话简直是不知天高地厚！在这笑声中，溆茗长袖飞舞，跳动着脚步，踏着这笑声的旋律起落盘旋。众人冷眼瞧着，然而只是一瞬，就再也瞧不见了，血水与黑水从众人眼中激射出来，溅到溆茗的衣袖上，在衣袖上渗透，然后混为一体，淡桃色的长袍越染越深，变作桃色长袍，而后又变作梅色长袍。</p><p>在这一片嚎叫声里，十多盏灯笼飞散出去，在空中划出几记华美的淡黄的弧迹，落在了地上。溆茗牵起小孩子，一个飞跃，落在鸣翠身边，一把掐住她肩胛。鸣翠“啊”地尖叫了一声，道：“小姐，是我！”</p><p>溆茗这才认清，便放开了手。鸣翠蹲下来摸了摸小孩子的头，问道：“这位是小少爷？”</p><p>溆茗点了点头，“走吧。鸣翠，你也跟我们一起去吧。”</p><p>鸣翠犹豫着，可是还是点头同意了，她望那边看去，道：“那姑爷的尸体呢？”</p><p>溆茗神色黯然，摇了摇头，“算了，不管他了。这就走吧，我实在懒得见到这些人。”</p> ]]>
         </content>
     </entry>
@@ -220,19 +331,18 @@ generally happier writing it</p></blockquote> ]]>
         <published>2013-11-21T16:30:00+08:00</published>
         <id>http://lepture.com/en/2013/create-oauth-server</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>I&#39;ve searched the whole internet on how to create an OAuth server or
+            <![CDATA[ <p>I've searched the whole internet on how to create an OAuth server or
 provider, but failed every time. Sometimes it was the language that stopped
-me, and sometimes it was something that didn&#39;t even work.</p><p>And one day, I found <a href="https://github.com/ib-lundgren/flask-oauthprovider">Flask-OAuthProvider</a>, which was a
+me, and sometimes it was something that didn't even work.</p><p>And one day, I found <a href="https://github.com/ib-lundgren/flask-oauthprovider">Flask-OAuthProvider</a>, which was a
 great piece of work. But it only implements the OAuth 1 server, and I need
-the OAuth 2 part at that time. This was the first time I met OAuthlib.</p><blockquote><p>OAuthlib is the future of OAuth for Python.</p></blockquote><p>A quote from Kenneth Reitz, and I can&#39;t agree more. It is really great and
+the OAuth 2 part at that time. This was the first time I met OAuthlib.</p><blockquote><p>OAuthlib is the future of OAuth for Python.</p></blockquote><p>A quote from Kenneth Reitz, and I can't agree more. It is really great and
 RFC-aware. However, it is undervalued with <del>fewer than 450</del> stars on GitHub.
 The code of <a href="https://github.com/idan/oauthlib">OAuthlib</a> is well written, so is the documentation,
 and so is the test cases. You should star it. Everything is perfect, except
-its fame. That&#39;s why I sent <a href="https://github.com/aaronpk/oauth.net/pull/55">a pull request</a> to oauth.net,
+its fame. That's why I sent <a href="https://github.com/aaronpk/oauth.net/pull/55">a pull request</a> to oauth.net,
 making it known by the world.</p><p>OAuthlib is far more brilliant than rauth. It is a generic, spec-compliant
 library, without any specific HTTP request library. It focuses on the
-definition of RFCs.</p>
-<h2>Flask-OAuthlib</h2>
+definition of RFCs.</p><h2>Flask-OAuthlib</h2>
 <p>It has been 6 months since I started this project named as <a href="https://github.com/lepture/flask-oauthlib">Flask-OAuthlib</a>, which is a successor of Flask-OAuthProvider and Flask-OAuth.</p><p>With the great work of OAuthlib, I finished the client part in 4 days, and
 made it a replacement of Flask-OAuth. It is well designed with a good
 intention for compatability of the non-standard oauth servers. If you are
@@ -240,13 +350,11 @@ still using Flask-OAuth, I recommend you take this project into account.</p><p>I
 at version 0.3.0. And now this project has moved to version 0.4.0. So I
 think it is the right time to write some introduction now.</p><p>Thanks for the help of <a href="https://github.com/ib-lundgren">Ib Lundgren</a> who is the maintainer of OAuthlib.
 Thanks for the contribution of Randy Topliffe and Mackenzie B. Thompson.
-You can find them on the <a href="https://flask-oauthlib.readthedocs.org/en/latest/authors.html">authors list</a>.</p>
-<h2>Terminology &amp; Knowledge</h2>
+You can find them on the <a href="https://flask-oauthlib.readthedocs.org/en/latest/authors.html">authors list</a>.</p><h2>Terminology &amp; Knowledge</h2>
 <p>There are knowledge and terminologies that you should know. We will build
-a server in Flask web framework, it is okay even if you haven&#39;t used Flask.
+a server in Flask web framework, it is okay even if you haven't used Flask.
 You can still learn something that worth the time.</p><p>Since you are going to build an OAuth server, you may need some knowledge
-on these terminologies.</p>
-<ul>
+on these terminologies.</p><ul>
 <li><strong>client</strong>: also known as application, for example Twitter for iPhone
 is a client</li>
 <li><strong>resource owner</strong>: it is usually the user of a website, for example me
@@ -256,28 +364,23 @@ resource owner</li>
 </ul>
 <p>There are differences between OAuth 1 and OAuth 2. A client will need some
 temporary tokens for exchanging the final access tokens. They do have their
-own terminologies.</p>
-<h3>OAuth 1</h3>
+own terminologies.</p><h3>OAuth 1</h3>
 <p>OAuth 1 needs more temporary tokens, it has a request token, a verifier,
-a timestamp and a nonce.</p>
-<ul>
+a timestamp and a nonce.</p><ul>
 <li><strong>request token</strong>: designed for exchanging the final access token</li>
 <li><strong>verifier</strong>: designed for verifying the current authenticated user</li>
 <li><strong>timestamp</strong>: a timestamp of current request</li>
 <li><strong>nonce</strong>: a random token that makes current request unique</li>
 </ul>
-<p>All these messy things are designed for authentication and security.</p>
-<h3>OAuth 2</h3>
+<p>All these messy things are designed for authentication and security.</p><h3>OAuth 2</h3>
 <p>OAuth 2 is much easier, we do need only one <strong>grant token</strong> for exchanging
 the final access token.</p><p>OAuth 2 requires SSL over the connection for security, it simplifies the
 way for getting access token. However, SSL is also suggested on OAuth 1 in
-your final production.</p>
-<h2>Writing a Server</h2>
+your final production.</p><h2>Writing a Server</h2>
 <p>We need a normal server with a user system before starting the OAuth part.
-Any site which has OAuth service has a user system.</p><p>Since this is just a demo, we will not create something that big. Let&#39;s
+Any site which has OAuth service has a user system.</p><p>Since this is just a demo, we will not create something that big. Let's
 think about it, we need a user system, we need it because we want to
-identify the current user. But we can skip the registration part.</p><p>This is a basic, simple, yet functional server:</p>
-<pre><code class="py"># coding: utf-8
+identify the current user. But we can skip the registration part.</p><p>This is a basic, simple, yet functional server:</p><pre><code class="lang-py"># coding: utf-8
 
 from flask import Flask
 from flask import session, request
@@ -324,9 +427,8 @@ def home():
 if __name__ == &#39;__main__&#39;:
     db.create_all()
     app.run()
-</code></pre>
-<p>And this is the template of <code>home.html</code>:</p>
-<pre><code class="html+jinja">&lt;!DOCTYPE html&gt;
+</code>
+</pre><p>And this is the template of <code>home.html</code>:</p><pre><code class="lang-html+jinja">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -346,15 +448,13 @@ if __name__ == &#39;__main__&#39;:
   &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>
-<p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p>
-<h2>Creating OAuth 1 Server</h2>
+</code>
+</pre><p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p><h2>Creating OAuth 1 Server</h2>
 <p>Before implementing the actual OAuth part, we need to define an OAuth 1
 Client. A client requires client_key, client_secret, redirect_uris,
 default_redirect_uri and default_realms. Find more in the <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#client-application">Documentation</a>.</p><p>All clients are bound to a developer (developer is a user). The developer
 need to fill a form and describe the application. In this simple demo, we
-will skip this part. It will create a client when you visit <code>/client</code>.</p>
-<pre><code class="python">from flask import jsonify
+will skip this part. It will create a client when you visit <code>/client</code>.</p><pre><code class="lang-python">from flask import jsonify
 from werkzeug.security import gen_salt
 
 
@@ -401,28 +501,25 @@ def client():
         client_key=item.client_key,
         client_secret=item.client_secret
     )
-</code></pre>
-<p>You can find the whole new code at <a href="https://github.com/lepture/example-oauth1-server/tree/2cafa624dd8e82054a5208ce7c156f024d0bb109">commit#2cafa62</a>. Now, run the script
-and visit <code>/client</code>.</p>
-<h3>Implement OAuth 1 Provider</h3>
+</code>
+</pre><p>You can find the whole new code at <a href="https://github.com/lepture/example-oauth1-server/tree/2cafa624dd8e82054a5208ce7c156f024d0bb109">commit#2cafa62</a>. Now, run the script
+and visit <code>/client</code>.</p><h3>Implement OAuth 1 Provider</h3>
 <p>It is time to create a provider now. However, before we initialize a
-provider, we need to update the configuration.</p>
-<pre><code class="python">app.config.update({
+provider, we need to update the configuration.</p><pre><code class="lang-python">app.config.update({
     &#39;OAUTH1_PROVIDER_ENFORCE_SSL&#39;: False,
     &#39;OAUTH1_PROVIDER_KEY_LENGTH&#39;: (10, 100),
 })
-</code></pre>
-<p>Because we are developing on a local machine, it would be easier for us
+</code>
+</pre><p>Because we are developing on a local machine, it would be easier for us
 to implement it over HTTP. This is why we set <code>OAUTH1_PROVIDER_ENFORCE_SSL</code>
-to <code>False</code>. After this, we can create a provider:</p>
-<pre><code class="python">from flask_oauthlib.provider import OAuth1Provider
+to <code>False</code>. After this, we can create a provider:</p><pre><code class="lang-python">from flask_oauthlib.provider import OAuth1Provider
 oauth = OAuth1Provider(app)
 
 @oauth.clientgetter
 def load_client(client_key):
     return Client.query.filter_by(client_key=client_key).first()
-</code></pre>
-<p>Check code at <a href="https://github.com/lepture/example-oauth1-server/tree/78f6cf5ebbad01694ff3d5e78ad827acfefbea86">commit#78f6cf5</a>.</p><p>There will be lots of code, and they would flush this article. In this case,
+</code>
+</pre><p>Check code at <a href="https://github.com/lepture/example-oauth1-server/tree/78f6cf5ebbad01694ff3d5e78ad827acfefbea86">commit#78f6cf5</a>.</p><p>There will be lots of code, and they would flush this article. In this case,
 I would keep them in a repo, and create a revision every time a milestone
 finished. You need to follow the links to view the changes.</p><p>The next step is <a href="https://github.com/lepture/example-oauth1-server/commit/860850e57d7f5f07441d3019ce7cf0eaaffd0561">creating request token and verifier</a>, we did this by following the documentation of <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#request-token-and-verifier">Request Token and Verifier</a>.</p><p>Like request token and verifier, we mix timestamp and nonce together.
 Find out how we <a href="https://github.com/lepture/example-oauth1-server/commit/679d9a614cf10b5769f63ac76c45fd9aecb27181">create timestamp and nonce</a>. This
@@ -432,35 +529,35 @@ some bugs, added a logger for debugging. There was a change in <code>/client</co
 handler, we added a redirect uri data to the model, and we would use it
 later.</p><p>Now that we have finished the authorization part of OAuth 1 server, we need
 a client to verify it. We created a client with Flask-OAuthlib itself at
-<a href="https://github.com/lepture/example-oauth1-server/commit/f8b1d09b17f3bbcc9ecc41b44e061185e0e87e51">commit#f8b1d09</a>.</p><p>Let&#39;s have a game. Start your provider server with:</p>
-<pre><code>$ python app.py
+<a href="https://github.com/lepture/example-oauth1-server/commit/f8b1d09b17f3bbcc9ecc41b44e061185e0e87e51">commit#f8b1d09</a>.</p><p>Let's have a game. Start your provider server with:</p><pre><code>$ python app.py
+
+
 </code></pre>
 <p>We visit <code>http://127.0.0.1:5000/</code> and fill a username. And then we visit
 <code>http://127.0.0.1:5000/client</code>, take the client key and client secret, and
 modify our <code>client.py</code> script with the key and secret. Now, we can start
-the client server with:</p>
-<pre><code>$ python client.py
+the client server with:</p><pre><code>$ python client.py
+
+
 </code></pre>
 <p>We visit <code>http://localhost:8000/</code>, everything should work correctly. We
 will be redirected to a confirm page, if we choose yes, client will obtain
-a pair of access token and secret. If anything wrong happens, don&#39;t
+a pair of access token and secret. If anything wrong happens, don't
 hesitate to tell me. You can also debug it yourself. We enabled the
 logging for Flask-OAuthlib so that you can debug easily.</p><p>The last part of this tutorial on OAuth 1 is protecting user resources. It
-is easy with a decorator <code>require_oauth</code>:</p>
-<pre><code class="python">@app.route(&#39;/api/me&#39;)
+is easy with a decorator <code>require_oauth</code>:</p><pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
 @oauth.require_oauth()
 def me(req):
     user = req.user
     return jsonify(username=user.username)
-</code></pre>
-<p>This <code>req</code> parameter is an oauth request object, it contains many useful
+</code>
+</pre><p>This <code>req</code> parameter is an oauth request object, it contains many useful
 data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p><p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
 This commit added a tokengetter, and fixed some bugs I created. After the
 client obtained an access token, visit <code>http://localhost:8000/</code>, and you
 will see the information of current user.</p><p>There are more works we should do, but we will finish it right now.
 Since this is a simple tutorial, it will not cover any advanced skills.
-However, I would give some suggestions at the end of this article.</p>
-<h2>Creating OAuth 2 Server</h2>
+However, I would give some suggestions at the end of this article.</p><h2>Creating OAuth 2 Server</h2>
 <p>I created OAuth 2 provider in Flask-OAuthlib before OAuth 1 provider. That
 means I designed the API for OAuth 2 provider first, and OAuth 1 provider
 shares the same API with OAuth 2 provider.</p><p>The setup of OAuth 2 server is the same as above. First, we created a
@@ -469,36 +566,32 @@ basic simple server with a user system. You can find the code at
 Client for OAuth 2 use <code>client_id</code> instead of <code>client_key</code>, <code>default_scopes</code>
 instead of <code>default_realms</code>, and it has a client type (which is public in
 this case). See the code at <a href="https://github.com/lepture/example-oauth2-server/commit/3f1c8f2f86b408be6105593c3206cad814dfcb73">commit#3f1c8f2</a>.
-We created the Client following the documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth2.html#client-application">Client (Application)</a>.</p>
-<h3>Implement OAuth 2 Provider</h3>
+We created the Client following the documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth2.html#client-application">Client (Application)</a>.</p><h3>Implement OAuth 2 Provider</h3>
 <p>The next step is the implementation for OAuth 2 Provider since we have
 finished all preparation works. It is the same as OAuth 1 provider, except
-we don&#39;t have to make any configuration. via <a href="https://github.com/lepture/example-oauth2-server/commit/3b60b5d769b807b1549157f76cd46151dd3b8f1d">commit#3b60b5d</a>.</p>
-<pre><code class="python">from flask_oauthlib.provider import OAuth2Provider
+we don't have to make any configuration. via <a href="https://github.com/lepture/example-oauth2-server/commit/3b60b5d769b807b1549157f76cd46151dd3b8f1d">commit#3b60b5d</a>.</p><pre><code class="lang-python">from flask_oauthlib.provider import OAuth2Provider
 oauth = OAuth2Provider(app)
 
 @oauth.clientgetter
 def load_client(client_id):
     return Client.query.filter_by(client_id=client_id).first()
-</code></pre>
-<p>Then we would <a href="https://github.com/lepture/example-oauth2-server/commit/a10c376b6f48bfde52d5fa2d6a8c5cd50e3096e1">create Grant Token</a> and
+</code>
+</pre><p>Then we would <a href="https://github.com/lepture/example-oauth2-server/commit/a10c376b6f48bfde52d5fa2d6a8c5cd50e3096e1">create Grant Token</a> and
 <a href="https://github.com/lepture/example-oauth2-server/commit/ba1fd40293e673ae35180a1c10f95820c6a93d23">Access Token</a> , and their getters and setters. It is
-much simpler than OAuth 1, since we don&#39;t have to create timestamp and nonce.</p><p>OAuth 2 has no Request Token. The handlers are simple too. What you need is
+much simpler than OAuth 1, since we don't have to create timestamp and nonce.</p><p>OAuth 2 has no Request Token. The handlers are simple too. What you need is
 a token handler that handles response with access token or refresh token,
-and an authorize handler for user to confirm the request.</p>
-<pre><code class="python">@app.route(&#39;/oauth/token&#39;)
+and an authorize handler for user to confirm the request.</p><pre><code class="lang-python">@app.route(&#39;/oauth/token&#39;)
 @oauth.token_handler
 def access_token():
     return None
-</code></pre>
-<p>Flask-OAuthlib has done all the tricks, you don&#39;t need to handle the data
+</code>
+</pre><p>Flask-OAuthlib has done all the tricks, you don't need to handle the data
 yourself. However, you can return things that matter to you. They are
-advanced skills, and I will not cover it here.</p><p>Changes can be found at <a href="https://github.com/lepture/example-oauth2-server/commit/cbc3e12a3123f4bbc9d68eb8438247357f213583">commit#cbc3e12</a>.</p><p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p>
-<pre><code class="python">import os
+advanced skills, and I will not cover it here.</p><p>Changes can be found at <a href="https://github.com/lepture/example-oauth2-server/commit/cbc3e12a3123f4bbc9d68eb8438247357f213583">commit#cbc3e12</a>.</p><p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p><pre><code class="lang-python">import os
 os.environ[&#39;DEBUG&#39;] = &#39;true&#39;
-</code></pre>
-<p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
-developing on a local machine, we don&#39;t have HTTPS, As a result, it is
+</code>
+</pre><p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
+developing on a local machine, we don't have HTTPS, As a result, it is
 hard to meet this requirement. Fortunately, OAuthlib has a mechanism for
 us to debug on HTTP, that is the environ variable <code>DEBUG</code>.
 (Which is contributed by me).</p><p>When we code, we make mistakes. You have to keep an eye on the error
@@ -507,26 +600,24 @@ this commit.</p><p>And now start the server and client and visit <code>http://lo
 You will finally get an access token.</p><p>We do OAuth, because we want to protect some resources. This is the last
 part of this tutorial on OAuth 2 server. We protect them with a decorator
 <code>@oauth.require_oauth</code>, and this decorator will add an additional paramter
-to the handler.</p>
-<pre><code class="python">@app.route(&#39;/api/me&#39;)
+to the handler.</p><pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
 @oauth.require_oauth()
 def me(req):
     return jsonify(username=req.user.username)
-</code></pre>
-<p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
-the source code and enjoy it yourself.</p>
-<h2>References &amp; Other Resources</h2>
+</code>
+</pre><p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
+the source code and enjoy it yourself.</p><h2>References &amp; Other Resources</h2>
 <p>I must confess that it is not easy to setup an OAuth server. You need to
-learn lots of concepts for understanding. This tutorial don&#39;t teach you
+learn lots of concepts for understanding. This tutorial don't teach you
 the realms and scopes stuff - you can learn these parts from the <a href="https://flask-oauthlib.readthedocs.org/">Flask-OAuthlib documentation</a>.</p><p>We did waste lots of time on creating the models and handlers. In fact we
-don&#39;t have to do such boring things. A demo is just, a demo. I don&#39;t mean
+don't have to do such boring things. A demo is just, a demo. I don't mean
 to set limitations, and force you to use SQLAlchemy. There are chances
-that you want to use redis instead.</p><p>That&#39;s why I put the SQLAlchemy stuff in the <code>contrib</code> module. It is not
+that you want to use redis instead.</p><p>That's why I put the SQLAlchemy stuff in the <code>contrib</code> module. It is not
 finished yet, and I need your contribution.
-Find out what&#39;s going on in <a href="https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib">contrib</a>.</p><p>And one more thing, it would be better if we put those temporary tokens
+Find out what's going on in <a href="https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib">contrib</a>.</p><p>And one more thing, it would be better if we put those temporary tokens
 in cache, for example request token, verifier, timestamp, nonce and
 grant token.</p><p>Remember that every link is important, if you miss one, you may miss the
-target. Chances are that you&#39;ve already lost your patience.</p><p><strong>TL;DR</strong></p> ]]>
+target. Chances are that you've already lost your patience.</p><p><strong>TL;DR</strong></p> ]]>
         </content>
     </entry>
     <entry>
@@ -539,11 +630,9 @@ target. Chances are that you&#39;ve already lost your patience.</p><p><strong>TL
         <published>2013-11-19T13:34:00+08:00</published>
         <id>http://lepture.com/zh/2013/laiwang-and-qrcode</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>前同事在微信羣裏發來往的二維碼，我其實也很想加，但是嫌麻煩，就略過了。</p><p>我實在不能理解這樣的傳播方式。我至少需要兩部手機，相互掃描二維碼，才能加來往好友，但是我不是土豪。後來聽說不需要兩部手機，把圖片保存下來，來往可以掃描本地圖片，但是我不是阿裏員工。</p><p>肉食者鄙，常常做出一些想當然的決策。具體到這件事來說，二維碼是不適合在手機間傳播的。那麼什麼合適呢？我以爲還是 URI 比較好，雖然不夠新潮。比如：</p>
-<pre><code>laiwang://user/lepture
+            <![CDATA[ <p>前同事在微信羣裏發來往的二維碼，我其實也很想加，但是嫌麻煩，就略過了。</p><p>我實在不能理解這樣的傳播方式。我至少需要兩部手機，相互掃描二維碼，才能加來往好友，但是我不是土豪。後來聽說不需要兩部手機，把圖片保存下來，來往可以掃描本地圖片，但是我不是阿裏員工。</p><p>肉食者鄙，常常做出一些想當然的決策。具體到這件事來說，二維碼是不適合在手機間傳播的。那麼什麼合適呢？我以爲還是 URI 比較好，雖然不夠新潮。比如：</p><pre><code>laiwang://user/lepture
 </code></pre>
-<p>但是微信不會解析該協議，可是微信會解析 HTTP，那我們做一次重定向:</p>
-<pre><code>http://laiwang.com/app/user/lepture
+<p>但是微信不會解析該協議，可是微信會解析 HTTP，那我們做一次重定向:</p><pre><code>http://laiwang.com/app/user/lepture
 =&gt; laiwang://user/lepture
 </code></pre>
 <p>我知道這樣不夠新潮，可是你確定你追求的是新潮？</p><p>這篇上接<a href="http://lepture.com/zh/2013/anti-long-weibo">《長微博及其它》</a>，喚爲：</p><blockquote><p>You are doing it wrong !</p></blockquote><p>肉食者鄙，而下不能達上，大公司通病也。</p> ]]>
@@ -559,26 +648,20 @@ target. Chances are that you&#39;ve already lost your patience.</p><p><strong>TL
         <published>2013-11-12T22:34:00+08:00</published>
         <id>http://lepture.com/zh/2013/anti-long-weibo</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>長微博這個詞像警世的寓言，頗有一股諷刺意味，正好比我們說方方正正的圓圈，規規矩矩的放蕩。</p><p>我微博用得不勤，話多在 Twitter。一方面是微博的界面入不得眼，另一方面就是文字圖片（所謂長微博者）的濫用。微博也意識到了這點，可是又不思進取，以爲提供一個官方的文字圖片生成工具就算是解決問題了。</p><p>前些時候，濟南中院微博直播薄熙來案庭審，算是開創性的大事吧。而文字直播所用的方式竟然是這長微博，也就是圖片。起先，濟南中院整理出純文本稿，而後將此文本生成圖片發表於微博，最後再由網易小編整理成純文本稿，不知花費人力幾何？信息量未變，而圖片在其傳播過程中又浪費網絡資源幾何？</p><p>我不知也。假使我有點情懷，也該矯情地說一句：「也請偶爾爲這個宇宙考慮考慮吧。」</p>
-<h2>Twitter 的思路</h2>
-<p>批評有時顯得蒼白無力，需要一點建設性意見。我們也偶爾需要承認，外國的月亮確實要圓一點。看看 Twitter 是如何做的。</p><p>Twitter 有一個特性叫作 <a href="https://dev.twitter.com/cards">Twitter Cards</a>，用來展示嵌入內容。它可以是摘要，可以是圖片，可以是視頻，還可以是 App。</p><p>當你發出一條包含網址的 Tweet 時，Twitter 會去查看該網址是否包含可展示的內容。具體的要求則是該網址包含 Twitter 所要求的標記。比如：</p>
-<pre><code class="html">&lt;meta name=&quot;twitter:card&quot; content=&quot;summary&quot;&gt;
+            <![CDATA[ <p>長微博這個詞像警世的寓言，頗有一股諷刺意味，正好比我們說方方正正的圓圈，規規矩矩的放蕩。</p><p>我微博用得不勤，話多在 Twitter。一方面是微博的界面入不得眼，另一方面就是文字圖片（所謂長微博者）的濫用。微博也意識到了這點，可是又不思進取，以爲提供一個官方的文字圖片生成工具就算是解決問題了。</p><p>前些時候，濟南中院微博直播薄熙來案庭審，算是開創性的大事吧。而文字直播所用的方式竟然是這長微博，也就是圖片。起先，濟南中院整理出純文本稿，而後將此文本生成圖片發表於微博，最後再由網易小編整理成純文本稿，不知花費人力幾何？信息量未變，而圖片在其傳播過程中又浪費網絡資源幾何？</p><p>我不知也。假使我有點情懷，也該矯情地說一句：「也請偶爾爲這個宇宙考慮考慮吧。」</p><h2>Twitter 的思路</h2>
+<p>批評有時顯得蒼白無力，需要一點建設性意見。我們也偶爾需要承認，外國的月亮確實要圓一點。看看 Twitter 是如何做的。</p><p>Twitter 有一個特性叫作 <a href="https://dev.twitter.com/cards">Twitter Cards</a>，用來展示嵌入內容。它可以是摘要，可以是圖片，可以是視頻，還可以是 App。</p><p>當你發出一條包含網址的 Tweet 時，Twitter 會去查看該網址是否包含可展示的內容。具體的要求則是該網址包含 Twitter 所要求的標記。比如：</p><pre><code class="lang-html">&lt;meta name=&quot;twitter:card&quot; content=&quot;summary&quot;&gt;
 &lt;meta name=&quot;twitter:title&quot; content=&quot;長微博及其它&quot;&gt;
 &lt;meta name=&quot;twitter:description&quot; content=&quot;....&quot;&gt;
-</code></pre>
-<p>然後向 Twitter 提交你的網站，待 Twitter 認證後，包含你網站的 Tweet 便會展示相關摘要了。請放心，這一步相當快，Twitter 的審覈在幾分鍾內就完成了。</p><figure><img src="http://ww1.sinaimg.cn/large/5d261318gw1edquzpeksnj20eb0akjsf.jpg" alt="Twitter Cards" /></figure>
-<h2>標準的價值</h2>
-<p>Twitter 的方案並非原創，是模仿的 <a href="http://ogp.me/">Open Graph</a>。這一方案的好處是顯而易見的，一種包羅萬象的大氣。所謂互聯網者，當互聯也，關起門來獨攬全活叫自閉而非互聯。而協議就是這互聯的基礎。</p><p>Open Graph 是由臉書提出的，Twitter 繼承而生 Twitter Cards，而 <a href="https://developers.google.com/+/web/snippet/">Google+</a> 兼而得之。</p><p>尤其值得一提的是 <a href="http://schema.org/">Schema</a> 標準，真正有一股描述世界的霸氣：</p>
-<pre><code class="html">&lt;body itemscope itemtype=&quot;http://schema.org/Product&quot;&gt;
+</code>
+</pre><p>然後向 Twitter 提交你的網站，待 Twitter 認證後，包含你網站的 Tweet 便會展示相關摘要了。請放心，這一步相當快，Twitter 的審覈在幾分鍾內就完成了。</p><figure><img src="http://ww1.sinaimg.cn/large/5d261318gw1edquzpeksnj20eb0akjsf.jpg" alt="Twitter Cards" /></figure><h2>標準的價值</h2>
+<p>Twitter 的方案並非原創，是模仿的 <a href="http://ogp.me/">Open Graph</a>。這一方案的好處是顯而易見的，一種包羅萬象的大氣。所謂互聯網者，當互聯也，關起門來獨攬全活叫自閉而非互聯。而協議就是這互聯的基礎。</p><p>Open Graph 是由臉書提出的，Twitter 繼承而生 Twitter Cards，而 <a href="https://developers.google.com/+/web/snippet/">Google+</a> 兼而得之。</p><p>尤其值得一提的是 <a href="http://schema.org/">Schema</a> 標準，真正有一股描述世界的霸氣：</p><pre><code class="lang-html">&lt;body itemscope itemtype=&quot;http://schema.org/Product&quot;&gt;
   &lt;h1 itemprop=&quot;name&quot;&gt;Shiny Trinket&lt;/h1&gt;
   &lt;img itemprop=&quot;image&quot; src=&quot;{image-url}&quot; /&gt;
   &lt;p itemprop=&quot;description&quot;&gt;Shiny trinkets are shiny.&lt;/p&gt;
 &lt;/body&gt;
-</code></pre>
-<p>標準需要的不一定是技術，有時只是一個想法就足夠了。比如說 RSS、Atom。</p>
-<h2>對微博建議</h2>
-<p>文字圖片的弊端也不再述了，我也知道中國人的獨特需求，他們喜歡被圈養，不太願意跳出圍城。但是這並不意味着我們就需要污染環境。</p><p>正如 Twitter 模仿 Open Graph，我們也可以模仿 Schema：</p>
-<pre><code class="html">&lt;div itemscope itemtype=&quot;http://weibo.com/LongWeibo&quot;&gt;
+</code>
+</pre><p>標準需要的不一定是技術，有時只是一個想法就足夠了。比如說 RSS、Atom。</p><h2>對微博建議</h2>
+<p>文字圖片的弊端也不再述了，我也知道中國人的獨特需求，他們喜歡被圈養，不太願意跳出圍城。但是這並不意味着我們就需要污染環境。</p><p>正如 Twitter 模仿 Open Graph，我們也可以模仿 Schema：</p><pre><code class="lang-html">&lt;div itemscope itemtype=&quot;http://weibo.com/LongWeibo&quot;&gt;
   &lt;meta name=&quot;creator&quot; content=&quot;@lepture&quot;&gt;
   &lt;h1 itemprop=&quot;name&quot;&gt;Article Title&lt;/h1&gt;
   &lt;img itemprop=&quot;image&quot; src=&quot;{image-url}&quot; /&gt;
@@ -587,8 +670,8 @@ target. Chances are that you&#39;ve already lost your patience.</p><p><strong>TL
     {content}
   &lt;/div&gt;
 &lt;/div&gt;
-</code></pre>
-<p>當我們分享一條鏈接時，微博便去索引此篇文章，找到全文內容，儲存爲純文本，在需要的時候展示全文。</p><p>這個想法是免費的，隨時歡迎微博取用。也衷心希望對這個世界溫柔一點，儘量使用更低能耗的純文本。珍愛世界，從我做起，如果你的郵箱簽名帶有圖片，請把圖片去掉。</p> ]]>
+</code>
+</pre><p>當我們分享一條鏈接時，微博便去索引此篇文章，找到全文內容，儲存爲純文本，在需要的時候展示全文。</p><p>這個想法是免費的，隨時歡迎微博取用。也衷心希望對這個世界溫柔一點，儘量使用更低能耗的純文本。珍愛世界，從我做起，如果你的郵箱簽名帶有圖片，請把圖片去掉。</p> ]]>
         </content>
     </entry>
     <entry>
@@ -614,43 +697,49 @@ target. Chances are that you&#39;ve already lost your patience.</p><p><strong>TL
         <published>2013-03-24T16:35:00+08:00</published>
         <id>http://lepture.com/zh/2013/typography-and-markdown</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>許多年前，我也曾想過將來要做一個文字工作者，結果現在從事了互聯網行業。這次單從互聯網從業人員的角度談文字排印。</p><p>提到「標記語言」，不免會讓不知情者以為高深，其實很簡單，正如某言「無技術含量」。然而真正要做好，亦非易事。糟糕的排版隨處可見，例如在一段文字中突兀出現很大幾個字，又或者一段黑色文字中夾雜幾句紅的綠的黃的句子，更可憎的是有些文字還一閃一閃亮晶晶，這樣的例子在互聯網上比比皆是，不忍卒讀。通俗來講，稱為暴發戶氣質。</p><p>好的排版（指單篇文章）是為了文章的易讀性，讓人看著愉悅看著舒服，實際經驗告訴我們，略微泛黃的奶油色底加黑色文字是讓人最愉悅的搭配。當然，除了顏色，還有字體、大小、字間距、行間距等諸多因素影響著排版的效果。</p><p>做為寫作者，我們應該關注的真的是文章的顯示效果麼？當我們說「把這段文字加粗」，我們的本意是想強調這段文字，加粗只是表象，強調並不意味著一定要加粗。相反，我們所需要的是理解文字段落的本質，忽略其表現效果，一個好的開頭就是改變我們的思維方式，回歸本原，<strong>「這段文字需要著重強調一下」</strong>。</p><p>正如多年前的互聯網，當時（也許現在還存在）還沒有樣式分離的觀念，前端開發者迷失在樣式的表象上，忽視了事物的本質。於是，各種 <code>&lt;font&gt;</code> 之類的 HTML 標記大行其道。但是現在的情況好很多了，比如我們會用 <code>&lt;strong&gt;</code> 而不是 <code>&lt;b&gt;</code> 來「加粗」文字，這樣的改變體現的正是觀念的轉變，<code>&lt;b&gt;</code> 意味著 bold，是表象上的加粗，<code>&lt;strong&gt;</code> 體現的是著重強調，是本質上的加粗。這是一小步改變，也是一大步改變。</p><p>也許你並不了解什麼是 HTML，什麼是 <code>&lt;strong&gt;</code>，什麼是 <code>&lt;b&gt;</code>，這沒有關係，你正在看的這個網頁其實就是一個 HTML。但是你不需要知道這些。因為有更簡單，更多適合寫作者的標記語言 —— Markdown。</p><p>已經有不少人談過 Markdown，例如：</p>
-<ul>
+            <![CDATA[ <p>許多年前，我也曾想過將來要做一個文字工作者，結果現在從事了互聯網行業。這次單從互聯網從業人員的角度談文字排印。</p><p>提到「標記語言」，不免會讓不知情者以為高深，其實很簡單，正如某言「無技術含量」。然而真正要做好，亦非易事。糟糕的排版隨處可見，例如在一段文字中突兀出現很大幾個字，又或者一段黑色文字中夾雜幾句紅的綠的黃的句子，更可憎的是有些文字還一閃一閃亮晶晶，這樣的例子在互聯網上比比皆是，不忍卒讀。通俗來講，稱為暴發戶氣質。</p><p>好的排版（指單篇文章）是為了文章的易讀性，讓人看著愉悅看著舒服，實際經驗告訴我們，略微泛黃的奶油色底加黑色文字是讓人最愉悅的搭配。當然，除了顏色，還有字體、大小、字間距、行間距等諸多因素影響著排版的效果。</p><p>做為寫作者，我們應該關注的真的是文章的顯示效果麼？當我們說「把這段文字加粗」，我們的本意是想強調這段文字，加粗只是表象，強調並不意味著一定要加粗。相反，我們所需要的是理解文字段落的本質，忽略其表現效果，一個好的開頭就是改變我們的思維方式，回歸本原，<strong>「這段文字需要著重強調一下」</strong>。</p><p>正如多年前的互聯網，當時（也許現在還存在）還沒有樣式分離的觀念，前端開發者迷失在樣式的表象上，忽視了事物的本質。於是，各種 <code>&lt;font&gt;</code> 之類的 HTML 標記大行其道。但是現在的情況好很多了，比如我們會用 <code>&lt;strong&gt;</code> 而不是 <code>&lt;b&gt;</code> 來「加粗」文字，這樣的改變體現的正是觀念的轉變，<code>&lt;b&gt;</code> 意味著 bold，是表象上的加粗，<code>&lt;strong&gt;</code> 體現的是著重強調，是本質上的加粗。這是一小步改變，也是一大步改變。</p><p>也許你並不了解什麼是 HTML，什麼是 <code>&lt;strong&gt;</code>，什麼是 <code>&lt;b&gt;</code>，這沒有關係，你正在看的這個網頁其實就是一個 HTML。但是你不需要知道這些。因為有更簡單，更多適合寫作者的標記語言 —— Markdown。</p><p>已經有不少人談過 Markdown，例如：</p><ul>
 <li><a href="http://apple4us.com/2012/02/why-writers-should-use-markdown.html">为什么作家应该用 Markdown 保存自己的文稿</a></li>
 <li><a href="http://www.yangzhiping.com/tech/r-markdown-knitr.html">Markdown 写作浅谈</a></li>
 </ul>
-<p>普遍的誤解是，這些標記語言是程式師們的東西。但是正如其作者 <a href="http://daringfireball.net/projects/markdown/">John Gruber</a> 所說：</p><blockquote><p>Markdown is a text-to-HTML conversion tool for web writers.</p></blockquote><p>它從一開始就不是所謂 Geek 的東西，恰恰相反，它是為你這樣的文字工作者所設計的。它很簡單，它在 IT 界所以越發流行也正是因為其簡單易學，甚至有人稱其學習成本為零。</p><p>我們只需要簡單介紹一下基本的文法，聰明者如你應該不需要五分鐘就可學會。</p>
-<ul>
-<li><p>一級標題（大標題）</p>
-<pre><code># 這是一級標題
-</code></pre></li>
-<li><p>二級標題（副標題）</p>
-<pre><code>## 這個是副標題
-</code></pre></li>
-<li><p>那麼三級標題，四級標題也就很容易猜出來了</p>
-<pre><code>### 三級標題
-#### 四級標題
-</code></pre></li>
-<li><p>圖片與鏈接</p>
-<pre><code>![image description](image URL)
-[link text](link URL)
-</code></pre></li>
-<li><p>著重強調</p>
-<pre><code>*emphasize*    **strong**
-_emphasize_    __strong__
-</code></pre></li>
-<li><p>引用的內容</p>
-<pre><code>&gt; 生命是一襲華美的袍，爬滿了虱子。
-</code></pre></li>
-<li><p>有序列表</p>
-<pre><code>1. 有序列表第一條
-2. 有序列表第二條
-</code></pre></li>
-<li><p>無序列表</p>
-<pre><code>* 無序列表
-* 無序列表
-</code></pre></li>
+<p>普遍的誤解是，這些標記語言是程式師們的東西。但是正如其作者 <a href="http://daringfireball.net/projects/markdown/">John Gruber</a> 所說：</p><blockquote><p>Markdown is a text-to-HTML conversion tool for web writers.</p></blockquote><p>它從一開始就不是所謂 Geek 的東西，恰恰相反，它是為你這樣的文字工作者所設計的。它很簡單，它在 IT 界所以越發流行也正是因為其簡單易學，甚至有人稱其學習成本為零。</p><p>我們只需要簡單介紹一下基本的文法，聰明者如你應該不需要五分鐘就可學會。</p><ul>
+<li><p>一級標題（大標題）</p><pre><code>  # 這是一級標題
+</code></pre>
+</li>
+<li><p>二級標題（副標題）</p><pre><code>  ## 這個是副標題
+</code></pre>
+</li>
+<li><p>那麼三級標題，四級標題也就很容易猜出來了</p><pre><code>  ### 三級標題
+  #### 四級標題
+</code></pre>
+</li>
+<li><p>圖片與鏈接</p><pre><code>  ![image description](image URL)
+  [link text](link URL)
+</code></pre>
+</li>
+<li><p>著重強調</p><pre><code>  *emphasize*    **strong**
+  _emphasize_    __strong__
+</code></pre>
+</li>
+<li><p>引用的內容</p><pre><code>  &gt; 生命是一襲華美的袍，爬滿了虱子。
+</code></pre>
+</li>
+<li><p>有序列表</p></li>
 </ul>
+<pre><code>    1. 有序列表第一條
+    2. 有序列表第二條
+
+
+
+</code></pre>
+<ul>
+<li>無序列表</li>
+</ul>
+<pre><code>    * 無序列表
+    * 無序列表
+
+
+
+</code></pre>
 <p>現在你已經了解了所有你需要知道的了，這難道能叫做難學麼？忘記介紹段落了，你只需要保證段落之間有空行就可以了。</p><p>也許你還需要一個編輯器來輔助你，例如我現在正在用 Mou 來寫作這篇文章。對，你所看到的這篇文章正是用 Markdown 寫作的。也許你對自己的寫作不放心，需要實時預覽，借助<a href="http://www.zhihu.com/question/19637157">這些工具</a>也許能讓你更放心。其實真的不需要，例如當我寫作這篇文章時，我並不需要即時預覽，我知道我寫出來的效果一定就會是我想要的。</p><p>另外我正在編寫一個網頁版的 <a href="http://lab.lepture.com/editor/">Markdown 編輯器</a>，雖然還沒有完成，不過已經足以幫助你熟悉一下 Markdown 的文法了。我也為你準備了一份詳細的<a href="http://lab.lepture.com/editor/markdown">英文版文法</a>說明。</p><p>也許你還會覺得這些文法不夠用，你還是想把你的文章弄得花花綠綠的，我想這篇文章不是為你而寫的。我也深深為你的審美捉急呀。</p> ]]>
         </content>
     </entry>
@@ -664,8 +753,7 @@ _emphasize_    __strong__
         <published>2012-11-22T00:00:00+08:00</published>
         <id>http://lepture.com/zh/2012/hello-bangkok</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <blockquote><p>沒有睡過機場的旅行不完整。</p></blockquote><p>彭哲夫如是說。</p><p>到達曼谷的時候是午夜，第一個夜晚便在機場度過。於是，旅行從一開始就完整了——也許並不是，因為不曾睡過。這一天是 2012 年九月五號。</p><p>曼谷的機場，空調開得很冷，在 Money Exchange 兌換了一點鈔票（Tips: 匯率極差，後來才發現，原來從 ATM 里直接取鈔匯率會更好），馬上就去星巴克點了杯熱飲，暖和一下，也順便給手機充一下電。</p><p>無事可做，又沒有網路，只好发呆。拿起 Kindle 看了點書，是齊邦媛的《巨流河》。後來連書也看不下去了，終於鼓起了勇氣 Say Hello。</p><figure><img src="http://i.imgur.com/q1Ck3.jpg" alt="曼谷機場" /></figure><p>Sunny 是泰國人，但是長著一副歐洲人的面孔，英文說得又好，如果他不說，我是萬料不到的。後來見到的泰國人也確實同 Sunny 長得不一樣，也許是混血吧。</p><p>他教我用 Foursquare，我才發現以前從未用過 Explore 的功能，而且因為沒有了中國政府，地圖定位精確，Explore 可算是幫了大忙。他又慷慨地分享網路給我，為我挑選了一些景點做了個 Foursquare List，順便下載了幾個關於曼谷的 App（雖然後來也沒用過）。</p><p>這是我在泰國陸地上遇到的第一個泰國人，給了我很大幫助。</p><p>大約五點的光景，快到 City Line 的首班時間，同 Sunny 告別後便到樓下等車。</p><p>也不知是從哪裡看來的一條路線（豆瓣？），大約是這樣的：</p>
-<ol>
+            <![CDATA[ <blockquote><p>沒有睡過機場的旅行不完整。</p></blockquote><p>彭哲夫如是說。</p><p>到達曼谷的時候是午夜，第一個夜晚便在機場度過。於是，旅行從一開始就完整了——也許並不是，因為不曾睡過。這一天是 2012 年九月五號。</p><p>曼谷的機場，空調開得很冷，在 Money Exchange 兌換了一點鈔票（Tips: 匯率極差，後來才發現，原來從 ATM 里直接取鈔匯率會更好），馬上就去星巴克點了杯熱飲，暖和一下，也順便給手機充一下電。</p><p>無事可做，又沒有網路，只好发呆。拿起 Kindle 看了點書，是齊邦媛的《巨流河》。後來連書也看不下去了，終於鼓起了勇氣 Say Hello。</p><figure><img src="http://i.imgur.com/q1Ck3.jpg" alt="曼谷機場" /></figure><p>Sunny 是泰國人，但是長著一副歐洲人的面孔，英文說得又好，如果他不說，我是萬料不到的。後來見到的泰國人也確實同 Sunny 長得不一樣，也許是混血吧。</p><p>他教我用 Foursquare，我才發現以前從未用過 Explore 的功能，而且因為沒有了中國政府，地圖定位精確，Explore 可算是幫了大忙。他又慷慨地分享網路給我，為我挑選了一些景點做了個 Foursquare List，順便下載了幾個關於曼谷的 App（雖然後來也沒用過）。</p><p>這是我在泰國陸地上遇到的第一個泰國人，給了我很大幫助。</p><p>大約五點的光景，快到 City Line 的首班時間，同 Sunny 告別後便到樓下等車。</p><p>也不知是從哪裡看來的一條路線（豆瓣？），大約是這樣的：</p><ol>
 <li>City Line 到 BTS phaya thai 下車</li>
 <li>乘坐 BTS 到 Siam 換乘 W 線</li>
 <li>到 Saphan Taksin 下車，到天橋下換乘曼谷水上巴士</li>
@@ -686,50 +774,29 @@ _emphasize_    __strong__
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>It has been months since I decided to learn cocoa development, but in vain.
 Unlike python, the documentation of cocoa tortures me a lot.</p><p>I am still new to cocoa development. And this post will be part of my learning series.
-I didn&#39;t mean to teach you anything, on the contrary, it is a track of my learing.
-But it may be a little helpful to you.</p>
-<h2>StatusBar App</h2>
-<p>A <strong>StatusBar App</strong> is what on the right side of the menu bar, it doesn&#39;t contain a main window.
-For example, the volumn control is a StatusBar App.</p>
-<h2>Demo Time</h2>
-<p>It&#39;s the time to create a StatusBar App now.</p>
-<ol>
+I didn't mean to teach you anything, on the contrary, it is a track of my learing.
+But it may be a little helpful to you.</p><h2>StatusBar App</h2>
+<p>A <strong>StatusBar App</strong> is what on the right side of the menu bar, it doesn't contain a main window.
+For example, the volumn control is a StatusBar App.</p><h2>Demo Time</h2>
+<p>It's the time to create a StatusBar App now.</p><ol>
 <li><p>Open your Xcode (I am on Xcode 4.3.3)</p></li>
-<li><p>Create a cocoa application project</p></li>
-</ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg" alt="create a project" /></p>
-<ol>
+<li><p>Create a cocoa application project</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg" alt="create a project" /></figure></li>
 <li><p>Name the project <strong>StatusBarApp</strong></p></li>
 <li><p>Run for testing</p></li>
 </ol>
-<p>Now you will get an App with window. However, our app is a StatusBar App, it has no window.</p><p>The final app should be like:</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/application.jpg" alt="application" /></figure>
-<h3>Menu</h3>
-<p>We will create the menu first.</p>
-<ol>
-<li>Drag a menu to the interface builder</li>
+<p>Now you will get an App with window. However, our app is a StatusBar App, it has no window.</p><p>The final app should be like:</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/application.jpg" alt="application" /></figure><h3>Menu</h3>
+<p>We will create the menu first.</p><ol>
+<li><p>Drag a menu to the interface builder</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg" alt="drag a menu" /></figure></li>
+<li><p>Edit the menu item</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg" alt="edit menu item" /></figure></li>
+<li><p>Decorate the menu with seprator</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg" alt="decorate with seprator" /></figure></li>
+<li><p>Connect the menu to your code outlet, and name it <code>statusMenu</code></p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg" alt="connect menu outlet" /></figure></li>
 </ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg" alt="drag a menu" /></p>
-<ol>
-<li>Edit the menu item</li>
-</ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg" alt="edit menu item" /></p>
-<ol>
-<li>Decorate the menu with seprator</li>
-</ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg" alt="decorate with seprator" /></p>
-<ol>
-<li>Connect the menu to your code outlet, and name it <code>statusMenu</code></li>
-</ol>
-<p>   <img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg" alt="connect menu outlet" /></p>
 <h3>StatusBar</h3>
-<p>Create the statusBar property in your <code>AppDelegate.h</code> file:</p>
-<pre><code class="objc">@property (strong, nonatomic) NSStatusItem *statusBar;
-</code></pre>
-<p>Synthesize it in the <code>AppDelegate.m</code> file:</p>
-<pre><code class="objc">@synthesize statusBar = _statusBar;
-</code></pre>
-<p>Initialize the statusBar:</p>
-<pre><code class="objc">- (void) awakeFromNib {
+<p>Create the statusBar property in your <code>AppDelegate.h</code> file:</p><pre><code class="lang-objc">@property (strong, nonatomic) NSStatusItem *statusBar;
+</code>
+</pre><p>Synthesize it in the <code>AppDelegate.m</code> file:</p><pre><code class="lang-objc">@synthesize statusBar = _statusBar;
+</code>
+</pre><p>Initialize the statusBar:</p><pre><code class="lang-objc">- (void) awakeFromNib {
     self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 
     self.statusBar.title = @&quot;G&quot;;
@@ -740,22 +807,16 @@ For example, the volumn control is a StatusBar App.</p>
     self.statusBar.menu = self.statusMenu;
     self.statusBar.highlightMode = YES;
 }
-</code></pre>
-<p><code>awakeFromNib</code> is earlier than <code>applicationDidFinishLaunching</code> in the lifecycle.</p>
-<h3>App Go</h3>
-<p>Let&#39;s test this application.</p>
-<ol>
+</code>
+</pre><p><code>awakeFromNib</code> is earlier than <code>applicationDidFinishLaunching</code> in the lifecycle.</p><h3>App Go</h3>
+<p>Let's test this application.</p><ol>
 <li>Run you app now. You will see a <strong>G</strong> in the menu bar.</li>
 <li>Delete the useless window in your <code>MainMenu.xib</code>, and run your app again.</li>
 </ol>
-<p>It works! But it doesn&#39;t work the right way. It is on the dock, it shows the menu on the left.</p><p>Fix it in <code>StatusBarApp-Info.plist</code>, add a row:</p>
-<pre><code>Application is agent (UIElement)  = YES
+<p>It works! But it doesn't work the right way. It is on the dock, it shows the menu on the left.</p><p>Fix it in <code>StatusBarApp-Info.plist</code>, add a row:</p><pre><code>Application is agent (UIElement)  = YES
 </code></pre>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg" alt="connect menu outlet" /></figure><p>Run your application again, it won&#39;t be on the dock, it won&#39;t show the menu.</p>
-<h3>Do More</h3>
-<p>But you can&#39;t quit the application, that could be annoying. We did have a Quit item on the application, but it won&#39;t work right now.</p><p>Fix it:</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step7.jpg" alt="quit" /></figure>
-<h2>Reference:</h2>
-
+<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg" alt="connect menu outlet" /></figure><p>Run your application again, it won't be on the dock, it won't show the menu.</p><h3>Do More</h3>
+<p>But you can't quit the application, that could be annoying. We did have a Quit item on the application, but it won't work right now.</p><p>Fix it:</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step7.jpg" alt="quit" /></figure><h2>Reference:</h2>
 <ul>
 <li><a href="http://cocoatutorial.grapewave.com/2010/01/creating-a-status-bar-application/">Creating a Status Bar Application</a></li>
 <li><a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSStatusItem_Class/Reference/Reference.html">NSStatusItem Class Reference</a></li>
@@ -786,19 +847,16 @@ For example, the volumn control is a StatusBar App.</p>
         <published>2012-05-02T00:00:00+08:00</published>
         <id>http://lepture.com/en/2012/vundle-vs-pathogen</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>Most people just want an answer. Yes, vundle is better.</p>
-<h2>Pathogen</h2>
+            <![CDATA[ <p>Most people just want an answer. Yes, vundle is better.</p><h2>Pathogen</h2>
 <p>Pathogen created a new way to organize vim plugins, it provides the possibility
 to make vim plugins a bundle.</p><p>The original vim plugin system is somewhat a centered plugin system, but pathogen makes
-it a distributing system. The original way:</p>
-<pre><code>vim/
+it a distributing system. The original way:</p><pre><code>vim/
     syntax/
         html.vim
     indent/
         html.vim
 </code></pre>
-<p>The pathogen way:</p>
-<pre><code>vim/bundle/
+<p>The pathogen way:</p><pre><code>vim/bundle/
     html/
         syntax/
             html.vim
@@ -806,17 +864,15 @@ it a distributing system. The original way:</p>
             html.vim
 </code></pre>
 <p>Now, you can take <code>html</code> as a bundle (or app), you need not copy every file to the right
-directory, everything is well maintained by the plugin creator.</p><p>It&#39;s almost the end of the world, the vim plugin system should be distributed. And I&#39;m glad
+directory, everything is well maintained by the plugin creator.</p><p>It's almost the end of the world, the vim plugin system should be distributed. And I'm glad
 that so many plugins are compatible with pathogen.</p><p>I tried pathogen, and <a href="http://lepture.com/work/manage-vim/">wrote a post</a> (in Chinese) about
-it.</p>
-<h2>Vundle</h2>
-<p>At that time, I knew vundle, and I mentioned it in the post, but I didn&#39;t try it.
+it.</p><h2>Vundle</h2>
+<p>At that time, I knew vundle, and I mentioned it in the post, but I didn't try it.
 I wish if only I had tried it.</p><p>Vundle is inspired by Pathogen, it can do everything pathogen can do,
 it is compatible with pathogen, which means if a plugin declares it supporting
 pathogen, it supports vundle.</p><p>But vundle does more, it improved the way to get and update vim plugins.
 I mentioned in my post, that I was trying git-submodule with pathogen,
-it was brilliant, but vundle is more elegant:</p>
-<pre><code class="vim">set nocompatible               &quot; be iMproved
+it was brilliant, but vundle is more elegant:</p><pre><code class="lang-vim">set nocompatible               &quot; be iMproved
 filetype off                   &quot; required!
 
 set rtp+=~/.vim/bundle/vundle/
@@ -838,8 +894,8 @@ Bundle &#39;L9&#39;
 Bundle &#39;FuzzyFinder&#39;
 &quot; non github repos
 Bundle &#39;git://git.wincent.com/command-t.git&#39;
-</code></pre>
-<p>Launch vim and run <code>:BundleInstall</code> , everything will be ready for you.
+</code>
+</pre><p>Launch vim and run <code>:BundleInstall</code> , everything will be ready for you.
 All things you should do is trying it.</p><p>Save my words, save your time, head over to
 <a href="https://github.com/gmarik/vundle">Vundle</a> immediately.</p> ]]>
         </content>
@@ -867,8 +923,7 @@ All things you should do is trying it.</p><p>Save my words, save your time, head
         <published>2011-09-05T00:00:00+08:00</published>
         <id>http://lepture.com/zh/2011/dajiangdahai</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>港大女教授龍應台所著的這本《大江大海一九四九》在大陸是禁書，2009年出版。今年是2011年。</p><p>提到禁書，不禁讓人想入非非。可是梁文道先生又這樣描述道：</p><blockquote><p>龍應台的《大江大海一九四九》，使我們見識到一本書的營銷，可以做到甚麼規模。首先是搞定台港星馬等四地媒體的同步協調，讓它們幾乎在同一時間大幅刊出訪問報道，然後是鋪天蓋地的廣告攻勢以及最大限度的人際網絡發揮；尤其台灣，從電視到巴士車廂，你無論走到哪裡，都逃不過龍應台那深情的凝視，都不能不面對她的挑戰(「告訴我，戰爭有勝利者嗎？」) </p></blockquote><p>這樣子說來，商業氣息可謂濃重，《大江大海》也確實沒有辜負這份商業氣，稱得上暢銷書，當然大陸不在其列，是台港星馬。單單是商業氣息濃重的暢銷書倒也罷了（雖然我不能覺得出商業氣來），不見得會成為禁書，總該是觸及了中共的敏感神經，甚至於我想在豆瓣上標記一下讀書狀態都不可得。</p><p>但是《大江大海》本身是沒有政治氣的，是「<a href="http://commentshk.blogspot.com/2009/10/blog-post_04.html">非政治</a> 」，可是一但觸及到歷史，它不可能不影響到政治，因為我們（大陸）的歷史本身是為政治服務的，是建立在政治之上的，也正是因了此，我們的歷史是謊言編織的歷史。失去了這些謊言，也就失去了立足之本。</p><p>比如長春圍城，算是經典的段落了。大陸有一本書《雪白血紅》據說亦有提及，我還未曾寓目，但不知它是如何描述的。我只想引用一下一九四八年九月九日，林彪等人給毛澤事發的一個長春報告：　</p><blockquote><p>飢餓情況愈來愈嚴重，飢民便乘夜或與（於）白晝大批蜂擁而出，經我趕回後，群集於敵我警戒線之中間地帶，由此餓斃者甚多，僅城東八里堡一帶，死亡即約兩千</p><p>不讓飢民出城，已經出來者要堵回去，這對飢民對部隊戰士，都是很費解的。飢民們對我會表不滿，怨言特多說，「八路見死不救。」他們成群跪在我哨兵面前央求放行，有的將嬰兒小孩丟了就跑，有的持繩在我崗哨前上吊。</p></blockquote><p>事實上我們只需要簡簡單單地陳述，無需加入過多的感情，無需義憤填膺，無需叩問。真相就足夠震撼了。可是這並沒有什麼，如果說一般人不了解也就罷了。但是龍應台在長春考察，發現連很多當地人都不知道這件往事。「在這場戰役『偉大勝利』的敘述中，長春圍城的慘烈死難，完全不被提及。『勝利』走進中國的歷史教科書，代代傳授，被稱為『兵不血刃』的光榮解放」。</p><p>可怕的並不是歷史，而是我們不知道歷史。傳媒輿論被控制，謊言漸漸深入人心，真相被遺忘，這該是怎樣一個荒誕的世界，可是偏偏我們就活在這中間。長春圍城，對於這些逝去的生命，掌權者該怎樣解說？是烈士？是敵人？都不是，偏偏是無辜的『死者』。而『死者』是政權合法性的絆腳石。</p><p>哈，原來我們對生命的漠然竟是個傳統，也就難怪會出現先通車後救人了，反正中國人就是人多，死幾個人是不打緊的。</p><p>如果說你以為這是本針對中共的書的話，那只能怪我誤導你了。因為生在了『新中國』，關注點不得不被環境影響，也不能說是關注點，是我想述說，想要告訴人，想讓人知道的那些人與事。</p><p>當我們唱著「兩隻老虎，兩隻老虎，跑得快，跑得快－－」的時候，你可曾知道這首歌還有另外一首詞：「打倒列強，打倒列強，除軍閥，除軍閥－－」</p>
-<hr>
+            <![CDATA[ <p>港大女教授龍應台所著的這本《大江大海一九四九》在大陸是禁書，2009年出版。今年是2011年。</p><p>提到禁書，不禁讓人想入非非。可是梁文道先生又這樣描述道：</p><blockquote><p>龍應台的《大江大海一九四九》，使我們見識到一本書的營銷，可以做到甚麼規模。首先是搞定台港星馬等四地媒體的同步協調，讓它們幾乎在同一時間大幅刊出訪問報道，然後是鋪天蓋地的廣告攻勢以及最大限度的人際網絡發揮；尤其台灣，從電視到巴士車廂，你無論走到哪裡，都逃不過龍應台那深情的凝視，都不能不面對她的挑戰(「告訴我，戰爭有勝利者嗎？」) </p></blockquote><p>這樣子說來，商業氣息可謂濃重，《大江大海》也確實沒有辜負這份商業氣，稱得上暢銷書，當然大陸不在其列，是台港星馬。單單是商業氣息濃重的暢銷書倒也罷了（雖然我不能覺得出商業氣來），不見得會成為禁書，總該是觸及了中共的敏感神經，甚至於我想在豆瓣上標記一下讀書狀態都不可得。</p><p>但是《大江大海》本身是沒有政治氣的，是「<a href="http://commentshk.blogspot.com/2009/10/blog-post_04.html">非政治</a> 」，可是一但觸及到歷史，它不可能不影響到政治，因為我們（大陸）的歷史本身是為政治服務的，是建立在政治之上的，也正是因了此，我們的歷史是謊言編織的歷史。失去了這些謊言，也就失去了立足之本。</p><p>比如長春圍城，算是經典的段落了。大陸有一本書《雪白血紅》據說亦有提及，我還未曾寓目，但不知它是如何描述的。我只想引用一下一九四八年九月九日，林彪等人給毛澤事發的一個長春報告：　</p><blockquote><p>飢餓情況愈來愈嚴重，飢民便乘夜或與（於）白晝大批蜂擁而出，經我趕回後，群集於敵我警戒線之中間地帶，由此餓斃者甚多，僅城東八里堡一帶，死亡即約兩千</p><p>不讓飢民出城，已經出來者要堵回去，這對飢民對部隊戰士，都是很費解的。飢民們對我會表不滿，怨言特多說，「八路見死不救。」他們成群跪在我哨兵面前央求放行，有的將嬰兒小孩丟了就跑，有的持繩在我崗哨前上吊。</p></blockquote><p>事實上我們只需要簡簡單單地陳述，無需加入過多的感情，無需義憤填膺，無需叩問。真相就足夠震撼了。可是這並沒有什麼，如果說一般人不了解也就罷了。但是龍應台在長春考察，發現連很多當地人都不知道這件往事。「在這場戰役『偉大勝利』的敘述中，長春圍城的慘烈死難，完全不被提及。『勝利』走進中國的歷史教科書，代代傳授，被稱為『兵不血刃』的光榮解放」。</p><p>可怕的並不是歷史，而是我們不知道歷史。傳媒輿論被控制，謊言漸漸深入人心，真相被遺忘，這該是怎樣一個荒誕的世界，可是偏偏我們就活在這中間。長春圍城，對於這些逝去的生命，掌權者該怎樣解說？是烈士？是敵人？都不是，偏偏是無辜的『死者』。而『死者』是政權合法性的絆腳石。</p><p>哈，原來我們對生命的漠然竟是個傳統，也就難怪會出現先通車後救人了，反正中國人就是人多，死幾個人是不打緊的。</p><p>如果說你以為這是本針對中共的書的話，那只能怪我誤導你了。因為生在了『新中國』，關注點不得不被環境影響，也不能說是關注點，是我想述說，想要告訴人，想讓人知道的那些人與事。</p><p>當我們唱著「兩隻老虎，兩隻老虎，跑得快，跑得快－－」的時候，你可曾知道這首歌還有另外一首詞：「打倒列強，打倒列強，除軍閥，除軍閥－－」</p><hr>
 <p>李敖2011年的時候出了一本書，叫作《大江大海騙了你》。我未曾寓目，不免膽怯于談及此書，而對于書中所舉之史料失實，亦未敢質疑。</p><p>我向來的習慣是在沒看原著之前，盡可能不去看評論，簡介倒不忌諱。這次卻例外了，頗看了點李敖這本書的評論，因為實在沒有閱讀該書的沖動。李敖本身的政治氣太濃了，不免指責龍的不深究，尤其是涉及到國民黨的方面，總覺得龍是偏袒。可是對于共產黨她又有過深究？</p><p>第一點，我不認為《大江大海一九四九》是本嚴肅的歷史紀實，算是一部采訪集。史實的出入也許會有，又或者是因為當事人記憶方面的原因。而至于有多少，大約不至于多到需要花另外一整本書來糾正的地步。李敖頗有點意思的是，居然就可以寫出這麽一本。</p><p>如果你有興趣的話，不妨可以看看，你甚至可以去豆瓣上標記一下讀書狀態。</p><p>李敖的視角自然是要罵國民黨的。不像以前白色恐怖，批評是要付出代價的，如今的批評顯得微不足道，襯托不出鬥士形像，反對則顯得蒼白無力。大陸就不一樣，有出鬥士的環境，可是。</p><p>政治氣是這樣的，龍應台倒不是個喜談政治的人。之前去北大演講，談中國夢，她這樣說：</p><blockquote><p>回到今天中國夢的主題，可能有很多台灣人會跳起來說：中國不是我的夢，我的夢裏沒有中國。但是，你如果問龍應台有沒有中國夢，我會先問你那個中國夢的「中國」指的是什麼？如果指的是「國家」或「政府」，「國家」「政府」在我心目中不過就是個管理組織，對不起，我對「國家」沒有夢，「政府」是會說謊的。但如果你說的「中國」指的是這塊土地上的人，這個社會，我怎麼會沒有夢呢？別說這片美麗的土地是我摯愛的父親、母親永遠的故鄉，這個地方的好跟壞，對於台灣有那麼大的影響，這個地方的福與禍，會牽動整個人類社區的未來，我怎麼會沒有中國夢呢？</p></blockquote><p>可是當她說「母親永遠的故鄉」時，她母親的故鄉已經不在了。曾經的淳安，千年古城呵，現在卻是千島湖了，是千島湖下的古城。</p><p>提起千島湖，那不正是我們前端組outing常去的地方麼。可是去千島湖打麻將的時候，又有多少人知道下面有一個淳安古城？</p><p>她母親美君，有必要而且值得一提的往事，說起來相當輝煌。</p><p>有一回，買賣做完，回程的船上裝了私鹽，半路上突然出現緝私隊，還真多虧美君的機警。她要工人立即把兩袋合法的官鹽拖到船板的最前端，然後要工人那年輕豐滿的媳婦坐到存放私鹽的船艙入口的門檻上，脫掉外衣，只留身上的小胸兜。當士兵檢查過前面的官鹽後，正要進去船艙檢查時，突然看到這樣一個女子，登時嚇了一跳，美君解釋為「嫂子剛剛在給孩子餵奶」。於是順利過關。</p><p>聽起來都覺得不可思議。啊，原來當時的士兵有這樣的質素！也讓我立刻懷疑這小聰明在現在是否行得通。</p> ]]>
         </content>
     </entry>
@@ -922,19 +977,6 @@ All things you should do is trying it.</p><p>Save my words, save your time, head
         <id>http://lepture.com/zh/2010/ethics-of-love</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>近來的風氣格外大膽，同志盛行，各處漫延著基友、搞基之類的詞彙，彷彿homosexuality已經不是大膽話題，相反，正是流行所向。然而沒有美感。</p><p>早些時候，彷彿是2007年，有一部泰國電影《暹羅之戀》，雖是講同性之戀，雖是青春偶像片，然而讓我覺得了美，覺得了精緻，逢人就推薦。但是個人喜好的不同，許多還未看完小時候那一場開場劇就等不下去了，我以為很可惜，也不好勉強。而且尤其因為這部片子不適合熱鬧，偏好於個人的欣賞。</p><p>新近的雖然大膽，無非是鬧鬧，滑稽戲罷了。</p><p>可是我要說的是近代，共黨以前的事了。張愛玲作《心經》，不是同性之戀，是父女之戀。這在當時算是大膽極矣，即使放在當下，也還算是禁忌，不比基友之流。雖說張亦有寫作同性戀，《同學少年都不賤》大抵算是了，我倒不打算談。</p><p>一般認為張有戀父情結，《小團圓》出來的時候，亦常見有評說，張愛上胡蘭成是出於戀父，且不論是否，這裡只是提一下。</p><p>許小寒是怎樣愛上自己的父親的，張未有提及，在我以為是頗難理解。小寒自己倒格外得意，其實時常有向同學們暗示。“這是我爸爸。我要你們把他認清楚了，免得下次你們看見他跟我在一起，又要發生誤會。”“上次有一個同學，巴巴地來問我，跟你去看國泰的電影的那個高高的人，是你的男朋友麼？我笑了幾天——一提起就好笑！”</p><p>如果說孩子氣的話還可以理解，偏偏許峰儀又愛著自己的女兒，這樣大的一個人了，簡直無法理解。他當然覺得不安，倫理上是如何都說不過去的。小寒是自然不肯讓步的，所以也不難理解結局了，當然是許峰儀做了背叛。</p><p>可是許峰儀選擇了綾卿，讓綾卿做了代替品，其實還是有愛戀女兒的意思。小寒生日那天，許峰儀就覺得了綾卿同小寒長得像，她們彈琴後，峰儀有說“你們兩個人長得有點像”。也不知是否當時就下了主意。</p><p>故事自然是一個悲劇。</p><p>最可憐的當然是小寒母親，是小寒一手造成的，最後竟又想讓母親可以管管父親，多少有些荒唐。她父親還會在意她母親麼！她造就了許多悲劇人物，可是她自己是最大的悲劇。我自然沒有責怪的意思，反而是覺得了可惜。</p><p>《心經》在張愛玲的短篇里，大約沒甚麼名氣，然而別具一格，也還是張愛玲的味道。</p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[偷錢]]></title>
-        <link href="http://lepture.com/zh/2010/stealing-money"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2010-09-03T00:00:00+08:00</updated>
-        <published>2010-09-03T00:00:00+08:00</published>
-        <id>http://lepture.com/zh/2010/stealing-money</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>說起來也是因為看過三毛的《膽小鬼》才起意要寫。但是如果再早幾年，也就三五年的樣子，我是斷然不肯寫的，以為是羞恥。現在的心境，可以坦然面對以往的過失，更多的是將其當作了童趣。少年時代的事，很輕易就淡化了其中的不齒，再有瑕疵，也不值一哂。</p><p>自然，我要說的偷錢，是偷自家的錢。倘使是別家的，就連是現在，大約也難以啓齒，是萬不肯承認的。</p><p>當時是怎樣的情形，其實都已經模糊了。唯一清晰的記憶是錢的數目，是七塊錢。</p><p>是很早以前的事了，都還未正式上學。我真正有學歷記錄還是兩三年後，轉到了鎮上的小學開始上一年級。那個時候大約是在村裡上幼年班。</p><p>也忘卻了是出於甚麼一種心境，總之是偷了錢。因為家裡的錢通常都是放在房間里的抽屜里的，而且抽屜一般又未上鎖，所以想偷點錢還是很簡單的。也輕易就拿了七塊錢。</p><p>小孩子的心思，多半貪玩。我那時拿了錢後，自然是買了許多玩具。幼年時候的七塊錢還是挺值錢的，記得的玩具有一輛車，一架直升機。想來玩具車多半也都玩過，是那種按在了地上向後拉，上了發條就向前衝的。直升機倒忘了是怎樣一種玩法。總之是愉快的一半天，享受了揮金如土的感覺。</p><p>臨近晚上的時候就被母親發現了，少不了的是訓斥。問我拿了多少，我那時支支吾吾地，說是拿了七毛錢。數字倒是肯承認的，單位確不敢實供。雖然小，也是知道七毛比七塊要少的。</p><p>可是再要記得更多，就不能了。母親是如何的生氣，我那時又是怎麼樣的一個窘境，是完全不記得了。也不知是否有意的淡忘。之後再有沒有偷過錢，也許有吧，也許沒有，都不太記得了，只記得這一段了，記得七塊錢與七毛錢。</p> ]]>
         </content>
     </entry>
 </feed>

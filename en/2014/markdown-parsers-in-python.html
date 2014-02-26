@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Markdown Parsers in Python — Just lepture</title>
+  <link rel="author" href="https://plus.google.com/117887319435448092628">
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
+  <link rel="logo" type="image/svg" href="/logo.svg" />
+  <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
+<link rel="stylesheet" href="/assets/site.css?v=998f9">
+<link rel="stylesheet" href="/assets/font.css?v=bed34">
+<script>
+  function js(u){
+    if (location.port) return {onload: null};
+    var d=document,a='script',s=d.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-21475122-1']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    js('https://ssl.google-analytics.com/ga.js');
+</script>    <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Markdown Parsers in Python">
+    <meta name="description" content="A list of all markdown parsers in Python. The advantages and
+disadvantages of them.">
+    <meta name="twitter:description" content="A list of all markdown parsers in Python. The advantages and
+disadvantages of them.">
+  <meta name="twitter:site" content="@lepture">
+  <meta name="twitter:creator" content="@lepture">
+  <meta name="twitter:domain" content="lepture.com">
+</head>
+<body>
+  <div id="header">
+    <div class="container yue">
+      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
+      <div id="nav" role="navigation">
+          <a href="/resume">About</a>
+          <a href="/zh/">Chinese</a>
+          <a href="/en/">English</a>
+      </div>
+    </div>
+  </div>
+  <div id="subheader">
+    <div class="container yue">
+  A list of all markdown parsers in Python. The advantages and
+disadvantages of them.
+    </div>
+  </div>
+  <div id="main">
+    <div class="container yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">Markdown Parsers in Python</h1>
+    <div class="entry-meta">
+      <time class="updated" datetime="2014-02-26T16:55:00+08:00" itemprop="datePublished" pubdate>
+        Feb 26, 2014
+      </time>
+      <em>1344 words</em>
+    </div>
+  <div class="entry-content" itemprop="articleBody">
+    <p>There are many markdown parsers in Python. Misaka was my favorite one.
+However, misaka is deprecated now, and the successor which is called
+hoedown still has issues to solve. That's why it is a <strong>was</strong>. But I still
+love it.</p><p>Here is a list of markdown parsers for Python in my knowledge:</p><ul>
+<li>Misaka: A python binding for Sundown. (CPython required)</li>
+<li>Hoedown: A python binding for Hoedown, successor of Misaka.</li>
+<li>Discount: A python binding for Discount. (CPython required)</li>
+<li>cMarkdown: Markdown for Python, accelerated by C. (CPython required)</li>
+<li>Markdown: A pure markdown parser, the very first implementation.</li>
+<li>Markdown2: Another pure markdown parser.</li>
+</ul>
+<p>And I've just released another pure markdown parser too, which is called
+<strong><a href="https://github.com/lepture/mistune">mistune</a></strong>.</p><h2>Misaka</h2>
+<p><a href="https://github.com/FSX/misaka">Misaka</a> was my favorite markdown parser. It
+is a python binding of Sundown, which means that it has all the features
+that Sundown provides.</p><p>It is super fast! Actually, it is the top one in my benchmarks. Since it is
+a binding of a C library, no wonder that it is this fast. If speed is what
+you want, you should try misaka, and as well as other bindings of a C library.</p><p>But misaka is more than speed. It is the custom renderer feature that catches
+my heart. I am so fond of it, that's why I implement the custom renderer
+feature in my own markdown parser <strong>mistune</strong>.</p><p>A quick and very useful sample is <a href="http://misaka.61924.nl/manual/#toc_15">code highlighting</a>.</p><p>However, it is a binding of a C libary. It requires CPython, if you prefer
+PyPy, you have no access to it. Some App Engines have a limitation on compiling
+C libraries too, you can't use misaka in this case. And even if you are
+using CPython, it is still difficult to install it on a Windows OS.</p><blockquote><p>Visual Studio's support for C is not optimal and most VS compilers are
+missing stdint.h, which is needed to compile Misaka.</p></blockquote><p>If you are on a Windows, may god helps you. I don't care it a shit.</p><p>Footnote feature is missing in Misaka. Maybe many of you don't need such a
+thing, in this case, misaka has nothing bad. It is stable, efficient, and
+has many GFM features.</p><p>The only trouble is Sundown is deprecated.<sup class="footnote-ref" id="fnref-sundown-deprecated"><a href="#fn-sundown-deprecated" rel="footnote">1</a></sup></p><h2>Hoedown</h2>
+<p>Because the Sundown library is deprecated, here comes hoedown<sup class="footnote-ref" id="fnref-c-hoedown"><a href="#fn-c-hoedown" rel="footnote">2</a></sup>,
+which is the fork of the original Sundown. It has a Python binding also
+called as hoedown.</p><p>Since Hoedown is the successor of Sundown, and <a href="https://github.com/hhatto/python-hoedown">python-hoedown</a> is the successor of Misaka, all features
+that misaka has, python-hoedown has them too. But python-hoedown is more
+than that.</p><ol>
+<li>It is PyPy compatible.</li>
+<li>It has footnote feature.</li>
+</ol>
+<p>It looks promissing, and even misaka's author recommends it. I've tried it,
+but failed with one issue, <a href="https://github.com/hhatto/python-hoedown/issues/5">a magic error</a> that I can't do anything:</p><pre><code>terminated by signal SIGSEGV (Address boundary error)</code></pre><p>This isssue is not fixed yet. Once it does, hoedown would be a good choice
+for non-AE users.</p><h2>cMarkdown &amp; Discount</h2>
+<p><a href="https://github.com/paulsmith/cMarkdown">cMarkdown</a> is much like Misaka,
+except that it is based on upskirt<sup class="footnote-ref" id="fnref-upskirt"><a href="#fn-upskirt" rel="footnote">3</a></sup> rather than sundown. The
+history is very interesting, sundown is a fork of upskirt, hoedown is a
+fork of sundown. And now, sundown is deprecated, upskirt is missing. The
+new markdown parser that vmg promised is still not available.</p><p>cMarkdown has all the disadvantages of Misaka, and it is a little slower
+than Misaka. This means you really should use misaka instead of cMarkdown.</p><hr>
+<p>Discount is a joke for me, I can't even install it successfully! There is
+not much to say. But I do know that Discount is slower than Sundown.</p><h2>Markdown &amp; Markdown2</h2>
+<p><a href="https://github.com/waylan/Python-Markdown">Python-Markdown</a> is the very first markdown parser in pure Python. It is
+good, except the documentation. However, I miss the renderer feature in
+misaka, which is not in Python-Markdown.</p><p>Python-Markdown is not that slow as I expected, since Python-Markdown2
+calls itself as:</p><blockquote><p>A fast and complete implementation of Markdown in Python.</p></blockquote><p>But it is not true. Python-Markdown2 is much slower than Python-Markdown.
+I have no idea why it says itself fast. All features that 2 has, the older
+one has too.</p><p>The benchmark shows that Python-Markdown2 is almost twice slower than
+Python-Markdown. No wonder it is 2.</p><h2>Mistune</h2>
+<p><a href="https://github.com/lepture/mistune">Mistune</a> is a new (just released)
+markdown parser. It is the <strong>fastest</strong> one in all pure Python implementations.
+Almost <strong>4 times faster</strong><sup class="footnote-ref" id="fnref-bench"><a href="#fn-bench" rel="footnote">4</a></sup> than Python-Markdown in pure Python
+environment, almost <strong>5 times faster</strong> with Cython's help.</p><p>I didn't expect it to be so fast when I wrote it. I know it would be a fast
+one, but I didn't know that it would be 4 times faster and even 5 times
+faster.</p><hr>
+<p>I have never thought of creating a Markdown parser my own. But it has been
+months since I reported the issue to Hoedown. The issue is still there,
+not solved a bit. Because it is a C binding, I am not able to do any help,
+the only thing I can do is waiting.</p><p>I don't use Python-Markdown or Python-Markdown2, because they have no renderer
+feature, and they are slow.</p><p>I have <a href="/en/2013/unpleasant-open-source">introduced renderer feature to marked</a>, which is
+finally merged. And now I am trying to add the <a href="https://github.com/chjj/marked/pull/351">footnote feature</a>.
+It occured to me that I can port marked to Python, since I know marked well,
+and I know it is the fastest in all pure JavaScript implementations. It
+would be fast in Python too, and it really does.</p><hr>
+<p>If you are looking for a fast, full featured<sup class="footnote-ref" id="fnref-mistune-features"><a href="#fn-mistune-features" rel="footnote">5</a></sup> and pure
+Python implementation, Mistune is a good choice. It also has renderer
+feature just like Misaka. You can always influnce the rendering results
+with custom renderers.</p><div class="highlight"><pre><span class="kn">import</span> <span class="nn">mistune</span>
+<span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
+<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_lexer_by_name</span>
+<span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
+
+<span class="k">class</span> <span class="nc">MyRenderer</span><span class="p">(</span><span class="n">mistune</span><span class="o">.</span><span class="n">Renderer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">lang</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&lt;pre&gt;&lt;code&gt;</span><span class="si">%s</span><span class="s">&lt;/code&gt;&lt;/pre&gt;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> \
+                <span class="n">mistune</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+        <span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">stripall</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span>
+
+<span class="n">renderer</span> <span class="o">=</span> <span class="n">MyRenderer</span><span class="p">()</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">mistune</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="n">renderer</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;Some Markdown text.&#39;</span><span class="p">))</span>
+</pre></div>
+<h2>Additional Notes</h2>
+<p>I did a benchmark on my MacBook Air, <a href="https://github.com/lepture/mistune/issues/1">view the results</a>.
+You can run the benchmark script yourself: <a href="https://github.com/lepture/mistune/blob/master/tests/bench.py">bench.py</a></p><pre><code>Parsing the Markdown Syntax document 1000 times...
+Mistune: 12.7255s
+Mistune (with Cython): 9.74075s
+Misaka: 0.550502s
+Markdown: 46.4342s
+Markdown2: 78.2267s
+cMarkdown: 0.664128s
+Discount is not available</code></pre><hr>
+<p>Mistune can be compiled with Cython if you have Cython installed already.</p><pre><code>$ pip install cython mistune</code></pre><p>The magic happens in the <code>setup.py</code> script. I'd like to introduce this part
+another time.</p><p><em>This post and all posts in markdown format on this site are rendered with
+mistune.</em></p><div class="footnotes">
+<ol><li id="fn-sundown-deprecated"><p>Sundown is deprecated a year ago with a <a href="https://github.com/vmg/sundown/commit/37728fb2d7137ff7c37d0a474cb827a8d6d846d8">commit</a> by vmg, but the new markdown parser is still missing.<a href="#fnref-sundown-deprecated" rev="footnote">&#8617;</a></p></li>
+<li id="fn-c-hoedown"><p>Hoedown is a fork of Sundown, it is a C library. It reverted the <a href="https://github.com/hoedown/hoedown/commit/aa43a77283c613662033039eddb477f2e0fd3d63">deprecated message</a> 5 months ago.<a href="#fnref-c-hoedown" rev="footnote">&#8617;</a></p></li>
+<li id="fn-upskirt"><p>Links about upskirt are missing now, they are all 404.<a href="#fnref-upskirt" rev="footnote">&#8617;</a></p></li>
+<li id="fn-bench"><p>I've did a benchmark on all markdown parsers I know. <a href="https://github.com/lepture/mistune/issues/1">Checkout the Benchmarks</a>.<a href="#fnref-bench" rev="footnote">&#8617;</a></p></li>
+<li id="fn-mistune-features"><p>Mistune is full featured, it has autolink, strikethrough, table,
+fenced code, footnotes. And you can't disable them. I believe that
+it is a good design to enable all these features, since they are the
+standards in the real world now.<a href="#fnref-mistune-features" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+  </div>
+  <div class="hide">
+    <span class="author vcard">
+      <span class="fn" itemprop="author">Hsiaoming Yang</span>
+    </span>
+  </div>
+    <div class="github-card" data-github="lepture/mistune"></div>
+    <script src="http://lab.lepture.com/github-cards/widget.js"></script>
+</div>      <div class="entry-extra">
+        <div class="entry-tags">
+          <span class="tag">python</span>
+          <span class="tag">markdown</span>
+        </div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/en/2014/markdown-parsers-in-python" data-text="Markdown Parsers in Python — A list of all markdown parsers in Python. The advantages and
+disadvantages of them." data-via="lepture" data-size="small" data-dnt="true">Tweet</a>
+<script>
+  js('https://platform.twitter.com/widgets.js').onload = function(){
+    document.body.className += ' twttr-rendered';
+  };
+</script>      </div>
+    </div>
+  </div>
+<div class="entry-comments yue">
+  <div id="disqus_thread" class="container"></div>
+</div>
+<script>
+    var disqus_shortname='lepture';
+    var disqus_title='Markdown Parsers in Python';
+    js('http://'+disqus_shortname+'.disqus.com/embed.js');
+</script>
+  <div id="footer">
+    <div class="container">
+      <p>&copy; Copyright 2014 by Hsiaoming Yang.</p>
+    </div>
+  </div>
+</body>
+</html>

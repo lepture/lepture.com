@@ -62,19 +62,18 @@
     <p>I created <a href="https://github.com/lepture/python-livereload">livereload</a>
 (implemented in Python) one year and 8 months ago. The first version was
 released on May 4th, 2012. I had been working on it for a while, but I
-didn&#39;t enjoy it myself.</p><p><a href="http://livereload.com/">LiveReload</a> is a Mac software that monitors
+didn't enjoy it myself.</p><p><a href="http://livereload.com/">LiveReload</a> is a Mac software that monitors
 changes in the file system. A quote from the official website:</p><blockquote><p>As soon as you save a file, it is preprocessed as needed, and the browser
 is refreshed.</p></blockquote><p>And my implementation in Python is a command line tool that simulates the
 behavior of LiveReload, a bit like <a href="https://github.com/guard/guard">guard</a>.</p><p>The reason why I created this project is pretty simple. I was working in a
 Python-only development environment, it would be nice that everything is
 in Python. However, things changed in the last year, I am more a front end
 developer than a back end pythonist. I enjoy nodejs, I also enjoy other
-languages like ruby and golang.</p><p>Anyway, I don&#39;t like to start another server for watching file changes only,
+languages like ruby and golang.</p><p>Anyway, I don't like to start another server for watching file changes only,
 the original design of Guardfile is not good enough, at least I am not
-satisfied. The simulation just doesn&#39;t work for me.</p><blockquote class="cite-quote"><p>most things have some design behind,
+satisfied. The simulation just doesn't work for me.</p><blockquote class="cite-quote"><p>most things have some design behind,
 as people copy it, the original design gets obscured and forgotten,
-the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher — <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p>
-<h2>Create something I will use in the daily life</h2>
+the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher — <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p><h2>Create something I will use in the daily life</h2>
 <p>The original copied one has nothing new, nothing special for Python that
 I would use it in my daily life. This makes me sad. So I have no much
 enthusiasm in the maintainence of it.</p><p>But I do believe that livereload is a good idea. Maybe I just did it wrong.
@@ -107,7 +106,6 @@ real example would be gorgeous.</p><p>Take a peep of my scripts:</p><div class="
     <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;app/templates&#39;</span><span class="p">)</span>
     <span class="n">server</span><span class="o">.</span><span class="n">serve</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
 </pre></div>
-
 <h2>Do one job, and do it well</h2>
 <p>Version 2.0 of livereload is more a library rather than an application.
 Which means other libraries in Python can easily bundle it in. I hope it
@@ -118,17 +116,16 @@ well.</p><p>The lack of compilers does not affect much. Since livereload provide
 a way to execute shell command. As you can see in the above example that
 <code>server.watch</code> supports executing shell commands, so that we can do:</p><div class="highlight"><pre><span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;src/foo.js&#39;</span><span class="p">,</span> <span class="s">&#39;uglifyjs src/foo.js -m -o build/foo.js&#39;</span><span class="p">)</span>
 </pre></div>
-<p>That&#39;s why compilers are removed, since every compiler is some sort of a
+<p>That's why compilers are removed, since every compiler is some sort of a
 shell command, there is no reason for wrapping them in Python any more.</p><p>By removing compilers, livereload focuses on the server implementation,
-and file watcher. The core code is much simple now.</p>
-<h2>Take advantage of existed tools</h2>
+and file watcher. The core code is much simple now.</p><h2>Take advantage of existed tools</h2>
 <p>We programers like to reinvent tools. Sometimes we create things better
 than the old ones, sometimes we fail. The most valuable tool I learned
 in the last two years is Makefile.</p><p>I think every programer should know Makefile, and take the advantage of
 it. Like what I did/do in my daily life. The examples above are using
 Makefile:</p><pre><code>server.watch(&#39;assets/styles/*.css&#39;, &#39;make -C assets rework&#39;)
-</code></pre>
-<h2>The future</h2>
+
+</code></pre><h2>The future</h2>
 <p>The rewritted version 2.0 of livereload was released days ago. There are
 features not implmented, bugs not fixed, but the concept works well. It
 is not just an implementation <strong>of Python</strong>, it is an implementation

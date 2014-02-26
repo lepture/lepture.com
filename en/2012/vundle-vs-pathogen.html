@@ -59,27 +59,23 @@
       <em>336 words</em>
     </div>
   <div class="entry-content" itemprop="articleBody">
-    <p>Most people just want an answer. Yes, vundle is better.</p>
-<h2>Pathogen</h2>
+    <p>Most people just want an answer. Yes, vundle is better.</p><h2>Pathogen</h2>
 <p>Pathogen created a new way to organize vim plugins, it provides the possibility
 to make vim plugins a bundle.</p><p>The original vim plugin system is somewhat a centered plugin system, but pathogen makes
 it a distributing system. The original way:</p><pre><code>vim/
     syntax/
         html.vim
     indent/
-        html.vim
-</code></pre><p>The pathogen way:</p><pre><code>vim/bundle/
+        html.vim</code></pre><p>The pathogen way:</p><pre><code>vim/bundle/
     html/
         syntax/
             html.vim
         indent/
-            html.vim
-</code></pre><p>Now, you can take <code>html</code> as a bundle (or app), you need not copy every file to the right
-directory, everything is well maintained by the plugin creator.</p><p>It&#39;s almost the end of the world, the vim plugin system should be distributed. And I&#39;m glad
+            html.vim</code></pre><p>Now, you can take <code>html</code> as a bundle (or app), you need not copy every file to the right
+directory, everything is well maintained by the plugin creator.</p><p>It's almost the end of the world, the vim plugin system should be distributed. And I'm glad
 that so many plugins are compatible with pathogen.</p><p>I tried pathogen, and <a href="http://lepture.com/work/manage-vim/">wrote a post</a> (in Chinese) about
-it.</p>
-<h2>Vundle</h2>
-<p>At that time, I knew vundle, and I mentioned it in the post, but I didn&#39;t try it.
+it.</p><h2>Vundle</h2>
+<p>At that time, I knew vundle, and I mentioned it in the post, but I didn't try it.
 I wish if only I had tried it.</p><p>Vundle is inspired by Pathogen, it can do everything pathogen can do,
 it is compatible with pathogen, which means if a plugin declares it supporting
 pathogen, it supports vundle.</p><p>But vundle does more, it improved the way to get and update vim plugins.

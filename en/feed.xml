@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title><![CDATA[Just lepture]]></title>
+    <link href="http://lepture.com/en/feed.xml" rel="self" />
+    <link href="http://lepture.com/en/" />
+    <updated>2014-02-26T15:12:57.545942+08:00</updated>
+    <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[Markdown Parsers in Python]]></title>
+        <link href="http://lepture.com/en/2014/markdown-parsers-in-python"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2014-02-26T16:55:00+08:00</updated>
+        <published>2014-02-26T16:55:00+08:00</published>
+        <id>http://lepture.com/en/2014/markdown-parsers-in-python</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>There are many markdown parsers in Python. Misaka was my favorite one.
+However, misaka is deprecated now, and the successor which is called
+hoedown still has issues to solve. That's why it is a <strong>was</strong>. But I still
+love it.</p><p>Here is a list of markdown parsers for Python in my knowledge:</p><ul>
+<li>Misaka: A python binding for Sundown. (CPython required)</li>
+<li>Hoedown: A python binding for Hoedown, successor of Misaka.</li>
+<li>Discount: A python binding for Discount. (CPython required)</li>
+<li>cMarkdown: Markdown for Python, accelerated by C. (CPython required)</li>
+<li>Markdown: A pure markdown parser, the very first implementation.</li>
+<li>Markdown2: Another pure markdown parser.</li>
+</ul>
+<p>And I've just released another pure markdown parser too, which is called
+<strong><a href="https://github.com/lepture/mistune">mistune</a></strong>.</p><h2>Misaka</h2>
+<p><a href="https://github.com/FSX/misaka">Misaka</a> was my favorite markdown parser. It
+is a python binding of Sundown, which means that it has all the features
+that Sundown provides.</p><p>It is super fast! Actually, it is the top one in my benchmarks. Since it is
+a binding of a C library, no wonder that it is this fast. If speed is what
+you want, you should try misaka, and as well as other bindings of a C library.</p><p>But misaka is more than speed. It is the custom renderer feature that catches
+my heart. I am so fond of it, that's why I implement the custom renderer
+feature in my own markdown parser <strong>mistune</strong>.</p><p>A quick and very useful sample is <a href="http://misaka.61924.nl/manual/#toc_15">code highlighting</a>.</p><p>However, it is a binding of a C libary. It requires CPython, if you prefer
+PyPy, you have no access to it. Some App Engines have a limitation on compiling
+C libraries too, you can't use misaka in this case. And even if you are
+using CPython, it is still difficult to install it on a Windows OS.</p><blockquote><p>Visual Studio's support for C is not optimal and most VS compilers are
+missing stdint.h, which is needed to compile Misaka.</p></blockquote><p>If you are on a Windows, may god helps you. I don't care it a shit.</p><p>Footnote feature is missing in Misaka. Maybe many of you don't need such a
+thing, in this case, misaka has nothing bad. It is stable, efficient, and
+has many GFM features.</p><p>The only trouble is Sundown is deprecated.<sup class="footnote-ref" id="fnref-sundown-deprecated"><a href="#fn-sundown-deprecated" rel="footnote">1</a></sup></p><h2>Hoedown</h2>
+<p>Because the Sundown library is deprecated, here comes hoedown<sup class="footnote-ref" id="fnref-c-hoedown"><a href="#fn-c-hoedown" rel="footnote">2</a></sup>,
+which is the fork of the original Sundown. It has a Python binding also
+called as hoedown.</p><p>Since Hoedown is the successor of Sundown, and <a href="https://github.com/hhatto/python-hoedown">python-hoedown</a> is the successor of Misaka, all features
+that misaka has, python-hoedown has them too. But python-hoedown is more
+than that.</p><ol>
+<li>It is PyPy compatible.</li>
+<li>It has footnote feature.</li>
+</ol>
+<p>It looks promissing, and even misaka's author recommends it. I've tried it,
+but failed with one issue, <a href="https://github.com/hhatto/python-hoedown/issues/5">a magic error</a> that I can't do anything:</p><pre><code>terminated by signal SIGSEGV (Address boundary error)
+
+
+</code></pre>
+<p>This isssue is not fixed yet. Once it does, hoedown would be a good choice
+for non-AE users.</p><h2>cMarkdown &amp; Discount</h2>
+<p><a href="https://github.com/paulsmith/cMarkdown">cMarkdown</a> is much like Misaka,
+except that it is based on upskirt<sup class="footnote-ref" id="fnref-upskirt"><a href="#fn-upskirt" rel="footnote">3</a></sup> rather than sundown. The
+history is very interesting, sundown is a fork of upskirt, hoedown is a
+fork of sundown. And now, sundown is deprecated, upskirt is missing. The
+new markdown parser that vmg promised is still not available.</p><p>cMarkdown has all the disadvantages of Misaka, and it is a little slower
+than Misaka. This means you really should use misaka instead of cMarkdown.</p><hr>
+<p>Discount is a joke for me, I can't even install it successfully! There is
+not much to say. But I do know that Discount is slower than Sundown.</p><h2>Markdown &amp; Markdown2</h2>
+<p><a href="https://github.com/waylan/Python-Markdown">Python-Markdown</a> is the very first markdown parser in pure Python. It is
+good, except the documentation. However, I miss the renderer feature in
+misaka, which is not in Python-Markdown.</p><p>Python-Markdown is not that slow as I expected, since Python-Markdown2
+calls itself as:</p><blockquote><p>A fast and complete implementation of Markdown in Python.</p></blockquote><p>But it is not true. Python-Markdown2 is much slower than Python-Markdown.
+I have no idea why it says itself fast. All features that 2 has, the older
+one has too.</p><p>The benchmark shows that Python-Markdown2 is almost twice slower than
+Python-Markdown. No wonder it is 2.</p><h2>Mistune</h2>
+<p><a href="https://github.com/lepture/mistune">Mistune</a> is a new (just released)
+markdown parser. It is the <strong>fastest</strong> one in all pure Python implementations.
+Almost <strong>4 times faster</strong><sup class="footnote-ref" id="fnref-bench"><a href="#fn-bench" rel="footnote">4</a></sup> than Python-Markdown in pure Python
+environment, almost <strong>5 times faster</strong> with Cython's help.</p><p>I didn't expect it to be so fast when I wrote it. I know it would be a fast
+one, but I didn't know that it would be 4 times faster and even 5 times
+faster.</p><hr>
+<p>I have never thought of creating a Markdown parser my own. But it has been
+months since I reported the issue to Hoedown. The issue is still there,
+not solved a bit. Because it is a C binding, I am not able to do any help,
+the only thing I can do is waiting.</p><p>I don't use Python-Markdown or Python-Markdown2, because they have no renderer
+feature, and they are slow.</p><p>I have <a href="/en/2013/unpleasant-open-source">introduced renderer feature to marked</a>, which is
+finally merged. And now I am trying to add the <a href="https://github.com/chjj/marked/pull/351">footnote feature</a>.
+It occured to me that I can port marked to Python, since I know marked well,
+and I know it is the fastest in all pure JavaScript implementations. It
+would be fast in Python too, and it really does.</p><hr>
+<p>If you are looking for a fast, full featured<sup class="footnote-ref" id="fnref-mistune-features"><a href="#fn-mistune-features" rel="footnote">5</a></sup> and pure
+Python implementation, Mistune is a good choice. It also has renderer
+feature just like Misaka. You can always influnce the rendering results
+with custom renderers.</p><pre><code class="lang-python">import mistune
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters import HtmlFormatter
+
+class MyRenderer(mistune.Renderer):
+    def block_code(code, lang):
+        if not lang:
+            return &#39;\n&lt;pre&gt;&lt;code&gt;%s&lt;/code&gt;&lt;/pre&gt;\n&#39; % \
+                mistune.escape(code.strip())
+        lexer = get_lexer_by_name(lang, stripall=True)
+        formatter = HtmlFormatter()
+        return highlight(text, lexer, formatter)
+
+renderer = MyRenderer()
+md = mistune.Markdown(renderer=renderer)
+print(md.render(&#39;Some Markdown text.&#39;))
+</code>
+</pre><h2>Additional Notes</h2>
+<p>I did a benchmark on my MacBook Air, <a href="https://github.com/lepture/mistune/issues/1">view the results</a>.
+You can run the benchmark script yourself: <a href="https://github.com/lepture/mistune/blob/master/tests/bench.py">bench.py</a></p><pre><code>Parsing the Markdown Syntax document 1000 times...
+Mistune: 12.7255s
+Mistune (with Cython): 9.74075s
+Misaka: 0.550502s
+Markdown: 46.4342s
+Markdown2: 78.2267s
+cMarkdown: 0.664128s
+Discount is not available
+</code></pre>
+<hr>
+<p>Mistune can be compiled with Cython if you have Cython installed already.</p><pre><code>$ pip install cython mistune
+
+
+</code></pre>
+<p>The magic happens in the <code>setup.py</code> script. I'd like to introduce this part
+another time.</p><p><em>This post and all posts in markdown format on this site are rendered with
+mistune.</em></p><div class="footnotes">
+<ol><li id="fn-sundown-deprecated"><p>Sundown is deprecated a year ago with a <a href="https://github.com/vmg/sundown/commit/37728fb2d7137ff7c37d0a474cb827a8d6d846d8">commit</a> by vmg, but the new markdown parser is still missing.<a href="#fnref-sundown-deprecated" rev="footnote">&#8617;</a></p></li>
+<li id="fn-c-hoedown"><p>Hoedown is a fork of Sundown, it is a C library. It reverted the <a href="https://github.com/hoedown/hoedown/commit/aa43a77283c613662033039eddb477f2e0fd3d63">deprecated message</a> 5 months ago.<a href="#fnref-c-hoedown" rev="footnote">&#8617;</a></p></li>
+<li id="fn-upskirt"><p>Links about upskirt are missing now, they are all 404.<a href="#fnref-upskirt" rev="footnote">&#8617;</a></p></li>
+<li id="fn-bench"><p>I've did a benchmark on all markdown parsers I know. <a href="https://github.com/lepture/mistune/issues/1">Checkout the Benchmarks</a>.<a href="#fnref-bench" rev="footnote">&#8617;</a></p></li>
+<li id="fn-mistune-features"><p>Mistune is full featured, it has autolink, strikethrough, table,
+fenced code, footnotes. And you can't disable them. I believe that
+it is a good design to enable all these features, since they are the
+standards in the real world now.<a href="#fnref-mistune-features" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+ ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[New life of livereload]]></title>
+        <link href="http://lepture.com/en/2013/new-life-of-livereload"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2013-12-31T13:30:00+08:00</updated>
+        <published>2013-12-31T13:30:00+08:00</published>
+        <id>http://lepture.com/en/2013/new-life-of-livereload</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>I created <a href="https://github.com/lepture/python-livereload">livereload</a>
+(implemented in Python) one year and 8 months ago. The first version was
+released on May 4th, 2012. I had been working on it for a while, but I
+didn't enjoy it myself.</p><p><a href="http://livereload.com/">LiveReload</a> is a Mac software that monitors
+changes in the file system. A quote from the official website:</p><blockquote><p>As soon as you save a file, it is preprocessed as needed, and the browser
+is refreshed.</p></blockquote><p>And my implementation in Python is a command line tool that simulates the
+behavior of LiveReload, a bit like <a href="https://github.com/guard/guard">guard</a>.</p><p>The reason why I created this project is pretty simple. I was working in a
+Python-only development environment, it would be nice that everything is
+in Python. However, things changed in the last year, I am more a front end
+developer than a back end pythonist. I enjoy nodejs, I also enjoy other
+languages like ruby and golang.</p><p>Anyway, I don't like to start another server for watching file changes only,
+the original design of Guardfile is not good enough, at least I am not
+satisfied. The simulation just doesn't work for me.</p><blockquote class="cite-quote"><p>most things have some design behind,
+as people copy it, the original design gets obscured and forgotten,
+the original design might no longer apply</p><cite>Armin Ronacher</cite></blockquote><p>This is a slide of a talk by Armin Ronacher — <a href="https://speakerdeck.com/mitsuhiko/thinking-outside-the-box">Thinking Outside The Box</a>.</p><h2>Create something I will use in the daily life</h2>
+<p>The original copied one has nothing new, nothing special for Python that
+I would use it in my daily life. This makes me sad. So I have no much
+enthusiasm in the maintainence of it.</p><p>But I do believe that livereload is a good idea. Maybe I just did it wrong.
+One day, a brilliant idea came to me — livereload for wsgi.</p><p>A simple example of the idea:</p><pre><code class="lang-python">from livereload import Server
+
+server = Server(wsgi_app)
+server.watch(&#39;static/app.css&#39;)
+server.serve()
+</code>
+</pre><p>Wow, that looks good. It seems something that I will use in my daily life.
+Since I prefer Flask, I can write the scripts with Flask-Script in a
+<code>manage.py</code> file:</p><pre><code class="lang-python">app = create_app()
+
+@manager.command
+def liveserver(port=5000):
+    from livereload import Server
+    server = Server(app.wsgi_app)
+    server.watch(&#39;static/*.css&#39;)
+    server.serve(port=port)
+</code>
+</pre><p>And whenenver a css file changes, the browser will refresh it itself.</p><p>Actually, my environment of front end development is far more complex,
+I use rework for css processing, component for javascript modular. The
+real example would be gorgeous.</p><p>Take a peep of my scripts:</p><pre><code class="lang-python">@manager.command
+def liveserver(port=5000):
+    from livereload import Server
+
+    server = Server(app.wsgi_app)
+    server.watch(&#39;assets/styles/*.css&#39;, &#39;make -C assets rework&#39;)
+    server.watch(&#39;assets/lib/*.js&#39;, &#39;make -C assets build&#39;)
+    server.watch(&#39;app/templates&#39;)
+    server.serve(port)
+</code>
+</pre><h2>Do one job, and do it well</h2>
+<p>Version 2.0 of livereload is more a library rather than an application.
+Which means other libraries in Python can easily bundle it in. I hope it
+can be a great library.</p><p>The executable command line tool is removed from livereload. It may come
+back again, but not soon. The compilers like uglifyjs, lesscss, slim,
+CoffeeScript are removed from livereload too.</p><p>For now, livereload will focus on one thing — livereload. And livereload
+well.</p><p>The lack of compilers does not affect much. Since livereload provides you
+a way to execute shell command. As you can see in the above example that
+<code>server.watch</code> supports executing shell commands, so that we can do:</p><pre><code class="lang-python">server.watch(&#39;src/foo.js&#39;, &#39;uglifyjs src/foo.js -m -o build/foo.js&#39;)
+</code>
+</pre><p>That's why compilers are removed, since every compiler is some sort of a
+shell command, there is no reason for wrapping them in Python any more.</p><p>By removing compilers, livereload focuses on the server implementation,
+and file watcher. The core code is much simple now.</p><h2>Take advantage of existed tools</h2>
+<p>We programers like to reinvent tools. Sometimes we create things better
+than the old ones, sometimes we fail. The most valuable tool I learned
+in the last two years is Makefile.</p><p>I think every programer should know Makefile, and take the advantage of
+it. Like what I did/do in my daily life. The examples above are using
+Makefile:</p><pre><code>server.watch('assets/styles/*.css', 'make -C assets rework')
+
+
+</code></pre>
+<h2>The future</h2>
+<p>The rewritted version 2.0 of livereload was released days ago. There are
+features not implmented, bugs not fixed, but the concept works well. It
+is not just an implementation <strong>of Python</strong>, it is an implementation
+<strong>for Python</strong>.</p><p>The code is much more pretty than before. It is well documented and tested.
+I hope people will enjoy it. It is a library now, I am looking forward to
+libraries that depend on this project and making the web development of
+more fun.</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The Unpleasant Part of Open Source]]></title>
+        <link href="http://lepture.com/en/2013/unpleasant-open-source"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2013-12-06T16:40:00+08:00</updated>
+        <published>2013-12-06T16:40:00+08:00</published>
+        <id>http://lepture.com/en/2013/unpleasant-open-source</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>It has been 9 months since I sent the <a href="https://github.com/chjj/marked/pull/129">renderer feature</a> to marked.
+It was merged some days ago, when I finally lost my patience and created
+a forked project named <a href="https://github.com/lepture/markit">markit</a>.</p><p>I do not suggest you use markit right now. We are working on marked. And
+we hope that renderer feature will be available soon.</p><hr>
+<p>Why it takes so much time for one pull request? Reason varies from people
+to people. Maybe he is focusing on other projects. Maybe he just doesn't
+like this feature. Maybe FUD.</p><blockquote class="cite-quote"><p>marked does so many weird optimizations that I'm worried only I understand</p><cite>Christopher Jeffrey</cite></blockquote><p>I don't blame <a href="chjj">Christopher Jeffrey</a>. On the contrary, he did a
+great job. marked is a well written, good designed project. I appreciate
+his humility for I've read the code of markdown-js which I am just too
+stupid to understand.</p><p>It is usually the fear of breaking things, the uncertainty of the changes,
+and the doubt of the people that stops us.</p><hr>
+<p>We open source not because people need us. We just happen to open source
+things that solve our problems, and wish it may help other people. Open
+source can be a business for a company, but not for individuals.</p><blockquote class="cite-quote"><p>Lots of people in the Open Source community develop something that solve
+particular problems they have themselves.</p><cite>Armin Ronacher</cite></blockquote><p>I created <a href="create-oauth-server">Flask-OAuthlib</a> for my own, because I
+needed to create an OAuth 2 server at that time. I contribute to OAuthLib,
+because I need to fix that bug or add that feature for Flask-OAuthlib. I
+don't contribute for my own amusement.</p><p>Armin Roncher wrote in his recent post <a href="http://lucumr.pocoo.org/2013/11/28/emotional-programming/">Emotional Programming in Open Source</a>:</p><blockquote><p>I found it quite hard this year to work on my own projects because the
+bug trackers were full of things I personally did not really care about.
+The things I wrote over the last few years all work so well for me, that
+I don't need to fix problems or add things.</p></blockquote><p>That is true for individual devlopers. At least that is true for me.</p><p>Individual developers open source in their own time, they don't get paid.
+However, sometimes, they are too good to accept features that they don't
+care. This is the time for us to give our thanks, our stars and our tweets.</p><hr>
+<p>Our stars and tweets matter a lot. A good library should be promoted. Yes,
+I mean <a href="https://github.com/idan/oauthlib">OAuthLib</a>. The funny things is that python-oauth2 has
+more stars than OAuthLib. python-oauth2 is not really designed for OAuth 2,
+it is OAuth 1. What a sarcastic reality!</p><p>That's why we should promote the good libraries. Let them to be known. This
+encourages developers and makes them happy — but sometimes it may be a
+burden to them.</p><p>It takes time to build a good library — the design, the documentation, and
+the test cases.</p><hr>
+<p>Somtimes, when you finish a good project, a good name for your project is
+already taken by another people. And when you find out that it is only a
+spawn of a unix command, you feel angry that you have to name your project
+as "something 2". That is really disappointed.</p><p>May you happy, may the developers happy.</p><blockquote><p>high quality of lots of Open Source code is that the developers are
+generally happier writing it</p></blockquote> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Create an OAuth Server]]></title>
+        <link href="http://lepture.com/en/2013/create-oauth-server"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2013-11-21T16:30:00+08:00</updated>
+        <published>2013-11-21T16:30:00+08:00</published>
+        <id>http://lepture.com/en/2013/create-oauth-server</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>I've searched the whole internet on how to create an OAuth server or
+provider, but failed every time. Sometimes it was the language that stopped
+me, and sometimes it was something that didn't even work.</p><p>And one day, I found <a href="https://github.com/ib-lundgren/flask-oauthprovider">Flask-OAuthProvider</a>, which was a
+great piece of work. But it only implements the OAuth 1 server, and I need
+the OAuth 2 part at that time. This was the first time I met OAuthlib.</p><blockquote><p>OAuthlib is the future of OAuth for Python.</p></blockquote><p>A quote from Kenneth Reitz, and I can't agree more. It is really great and
+RFC-aware. However, it is undervalued with <del>fewer than 450</del> stars on GitHub.
+The code of <a href="https://github.com/idan/oauthlib">OAuthlib</a> is well written, so is the documentation,
+and so is the test cases. You should star it. Everything is perfect, except
+its fame. That's why I sent <a href="https://github.com/aaronpk/oauth.net/pull/55">a pull request</a> to oauth.net,
+making it known by the world.</p><p>OAuthlib is far more brilliant than rauth. It is a generic, spec-compliant
+library, without any specific HTTP request library. It focuses on the
+definition of RFCs.</p><h2>Flask-OAuthlib</h2>
+<p>It has been 6 months since I started this project named as <a href="https://github.com/lepture/flask-oauthlib">Flask-OAuthlib</a>, which is a successor of Flask-OAuthProvider and Flask-OAuth.</p><p>With the great work of OAuthlib, I finished the client part in 4 days, and
+made it a replacement of Flask-OAuth. It is well designed with a good
+intention for compatability of the non-standard oauth servers. If you are
+still using Flask-OAuth, I recommend you take this project into account.</p><p>I completed the OAuth 2 provider part at version 0.2.0, OAuth 1 provider
+at version 0.3.0. And now this project has moved to version 0.4.0. So I
+think it is the right time to write some introduction now.</p><p>Thanks for the help of <a href="https://github.com/ib-lundgren">Ib Lundgren</a> who is the maintainer of OAuthlib.
+Thanks for the contribution of Randy Topliffe and Mackenzie B. Thompson.
+You can find them on the <a href="https://flask-oauthlib.readthedocs.org/en/latest/authors.html">authors list</a>.</p><h2>Terminology &amp; Knowledge</h2>
+<p>There are knowledge and terminologies that you should know. We will build
+a server in Flask web framework, it is okay even if you haven't used Flask.
+You can still learn something that worth the time.</p><p>Since you are going to build an OAuth server, you may need some knowledge
+on these terminologies.</p><ul>
+<li><strong>client</strong>: also known as application, for example Twitter for iPhone
+is a client</li>
+<li><strong>resource owner</strong>: it is usually the user of a website, for example me
+on Twitter: <a href="https://twitter.com/lepture">twitter.com/lepture</a></li>
+<li><strong>access token</strong>: this is the key for a client to get resource from a
+resource owner</li>
+</ul>
+<p>There are differences between OAuth 1 and OAuth 2. A client will need some
+temporary tokens for exchanging the final access tokens. They do have their
+own terminologies.</p><h3>OAuth 1</h3>
+<p>OAuth 1 needs more temporary tokens, it has a request token, a verifier,
+a timestamp and a nonce.</p><ul>
+<li><strong>request token</strong>: designed for exchanging the final access token</li>
+<li><strong>verifier</strong>: designed for verifying the current authenticated user</li>
+<li><strong>timestamp</strong>: a timestamp of current request</li>
+<li><strong>nonce</strong>: a random token that makes current request unique</li>
+</ul>
+<p>All these messy things are designed for authentication and security.</p><h3>OAuth 2</h3>
+<p>OAuth 2 is much easier, we do need only one <strong>grant token</strong> for exchanging
+the final access token.</p><p>OAuth 2 requires SSL over the connection for security, it simplifies the
+way for getting access token. However, SSL is also suggested on OAuth 1 in
+your final production.</p><h2>Writing a Server</h2>
+<p>We need a normal server with a user system before starting the OAuth part.
+Any site which has OAuth service has a user system.</p><p>Since this is just a demo, we will not create something that big. Let's
+think about it, we need a user system, we need it because we want to
+identify the current user. But we can skip the registration part.</p><p>This is a basic, simple, yet functional server:</p><pre><code class="lang-py"># coding: utf-8
+
+from flask import Flask
+from flask import session, request
+from flask import render_template, redirect
+from flask_sqlalchemy import SQLAlchemy
+
+
+app = Flask(__name__, template_folder=&#39;templates&#39;)
+app.debug = True
+app.secret_key = &#39;secret&#39;
+app.config.update({
+    &#39;SQLALCHEMY_DATABASE_URI&#39;: &#39;sqlite:///db.sqlite&#39;,
+})
+db = SQLAlchemy(app)
+
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(40), unique=True)
+
+
+def current_user():
+    if &#39;id&#39; in session:
+        uid = session[&#39;id&#39;]
+        return User.query.get(uid)
+    return None
+
+
+@app.route(&#39;/&#39;, methods=(&#39;GET&#39;, &#39;POST&#39;))
+def home():
+    if request.method == &#39;POST&#39;:
+        username = request.form.get(&#39;username&#39;)
+        user = User.query.filter_by(username=username).first()
+        if not user:
+            user = User(username=username)
+            db.session.add(user)
+            db.session.commit()
+        session[&#39;id&#39;] = user.id
+        return redirect(&#39;/&#39;)
+    user = current_user()
+    return render_template(&#39;home.html&#39;, user=user)
+
+
+if __name__ == &#39;__main__&#39;:
+    db.create_all()
+    app.run()
+</code>
+</pre><p>And this is the template of <code>home.html</code>:</p><pre><code class="lang-html+jinja">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  {% if user %}
+    &lt;p&gt;You are {{ user.username }}&lt;/p&gt;
+  {% else %}
+    &lt;p&gt;You are not authenticated&lt;/p&gt;
+  {% endif %}
+
+  &lt;p&gt;Type any username:&lt;/p&gt;
+  &lt;form method=&quot;post&quot; action=&quot;/&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;
+    &lt;input type=&quot;submit&quot;&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre><p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p><h2>Creating OAuth 1 Server</h2>
+<p>Before implementing the actual OAuth part, we need to define an OAuth 1
+Client. A client requires client_key, client_secret, redirect_uris,
+default_redirect_uri and default_realms. Find more in the <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#client-application">Documentation</a>.</p><p>All clients are bound to a developer (developer is a user). The developer
+need to fill a form and describe the application. In this simple demo, we
+will skip this part. It will create a client when you visit <code>/client</code>.</p><pre><code class="lang-python">from flask import jsonify
+from werkzeug.security import gen_salt
+
+
+class Client(db.Model):
+    client_key = db.Column(db.String(40), primary_key=True)
+    client_secret = db.Column(db.String(55), index=True, nullable=False)
+
+    # creator of the client
+    user_id = db.Column(db.ForeignKey(&#39;user.id&#39;))
+    user = db.relationship(&#39;User&#39;)
+    _realms = db.Column(db.Text)
+    _redirect_uris = db.Column(db.Text)
+
+    @property
+    def redirect_uris(self):
+        if self._redirect_uris:
+            return self._redirect_uris.split()
+        return []
+
+    @property
+    def default_redirect_uri(self):
+        return self.redirect_uris[0]
+
+    @property
+    def default_realms(self):
+        if self._realms:
+            return self._realms.split()
+        return []
+
+
+@app.route(&#39;/client&#39;)
+def client():
+    user = current_user()
+    if not user:
+        return redirect(&#39;/&#39;)
+    item = Client(
+        client_key=gen_salt(40),
+        client_secret=gen_salt(50),
+        user_id=user.id,
+    )
+    db.session.add(item)
+    db.session.commit()
+    return jsonify(
+        client_key=item.client_key,
+        client_secret=item.client_secret
+    )
+</code>
+</pre><p>You can find the whole new code at <a href="https://github.com/lepture/example-oauth1-server/tree/2cafa624dd8e82054a5208ce7c156f024d0bb109">commit#2cafa62</a>. Now, run the script
+and visit <code>/client</code>.</p><h3>Implement OAuth 1 Provider</h3>
+<p>It is time to create a provider now. However, before we initialize a
+provider, we need to update the configuration.</p><pre><code class="lang-python">app.config.update({
+    &#39;OAUTH1_PROVIDER_ENFORCE_SSL&#39;: False,
+    &#39;OAUTH1_PROVIDER_KEY_LENGTH&#39;: (10, 100),
+})
+</code>
+</pre><p>Because we are developing on a local machine, it would be easier for us
+to implement it over HTTP. This is why we set <code>OAUTH1_PROVIDER_ENFORCE_SSL</code>
+to <code>False</code>. After this, we can create a provider:</p><pre><code class="lang-python">from flask_oauthlib.provider import OAuth1Provider
+oauth = OAuth1Provider(app)
+
+@oauth.clientgetter
+def load_client(client_key):
+    return Client.query.filter_by(client_key=client_key).first()
+</code>
+</pre><p>Check code at <a href="https://github.com/lepture/example-oauth1-server/tree/78f6cf5ebbad01694ff3d5e78ad827acfefbea86">commit#78f6cf5</a>.</p><p>There will be lots of code, and they would flush this article. In this case,
+I would keep them in a repo, and create a revision every time a milestone
+finished. You need to follow the links to view the changes.</p><p>The next step is <a href="https://github.com/lepture/example-oauth1-server/commit/860850e57d7f5f07441d3019ce7cf0eaaffd0561">creating request token and verifier</a>, we did this by following the documentation of <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#request-token-and-verifier">Request Token and Verifier</a>.</p><p>Like request token and verifier, we mix timestamp and nonce together.
+Find out how we <a href="https://github.com/lepture/example-oauth1-server/commit/679d9a614cf10b5769f63ac76c45fd9aecb27181">create timestamp and nonce</a>. This
+is done with the help of documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#timestamp-and-nonce">Timestamp and Nonce</a>.</p><p>We will finish all the data models when <a href="https://github.com/lepture/example-oauth1-server/commit/88dee8057eb1864d90e1df1895a47efdbad4ee66">access token is created</a>.</p><p>The next big thing is the handlers - how we handle the authorization flow,
+the request token and access token. Check <a href="https://github.com/lepture/example-oauth1-server/commit/55664c43951f593efa545e8968b1371b9d01659c">commit#55664c4</a>.</p><p>In this commit, we implemented all required handlers. And we also fixed
+some bugs, added a logger for debugging. There was a change in <code>/client</code>
+handler, we added a redirect uri data to the model, and we would use it
+later.</p><p>Now that we have finished the authorization part of OAuth 1 server, we need
+a client to verify it. We created a client with Flask-OAuthlib itself at
+<a href="https://github.com/lepture/example-oauth1-server/commit/f8b1d09b17f3bbcc9ecc41b44e061185e0e87e51">commit#f8b1d09</a>.</p><p>Let's have a game. Start your provider server with:</p><pre><code>$ python app.py
+
+
+</code></pre>
+<p>We visit <code>http://127.0.0.1:5000/</code> and fill a username. And then we visit
+<code>http://127.0.0.1:5000/client</code>, take the client key and client secret, and
+modify our <code>client.py</code> script with the key and secret. Now, we can start
+the client server with:</p><pre><code>$ python client.py
+
+
+</code></pre>
+<p>We visit <code>http://localhost:8000/</code>, everything should work correctly. We
+will be redirected to a confirm page, if we choose yes, client will obtain
+a pair of access token and secret. If anything wrong happens, don't
+hesitate to tell me. You can also debug it yourself. We enabled the
+logging for Flask-OAuthlib so that you can debug easily.</p><p>The last part of this tutorial on OAuth 1 is protecting user resources. It
+is easy with a decorator <code>require_oauth</code>:</p><pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
+@oauth.require_oauth()
+def me(req):
+    user = req.user
+    return jsonify(username=user.username)
+</code>
+</pre><p>This <code>req</code> parameter is an oauth request object, it contains many useful
+data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p><p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
+This commit added a tokengetter, and fixed some bugs I created. After the
+client obtained an access token, visit <code>http://localhost:8000/</code>, and you
+will see the information of current user.</p><p>There are more works we should do, but we will finish it right now.
+Since this is a simple tutorial, it will not cover any advanced skills.
+However, I would give some suggestions at the end of this article.</p><h2>Creating OAuth 2 Server</h2>
+<p>I created OAuth 2 provider in Flask-OAuthlib before OAuth 1 provider. That
+means I designed the API for OAuth 2 provider first, and OAuth 1 provider
+shares the same API with OAuth 2 provider.</p><p>The setup of OAuth 2 server is the same as above. First, we created a
+basic simple server with a user system. You can find the code at
+<a href="https://github.com/lepture/example-oauth2-server/commit/d1e3b6de1982894b97a719b04d9f0161e5739074">commit#d1e3b6d</a>.</p><p>Then we created a Client model and a client handler. Here are the differences,
+Client for OAuth 2 use <code>client_id</code> instead of <code>client_key</code>, <code>default_scopes</code>
+instead of <code>default_realms</code>, and it has a client type (which is public in
+this case). See the code at <a href="https://github.com/lepture/example-oauth2-server/commit/3f1c8f2f86b408be6105593c3206cad814dfcb73">commit#3f1c8f2</a>.
+We created the Client following the documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth2.html#client-application">Client (Application)</a>.</p><h3>Implement OAuth 2 Provider</h3>
+<p>The next step is the implementation for OAuth 2 Provider since we have
+finished all preparation works. It is the same as OAuth 1 provider, except
+we don't have to make any configuration. via <a href="https://github.com/lepture/example-oauth2-server/commit/3b60b5d769b807b1549157f76cd46151dd3b8f1d">commit#3b60b5d</a>.</p><pre><code class="lang-python">from flask_oauthlib.provider import OAuth2Provider
+oauth = OAuth2Provider(app)
+
+@oauth.clientgetter
+def load_client(client_id):
+    return Client.query.filter_by(client_id=client_id).first()
+</code>
+</pre><p>Then we would <a href="https://github.com/lepture/example-oauth2-server/commit/a10c376b6f48bfde52d5fa2d6a8c5cd50e3096e1">create Grant Token</a> and
+<a href="https://github.com/lepture/example-oauth2-server/commit/ba1fd40293e673ae35180a1c10f95820c6a93d23">Access Token</a> , and their getters and setters. It is
+much simpler than OAuth 1, since we don't have to create timestamp and nonce.</p><p>OAuth 2 has no Request Token. The handlers are simple too. What you need is
+a token handler that handles response with access token or refresh token,
+and an authorize handler for user to confirm the request.</p><pre><code class="lang-python">@app.route(&#39;/oauth/token&#39;)
+@oauth.token_handler
+def access_token():
+    return None
+</code>
+</pre><p>Flask-OAuthlib has done all the tricks, you don't need to handle the data
+yourself. However, you can return things that matter to you. They are
+advanced skills, and I will not cover it here.</p><p>Changes can be found at <a href="https://github.com/lepture/example-oauth2-server/commit/cbc3e12a3123f4bbc9d68eb8438247357f213583">commit#cbc3e12</a>.</p><p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p><pre><code class="lang-python">import os
+os.environ[&#39;DEBUG&#39;] = &#39;true&#39;
+</code>
+</pre><p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
+developing on a local machine, we don't have HTTPS, As a result, it is
+hard to meet this requirement. Fortunately, OAuthlib has a mechanism for
+us to debug on HTTP, that is the environ variable <code>DEBUG</code>.
+(Which is contributed by me).</p><p>When we code, we make mistakes. You have to keep an eye on the error
+stack, find out what is wrong, and fix it. Yes, I did fix some bugs in
+this commit.</p><p>And now start the server and client and visit <code>http://localhost:8000/</code>.
+You will finally get an access token.</p><p>We do OAuth, because we want to protect some resources. This is the last
+part of this tutorial on OAuth 2 server. We protect them with a decorator
+<code>@oauth.require_oauth</code>, and this decorator will add an additional paramter
+to the handler.</p><pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
+@oauth.require_oauth()
+def me(req):
+    return jsonify(username=req.user.username)
+</code>
+</pre><p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
+the source code and enjoy it yourself.</p><h2>References &amp; Other Resources</h2>
+<p>I must confess that it is not easy to setup an OAuth server. You need to
+learn lots of concepts for understanding. This tutorial don't teach you
+the realms and scopes stuff - you can learn these parts from the <a href="https://flask-oauthlib.readthedocs.org/">Flask-OAuthlib documentation</a>.</p><p>We did waste lots of time on creating the models and handlers. In fact we
+don't have to do such boring things. A demo is just, a demo. I don't mean
+to set limitations, and force you to use SQLAlchemy. There are chances
+that you want to use redis instead.</p><p>That's why I put the SQLAlchemy stuff in the <code>contrib</code> module. It is not
+finished yet, and I need your contribution.
+Find out what's going on in <a href="https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib">contrib</a>.</p><p>And one more thing, it would be better if we put those temporary tokens
+in cache, for example request token, verifier, timestamp, nonce and
+grant token.</p><p>Remember that every link is important, if you miss one, you may miss the
+target. Chances are that you've already lost your patience.</p><p><strong>TL;DR</strong></p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Create a StatusBar App]]></title>
+        <link href="http://lepture.com/en/2012/create-a-statusbar-app"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2012-07-20T21:15:00+08:00</updated>
+        <published>2012-07-20T21:15:00+08:00</published>
+        <id>http://lepture.com/en/2012/create-a-statusbar-app</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>It has been months since I decided to learn cocoa development, but in vain.
+Unlike python, the documentation of cocoa tortures me a lot.</p><p>I am still new to cocoa development. And this post will be part of my learning series.
+I didn't mean to teach you anything, on the contrary, it is a track of my learing.
+But it may be a little helpful to you.</p><h2>StatusBar App</h2>
+<p>A <strong>StatusBar App</strong> is what on the right side of the menu bar, it doesn't contain a main window.
+For example, the volumn control is a StatusBar App.</p><h2>Demo Time</h2>
+<p>It's the time to create a StatusBar App now.</p><ol>
+<li><p>Open your Xcode (I am on Xcode 4.3.3)</p></li>
+<li><p>Create a cocoa application project</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg" alt="create a project" /></figure></li>
+<li><p>Name the project <strong>StatusBarApp</strong></p></li>
+<li><p>Run for testing</p></li>
+</ol>
+<p>Now you will get an App with window. However, our app is a StatusBar App, it has no window.</p><p>The final app should be like:</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/application.jpg" alt="application" /></figure><h3>Menu</h3>
+<p>We will create the menu first.</p><ol>
+<li><p>Drag a menu to the interface builder</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg" alt="drag a menu" /></figure></li>
+<li><p>Edit the menu item</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg" alt="edit menu item" /></figure></li>
+<li><p>Decorate the menu with seprator</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg" alt="decorate with seprator" /></figure></li>
+<li><p>Connect the menu to your code outlet, and name it <code>statusMenu</code></p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg" alt="connect menu outlet" /></figure></li>
+</ol>
+<h3>StatusBar</h3>
+<p>Create the statusBar property in your <code>AppDelegate.h</code> file:</p><pre><code class="lang-objc">@property (strong, nonatomic) NSStatusItem *statusBar;
+</code>
+</pre><p>Synthesize it in the <code>AppDelegate.m</code> file:</p><pre><code class="lang-objc">@synthesize statusBar = _statusBar;
+</code>
+</pre><p>Initialize the statusBar:</p><pre><code class="lang-objc">- (void) awakeFromNib {
+    self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+
+    self.statusBar.title = @&quot;G&quot;;
+
+    // you can also set an image
+    //self.statusBar.image =
+
+    self.statusBar.menu = self.statusMenu;
+    self.statusBar.highlightMode = YES;
+}
+</code>
+</pre><p><code>awakeFromNib</code> is earlier than <code>applicationDidFinishLaunching</code> in the lifecycle.</p><h3>App Go</h3>
+<p>Let's test this application.</p><ol>
+<li>Run you app now. You will see a <strong>G</strong> in the menu bar.</li>
+<li>Delete the useless window in your <code>MainMenu.xib</code>, and run your app again.</li>
+</ol>
+<p>It works! But it doesn't work the right way. It is on the dock, it shows the menu on the left.</p><p>Fix it in <code>StatusBarApp-Info.plist</code>, add a row:</p><pre><code>Application is agent (UIElement)  = YES
+</code></pre>
+<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg" alt="connect menu outlet" /></figure><p>Run your application again, it won't be on the dock, it won't show the menu.</p><h3>Do More</h3>
+<p>But you can't quit the application, that could be annoying. We did have a Quit item on the application, but it won't work right now.</p><p>Fix it:</p><figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step7.jpg" alt="quit" /></figure><h2>Reference:</h2>
+<ul>
+<li><a href="http://cocoatutorial.grapewave.com/2010/01/creating-a-status-bar-application/">Creating a Status Bar Application</a></li>
+<li><a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSStatusItem_Class/Reference/Reference.html">NSStatusItem Class Reference</a></li>
+</ul>
+ ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vundle vs Pathogen]]></title>
+        <link href="http://lepture.com/en/2012/vundle-vs-pathogen"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2012-05-02T00:00:00+08:00</updated>
+        <published>2012-05-02T00:00:00+08:00</published>
+        <id>http://lepture.com/en/2012/vundle-vs-pathogen</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>Most people just want an answer. Yes, vundle is better.</p><h2>Pathogen</h2>
+<p>Pathogen created a new way to organize vim plugins, it provides the possibility
+to make vim plugins a bundle.</p><p>The original vim plugin system is somewhat a centered plugin system, but pathogen makes
+it a distributing system. The original way:</p><pre><code>vim/
+    syntax/
+        html.vim
+    indent/
+        html.vim
+</code></pre>
+<p>The pathogen way:</p><pre><code>vim/bundle/
+    html/
+        syntax/
+            html.vim
+        indent/
+            html.vim
+</code></pre>
+<p>Now, you can take <code>html</code> as a bundle (or app), you need not copy every file to the right
+directory, everything is well maintained by the plugin creator.</p><p>It's almost the end of the world, the vim plugin system should be distributed. And I'm glad
+that so many plugins are compatible with pathogen.</p><p>I tried pathogen, and <a href="http://lepture.com/work/manage-vim/">wrote a post</a> (in Chinese) about
+it.</p><h2>Vundle</h2>
+<p>At that time, I knew vundle, and I mentioned it in the post, but I didn't try it.
+I wish if only I had tried it.</p><p>Vundle is inspired by Pathogen, it can do everything pathogen can do,
+it is compatible with pathogen, which means if a plugin declares it supporting
+pathogen, it supports vundle.</p><p>But vundle does more, it improved the way to get and update vim plugins.
+I mentioned in my post, that I was trying git-submodule with pathogen,
+it was brilliant, but vundle is more elegant:</p><pre><code class="lang-vim">set nocompatible               &quot; be iMproved
+filetype off                   &quot; required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+&quot; let Vundle manage Vundle
+&quot; required! 
+Bundle &#39;gmarik/vundle&#39;
+
+&quot; My Bundles here:
+&quot;
+&quot; original repos on github
+Bundle &#39;tpope/vim-fugitive&#39;
+Bundle &#39;Lokaltog/vim-easymotion&#39;
+Bundle &#39;rstacruz/sparkup&#39;, {&#39;rtp&#39;: &#39;vim/&#39;}
+Bundle &#39;tpope/vim-rails.git&#39;
+&quot; vim-scripts repos
+Bundle &#39;L9&#39;
+Bundle &#39;FuzzyFinder&#39;
+&quot; non github repos
+Bundle &#39;git://git.wincent.com/command-t.git&#39;
+</code>
+</pre><p>Launch vim and run <code>:BundleInstall</code> , everything will be ready for you.
+All things you should do is trying it.</p><p>Save my words, save your time, head over to
+<a href="https://github.com/gmarik/vundle">Vundle</a> immediately.</p> ]]>
+        </content>
+    </entry>
+</feed>
