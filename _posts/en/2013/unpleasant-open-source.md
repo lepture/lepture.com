@@ -25,10 +25,10 @@ like this feature. Maybe FUD.
 >
 > — Christopher Jeffrey
 
-I don't blame [Christopher Jeffrey](chjj). On the contrary, he did a
-great job. marked is a well written, good designed project. I appreciate
-his humility for I've read the code of markdown-js which I am just too
-stupid to understand.
+I don't blame [Christopher Jeffrey](https://github.com/chjj). On the
+contrary, he did a great job. marked is a well written, good designed
+project. I appreciate his humility for I've read the code of markdown-js
+which I am just too stupid to understand.
 
 It is usually the fear of breaking things, the uncertainty of the changes,
 and the doubt of the people that stops us.
