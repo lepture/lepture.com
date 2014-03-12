@@ -1,9 +1,10 @@
-{% extends "layout.html" %}
-
-{% block title %}Reading — {{ site.name }}{% endblock %}
-
-{% block extra_head %}
-<meta name="description" content="Some books that I have read and am reading.">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Reading — Just lepture</title>
+  <meta name="description" content="Some books that I have read and am reading.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Reading">
   <meta name="twitter:description" content="Some books that I have read and am reading.">
@@ -11,9 +12,10 @@
   <meta name="twitter:creator" content="@lepture">
   <meta name="twitter:domain" content="lepture.com">
   <meta name="twitter:image" content="http://dn-lepture.qbox.me/blog/dajiangdahai.png">
-{% endblock %}
-
-{% macro Book(title, link, image, author) %}
+  {% include "head.html" %}
+</head>
+<body>
+  {% macro Book(title, link, image, author, description=None) %}
   <div class="book">
     <a class="book-cover" href="{{ link }}">
       <img src="{{ image }}" alt="{{ title }}">
@@ -21,17 +23,21 @@
     <div class="book-meta">
       <a class="book-title" href="{{ link }}">{{ title }}</a>
       <p class="book-author">{{ author }}</p>
+      {% if description %}
+        <p class="book-description">{{ description }}</p>
+      {% endif %}
     </div>
   </div>
-{% endmacro %}
-
-{% block main %}
-<div id="main">
-  <div class="container yue">
-    <p class="entry-description">Some books that I've read and am reading.</p>
-    {{ Book('大江大海 一九四九', '/zh/2011/dajiangdahai', '//dn-lepture.qbox.me/blog/dajiangdahai.png', '龍應台') }}
-    {{ Book('雨季不再來', '/zh/2009/on-yujibuzailai', '//dn-lepture.qbox.me/blog/yujibuzailai.jpg', '三毛') }}
-    {{ Book('小團圓', '/zh/2009/on-xiaotuanyuan', '//dn-lepture.qbox.me/blog/xiaotuanyuan.jpg', '張愛玲') }}
+  {% endmacro %}
+  <div id="main">
+    <div class="container yue">
+      {{ Book('大江大海 一九四九', '/zh/2011/dajiangdahai', '//dn-lepture.qbox.me/blog/dajiangdahai.png', '龍應台', '告訴我，戰爭有勝利者嗎？歷史遠比你想像的殘酷，數不盡的犧牲者，城市，鄉村，人物。') }}
+      {{ Book('雨季不再來', '/zh/2009/on-yujibuzailai', '//dn-lepture.qbox.me/blog/yujibuzailai.jpg', '三毛') }}
+      {{ Book('小團圓', '/zh/2009/on-xiaotuanyuan', '//dn-lepture.qbox.me/blog/xiaotuanyuan.jpg', '張愛玲') }}
+    </div>
   </div>
-</div>
-{% endblock %}
+  <div class="book-footer yue">
+    <a class="button" href="/">Back to Home</a>
+  </div>
+</body>
+</html>

@@ -5,6 +5,7 @@ assets:
 	@cat _assets/yue.css > ${output}
 	@cat _assets/pygments.css >> ${output}
 	@cat _assets/site.css >> ${output}
+	@cat _assets/book.css >> ${output}
 	@cleancss ${output} -o ${output}
 	@cp _assets/font.css _site/assets/font.css
 

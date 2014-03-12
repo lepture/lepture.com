@@ -1,0 +1,54 @@
+.book {
+  margin: 20px 0 60px;
+  padding-bottom: 20px;
+  zoom: 1;
+}
+.book:last-of-type {
+  margin-bottom: 0;
+}
+.book:after {
+  display: table;
+  content: "";
+  clear: both;
+  width: 30%;
+  padding-top: 40px;
+  border-bottom: 1px solid #eee;
+  margin: 0 auto;
+}
+.book .book-cover {
+  float: left;
+  margin-right: 40px;
+}
+.book .book-cover img {
+  box-shadow: 0 1px 2px #ddd;
+  width: 120px;
+}
+.book .book-meta {
+  overflow: hidden;
+}
+.book .book-title {
+  font-size: 26px;
+  font-family: Georgia, "Hiragino Mincho Pro", serif;
+  text-decoration: none;
+}
+.book .book-author {
+  margin: 16px 0 20px;
+  color: #999;
+}
+.book-footer {
+  padding-bottom: 80px;
+  text-align: center;
+}
+.book-footer a {
+  text-decoration: none;
+  border: 3px solid rgba(0, 0, 0, 0.07);
+  padding: 6px 20px;
+  margin-right: 20px;
+  border-radius: 20px;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: #999;
+}
+.book-footer a:hover {
+  opacity: 1;
+  border-color: #666;
+}
