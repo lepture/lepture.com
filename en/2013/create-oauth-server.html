@@ -12,12 +12,15 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=b30e7">
+<link rel="stylesheet" href="/assets/site.css?v=ebb78">
 <link rel="stylesheet" href="/assets/font.css?v=bed34">
 <script>
-  function js(u){
-    if (location.port) return {onload: null};
-    var d=document,a='script',s=d.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  function js(u,p,a){
+    if(!p && location.port)return {onload: null};
+    if(/\.js$/.test(u)){a='script'}else{a='link'};
+    var d=document,s=d.createElement(a),f=d.getElementsByTagName(a)[0];
+    if(a=='link'){s.href=u,s.rel='stylesheet'}else{s.src=u,s.async=true}
+    f.parentNode.insertBefore(s,f);return s;
   }
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-21475122-1']);
@@ -33,6 +36,7 @@ in a flavor of Flask with the help of Flask-OAuthlib.">
   <meta name="twitter:site" content="@lepture">
   <meta name="twitter:creator" content="@lepture">
   <meta name="twitter:domain" content="lepture.com">
+  <link rel="canonical" href="/en/2013/create-oauth-server">
 </head>
 <body>
   <div id="header">
@@ -64,28 +68,39 @@ in a flavor of Flask with the help of Flask-OAuthlib.
   <div class="entry-content" itemprop="articleBody">
     <p>I've searched the whole internet on how to create an OAuth server or
 provider, but failed every time. Sometimes it was the language that stopped
-me, and sometimes it was something that didn't even work.</p><p>And one day, I found <a href="https://github.com/ib-lundgren/flask-oauthprovider">Flask-OAuthProvider</a>, which was a
+me, and sometimes it was something that didn't even work.</p>
+<p>And one day, I found <a href="https://github.com/ib-lundgren/flask-oauthprovider">Flask-OAuthProvider</a>, which was a
 great piece of work. But it only implements the OAuth 1 server, and I need
-the OAuth 2 part at that time. This was the first time I met OAuthlib.</p><blockquote><p>OAuthlib is the future of OAuth for Python.</p></blockquote><p>A quote from Kenneth Reitz, and I can't agree more. It is really great and
+the OAuth 2 part at that time. This was the first time I met OAuthlib.</p>
+<blockquote><p>OAuthlib is the future of OAuth for Python.</p>
+</blockquote><p>A quote from Kenneth Reitz, and I can't agree more. It is really great and
 RFC-aware. However, it is undervalued with <del>fewer than 450</del> stars on GitHub.
 The code of <a href="https://github.com/idan/oauthlib">OAuthlib</a> is well written, so is the documentation,
 and so is the test cases. You should star it. Everything is perfect, except
 its fame. That's why I sent <a href="https://github.com/aaronpk/oauth.net/pull/55">a pull request</a> to oauth.net,
-making it known by the world.</p><p>OAuthlib is far more brilliant than rauth. It is a generic, spec-compliant
+making it known by the world.</p>
+<p>OAuthlib is far more brilliant than rauth. It is a generic, spec-compliant
 library, without any specific HTTP request library. It focuses on the
-definition of RFCs.</p><h2>Flask-OAuthlib</h2>
-<p>It has been 6 months since I started this project named as <a href="https://github.com/lepture/flask-oauthlib">Flask-OAuthlib</a>, which is a successor of Flask-OAuthProvider and Flask-OAuth.</p><p>With the great work of OAuthlib, I finished the client part in 4 days, and
+definition of RFCs.</p>
+<h2>Flask-OAuthlib</h2>
+<p>It has been 6 months since I started this project named as <a href="https://github.com/lepture/flask-oauthlib">Flask-OAuthlib</a>, which is a successor of Flask-OAuthProvider and Flask-OAuth.</p>
+<p>With the great work of OAuthlib, I finished the client part in 4 days, and
 made it a replacement of Flask-OAuth. It is well designed with a good
 intention for compatability of the non-standard oauth servers. If you are
-still using Flask-OAuth, I recommend you take this project into account.</p><p>I completed the OAuth 2 provider part at version 0.2.0, OAuth 1 provider
+still using Flask-OAuth, I recommend you take this project into account.</p>
+<p>I completed the OAuth 2 provider part at version 0.2.0, OAuth 1 provider
 at version 0.3.0. And now this project has moved to version 0.4.0. So I
-think it is the right time to write some introduction now.</p><p>Thanks for the help of <a href="https://github.com/ib-lundgren">Ib Lundgren</a> who is the maintainer of OAuthlib.
+think it is the right time to write some introduction now.</p>
+<p>Thanks for the help of <a href="https://github.com/ib-lundgren">Ib Lundgren</a> who is the maintainer of OAuthlib.
 Thanks for the contribution of Randy Topliffe and Mackenzie B. Thompson.
-You can find them on the <a href="https://flask-oauthlib.readthedocs.org/en/latest/authors.html">authors list</a>.</p><h2>Terminology &amp; Knowledge</h2>
+You can find them on the <a href="https://flask-oauthlib.readthedocs.org/en/latest/authors.html">authors list</a>.</p>
+<h2>Terminology &amp; Knowledge</h2>
 <p>There are knowledge and terminologies that you should know. We will build
 a server in Flask web framework, it is okay even if you haven't used Flask.
-You can still learn something that worth the time.</p><p>Since you are going to build an OAuth server, you may need some knowledge
-on these terminologies.</p><ul>
+You can still learn something that worth the time.</p>
+<p>Since you are going to build an OAuth server, you may need some knowledge
+on these terminologies.</p>
+<ul>
 <li><strong>client</strong>: also known as application, for example Twitter for iPhone
 is a client</li>
 <li><strong>resource owner</strong>: it is usually the user of a website, for example me
@@ -95,23 +110,31 @@ resource owner</li>
 </ul>
 <p>There are differences between OAuth 1 and OAuth 2. A client will need some
 temporary tokens for exchanging the final access tokens. They do have their
-own terminologies.</p><h3>OAuth 1</h3>
+own terminologies.</p>
+<h3>OAuth 1</h3>
 <p>OAuth 1 needs more temporary tokens, it has a request token, a verifier,
-a timestamp and a nonce.</p><ul>
+a timestamp and a nonce.</p>
+<ul>
 <li><strong>request token</strong>: designed for exchanging the final access token</li>
 <li><strong>verifier</strong>: designed for verifying the current authenticated user</li>
 <li><strong>timestamp</strong>: a timestamp of current request</li>
 <li><strong>nonce</strong>: a random token that makes current request unique</li>
 </ul>
-<p>All these messy things are designed for authentication and security.</p><h3>OAuth 2</h3>
+<p>All these messy things are designed for authentication and security.</p>
+<h3>OAuth 2</h3>
 <p>OAuth 2 is much easier, we do need only one <strong>grant token</strong> for exchanging
-the final access token.</p><p>OAuth 2 requires SSL over the connection for security, it simplifies the
+the final access token.</p>
+<p>OAuth 2 requires SSL over the connection for security, it simplifies the
 way for getting access token. However, SSL is also suggested on OAuth 1 in
-your final production.</p><h2>Writing a Server</h2>
+your final production.</p>
+<h2>Writing a Server</h2>
 <p>We need a normal server with a user system before starting the OAuth part.
-Any site which has OAuth service has a user system.</p><p>Since this is just a demo, we will not create something that big. Let's
+Any site which has OAuth service has a user system.</p>
+<p>Since this is just a demo, we will not create something that big. Let's
 think about it, we need a user system, we need it because we want to
-identify the current user. But we can skip the registration part.</p><p>This is a basic, simple, yet functional server:</p><div class="highlight"><pre><span class="c"># coding: utf-8</span>
+identify the current user. But we can skip the registration part.</p>
+<p>This is a basic, simple, yet functional server:</p>
+<div class="highlight"><pre><span class="c"># coding: utf-8</span>
 
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">request</span>
@@ -159,7 +182,8 @@ identify the current user. But we can skip the registration part.</p><p>This is 
     <span class="n">db</span><span class="o">.</span><span class="n">create_all</span><span class="p">()</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
-<p>And this is the template of <code>home.html</code>:</p><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<p>And this is the template of <code>home.html</code>:</p>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
 <span class="nt">&lt;head&gt;</span>
   <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
@@ -180,12 +204,15 @@ identify the current user. But we can skip the registration part.</p><p>This is 
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </pre></div>
-<p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p><h2>Creating OAuth 1 Server</h2>
+<p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p>
+<h2>Creating OAuth 1 Server</h2>
 <p>Before implementing the actual OAuth part, we need to define an OAuth 1
 Client. A client requires client_key, client_secret, redirect_uris,
-default_redirect_uri and default_realms. Find more in the <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#client-application">Documentation</a>.</p><p>All clients are bound to a developer (developer is a user). The developer
+default_redirect_uri and default_realms. Find more in the <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#client-application">Documentation</a>.</p>
+<p>All clients are bound to a developer (developer is a user). The developer
 need to fill a form and describe the application. In this simple demo, we
-will skip this part. It will create a client when you visit <code>/client</code>.</p><div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span>
+will skip this part. It will create a client when you visit <code>/client</code>.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span>
 <span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">gen_salt</span>
 
 
@@ -234,69 +261,89 @@ will skip this part. It will create a client when you visit <code>/client</code>
     <span class="p">)</span>
 </pre></div>
 <p>You can find the whole new code at <a href="https://github.com/lepture/example-oauth1-server/tree/2cafa624dd8e82054a5208ce7c156f024d0bb109">commit#2cafa62</a>. Now, run the script
-and visit <code>/client</code>.</p><h3>Implement OAuth 1 Provider</h3>
+and visit <code>/client</code>.</p>
+<h3>Implement OAuth 1 Provider</h3>
 <p>It is time to create a provider now. However, before we initialize a
-provider, we need to update the configuration.</p><div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+provider, we need to update the configuration.</p>
+<div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
     <span class="s">&#39;OAUTH1_PROVIDER_ENFORCE_SSL&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
     <span class="s">&#39;OAUTH1_PROVIDER_KEY_LENGTH&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
 <span class="p">})</span>
 </pre></div>
 <p>Because we are developing on a local machine, it would be easier for us
 to implement it over HTTP. This is why we set <code>OAUTH1_PROVIDER_ENFORCE_SSL</code>
-to <code>False</code>. After this, we can create a provider:</p><div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask_oauthlib.provider</span> <span class="kn">import</span> <span class="n">OAuth1Provider</span>
+to <code>False</code>. After this, we can create a provider:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask_oauthlib.provider</span> <span class="kn">import</span> <span class="n">OAuth1Provider</span>
 <span class="n">oauth</span> <span class="o">=</span> <span class="n">OAuth1Provider</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 <span class="nd">@oauth.clientgetter</span>
 <span class="k">def</span> <span class="nf">load_client</span><span class="p">(</span><span class="n">client_key</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">Client</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">client_key</span><span class="o">=</span><span class="n">client_key</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </pre></div>
-<p>Check code at <a href="https://github.com/lepture/example-oauth1-server/tree/78f6cf5ebbad01694ff3d5e78ad827acfefbea86">commit#78f6cf5</a>.</p><p>There will be lots of code, and they would flush this article. In this case,
+<p>Check code at <a href="https://github.com/lepture/example-oauth1-server/tree/78f6cf5ebbad01694ff3d5e78ad827acfefbea86">commit#78f6cf5</a>.</p>
+<p>There will be lots of code, and they would flush this article. In this case,
 I would keep them in a repo, and create a revision every time a milestone
-finished. You need to follow the links to view the changes.</p><p>The next step is <a href="https://github.com/lepture/example-oauth1-server/commit/860850e57d7f5f07441d3019ce7cf0eaaffd0561">creating request token and verifier</a>, we did this by following the documentation of <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#request-token-and-verifier">Request Token and Verifier</a>.</p><p>Like request token and verifier, we mix timestamp and nonce together.
+finished. You need to follow the links to view the changes.</p>
+<p>The next step is <a href="https://github.com/lepture/example-oauth1-server/commit/860850e57d7f5f07441d3019ce7cf0eaaffd0561">creating request token and verifier</a>, we did this by following the documentation of <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#request-token-and-verifier">Request Token and Verifier</a>.</p>
+<p>Like request token and verifier, we mix timestamp and nonce together.
 Find out how we <a href="https://github.com/lepture/example-oauth1-server/commit/679d9a614cf10b5769f63ac76c45fd9aecb27181">create timestamp and nonce</a>. This
-is done with the help of documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#timestamp-and-nonce">Timestamp and Nonce</a>.</p><p>We will finish all the data models when <a href="https://github.com/lepture/example-oauth1-server/commit/88dee8057eb1864d90e1df1895a47efdbad4ee66">access token is created</a>.</p><p>The next big thing is the handlers - how we handle the authorization flow,
-the request token and access token. Check <a href="https://github.com/lepture/example-oauth1-server/commit/55664c43951f593efa545e8968b1371b9d01659c">commit#55664c4</a>.</p><p>In this commit, we implemented all required handlers. And we also fixed
+is done with the help of documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#timestamp-and-nonce">Timestamp and Nonce</a>.</p>
+<p>We will finish all the data models when <a href="https://github.com/lepture/example-oauth1-server/commit/88dee8057eb1864d90e1df1895a47efdbad4ee66">access token is created</a>.</p>
+<p>The next big thing is the handlers - how we handle the authorization flow,
+the request token and access token. Check <a href="https://github.com/lepture/example-oauth1-server/commit/55664c43951f593efa545e8968b1371b9d01659c">commit#55664c4</a>.</p>
+<p>In this commit, we implemented all required handlers. And we also fixed
 some bugs, added a logger for debugging. There was a change in <code>/client</code>
 handler, we added a redirect uri data to the model, and we would use it
-later.</p><p>Now that we have finished the authorization part of OAuth 1 server, we need
+later.</p>
+<p>Now that we have finished the authorization part of OAuth 1 server, we need
 a client to verify it. We created a client with Flask-OAuthlib itself at
-<a href="https://github.com/lepture/example-oauth1-server/commit/f8b1d09b17f3bbcc9ecc41b44e061185e0e87e51">commit#f8b1d09</a>.</p><p>Let's have a game. Start your provider server with:</p><pre><code>$ python app.py
-
-</code></pre><p>We visit <code>http://127.0.0.1:5000/</code> and fill a username. And then we visit
+<a href="https://github.com/lepture/example-oauth1-server/commit/f8b1d09b17f3bbcc9ecc41b44e061185e0e87e51">commit#f8b1d09</a>.</p>
+<p>Let's have a game. Start your provider server with:</p>
+<pre><code>$ python app.py</code></pre>
+<p>We visit <code>http://127.0.0.1:5000/</code> and fill a username. And then we visit
 <code>http://127.0.0.1:5000/client</code>, take the client key and client secret, and
 modify our <code>client.py</code> script with the key and secret. Now, we can start
-the client server with:</p><pre><code>$ python client.py
-
-</code></pre><p>We visit <code>http://localhost:8000/</code>, everything should work correctly. We
+the client server with:</p>
+<pre><code>$ python client.py</code></pre>
+<p>We visit <code>http://localhost:8000/</code>, everything should work correctly. We
 will be redirected to a confirm page, if we choose yes, client will obtain
 a pair of access token and secret. If anything wrong happens, don't
 hesitate to tell me. You can also debug it yourself. We enabled the
-logging for Flask-OAuthlib so that you can debug easily.</p><p>The last part of this tutorial on OAuth 1 is protecting user resources. It
-is easy with a decorator <code>require_oauth</code>:</p><div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
+logging for Flask-OAuthlib so that you can debug easily.</p>
+<p>The last part of this tutorial on OAuth 1 is protecting user resources. It
+is easy with a decorator <code>require_oauth</code>:</p>
+<div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
 <span class="nd">@oauth.require_oauth</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">me</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">user</span>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
 </pre></div>
 <p>This <code>req</code> parameter is an oauth request object, it contains many useful
-data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p><p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
+data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p>
+<p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
 This commit added a tokengetter, and fixed some bugs I created. After the
 client obtained an access token, visit <code>http://localhost:8000/</code>, and you
-will see the information of current user.</p><p>There are more works we should do, but we will finish it right now.
+will see the information of current user.</p>
+<p>There are more works we should do, but we will finish it right now.
 Since this is a simple tutorial, it will not cover any advanced skills.
-However, I would give some suggestions at the end of this article.</p><h2>Creating OAuth 2 Server</h2>
+However, I would give some suggestions at the end of this article.</p>
+<h2>Creating OAuth 2 Server</h2>
 <p>I created OAuth 2 provider in Flask-OAuthlib before OAuth 1 provider. That
 means I designed the API for OAuth 2 provider first, and OAuth 1 provider
-shares the same API with OAuth 2 provider.</p><p>The setup of OAuth 2 server is the same as above. First, we created a
+shares the same API with OAuth 2 provider.</p>
+<p>The setup of OAuth 2 server is the same as above. First, we created a
 basic simple server with a user system. You can find the code at
-<a href="https://github.com/lepture/example-oauth2-server/commit/d1e3b6de1982894b97a719b04d9f0161e5739074">commit#d1e3b6d</a>.</p><p>Then we created a Client model and a client handler. Here are the differences,
+<a href="https://github.com/lepture/example-oauth2-server/commit/d1e3b6de1982894b97a719b04d9f0161e5739074">commit#d1e3b6d</a>.</p>
+<p>Then we created a Client model and a client handler. Here are the differences,
 Client for OAuth 2 use <code>client_id</code> instead of <code>client_key</code>, <code>default_scopes</code>
 instead of <code>default_realms</code>, and it has a client type (which is public in
 this case). See the code at <a href="https://github.com/lepture/example-oauth2-server/commit/3f1c8f2f86b408be6105593c3206cad814dfcb73">commit#3f1c8f2</a>.
-We created the Client following the documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth2.html#client-application">Client (Application)</a>.</p><h3>Implement OAuth 2 Provider</h3>
+We created the Client following the documentation on <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth2.html#client-application">Client (Application)</a>.</p>
+<h3>Implement OAuth 2 Provider</h3>
 <p>The next step is the implementation for OAuth 2 Provider since we have
 finished all preparation works. It is the same as OAuth 1 provider, except
-we don't have to make any configuration. via <a href="https://github.com/lepture/example-oauth2-server/commit/3b60b5d769b807b1549157f76cd46151dd3b8f1d">commit#3b60b5d</a>.</p><div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask_oauthlib.provider</span> <span class="kn">import</span> <span class="n">OAuth2Provider</span>
+we don't have to make any configuration. via <a href="https://github.com/lepture/example-oauth2-server/commit/3b60b5d769b807b1549157f76cd46151dd3b8f1d">commit#3b60b5d</a>.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask_oauthlib.provider</span> <span class="kn">import</span> <span class="n">OAuth2Provider</span>
 <span class="n">oauth</span> <span class="o">=</span> <span class="n">OAuth2Provider</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 <span class="nd">@oauth.clientgetter</span>
@@ -305,46 +352,62 @@ we don't have to make any configuration. via <a href="https://github.com/lepture
 </pre></div>
 <p>Then we would <a href="https://github.com/lepture/example-oauth2-server/commit/a10c376b6f48bfde52d5fa2d6a8c5cd50e3096e1">create Grant Token</a> and
 <a href="https://github.com/lepture/example-oauth2-server/commit/ba1fd40293e673ae35180a1c10f95820c6a93d23">Access Token</a> , and their getters and setters. It is
-much simpler than OAuth 1, since we don't have to create timestamp and nonce.</p><p>OAuth 2 has no Request Token. The handlers are simple too. What you need is
+much simpler than OAuth 1, since we don't have to create timestamp and nonce.</p>
+<p>OAuth 2 has no Request Token. The handlers are simple too. What you need is
 a token handler that handles response with access token or refresh token,
-and an authorize handler for user to confirm the request.</p><div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/oauth/token&#39;</span><span class="p">)</span>
+and an authorize handler for user to confirm the request.</p>
+<div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/oauth/token&#39;</span><span class="p">)</span>
 <span class="nd">@oauth.token_handler</span>
 <span class="k">def</span> <span class="nf">access_token</span><span class="p">():</span>
     <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
 <p>Flask-OAuthlib has done all the tricks, you don't need to handle the data
 yourself. However, you can return things that matter to you. They are
-advanced skills, and I will not cover it here.</p><p>Changes can be found at <a href="https://github.com/lepture/example-oauth2-server/commit/cbc3e12a3123f4bbc9d68eb8438247357f213583">commit#cbc3e12</a>.</p><p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+advanced skills, and I will not cover it here.</p>
+<p>Changes can be found at <a href="https://github.com/lepture/example-oauth2-server/commit/cbc3e12a3123f4bbc9d68eb8438247357f213583">commit#cbc3e12</a>.</p>
+<p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;DEBUG&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;true&#39;</span>
 </pre></div>
 <p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
 developing on a local machine, we don't have HTTPS, As a result, it is
 hard to meet this requirement. Fortunately, OAuthlib has a mechanism for
 us to debug on HTTP, that is the environ variable <code>DEBUG</code>.
-(Which is contributed by me).</p><p>When we code, we make mistakes. You have to keep an eye on the error
+(Which is contributed by me).</p>
+<p>When we code, we make mistakes. You have to keep an eye on the error
 stack, find out what is wrong, and fix it. Yes, I did fix some bugs in
-this commit.</p><p>And now start the server and client and visit <code>http://localhost:8000/</code>.
-You will finally get an access token.</p><p>We do OAuth, because we want to protect some resources. This is the last
+this commit.</p>
+<p>And now start the server and client and visit <code>http://localhost:8000/</code>.
+You will finally get an access token.</p>
+<p>We do OAuth, because we want to protect some resources. This is the last
 part of this tutorial on OAuth 2 server. We protect them with a decorator
 <code>@oauth.require_oauth</code>, and this decorator will add an additional paramter
-to the handler.</p><div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
+to the handler.</p>
+<div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
 <span class="nd">@oauth.require_oauth</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">me</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
 </pre></div>
 <p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
-the source code and enjoy it yourself.</p><h2>References &amp; Other Resources</h2>
+the source code and enjoy it yourself.</p>
+<h2>References &amp; Other Resources</h2>
 <p>I must confess that it is not easy to setup an OAuth server. You need to
 learn lots of concepts for understanding. This tutorial don't teach you
-the realms and scopes stuff - you can learn these parts from the <a href="https://flask-oauthlib.readthedocs.org/">Flask-OAuthlib documentation</a>.</p><p>We did waste lots of time on creating the models and handlers. In fact we
+the realms and scopes stuff - you can learn these parts from the <a href="https://flask-oauthlib.readthedocs.org/">Flask-OAuthlib documentation</a>.</p>
+<p>We did waste lots of time on creating the models and handlers. In fact we
 don't have to do such boring things. A demo is just, a demo. I don't mean
 to set limitations, and force you to use SQLAlchemy. There are chances
-that you want to use redis instead.</p><p>That's why I put the SQLAlchemy stuff in the <code>contrib</code> module. It is not
+that you want to use redis instead.</p>
+<p>That's why I put the SQLAlchemy stuff in the <code>contrib</code> module. It is not
 finished yet, and I need your contribution.
-Find out what's going on in <a href="https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib">contrib</a>.</p><p>And one more thing, it would be better if we put those temporary tokens
+Find out what's going on in <a href="https://github.com/lepture/flask-oauthlib/tree/master/flask_oauthlib/contrib">contrib</a>.</p>
+<p>And one more thing, it would be better if we put those temporary tokens
 in cache, for example request token, verifier, timestamp, nonce and
-grant token.</p><p>Remember that every link is important, if you miss one, you may miss the
-target. Chances are that you've already lost your patience.</p><p><strong>TL;DR</strong></p>
+grant token.</p>
+<p>Remember that every link is important, if you miss one, you may miss the
+target. Chances are that you've already lost your patience.</p>
+<p><strong>TL;DR</strong></p>
+
   </div>
   <div class="hide">
     <span class="author vcard">
@@ -352,20 +415,16 @@ target. Chances are that you've already lost your patience.</p><p><strong>TL;DR<
     </span>
   </div>
     <div class="github-card" data-github="lepture/flask-oauthlib"></div>
-    <script src="http://lab.lepture.com/github-cards/widget.js"></script>
+    <script>js("http://lab.lepture.com/github-cards/widget.js",1)</script>
 </div>      <div class="entry-extra">
         <div class="entry-tags">
           <span class="tag">oauth</span>
           <span class="tag">python</span>
           <span class="tag">flask</span>
         </div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lepture.com/en/2013/create-oauth-server" data-text="Create an OAuth Server — A guide on creating an OAuth server, both OAuth 1 and OAuth 2,
-in a flavor of Flask with the help of Flask-OAuthlib." data-via="lepture" data-size="small" data-dnt="true">Tweet</a>
-<script>
-  js('https://platform.twitter.com/widgets.js').onload = function(){
-    document.body.className += ' twttr-rendered';
-  };
-</script>      </div>
+<div class="social-button" data-url="http://lepture.com/en/2013/create-oauth-server" data-text="Create an OAuth Server — A guide on creating an OAuth server, both OAuth 1 and OAuth 2,
+in a flavor of Flask with the help of Flask-OAuthlib." data-twitter="lepture" data-weibo="lepture" data-count="true"></div>
+<script>js("http://lab.lepture.com/social/dist/widget.js",1);js("http://lab.lepture.com/social/dist/widget.css",1);</script>      </div>
     </div>
   </div>
 <div class="entry-comments yue">

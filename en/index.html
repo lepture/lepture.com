@@ -12,12 +12,15 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=998f9">
+<link rel="stylesheet" href="/assets/site.css?v=d08a5">
 <link rel="stylesheet" href="/assets/font.css?v=bed34">
 <script>
-  function js(u){
-    if (location.port) return {onload: null};
-    var d=document,a='script',s=d.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  function js(u,p,a){
+    if(!p && location.port)return {onload: null};
+    if(/\.js$/.test(u)){a='script'}else{a='link'};
+    var d=document,s=d.createElement(a),f=d.getElementsByTagName(a)[0];
+    if(a=='link'){s.href=u,s.rel='stylesheet'}else{s.src=u,s.async=true}
+    f.parentNode.insertBefore(s,f);return s;
   }
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-21475122-1']);
@@ -47,7 +50,7 @@ Articles in English. <a href="http://feeds.lepture.com/lepture/english">Subscrib
   <li class="entry-item">
     <div class="entry-meta">
       <time class="updated">Feb 26, 2014</time>
-      <em>1344 words</em>
+      <em>1345 words</em>
     </div>
     <div class="detail">
       <h2><a href="/en/2014/markdown-parsers-in-python">Markdown Parsers in Python</a></h2>
@@ -68,7 +71,7 @@ disadvantages of them.</p>
   <li class="entry-item">
     <div class="entry-meta">
       <time class="updated">Dec 06, 2013</time>
-      <em>602 words</em>
+      <em>605 words</em>
     </div>
     <div class="detail">
       <h2><a href="/en/2013/unpleasant-open-source">The Unpleasant Part of Open Source</a></h2>
