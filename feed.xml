@@ -3,8 +3,63 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2014-03-12T12:21:35.190581+08:00</updated>
+    <updated>2014-03-12T18:09:27.267259+08:00</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[當我談開源時我談些什麼]]></title>
+        <link href="http://lepture.com/zh/2014/my-thought-on-opensource"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2014-03-12T18:10:00+08:00</updated>
+        <published>2014-03-12T18:10:00+08:00</published>
+        <id>http://lepture.com/zh/2014/my-thought-on-opensource</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>哦，不要在意這個標題。我知道你們看過《當我談跑步時我談些什麼》，也看過《當我們談論愛情時我們在談論什麼》。</p>
+<p>那麼當我談開源時我要談些什麼呢？我以爲第一點要弄清楚的是開源是什麼。一般人眼裏的開源是怎麼樣的，我不知道，只能不懷惡意地揣測，大抵是指免費的可以查看到源代碼的軟體吧。</p>
+<p>當然，這不過是我個人的猜測。我眼中的開源遠不止如此，開源不僅僅只有軟體和代碼。英文的開源一詞乃 Open Source，至於 Source 是什麼，並沒有明確的限定。它可以是 Open-source software<sup class="footnote-ref" id="fnref-open-source"><a href="#fn-open-source" rel="footnote">1</a></sup>，可以是 Open-source content，可以是 Open-source journalism，可以是 Open-source university，甚至於 <a href="http://en.wikipedia.org/wiki/Open_politics">Open-source politics</a>。</p>
+<p>例如我曾閒暇無聊時整理過<a href="https://github.com/lepture/chinalaw">中華人民共和國的法律</a>，它不是軟體，不是代碼，但是我一樣認爲這是一個開源庫。本質上來說，它甚至不是源<sup class="footnote-ref" id="fnref-source"><a href="#fn-source" rel="footnote">2</a></sup>。但是換一個角度來看，它又是第一個整理成 Markdown 格式的法律集，那麼從這個角度來說，也可看作是源了。</p>
+<p>因爲職業的關係，我所能談的也只有 Open-source code 了。但是萬不要以爲開源就只有代碼，你可以開源任何事物。</p>
+<hr>
+<p>你也許不知道，我是 GitHub 上最活躍的大陸華人<sup class="footnote-ref" id="fnref-github-top"><a href="#fn-github-top" rel="footnote">3</a></sup>。創建了一個又一個的開源庫，挖了許多坑，也填了許多坑。這樣看來彷彿我挺熱衷於開源的，其實不然，我是屬於消極開源的一類人。</p>
+<p>例如我曾在 <a href="/en/2013/unpleasant-open-source">The Unpleasant Part of Open Source</a> 一文裏提到：</p>
+<blockquote><p>We open source not because people need us. We just happen to open source things that solve our problems, and wish it may help other people.
+Open source can be a business for a company, but not for individuals.</p>
+</blockquote><p>開源對我來說是一件順便的事，沒有什麼崇高的目的。與理想無關，更多的是一種實用主義。我寫了一個 Python 庫，順便放在 GitHub 上做管理，順便發布到 PyPI 裏方便下載安裝。一切都是因爲順便。有時覺得對別人會挺有用的，便會特地去<a href="http://www.reddit.com/r/Python/comments/1yz7bl/markdown_parsers_in_python/">宣傳宣傳</a>。比如最近寫的一個 <a href="/en/2014/markdown-parsers-in-python">Markdown 解析器</a> <a href="https://github.com/lepture/mistune">mistune</a>。但是更多的時候，我並不會刻意去做太多，沒有那麼多精力。</p>
+<p>聽起來彷彿挺沒有責任心。其實不然，我寫的東西還是很不錯的。雖然是順便爲之，測試用例、文檔卻是一樣都不會少的，而且代碼也寫得漂亮<sup class="footnote-ref" id="fnref-code-style"><a href="#fn-code-style" rel="footnote">4</a></sup>。既然有打算給別人用，文檔是必不可少的，許多程序員不喜歡寫文檔，我不在其列，我認爲沒有文檔的程序不叫開源程序。如果你有興趣，可以隨便看看我寫的文檔：</p>
+<ul>
+<li><a href="https://github.com/lepture/flask-oauthlib">Flask-OAuthlib</a>: <a href="https://flask-oauthlib.readthedocs.org/">flask-oauthlib.readthedocs.org/</a></li>
+<li><a href="https://github.com/lepture/otpauth">otpauth</a>: <a href="https://pythonhosted.org/otpauth/">pythonhosted.org/otpauth/</a></li>
+</ul>
+<hr>
+<p>開源代碼分兩類，一類是 Software(Application)，一類是 Library（庫）。Software 是針對使用者的，是一個可直接使用的程序；Library 是針對開發者的，爲開發者編寫代碼提供便利。比如 Gitlab 是一個 Open Source Software，而 Gitlab 使用的 Rails 框架則是一個 Library。對一般人來說，接觸的更多的應該是開源軟體。</p>
+<p>初入行時，我寫過一個運行在 GAE 上的博客，這是 Software。後來慢慢就不再寫 Software 了，改寫 Library 了。因爲 Software 很容易讓我廢棄掉，一旦不再使用，就沒有動力去更新了。而 Library 則不然，你輕易不會廢棄掉，即使你不再使用，因爲功能單一明確，很容易讓別人接手。比如 <a href="https://github.com/lepture/flask-wtf">lepture/flask-wtf</a> 這個庫便是從旁人那裏接手過來的。</p>
+<p>自己使用<sup class="footnote-ref" id="fnref-dog-food"><a href="#fn-dog-food" rel="footnote">5</a></sup>是一個很重要的原則。如果一個庫自己不再使用，而有其他人來提 Bug 或者 feature，我是懶得搭理的。沒有金錢收入，自己又不用，哪裏有心思修改刪增呢！以前寫了一個 Python 庫，叫 Livereload，是一個 Software。剛開始時用了一段時間，後來便廢棄了。然而不時還有人來提 issue，因爲我暫時用不着，便不太搭理人。而後靈光乍現，<a href="/en/2013/new-life-of-livereload">將 Livereload 從 Software 改成 Library</a>，便又能吃自己的狗糧了。也下定了決心，以後要少寫軟體，多寫庫。</p>
+<p>但是我偶爾還會寫一些開源軟體，專注於單一的功能，代碼量足夠小。這樣即使我不再使用它，只需要花少量的時間就能了解它，修改它。最近的例子就是 <a href="https://github.com/lepture/rewatch">rewatch</a>，區區 80 幾行代碼，賞心悅目。</p>
+<hr>
+<p>有的同學可能覺得開源是一件很偉大的事，我頗不以爲然。大可不必看得太重，當然也不可輕賤。看得太重，便會生怯，妄自菲薄，以爲這樣崇高的事自己是做不了的。假使有志於做點貢獻，我也有些許建議。</p>
+<ul>
+<li>首先註冊一個 GitHub 賬戶，學習一下 Git 的使用。現在多數開源庫都託管在  GitHub 上的。</li>
+<li>從使用別人的庫開始，在 GitHub 上 Star 一下別人的庫，讓開發者知道有人關注他寫的東西。</li>
+<li>遇到好東西，幫忙作者宣傳一下，也算是在做貢獻</li>
+<li>在使用過程中，你不可避免的會遇到各種各樣的問題，即時反饋給開發者。</li>
+<li>有能力的話，不妨修復這些問題，然後給作者發 pull request，說明清楚你解決了什麼問題。</li>
+<li>你遇到了一個問題，又找不到好的方案，於是你開始自己解決這些問題，同時公開了你的解決方案。</li>
+</ul>
+<p>我並不贊同刻意地參與，最有效的參與便是使用。在使用過程中發現問題，反饋問題，解決問題。開始的時候，多關注一些小項目，更少的代碼量有助於你理解它，發現它的問題，複雜的項目會讓人望而生怯，讓你裹足不前。</p>
+<p>我並不總是在寫自己的代碼，也會給別人<a href="https://github.com/hhatto/python-hoedown/issues/5">提問題</a>，也會給別人<a href="https://github.com/chjj/marked/pull/129">發 patch</a>。但是前提是，我在使用，而且在使用過程中遇到了問題。也許你發現的並不是什麼大問題，比如文檔裏的某個單詞寫錯了，沒有關係，大膽地給作者發 pull request 吧。</p>
+<p>最後，在參與的過程中注意一下「<a href="https://github.com/seajs/seajs/blob/master/CONTRIBUTING.md">如何向开源社区提问题</a>」。</p>
+<div class="footnotes">
+<ol><li id="fn-open-source"><p>開源軟體，這大約就是一般人眼裏的開源，也就是所謂狹義的開源。<a href="#fnref-open-source" rev="footnote">&#8617;</a></p></li>
+<li id="fn-source"><p>Source 的本意即是來源、出處、根源。<a href="#fnref-source" rev="footnote">&#8617;</a></p></li>
+<li id="fn-github-top"><p>最活躍並不代表什麼，說起來也沒有什麼特別拿得出手的東西。最近活躍度變低了，名次一直在掉，但是截止到寫這篇文章依舊是大陸區第一。<a href="#fnref-github-top" rev="footnote">&#8617;</a></p></li>
+<li id="fn-code-style"><p>我喜歡漂亮的代碼。漂亮多半時候指的是代碼風格，也偶爾指漂亮的邏輯。<a href="#fnref-code-style" rev="footnote">&#8617;</a></p></li>
+<li id="fn-dog-food"><p>所謂 Eat your own dog food 是也。<a href="#fnref-dog-food" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+ ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Markdown Parsers in Python]]></title>
         <link href="http://lepture.com/en/2014/markdown-parsers-in-python"/>
@@ -1458,30 +1513,6 @@ All things you should do is trying it.</p>
 <p>也正因了此，若說學校里我最討厭的地方，那自然是圖書館了。當然，哪裡有佔座，哪裡我都會討厭一下的。又忽而憶起有一回是在圖書館，我坐了個被別人佔座著的位置，大約是中午到下午四點的光景，至少在我走的時候，也未見佔座的主人來過。</p>
 <p>這個時候我就想，大家要是懶一點該多好，多睡一會兒懶得去佔座，又或者懶得幫別人佔座，該是多麼美好的校園生活！</p>
 <p>最後解釋一下，所謂佔座，亦即是把一本破書丟在座位上，表示此座是該書主人的。也不知這究竟有甚麼約束效力，大家竟都被一本破書唬住了。</p>
- ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[心經]]></title>
-        <link href="http://lepture.com/zh/2010/ethics-of-love"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2010-09-20T00:00:00+08:00</updated>
-        <published>2010-09-20T00:00:00+08:00</published>
-        <id>http://lepture.com/zh/2010/ethics-of-love</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>近來的風氣格外大膽，同志盛行，各處漫延著基友、搞基之類的詞彙，彷彿homosexuality已經不是大膽話題，相反，正是流行所向。然而沒有美感。</p>
-<p>早些時候，彷彿是2007年，有一部泰國電影《暹羅之戀》，雖是講同性之戀，雖是青春偶像片，然而讓我覺得了美，覺得了精緻，逢人就推薦。但是個人喜好的不同，許多還未看完小時候那一場開場劇就等不下去了，我以為很可惜，也不好勉強。而且尤其因為這部片子不適合熱鬧，偏好於個人的欣賞。</p>
-<p>新近的雖然大膽，無非是鬧鬧，滑稽戲罷了。</p>
-<p>可是我要說的是近代，共黨以前的事了。張愛玲作《心經》，不是同性之戀，是父女之戀。這在當時算是大膽極矣，即使放在當下，也還算是禁忌，不比基友之流。雖說張亦有寫作同性戀，《同學少年都不賤》大抵算是了，我倒不打算談。</p>
-<p>一般認為張有戀父情結，《小團圓》出來的時候，亦常見有評說，張愛上胡蘭成是出於戀父，且不論是否，這裡只是提一下。</p>
-<p>許小寒是怎樣愛上自己的父親的，張未有提及，在我以為是頗難理解。小寒自己倒格外得意，其實時常有向同學們暗示。“這是我爸爸。我要你們把他認清楚了，免得下次你們看見他跟我在一起，又要發生誤會。”“上次有一個同學，巴巴地來問我，跟你去看國泰的電影的那個高高的人，是你的男朋友麼？我笑了幾天——一提起就好笑！”</p>
-<p>如果說孩子氣的話還可以理解，偏偏許峰儀又愛著自己的女兒，這樣大的一個人了，簡直無法理解。他當然覺得不安，倫理上是如何都說不過去的。小寒是自然不肯讓步的，所以也不難理解結局了，當然是許峰儀做了背叛。</p>
-<p>可是許峰儀選擇了綾卿，讓綾卿做了代替品，其實還是有愛戀女兒的意思。小寒生日那天，許峰儀就覺得了綾卿同小寒長得像，她們彈琴後，峰儀有說“你們兩個人長得有點像”。也不知是否當時就下了主意。</p>
-<p>故事自然是一個悲劇。</p>
-<p>最可憐的當然是小寒母親，是小寒一手造成的，最後竟又想讓母親可以管管父親，多少有些荒唐。她父親還會在意她母親麼！她造就了許多悲劇人物，可是她自己是最大的悲劇。我自然沒有責怪的意思，反而是覺得了可惜。</p>
-<p>《心經》在張愛玲的短篇里，大約沒甚麼名氣，然而別具一格，也還是張愛玲的味道。</p>
  ]]>
         </content>
     </entry>
