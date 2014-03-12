@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2014-03-12T18:09:27.267259+08:00</updated>
+    <updated>2014-03-12T22:38:34.948380+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[當我談開源時我談些什麼]]></title>
@@ -1116,44 +1116,43 @@ target. Chances are that you've already lost your patience.</p>
 <p>我們只需要簡單介紹一下基本的文法，聰明者如你應該不需要五分鐘就可學會。</p>
 <ul>
 <li><p>一級標題（大標題）</p>
-<pre><code>  # 這是一級標題
+<pre><code># 這是一級標題
 </code></pre>
 </li>
 <li><p>二級標題（副標題）</p>
-<pre><code>  ## 這個是副標題
+<pre><code>## 這個是副標題
 </code></pre>
 </li>
 <li><p>那麼三級標題，四級標題也就很容易猜出來了</p>
-<pre><code>  ### 三級標題
-  #### 四級標題
+<pre><code>### 三級標題
+#### 四級標題
 </code></pre>
 </li>
 <li><p>圖片與鏈接</p>
-<pre><code>  ![image description](image URL)
-  [link text](link URL)
+<pre><code>![image description](image URL)
+[link text](link URL)
 </code></pre>
 </li>
 <li><p>著重強調</p>
-<pre><code>  *emphasize*    **strong**
-  _emphasize_    __strong__
+<pre><code>*emphasize*    **strong**
+_emphasize_    __strong__
 </code></pre>
 </li>
 <li><p>引用的內容</p>
-<pre><code>  &gt; 生命是一襲華美的袍，爬滿了虱子。
+<pre><code>&gt; 生命是一襲華美的袍，爬滿了虱子。
 </code></pre>
 </li>
 <li><p>有序列表</p>
+<pre><code>1. 有序列表第一條
+2. 有序列表第二條
+</code></pre>
+</li>
+<li><p>無序列表</p>
+<pre><code>* 無序列表
+* 無序列表
+</code></pre>
 </li>
 </ul>
-<pre><code>    1. 有序列表第一條
-    2. 有序列表第二條
-</code></pre>
-<ul>
-<li>無序列表</li>
-</ul>
-<pre><code>    * 無序列表
-    * 無序列表
-</code></pre>
 <p>現在你已經了解了所有你需要知道的了，這難道能叫做難學麼？忘記介紹段落了，你只需要保證段落之間有空行就可以了。</p>
 <p>也許你還需要一個編輯器來輔助你，例如我現在正在用 Mou 來寫作這篇文章。對，你所看到的這篇文章正是用 Markdown 寫作的。也許你對自己的寫作不放心，需要實時預覽，借助<a href="http://www.zhihu.com/question/19637157">這些工具</a>也許能讓你更放心。其實真的不需要，例如當我寫作這篇文章時，我並不需要即時預覽，我知道我寫出來的效果一定就會是我想要的。</p>
 <p>另外我正在編寫一個網頁版的 <a href="http://lab.lepture.com/editor/">Markdown 編輯器</a>，雖然還沒有完成，不過已經足以幫助你熟悉一下 Markdown 的文法了。我也為你準備了一份詳細的<a href="http://lab.lepture.com/editor/markdown">英文版文法</a>說明。</p>
