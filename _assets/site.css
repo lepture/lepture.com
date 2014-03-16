@@ -293,11 +293,14 @@ a:hover {
   padding: 0 2px;
 }
 .footnotes {
-  margin-top: 60px;
-  padding-top: 14px;
-  border-top: 1px solid #dededc;
   color: #686869;
   font-size: 15px;
+}
+.footnotes hr {
+  width: 100%;
+  border-top: 1px solid #dededc;
+  border-bottom: none;
+  margin: 14px 0;
 }
 .footnotes a {
   color: #686869;
@@ -313,5 +316,12 @@ a:hover {
     text-align: center;
     margin: 36px -60px;
     font-size: 24px;
+  }
+}
+@media print {
+  #header, #subheader, #footer,
+  .entry-extra, .entry-comments,
+  .hentry .entry-meta {
+    display: none;
   }
 }
