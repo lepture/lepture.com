@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/zh/feed.xml" rel="self" />
     <link href="http://lepture.com/zh/" />
-    <updated>2014-03-13T12:35:35.012426+08:00</updated>
+    <updated>2014-03-25T11:48:51.809838+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[當我談開源時我談些什麼]]></title>
@@ -50,6 +50,7 @@ Open source can be a business for a company, but not for individuals.</p>
 <p>我並不總是在寫自己的代碼，也會給別人<a href="https://github.com/hhatto/python-hoedown/issues/5">提問題</a>，也會給別人<a href="https://github.com/chjj/marked/pull/129">發 patch</a>。但是前提是，我在使用，而且在使用過程中遇到了問題。也許你發現的並不是什麼大問題，比如文檔裏的某個單詞寫錯了，沒有關係，大膽地給作者發 pull request 吧。</p>
 <p>最後，在參與的過程中注意一下「<a href="https://github.com/seajs/seajs/blob/master/CONTRIBUTING.md">如何向开源社区提问题</a>」。</p>
 <div class="footnotes">
+<hr>
 <ol><li id="fn-open-source"><p>開源軟體，這大約就是一般人眼裏的開源，也就是所謂狹義的開源。<a href="#fnref-open-source" rev="footnote">&#8617;</a></p></li>
 <li id="fn-source"><p>Source 的本意即是來源、出處、根源。<a href="#fnref-source" rev="footnote">&#8617;</a></p></li>
 <li id="fn-github-top"><p>最活躍並不代表什麼，說起來也沒有什麼特別拿得出手的東西。最近活躍度變低了，名次一直在掉，但是截止到寫這篇文章依舊是大陸區第一。<a href="#fnref-github-top" rev="footnote">&#8617;</a></p></li>
@@ -92,6 +93,7 @@ Open source can be a business for a company, but not for individuals.</p>
 <p>你看，雖然我寫得一塌糊涂，完全不知所云，但是仍然有發表出來的勇氣，也見得暫未患這成熟病了。最後送上顾城的一首詩，望君喜歡。</p>
 <blockquote><p>天是灰色的<br>路是灰色的<br>楼是灰色的<br>雨是灰色的<br>在一片死灰中<br>走过两个孩子<br>一个鲜红<br>一个淡绿</p>
 </blockquote><div class="footnotes">
+<hr>
 <ol><li id="fn-compromise"><p>中文妥協一詞與英文 compromise 頗不相同，中文的妥協更多時候只是一方的退讓。<a href="#fnref-compromise" rev="footnote">&#8617;</a></p></li>
 <li id="fn-not-accomplished"><p>當我談成熟時，這個成熟只限定於本文的意義。它是非普適的，亦不是你認爲的意義。<a href="#fnref-not-accomplished" rev="footnote">&#8617;</a></p></li>
 <li id="fn-bus-boycott"><p>The Montgomery Bus Boycott, a seminal event in the U.S. civil rights movement, was a political and social protest campaign against the policy of racial segregation on the public transit system of Montgomery, Alabama.<a href="#fnref-bus-boycott" rev="footnote">&#8617;</a></p></li>
@@ -322,6 +324,7 @@ Open source can be a business for a company, but not for individuals.</p>
 <p>我微博用得不勤，話多在 Twitter。一方面是微博的界面入不得眼，另一方面就是文字圖片（所謂長微博者）的濫用。微博也意識到了這點，可是又不思進取，以爲提供一個官方的文字圖片生成工具就算是解決問題了。</p>
 <p>前些時候，濟南中院微博直播薄熙來案庭審，算是開創性的大事吧。而文字直播所用的方式竟然是這長微博，也就是圖片。起先，濟南中院整理出純文本稿，而後將此文本生成圖片發表於微博，最後再由網易小編整理成純文本稿，不知花費人力幾何？信息量未變，而圖片在其傳播過程中又浪費網絡資源幾何？</p>
 <p>我不知也。假使我有點情懷，也該矯情地說一句：「也請偶爾爲這個宇宙考慮考慮吧。」</p>
+<p>即使你對這個宇宙沒有興趣，樂意於揮霍網絡資源，那你至少也應該爲視覺障礙者（盲人）考慮一下吧。我們的讀屏軟件還沒有高級到去識別你發的「長微博」。假使你是一個所謂「自媒體」的話，連這點「人文關懷」都沒有，就不要自稱「媒體」了。</p>
 <h2>Twitter 的思路</h2>
 <p>批評有時顯得蒼白無力，需要一點建設性意見。我們也偶爾需要承認，外國的月亮確實要圓一點。看看 Twitter 是如何做的。</p>
 <p>Twitter 有一個特性叫作 <a href="https://dev.twitter.com/cards">Twitter Cards</a>，用來展示嵌入內容。它可以是摘要，可以是圖片，可以是視頻，還可以是 App。</p>
