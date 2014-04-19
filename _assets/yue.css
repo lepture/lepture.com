@@ -9,8 +9,12 @@
 
 
 .yue {
-  font: 400 18px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+  font: 400 18px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
   color: #444443;
+}
+.windows .yue {
+  font-size: 16px;
+  font-family: "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "SimSun", sans-serif;
 }
 .yue ::-moz-selection {
   background-color: rgba(0,0,0,0.2);
@@ -92,11 +96,11 @@
   outline: 0;
   margin: 10px 0 30px;
   padding: 0;
+  min-height: 100px;
 }
 .yue figure img {
   display: block;
   max-width: 100%;
-  margin: auto;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -184,7 +188,7 @@
   overflow: auto;
   line-height: 1.5;
   font-size: 0.96em;
-  font-family: "Inconsolata", "Menlo", monospace;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   color: #4c4c4c;
   background-color: #f9f9f7;
 }
@@ -236,6 +240,9 @@
   }
   .yue blockquote blockquote {
     margin-left: 0;
+  }
+  .yue figure img {
+    margin: auto auto 4px;
   }
   .yue figure figcaption:before {
     width: 25%;

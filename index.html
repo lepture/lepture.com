@@ -1,13 +1,29 @@
-# About
+{% extends "layout.html" %}
 
-- template: home.html
-- nocache: true
+{% block extra_head %}
+<style>
+  .entry-content h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: sans-serif;
+    color: #999;
+  }
+  .lists time {
+    color: #666;
+    font-family: monospace;
+    font-size: 14px;
+  }
+</style>
+{% endblock %}
 
----------
+{% block container %}
+<div class="entry-content">
+  {% filter markdown %}
 
 ## Advertisement
 
-[寫一篇武俠等讀者](/zh/2013/wuxia-novel) is waiting for subscribers.
+[閱乎](https://yuehu.io/) is a place for reading and sharing.
 
 ## More Links
 
@@ -43,3 +59,16 @@ The [logo](/logo.svg) is created with Sketch. The site is hosted by GitHub Pages
 
 All articles are (c) Hsiaoming Yang, all rights reserved. They are **not**
 under any public domain.
+
+  {% endfilter %}
+</div>
+
+<div class="entry-content lists">
+  <h2>Latest Updates</h2>
+  <ul class="unstyled">
+    {% for item in site.posts(count=5) %}
+      <li><time>{{ item.date.strftime('%Y-%m-%d') }}</time> — <a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
