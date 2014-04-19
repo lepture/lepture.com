@@ -15,25 +15,27 @@
   {% include "head.html" %}
 </head>
 <body>
-  {% macro Book(title, link, image, author, description=None) %}
-  <div class="book">
-    <a class="book-cover" href="{{ link }}">
-      <img src="{{ image }}" alt="{{ title }}">
-    </a>
-    <div class="book-meta">
-      <a class="book-title" href="{{ link }}">{{ title }}</a>
-      <p class="book-author">{{ author }}</p>
-      {% if description %}
-        <p class="book-description">{{ description }}</p>
-      {% endif %}
+  {% macro Book(book) %}
+    <div class="book">
+      <a class="book-cover" href="{{ book.url }}">
+        <img src="{{ book.image }}" alt="{{ book.title }}">
+      </a>
+      <div class="book-meta">
+        <a class="book-title" href="{{ book.url }}">{{ book.title }}</a>
+        <p class="book-author">{{ book.author }}</p>
+        {% if book.description %}
+          <p class="book-description">{{ book.description }}</p>
+        {% endif %}
+      </div>
     </div>
-  </div>
   {% endmacro %}
   <div id="main">
     <div class="container yue">
-      {{ Book('大江大海 一九四九', '/zh/2011/dajiangdahai', '//dn-lepture.qbox.me/blog/dajiangdahai.png', '龍應台', '告訴我，戰爭有勝利者嗎？歷史遠比你想像的殘酷，數不盡的犧牲者，城市，鄉村，人物。') }}
-      {{ Book('雨季不再來', '/zh/2009/on-yujibuzailai', '//dn-lepture.qbox.me/blog/yujibuzailai.jpg', '三毛') }}
-      {{ Book('小團圓', '/zh/2009/on-xiaotuanyuan', '//dn-lepture.qbox.me/blog/xiaotuanyuan.jpg', '張愛玲') }}
+      {% for page in site.posts() %}
+        {% if page.review and page.image %}
+          {{ Book(page) }}
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
   <div class="book-footer yue">

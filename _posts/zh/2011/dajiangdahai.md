@@ -4,9 +4,10 @@
 - tags: reading, history, china
 - review: 大江大海 一九四九
 - rating: 4.5
+- author: 龍應台
 - image: http://dn-lepture.qbox.me/blog/dajiangdahai.png
 
-港大女教授龍應台所著的這本《大江大海一九四九》在大陸是禁書，2009年出版。今年是2011年。
+告訴我，戰爭有勝利者嗎？歷史遠比你想像的殘酷，數不盡的犧牲者，城市，鄉村，人物。
 
 ------------------
 

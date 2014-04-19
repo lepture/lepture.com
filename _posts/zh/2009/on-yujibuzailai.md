@@ -4,9 +4,10 @@
 - tags: reading, essay
 - review: 雨季不再來
 - rating: 4.5
-- image: http://dn-lepture.qbox.me/blog/yujibuzailai.jpg
+- author: 三毛
+- image: //dn-lepture.qbox.me/blog/yujibuzailai.jpg
 
-回想起來，一生中最輝煌的時候還是在少年，尤其是小學時候。然而這話說起來是多麼地蒼白無力，一生呵，其實只不過二十出頭的光景，連戀愛都還未曾有過。
+人生是不該折斷了來看的，純粹的悲與喜的人生是經不住品閱的，縱使淒苦，其間也總有欣慰的事，異彩又或者點滴卑微的滿足。
 
 --------------
 
