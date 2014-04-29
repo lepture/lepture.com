@@ -5,6 +5,7 @@
 <script>
     var disqus_shortname='{{ site.disqus }}';
     var disqus_title='{{ page.title }}';
+    var disqus_url='{{ site.baseurl }}{{ page.url }}';
     js('http://'+disqus_shortname+'.disqus.com/embed.js');
 </script>
 {% endif %}

@@ -15,4 +15,5 @@
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
   {% endif %}
+  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
 </script>
