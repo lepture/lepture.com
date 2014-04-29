@@ -27,6 +27,7 @@
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
+  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
 </script>  <style>
     .site { margin-bottom: 30px; }
     .site h3 { margin-bottom: 10px; }

@@ -27,6 +27,7 @@
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
+  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
 </script>    <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="New life of livereload">
     <meta name="description" content="This is not a changelog of a project. It is what I learned in the development of livereload.">

@@ -27,6 +27,7 @@
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
+  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
 </script>  <link rel="alternate" type="application/atom+xml" title="Subscribe English Feed" href="http://feeds.lepture.com/lepture/english">
 </head>
 <body>

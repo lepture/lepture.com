@@ -27,6 +27,7 @@
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
+  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
 </script>    <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="文字排印與標記語言">
     <meta name="description" content="寫給文字工作者的 Markdown 介紹。">

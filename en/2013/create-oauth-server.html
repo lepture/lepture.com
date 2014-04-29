@@ -27,6 +27,7 @@
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
+  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
 </script>    <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Create an OAuth Server">
     <meta name="description" content="A guide on creating an OAuth server, both OAuth 1 and OAuth 2,

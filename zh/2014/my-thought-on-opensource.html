@@ -27,6 +27,7 @@
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     js('https://ssl.google-analytics.com/ga.js');
+  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
 </script>    <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="當我談開源時我談些什麼">
     <meta name="description" content="開源對我來說是一件順便的事，沒有什麼崇高的目的。與理想無關，更多的是一種實用主義。">
