@@ -42,7 +42,7 @@ Windows 的字體渲染偏銳利，微軟雅黑的顯示就有點尷尬，但是
 
 但是受限於點陣字體，一旦到 18px 時，渲染效果就沒法看了。所以使用中易宋體時就必須保證字體大小在 18px 以下。
 
-那麼，在 Windows 上，我的選擇是 16px 的中易宋體。但是我並非實際使用者，有 Windows 使用者反饋說微軟雅黑挺好的。於是暫時先用微軟雅黑吧。還是希望能有更多的 Windows 使用者的反饋。
+那麼，在 Windows 上，我的選擇是 16px 的中易宋體。但是我並非實際使用者，有 Windows 使用者反饋說微軟雅黑挺好的。還是希望能有更多的 Windows 使用者的反饋。
 
 ## Linux
 
@@ -60,7 +60,7 @@ Linux 上我的選擇是 18px 的文泉驛微米黑。因爲 Linux 用戶自己�
 }
 .windows .yue {
   font-size: 16px;
-  font-family: "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "SimSun", sans-serif;
+  font-family: "Georgia", "SimSun", sans-serif;
 }
 ```
 
