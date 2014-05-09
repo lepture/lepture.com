@@ -28,7 +28,7 @@
 }
 .book .book-title {
   font-size: 26px;
-  font-family: Georgia, "Hiragino Mincho Pro", serif;
+  font-family: Georgia, "Hiragino Mincho Pro", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   text-decoration: none;
 }
 .book .book-author {
