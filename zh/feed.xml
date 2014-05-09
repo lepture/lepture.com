@@ -3,8 +3,63 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/zh/feed.xml" rel="self" />
     <link href="http://lepture.com/zh/" />
-    <updated>2014-04-29T19:26:15.159366+08:00</updated>
+    <updated>2014-05-09T15:18:58.563765+08:00</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[適合閱讀的中文字體]]></title>
+        <link href="http://lepture.com/zh/2014/chinese-fonts-and-yue-css"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2014-05-09T15:35:00+08:00</updated>
+        <published>2014-05-09T15:35:00+08:00</published>
+        <id>http://lepture.com/zh/2014/chinese-fonts-and-yue-css</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>我時常更新自己的博客程序，也時常更新自己的博客主題。偏右言：「世上有兩種前端工程師，寫博客的，和寫博客的。」我之謂也。我的博客主題一直保持着簡潔的樣式，保持着我認爲適合閱讀的文字排版。</p>
+<p>中文閱讀上，我以爲最大的問題便是字體。不像英文，使用 Web Fonts 的代價相當低廉，中文因爲文字量大的原因，整個字體文件偏大，暫不適合使用 Web Fonts。在這樣的情形下，我們只能儘量利用作業系統自身的字體了。</p>
+<h2>Mac</h2>
+<p>Mac 上默認的中文字體是華文黑體（STHeiti）與華文宋體，我個人認爲質量是不錯的。紙質書的印刷，普遍使用的是宋體，然而在現在的顯示器上，宋體的表現並不令人滿意。</p>
+<p>宋體的結構相比於黑體要複雜許多，比如橫線起筆處微小的回鉤，橫豎撇捺點鉤都沒有那麼簡單。這些細膩的處理在現在的顯示器上都無法完美地體現，也許等到 Retina 普及後，宋體才能重拾其在紙質書的光輝。</p>
+<p>而黑體則不一樣，結構簡潔，形體勻稱，合適在顯示器上閱讀。所以目前我的選擇是黑體。Mac 上還有一款贊譽頗多的黑體——冬青黑體（Hiragino Sans GB）。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/18px-mac-stheiti.png" alt="華文黑體" /><figcaption>Mac 上 18px 的華文黑體</figcaption></figure><figure><img src="//dn-lepture.qbox.me/blog/18px-mac-hiragino.png" alt="冬青黑體" /><figcaption>Mac 上 18px 的冬青黑體</figcaption></figure><p>我個人以爲兩者都還不錯，冬青黑體整體看來更爲飽滿，偏扁平，而華文黑體則偏瘦一點，比如你看兩者的「口」字。我個人隨大流，選擇了贊譽頗多的冬青黑體。</p>
+<h2>Windows</h2>
+<p>因爲我個人一直使用的是 Mac，對視窗系統沒有太多了解，只知道中易宋體與微軟雅黑。所以只能對這兩者做對比。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/18px-win-yahei.png" alt="微軟雅黑" /><figcaption>Windows 上 18px 的微軟雅黑</figcaption></figure><p>也許只是個人原因，微軟雅黑看起來不夠圓潤，甚至有鋸齒感。當然，這與 Windows 的字體渲染有關，非微軟雅黑字體之過。但是也有人覺得 Windows 上的微軟雅黑比 Mac 上的冬青黑體更好，嫌棄 Mac 的字體渲染太模糊。我個人認爲 16px 的中易宋體在 Windows 上是更好的選擇。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/16px-win-simsun.png" alt="中易宋體" /><figcaption>Windows 上 16px 的中易宋體</figcaption></figure><p>Windows 的字體渲染偏銳利，微軟雅黑的顯示就有點尷尬，但是中易宋體是點陣字體，正好利用到了 Windows 的字體渲染優勢。我們看到中易宋體的內容非常清晰悅目。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/18px-win-simsun.png" alt="中易宋體" /><figcaption>Windows 上 18px 的中易宋體</figcaption></figure><p>但是受限於點陣字體，一旦到 18px 時，渲染效果就沒法看了。所以使用中易宋體時就必須保證字體大小在 18px 以下。</p>
+<p>那麼，在 Windows 上，我的選擇是 16px 的中易宋體。但是我並非實際使用者，有 Windows 使用者反饋說微軟雅黑挺好的。於是暫時先用微軟雅黑吧。還是希望能有更多的 Windows 使用者的反饋。</p>
+<h2>Linux</h2>
+<p>在使用 Mac 之前，我一直使用的是 Ubuntu，所有的經驗也都停留在那一時期。也不知道過了這許多年，Linux 上的字體渲染發展得如何了。</p>
+<p>Linux 上我的選擇是 18px 的文泉驛微米黑。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。</p>
+<h2>The Code</h2>
+<p>這些經驗最終彙集到了 <a href="https://github.com/lepture/yue.css">yue.css</a> 這個樣式庫。尤其是對 Windows 的處理，反反覆覆，時而會把微軟雅黑添加進來，時而又移出。到寫作此文時，字體樣式便成了：</p>
+<pre><code class="lang-css">.yue {
+  font: 400 18px/1.62 &quot;Georgia&quot;, &quot;Xin Gothic&quot;, &quot;Hiragino Sans GB&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Microsoft YaHei&quot;, sans-serif;
+}
+.windows .yue {
+  font-size: 16px;
+  font-family: &quot;Georgia&quot;, &quot;Xin Gothic&quot;, &quot;Hiragino Sans GB&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;SimSun&quot;, sans-serif;
+}
+</code>
+</pre><p>Windows 使用 16px 是爲了兼容 Windows XP。在 XP 上，沒有微軟雅黑只有中易宋體，在這種情況下會 Fallback 到中易宋體，而 18px 會導致字體變形。你可能需要一句 JavaScript 來添加 <code>.windows</code> 的 class：</p>
+<pre><code class="lang-javascript">if(/windows/i.test(navigator.userAgent)){
+  document.getElementsByTagName(&#39;html&#39;)[0].className += &#39; windows&#39;
+}
+</code>
+</pre><p>至於 16px，我個人以爲偏小。但是還有許多網站在使用 14px，甚至於還有 12px 的。以現在顯示器的分辨率，14px 的文字閱讀起來就有點吃力了。當然，也有可能我高估了高分屏的普及率了。</p>
+<h2>Criticism</h2>
+<ol>
+<li>豆瓣的日誌影評書評等內容皆是 12px 的，必須點名批評一下。現在已經是 2014 年了，這個字體大小真的看起來很累。</li>
+<li>知乎的內容是 13px 的，比起 12px 也好不了多少。不過專欄字體大小有 16px 了，還算不錯。</li>
+<li>簡書用 18px 的宋體，這個在 Windows 下是沒有辦法忍受的。但是最不能忍受的還是楷體的標題。</li>
+</ol>
+<h2>yue.css</h2>
+<p>對於文字排版，我並沒有專業的素養。愚之所言，不過個人經驗罷了。最後這些經驗彙集成了樣式集 <a href="https://github.com/lepture/yue.css">yue.css</a>。</p>
+<p>yue.css 不是一個樣式重置(reset)，不會影響到其它標籤的樣式。你所需要的只是給內容區域加上 <code>.yue</code> 的 class。簡潔實用，目前用於我的博客，<a href="https://yuehu.io/">閱乎</a>，當然還有別的朋友在用。</p>
+<p>如果你對文字排版有興趣，可以使用 yue.css。如果你對 yue.css 有意見，也歡迎反饋給我。</p>
+ ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[沒有時間的大理]]></title>
         <link href="http://lepture.com/zh/2014/wander-in-dali"/>
@@ -826,35 +881,6 @@ _emphasize_    __strong__
 <p>小孩子的心思，多半貪玩。我那時拿了錢後，自然是買了許多玩具。幼年時候的七塊錢還是挺值錢的，記得的玩具有一輛車，一架直升機。想來玩具車多半也都玩過，是那種按在了地上向後拉，上了發條就向前衝的。直升機倒忘了是怎樣一種玩法。總之是愉快的一半天，享受了揮金如土的感覺。</p>
 <p>臨近晚上的時候就被母親發現了，少不了的是訓斥。問我拿了多少，我那時支支吾吾地，說是拿了七毛錢。數字倒是肯承認的，單位確不敢實供。雖然小，也是知道七毛比七塊要少的。</p>
 <p>可是再要記得更多，就不能了。母親是如何的生氣，我那時又是怎麼樣的一個窘境，是完全不記得了。也不知是否有意的淡忘。之後再有沒有偷過錢，也許有吧，也許沒有，都不太記得了，只記得這一段了，記得七塊錢與七毛錢。</p>
- ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[除夕的狗]]></title>
-        <link href="http://lepture.com/zh/2010/the-very-dog"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2010-08-29T00:00:00+08:00</updated>
-        <published>2010-08-29T00:00:00+08:00</published>
-        <id>http://lepture.com/zh/2010/the-very-dog</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>我竟無法理解小的時候是怎樣的一種心情了，每逢舊曆年總是格外興奮，又不像一般人家還有壓歲錢，是分文沒有的，就算偶爾有了，也總不能自己支配，是被父母代管了。這樣說彷彿是鑽進了錢眼裡，可是雖然是小朋友，也有想要花錢的時候，例如買點小電動車之類的玩具，問母親要，自然是不肯給買的，這個時候就想著有壓歲錢的好處了。但是沒有，也還是很高興過年。</p>
-<p>也不知道是甚麼時候開始討厭起來的，每到新年時候心情就低落許多。大約是親戚們之間的應酬，而且又不得不面對討厭的幾個親戚，煙呀酒呀討厭的東西總是層出不窮；又或者親戚們的語重心長，甚麼為人世故啦，甚麼酒還是要喝的啦，人際關係要處理好啦。而且偏偏是在這個時候，總是大魚大肉，難得見點青菜。</p>
-<p>除夕的這一天，例畢是要去祭墳的。也還是如同中學時候的感想：小的時候尚且相信鬼神，祭墳的時候便格外虔誠，等到長大了，心中不再有神明瞭，於是祭墳成了一種儀式。自然，本來就是一種儀式。</p>
-<p>我們與別家又不同，團年飯是在除夕這一天，其實年三十也有一餐團年飯。早餐吃得很遲，但是一早被母親叫醒了，又沒甚麼可乾的事情，便出去轉轉。可是也沒甚麼可逛的，鄉下的風光並非影畫里的田園，是令人嚮往的所在。我弟弟亦出去玩了，回來的時候竟帶了一條狗，真真是嚇人一跳。</p>
-<p>說起來我們家養狗的歷史真是駭人，彷彿每一條狗都不得善終。不是被車撞死了就是被人毒死了。最長的時候，一條狗養了兩年，天天用鍊子索著，也怪可憐的。也總要我在家的時候才會帶它出去溜溜，父母是只管它吃飯的。後來有一回幫它解了索鏈，結果便被撞死了，真是夠氣人的。</p>
-<p>問弟弟這狗是哪裡來的。弟弟亦說不知道，突然就出現了，一直跟著他，趕都趕不走。是一條成年狗，灰撲撲的毛色，遢耳朵，很長的一張臉，是普通的土狗，沒有名貴的出生，但是也不算醜。自然，鄉下也不太可能養寵物狗，而且一般的狗我是都喜歡的。也不知道是被誰拋棄了的吧。</p>
-<p>正巧趕上了新年，骨頭特別多。</p>
-<p>吃過了早餐，少不了逗逗狗，呼來喚去的，聽話極了。在它眼前晃一晃手，便跟著跳起來，可是偏偏又舔不到手，再晃，也一樣地跳立。是一條很精神的狗呀。父親見了亦是喜歡，說就留下來看門吧。</p>
-<p>十點鐘的光景，大家要去小爹那邊，因為祖先們的墳都是小爹他們灣子里。我跟弟弟妹妹先走，自然狗是會跟來的，大家一興奮，說把狗帶過去吧。其實又不難，實在是太粘人的狗了，很容易帶著走呢。大家說說笑笑，像是撿了個大便宜。於是就有人說，現在狗便宜得很，大概還不值十塊錢。我正想給狗取個名字，一聽到就高興了，於是說：“不如這狗就叫十塊錢吧。”</p>
-<p>大家自然是覺得不好，因為它是還不值十塊錢的，那麼就“五塊錢”吧，也不能再低了，再低就不像話了。可是如果真要是也能值五塊錢的話，那它主人幹甚麼又不要它了呢？這樣聽話的一條狗。</p>
-<p>當然“小灰”“小白”之類的名字也會提出來。妹妹想到她家以前的狗了，叫西虎，於是提議這狗就叫西虎吧。</p>
-<p>西虎自然是已經沒了的。跟了妹妹家有四五年吧，一家人都很喜歡。每每談起狗來，小媽總不禁想起西虎，一時黯然，絮絮叨叨說起西虎的往昔，是怎樣的聽話的一條狗，是怎樣忠實的一條狗。又例畢是要提到它的一次光輝事跡，也就是一次盜竊事件。可是，西虎是黑色的呀，不像這只這般灰撲撲的。所以我打定了主意叫它五塊錢。</p>
-<p>我們快到墳地的時候，父母們已經到了。其實是我們先走的，他們開了摩托車過來的。遠遠的就聽見了鞭炮聲，五塊錢這個時候就有些不悅了，想來是怕這聲音，可是還是跟著我們往前走。可是再近了一些的時候，它突然轉身，瘋了似的飛奔走了。</p>
-<p>然而我們又不得不去上墳，弟弟這個時候說不去了，他去找狗。我們也由了他，反正祭墳只是個儀式，儀式是可以被代表的。我和妹妹便代表了他。</p>
-<p>大家祭過墳後回家，路上遇到了弟弟，問結果，可想而知咯。如果找到了，也就會看見狗了。我們仨都很失望，真真悔恨起來。如果當時留下一個人陪著狗，也不至於弄丟了。可是大家又還抱了希望，希望五塊錢可以自己原路返回。自己安慰一下自己，也只好這樣了。</p>
-<p>懷著希望，結果回了家沒見到。問在母親，自然是說沒看見的。弟弟又出去轉一轉，希望還可以再見到它。也終於只是一個希望而已。</p>
  ]]>
         </content>
     </entry>
