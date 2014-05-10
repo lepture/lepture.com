@@ -48,7 +48,7 @@ Windows 的字體渲染偏銳利，微軟雅黑的顯示就有點尷尬，但是
 
 在使用 Mac 之前，我一直使用的是 Ubuntu，所有的經驗也都停留在那一時期。也不知道過了這許多年，Linux 上的字體渲染發展得如何了。
 
-Linux 上我的選擇是 18px 的文泉驛微米黑。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。
+Linux 上我的選擇是 18px 的 ~~文泉驛微米黑~~ Droid Sans。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。
 
 ## The Code
 
@@ -56,7 +56,7 @@ Linux 上我的選擇是 18px 的文泉驛微米黑。因爲 Linux 用戶自己�
 
 ```css
 .yue {
-  font: 400 18px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+  font: 400 18px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans", "Microsoft YaHei", sans-serif;
 }
 .windows .yue {
   font-size: 16px;
