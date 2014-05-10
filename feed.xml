@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2014-05-09T16:56:47.599296+08:00</updated>
+    <updated>2014-05-10T18:25:26.468160+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[適合閱讀的中文字體]]></title>
@@ -21,24 +21,24 @@
 <p>Mac 上默認的中文字體是華文黑體（STHeiti）與華文宋體，我個人認爲質量是不錯的。紙質書的印刷，普遍使用的是宋體，然而在現在的顯示器上，宋體的表現並不令人滿意。</p>
 <p>宋體的結構相比於黑體要複雜許多，比如橫線起筆處微小的回鉤，橫豎撇捺點鉤都沒有那麼簡單。這些細膩的處理在現在的顯示器上都無法完美地體現，也許等到 Retina 普及後，宋體才能重拾其在紙質書的光輝。</p>
 <p>而黑體則不一樣，結構簡潔，形體勻稱，合適在顯示器上閱讀。所以目前我的選擇是黑體。Mac 上還有一款讚譽頗多的黑體，冬青黑體（Hiragino Sans GB）。</p>
-<figure><img src="//dn-lepture.qbox.me/blog/18px-mac-stheiti.png" alt="華文黑體" /><figcaption>Mac 上 18px 的華文黑體</figcaption></figure><figure><img src="//dn-lepture.qbox.me/blog/18px-mac-hiragino.png" alt="冬青黑體" /><figcaption>Mac 上 18px 的冬青黑體</figcaption></figure><p>我個人以爲兩者都還不錯，冬青黑體整體看來更爲飽滿，偏扁平，而華文黑體則偏瘦一點，比如你看兩者的「口」字。我個人隨大流，選擇了贊譽頗多的冬青黑體。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/18px-mac-stheiti.png" alt="華文黑體" /><figcaption>Mac 上 18px 的華文黑體</figcaption></figure><figure><img src="//dn-lepture.qbox.me/blog/18px-mac-hiragino.png" alt="冬青黑體" /><figcaption>Mac 上 18px 的冬青黑體</figcaption></figure><p>我個人以爲兩者都還不錯，冬青黑體整體看來更爲飽滿，偏扁平，而華文黑體則偏瘦一點，比如你看兩者的「口」字。我個人隨大流，選擇了讚譽頗多的冬青黑體。</p>
 <h2>Windows</h2>
 <p>因爲我個人一直使用的是 Mac，對視窗系統沒有太多了解，只知道中易宋體與微軟雅黑。所以只能對這兩者做對比。</p>
 <figure><img src="//dn-lepture.qbox.me/blog/18px-win-yahei.png" alt="微軟雅黑" /><figcaption>Windows 上 18px 的微軟雅黑</figcaption></figure><p>也許只是個人原因，微軟雅黑看起來不夠圓潤，甚至有鋸齒感。當然，這與 Windows 的字體渲染有關，非微軟雅黑字體之過。但是也有人覺得 Windows 上的微軟雅黑比 Mac 上的冬青黑體更好，嫌棄 Mac 的字體渲染太模糊。我個人認爲 16px 的中易宋體在 Windows 上是更好的選擇。</p>
 <figure><img src="//dn-lepture.qbox.me/blog/16px-win-simsun.png" alt="中易宋體" /><figcaption>Windows 上 16px 的中易宋體</figcaption></figure><p>Windows 的字體渲染偏銳利，微軟雅黑的顯示就有點尷尬，但是中易宋體是點陣字體，正好利用到了 Windows 的字體渲染優勢。我們看到中易宋體的內容非常清晰悅目。</p>
 <figure><img src="//dn-lepture.qbox.me/blog/18px-win-simsun.png" alt="中易宋體" /><figcaption>Windows 上 18px 的中易宋體</figcaption></figure><p>但是受限於點陣字體，一旦到 18px 時，渲染效果就沒法看了。所以使用中易宋體時就必須保證字體大小在 18px 以下。</p>
-<p>那麼，在 Windows 上，我的選擇是 16px 的中易宋體。但是我並非實際使用者，有 Windows 使用者反饋說微軟雅黑挺好的。於是暫時先用微軟雅黑吧。還是希望能有更多的 Windows 使用者的反饋。</p>
+<p>那麼，在 Windows 上，我的選擇是 16px 的中易宋體。但是我並非實際使用者，有 Windows 使用者反饋說微軟雅黑挺好的。還是希望能有更多的 Windows 使用者的反饋。</p>
 <h2>Linux</h2>
 <p>在使用 Mac 之前，我一直使用的是 Ubuntu，所有的經驗也都停留在那一時期。也不知道過了這許多年，Linux 上的字體渲染發展得如何了。</p>
-<p>Linux 上我的選擇是 18px 的文泉驛微米黑。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。</p>
+<p>Linux 上我的選擇是 18px 的 <del>文泉驛微米黑</del> Droid Sans。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。</p>
 <h2>The Code</h2>
 <p>這些經驗最終彙集到了 <a href="https://github.com/lepture/yue.css">yue.css</a> 這個樣式庫。尤其是對 Windows 的處理，反反覆覆，時而會把微軟雅黑添加進來，時而又移出。到寫作此文時，字體樣式便成了：</p>
 <pre><code class="lang-css">.yue {
-  font: 400 18px/1.62 &quot;Georgia&quot;, &quot;Xin Gothic&quot;, &quot;Hiragino Sans GB&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Microsoft YaHei&quot;, sans-serif;
+  font: 400 18px/1.62 &quot;Georgia&quot;, &quot;Xin Gothic&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans&quot;, &quot;Microsoft YaHei&quot;, sans-serif;
 }
 .windows .yue {
   font-size: 16px;
-  font-family: &quot;Georgia&quot;, &quot;Xin Gothic&quot;, &quot;Hiragino Sans GB&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;SimSun&quot;, sans-serif;
+  font-family: &quot;Georgia&quot;, &quot;SimSun&quot;, sans-serif;
 }
 </code>
 </pre><p>Windows 使用 16px 是爲了兼容 Windows XP。在 XP 上，沒有微軟雅黑只有中易宋體，在這種情況下會 Fallback 到中易宋體，而 18px 會導致字體變形。你可能需要一句 JavaScript 來添加 <code>.windows</code> 的 class：</p>
@@ -57,6 +57,8 @@
 <p>對於文字排版，我並沒有專業的素養。愚之所言，不過個人經驗罷了。最後這些經驗彙集成了樣式集 <a href="https://github.com/lepture/yue.css">yue.css</a>。</p>
 <p>yue.css 不是一個樣式重置(reset)，不會影響到其它標籤的樣式。你所需要的只是給內容區域加上 <code>.yue</code> 的 class。簡潔實用，目前用於我的博客，<a href="https://yuehu.io/">閱乎</a>，當然還有別的朋友在用。</p>
 <p>如果你對文字排版有興趣，可以使用 yue.css。如果你對 yue.css 有意見，也歡迎反饋給我。</p>
+<hr>
+<p>注：本文只關注字體，稍微關注大小，但是賞心的文字排版還包括行高顏色等。</p>
  ]]>
         </content>
     </entry>
