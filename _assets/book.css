@@ -35,11 +35,11 @@
   margin: 16px 0 20px;
   color: #999;
 }
-.book-footer {
-  padding-bottom: 80px;
+.book-home {
+  padding: 60px 0;
   text-align: center;
 }
-.book-footer a {
+.book-home a {
   text-decoration: none;
   border: 3px solid rgba(0, 0, 0, 0.07);
   padding: 6px 20px;
@@ -48,7 +48,7 @@
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #999;
 }
-.book-footer a:hover {
+.book-home a:hover {
   opacity: 1;
   border-color: #666;
 }
