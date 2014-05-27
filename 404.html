@@ -11,23 +11,17 @@
   <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
+  <link rel="dns-prefetch" href="http://lepture.com" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=47a8c">
+<link rel="stylesheet" href="/assets/site.css?v=526c9">
 <link rel="stylesheet" href="/assets/font.css?v=bed34">
+<script src="/assets/site.js?v=4eaad"></script>
 <script>
-  function js(u,p,a){
-    if(!p && location.port)return {onload: null};
-    if(/\.js$/.test(u)){a='script'}else{a='link'};
-    var d=document,s=d.createElement(a),f=d.getElementsByTagName(a)[0];
-    if(a=='link'){s.href=u,s.rel='stylesheet'}else{s.src=u,s.async=true}
-    f.parentNode.insertBefore(s,f);return s;
-  }
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-21475122-1']);
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
-    js('https://ssl.google-analytics.com/ga.js');
-  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
+    lepture.use('https://ssl.google-analytics.com/ga.js');
 </script></head>
 <body>
   <div id="header">
@@ -56,6 +50,7 @@
   </div>
   <div class="lists">
     <ul class="unstyled">
+      <li><a href="/zh/2014/unexpected-journey-with-lift">別樣經歷搭車記</a></li>
       <li><a href="/zh/2014/a-trip-in-ningxia">冰與火之歌寧夏記</a></li>
       <li><a href="/zh/2014/chinese-fonts-and-yue-css">適合閱讀的中文字體</a></li>
       <li><a href="/zh/2014/wander-in-dali">沒有時間的大理</a></li>

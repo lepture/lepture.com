@@ -11,24 +11,9 @@
   <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <link rel="logo" type="image/svg" href="/logo.svg" />
+  <link rel="dns-prefetch" href="http://lepture.com" />
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-<link rel="stylesheet" href="/assets/site.css?v=47a8c">
-<link rel="stylesheet" href="/assets/font.css?v=bed34">
-<script>
-  function js(u,p,a){
-    if(!p && location.port)return {onload: null};
-    if(/\.js$/.test(u)){a='script'}else{a='link'};
-    var d=document,s=d.createElement(a),f=d.getElementsByTagName(a)[0];
-    if(a=='link'){s.href=u,s.rel='stylesheet'}else{s.src=u,s.async=true}
-    f.parentNode.insertBefore(s,f);return s;
-  }
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-21475122-1']);
-    _gaq.push(['_trackPageview']);
-    _gaq.push(['_trackPageLoadTime']);
-    js('https://ssl.google-analytics.com/ga.js');
-  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
-</script>    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="成熟這種病">
     <meta name="description" content="成熟卻讓你失去了較真的勇氣，總是在關鍵時刻提醒著你：這樣做又有什麼用呢？">
     <meta name="twitter:description" content="成熟卻讓你失去了較真的勇氣，總是在關鍵時刻提醒著你：這樣做又有什麼用呢？">
@@ -36,7 +21,16 @@
   <meta name="twitter:creator" content="@lepture">
   <meta name="twitter:domain" content="lepture.com">
   <link rel="canonical" href="/zh/2014/when-you-grow-up">
-</head>
+<link rel="stylesheet" href="/assets/site.css?v=526c9">
+<link rel="stylesheet" href="/assets/font.css?v=bed34">
+<script src="/assets/site.js?v=4eaad"></script>
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-21475122-1']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    lepture.use('https://ssl.google-analytics.com/ga.js');
+</script></head>
 <body>
   <div id="header">
     <div class="container yue">
@@ -105,7 +99,7 @@
           <span class="tag">thought</span>
         </div>
 <div class="social-button" data-url="http://lepture.com/zh/2014/when-you-grow-up" data-text="成熟這種病 — 成熟卻讓你失去了較真的勇氣，總是在關鍵時刻提醒著你：這樣做又有什麼用呢？" data-twitter="lepture" data-weibo="lepture" data-count="true"></div>
-<script async>js("http://lab.lepture.com/social/dist/widget.js");js("http://lab.lepture.com/social/dist/widget.css");</script>      </div>
+<script>lepture.use("http://lab.lepture.com/social/dist/widget.js");lepture.use("http://lab.lepture.com/social/dist/widget.css")</script>      </div>
     </div>
   </div>
 <div class="entry-comments yue">
@@ -115,7 +109,7 @@
     var disqus_shortname='lepture';
     var disqus_title='成熟這種病';
     var disqus_url='http://lepture.com/zh/2014/when-you-grow-up';
-    js('http://'+disqus_shortname+'.disqus.com/embed.js');
+    lepture.use('http://lepture.disqus.com/embed.js');
 </script>
   <div id="footer">
     <div class="container">
