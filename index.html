@@ -18,8 +18,8 @@
 {% endblock %}
 
 {% block container %}
-<div class="entry-content">
-  {% filter markdown %}
+<div class="entry-content lists">
+{% filter markdown %}
 
 ## Advertisement
 
@@ -29,6 +29,19 @@
 
 - [Reading](/reading): what I've read and am reading.
 - [Friends](/links): where my friends blogging.
+
+{% endfilter %}
+
+  <h2>Latest Updates</h2>
+  <ul class="unstyled">
+    {% for item in site.posts(count=5) %}
+      <li><time>{{ item.date.strftime('%Y-%m-%d') }}</time> — <a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="entry-content">
+  {% filter markdown %}
 
 ## Hsiaoming Yang
 
@@ -60,14 +73,5 @@ All articles are (c) Hsiaoming Yang, all rights reserved. They are **not**
 under any public domain.
 
   {% endfilter %}
-</div>
-
-<div class="entry-content lists">
-  <h2>Latest Updates</h2>
-  <ul class="unstyled">
-    {% for item in site.posts(count=5) %}
-      <li><time>{{ item.date.strftime('%Y-%m-%d') }}</time> — <a href="{{ item.url }}">{{ item.title }}</a></li>
-    {% endfor %}
-  </ul>
 </div>
 {% endblock %}

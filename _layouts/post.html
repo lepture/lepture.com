@@ -22,6 +22,7 @@
     <meta name="twitter:image" content="{{ page.image }}">
   {% endif %}
   <link rel="canonical" href="{{ page.url }}">
+  <script>if(/MicroMessenger/i.test(navigator.userAgent)){document.title="{{page.title}}"}</script>
 {% endblock %}
 
 {% block subheader %}
