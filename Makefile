@@ -3,12 +3,22 @@ output=_site/assets/site
 assets:
 	@mkdir -p _site/assets
 	@make -C _assets build
+	@cp _assets/font.css _site/assets/font.css
+	@autoprefixer ${output}.css -o ${output}.css
 	@cleancss ${output}.css -o ${output}.css
 	@echo "lepture=require('lepture')" >> ${output}.js
-	@cp _assets/font.css _site/assets/font.css
+	@uglifyjs ${output}.js -m -o ${output}.js
 
 build:
 	@writeup build
+
+serve:
+	@writeup serve
+
+clean:
+	@rm -fr _site
+	@mkdir -p _site/assets
+	@make -C _assets clean
 
 publish:
 	@ghp-import _site -p -n
