@@ -1,12 +1,10 @@
-output=_site/assets/site.css
+output=_site/assets/site
 
 assets:
 	@mkdir -p _site/assets
-	@cat _assets/yue.css > ${output}
-	@cat _assets/pygments.css >> ${output}
-	@cat _assets/site.css >> ${output}
-	@cat _assets/book.css >> ${output}
-	@cleancss ${output} -o ${output}
+	@make -C _assets build
+	@cleancss ${output}.css -o ${output}.css
+	@echo "lepture=require('lepture')" >> ${output}.js
 	@cp _assets/font.css _site/assets/font.css
 
 build:

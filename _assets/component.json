@@ -1,0 +1,21 @@
+{
+  "name": "lepture",
+  "repo": "lepture/lepture",
+  "description": "Just lepture",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "lepture/yue.css": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "site.css",
+    "pygments.css",
+    "book.css"
+  ]
+}

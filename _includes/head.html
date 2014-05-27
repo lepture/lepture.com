@@ -1,19 +1,12 @@
-<link rel="stylesheet" href="{{ static_url('_assets/site.css', '/assets/site.css') }}">
+<link rel="stylesheet" href="{{ static_url('_site/assets/site.css', '/assets/site.css') }}">
 <link rel="stylesheet" href="{{ static_url('_assets/font.css', '/assets/font.css') }}">
+<script src="{{ static_url('_site/assets/site.js', '/assets/site.js') }}"></script>
 <script>
-  function js(u,p,a){
-    if(!p && location.port)return {onload: null};
-    if(/\.js$/.test(u)){a='script'}else{a='link'};
-    var d=document,s=d.createElement(a),f=d.getElementsByTagName(a)[0];
-    if(a=='link'){s.href=u,s.rel='stylesheet'}else{s.src=u,s.async=true}
-    f.parentNode.insertBefore(s,f);return s;
-  }
   {% if site.google_analytics %}
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '{{ site.google_analytics }}']);
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
-    js('https://ssl.google-analytics.com/ga.js');
+    lepture.use('https://ssl.google-analytics.com/ga.js');
   {% endif %}
-  if(/windows/i.test(navigator.userAgent)){document.getElementsByTagName('html')[0].className = 'windows'}
 </script>

@@ -2,7 +2,7 @@
 
 {% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
 
-{% block extra_head %}
+{% block extra_meta %}
   {% if page.cover %}
     <meta name="twitter:card" content="summary_large_image">
   {% else %}
@@ -22,7 +22,6 @@
     <meta name="twitter:image" content="{{ page.image }}">
   {% endif %}
   <link rel="canonical" href="{{ page.url }}">
-  <script>if(/MicroMessenger/i.test(navigator.userAgent)){document.title="{{page.title}}"}</script>
 {% endblock %}
 
 {% block subheader %}
