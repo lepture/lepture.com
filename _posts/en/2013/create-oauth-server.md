@@ -318,6 +318,16 @@ def me(req):
     return jsonify(username=user.username)
 ```
 
+**CHANGED SINCE VERSION 0.5.0. YOU WILL WRITE THIS SNIPPET LIKE THIS:**
+
+```python
+@app.route('/api/me')
+@oauth.require_oauth()
+def me():
+    user = request.oauth.user
+    return jsonify(username=user.username)
+```
+
 This `req` parameter is an oauth request object, it contains many useful
 data. You can learn more about it at [Protect Resource](https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource).
 
@@ -410,8 +420,8 @@ to the handler.
 ```python
 @app.route('/api/me')
 @oauth.require_oauth()
-def me(req):
-    return jsonify(username=req.user.username)
+def me():
+    return jsonify(username=request.oauth.user.username)
 ```
 
 The demo is finished at [commit#b30339e](https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e). Check out
