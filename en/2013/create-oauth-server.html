@@ -313,7 +313,7 @@ is easy with a decorator <code>require_oauth</code>:</p>
     <span class="n">user</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">user</span>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
 </pre></div>
-<p><strong>CHANGED SINCE VERSION 0.5.0. YOU WILL WRITE THIS SNIPPET LIKE THIS</strong></p>
+<p><strong>CHANGED SINCE VERSION 0.5.0. YOU WILL WRITE THIS SNIPPET LIKE THIS:</strong></p>
 <div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
 <span class="nd">@oauth.require_oauth</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">me</span><span class="p">():</span>
