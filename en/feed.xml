@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/en/feed.xml" rel="self" />
     <link href="http://lepture.com/en/" />
-    <updated>2014-05-28T02:34:08.483010+08:00</updated>
+    <updated>2014-06-04T15:14:33.836469+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[Markdown Parsers in Python]]></title>
@@ -614,6 +614,13 @@ def me(req):
     user = req.user
     return jsonify(username=user.username)
 </code>
+</pre><p><strong>CHANGED SINCE VERSION 0.5.0. YOU WILL WRITE THIS SNIPPET LIKE THIS</strong></p>
+<pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
+@oauth.require_oauth()
+def me():
+    user = request.oauth.user
+    return jsonify(username=user.username)
+</code>
 </pre><p>This <code>req</code> parameter is an oauth request object, it contains many useful
 data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p>
 <p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
@@ -681,8 +688,8 @@ part of this tutorial on OAuth 2 server. We protect them with a decorator
 to the handler.</p>
 <pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
 @oauth.require_oauth()
-def me(req):
-    return jsonify(username=req.user.username)
+def me():
+    return jsonify(username=request.oauth.user.username)
 </code>
 </pre><p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
 the source code and enjoy it yourself.</p>

@@ -3,8 +3,23 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2014-05-28T02:34:08.483010+08:00</updated>
+    <updated>2014-06-04T15:14:33.836469+08:00</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[別樣經歷逃票記]]></title>
+        <link href="http://lepture.com/zh/2014/unexpected-journey-without-a-ticket"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2014-05-30T00:00:00+08:00</updated>
+        <published>2014-05-30T00:00:00+08:00</published>
+        <id>http://lepture.com/zh/2014/unexpected-journey-without-a-ticket</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>西北遊玩最大的花銷便是門票、門票與門票。不像北京十幾或者幾十就能打發，西北的門票多半一百二十以上，真真嚇死人了。</p>
+<p>許多</p>
+ ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[別樣經歷搭車記]]></title>
         <link href="http://lepture.com/zh/2014/unexpected-journey-with-lift"/>
@@ -1159,6 +1174,13 @@ def me(req):
     user = req.user
     return jsonify(username=user.username)
 </code>
+</pre><p><strong>CHANGED SINCE VERSION 0.5.0. YOU WILL WRITE THIS SNIPPET LIKE THIS</strong></p>
+<pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
+@oauth.require_oauth()
+def me():
+    user = request.oauth.user
+    return jsonify(username=user.username)
+</code>
 </pre><p>This <code>req</code> parameter is an oauth request object, it contains many useful
 data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p>
 <p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
@@ -1226,8 +1248,8 @@ part of this tutorial on OAuth 2 server. We protect them with a decorator
 to the handler.</p>
 <pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
 @oauth.require_oauth()
-def me(req):
-    return jsonify(username=req.user.username)
+def me():
+    return jsonify(username=request.oauth.user.username)
 </code>
 </pre><p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
 the source code and enjoy it yourself.</p>
@@ -1557,26 +1579,6 @@ For example, the volumn control is a StatusBar App.</p>
 <li><a href="http://cocoatutorial.grapewave.com/2010/01/creating-a-status-bar-application/">Creating a Status Bar Application</a></li>
 <li><a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSStatusItem_Class/Reference/Reference.html">NSStatusItem Class Reference</a></li>
 </ul>
- ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[喜歡]]></title>
-        <link href="http://lepture.com/zh/2012/girl-at-cafe"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2012-06-24T03:00:00+08:00</updated>
-        <published>2012-06-24T03:00:00+08:00</published>
-        <id>http://lepture.com/zh/2012/girl-at-cafe</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>天陰沉沉的，一副含雨欲滴的樣子，可是雨水躲在了雲層裡始終不肯落下來。我還奢求著下一點點小雨，一個人不撐傘地漫步於這雨中，營造一份詩意呢。然而不免要失望了。</p>
-<p>杭州比較叫人喜歡的一點就是綠蔭，窗外雖然是馬路，可是仿佛是從樹叢裡切開來的，不像別處的街道，樹木不是點綴，而是主體，馬路只是這綠蔭的陪襯。</p>
-<p>這一家可莎蜜兒麵包店位於杭大路與西溪路的交叉處，店不算大，但是別致。麵包其實我不算喜歡，可是下午起得遲，還沒有吃飯，聊以充饑罷了。點了兩份麵包加一份豆漿，坐在靠門的位子上，靜靜欣賞來去的行人。</p>
-<p>店裡進來一群女孩子，人群中一眼望去，注意到的只有一人。她著一身白色短袖T恤，齊劉海的短髪，戴黑框眼鏡，臉有點小－－大約是被頭髮遮住的原因－－把眼鏡襯得偏大。她同她的朋友們說笑著，大家一起選過了幾樣蛋糕又或者麵包，就結帳離開了。</p>
-<p>她們在店外揮手告別，有一個朋友同她們不是一路，向另一個方向去了。隔著玻璃窗，看著她著白色短袖一頭短髪的身影離去，消失在綠蔭叢中。</p>
-<p>倒不是因為有多漂亮，也並非因為陪襯的關係。可是一眼就注意到了她，只注意到了她。現在想來多半因為她的笑容了。不是所謂的淑女的不露齒的笑，是開心的、爽朗的、迷人的笑容。</p>
-<p>喜歡 Keira Knightley，是喜歡她在傲慢與偏見裡笑時的酒窩，喜歡她笑時眯起的眼睛。</p>
  ]]>
         </content>
     </entry>

@@ -58,7 +58,7 @@ in a flavor of Flask with the help of Flask-OAuthlib.
       <time class="updated" datetime="2013-11-21T16:30:00+08:00" itemprop="datePublished" pubdate>
         Nov 21, 2013
       </time>
-      <em>2631 words</em>
+      <em>2662 words</em>
     </div>
   <div class="entry-content" itemprop="articleBody">
     <p>I've searched the whole internet on how to create an OAuth server or
@@ -313,6 +313,13 @@ is easy with a decorator <code>require_oauth</code>:</p>
     <span class="n">user</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">user</span>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
 </pre></div>
+<p><strong>CHANGED SINCE VERSION 0.5.0. YOU WILL WRITE THIS SNIPPET LIKE THIS</strong></p>
+<div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
+<span class="nd">@oauth.require_oauth</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">me</span><span class="p">():</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">oauth</span><span class="o">.</span><span class="n">user</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+</pre></div>
 <p>This <code>req</code> parameter is an oauth request object, it contains many useful
 data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p>
 <p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
@@ -380,8 +387,8 @@ part of this tutorial on OAuth 2 server. We protect them with a decorator
 to the handler.</p>
 <div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
 <span class="nd">@oauth.require_oauth</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">me</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">me</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">oauth</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
 </pre></div>
 <p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
 the source code and enjoy it yourself.</p>
