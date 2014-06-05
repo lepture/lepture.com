@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block extra_head %}
+{% block container %}
 <style>
   .entry-content h2 {
     font-size: 13px;
@@ -15,9 +15,6 @@
     font-size: 14px;
   }
 </style>
-{% endblock %}
-
-{% block container %}
 <div class="entry-content lists">
 {% filter markdown %}
 

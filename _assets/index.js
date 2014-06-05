@@ -100,7 +100,6 @@ function disqus() {
 
   if (!window.DISQUS) {
     var s = use('//' + disqus_shortname + '.disqus.com/embed.js');
-    s.onload = reset;
   } else {
     reset();
   }

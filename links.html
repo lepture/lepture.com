@@ -3,31 +3,6 @@
 {% block title %}Friends — {{ site.name }}{% endblock %}
 
 {% block extra_head %}
-  <style>
-    .site { margin-bottom: 30px; }
-    .site h3 { margin-bottom: 10px; }
-    .site a { text-decoration: none; }
-    .site .description { color: #666; margin-bottom: 10px; }
-    .social { padding: 10px 0 20px; }
-    .social a {
-      border: 3px solid rgba(0, 0, 0, 0.07);
-      padding: 6px 20px;
-      margin-right: 20px;
-      border-radius: 3px;
-      color: #666666;
-      font-weight: 600;
-      font-family: sans-serif;
-      -webkit-transition: border 0.2s ease;
-      -moz-transition: border 0.2s ease;
-      transition: border 0.2s ease;
-    }
-    .social a.twitter:hover {
-      border-color: rgba(85, 172, 238, 0.8);
-    }
-    .social a.weibo:hover {
-      border-color: #d74040;
-    }
-  </style>
   <meta name="description" content="Friends who are still blogging, especially in Chinese.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Friends">
@@ -53,6 +28,31 @@
 {% endmacro %}
 
 {% block main %}
+<style>
+  .site { margin-bottom: 30px; }
+  .site h3 { margin-bottom: 10px; }
+  .site a { text-decoration: none; }
+  .site .description { color: #666; margin-bottom: 10px; }
+  .social { padding: 10px 0 20px; }
+  .social a {
+    border: 3px solid rgba(0, 0, 0, 0.07);
+    padding: 6px 20px;
+    margin-right: 20px;
+    border-radius: 3px;
+    color: #666666;
+    font-weight: 600;
+    font-family: sans-serif;
+    -webkit-transition: border 0.2s ease;
+    -moz-transition: border 0.2s ease;
+    transition: border 0.2s ease;
+  }
+  .social a.twitter:hover {
+    border-color: rgba(85, 172, 238, 0.8);
+  }
+  .social a.weibo:hover {
+    border-color: #d74040;
+  }
+</style>
 <div id="main">
   <div class="container yue">
     <p class="entry-description">Friends who are still blogging, especially in Chinese.</p>
