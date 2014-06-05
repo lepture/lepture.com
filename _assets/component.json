@@ -5,6 +5,10 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
+    "component/query": "*",
+    "yuehu/google-analytics": "*",
+    "yuehu/turbolinks": "*",
+    "lepture/social": "*",
     "lepture/yue.css": "*"
   },
   "development": {},

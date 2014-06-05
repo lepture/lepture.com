@@ -1,12 +1,5 @@
+<meta name="google-analytics" content="{{ site.google_analytics }}">
 <link rel="stylesheet" href="{{ static_url('_site/assets/site.css', '/assets/site.css') }}">
 <link rel="stylesheet" href="{{ static_url('_assets/font.css', '/assets/font.css') }}">
+
 <script src="{{ static_url('_site/assets/site.js', '/assets/site.js') }}"></script>
-<script>
-  {% if site.google_analytics %}
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '{{ site.google_analytics }}']);
-    _gaq.push(['_trackPageview']);
-    _gaq.push(['_trackPageLoadTime']);
-    lepture.use('https://ssl.google-analytics.com/ga.js');
-  {% endif %}
-</script>
