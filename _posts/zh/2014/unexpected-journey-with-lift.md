@@ -2,7 +2,7 @@
 
 - date: 2014-05-28 02:35
 - tags: travel
-- cover: http//dn-lepture.qbox.me/blog/yalaso-girl.jpg/thumbnail
+- cover: http://dn-lepture.qbox.me/blog/yalaso-girl.jpg/thumbnail
 
 於我而言搭車過於浪費時間，經濟上考慮並不合算。可是畢竟是另一番經歷，是另一番體驗。
 
