@@ -29,7 +29,7 @@ turbolinks.on('page:change', function() {
 
 
 function pureTitle() {
-  var el = document.querySelector('meta[name="twitter:title"]');
+  var el = document.querySelector('meta[property="og:title"]');
   if (el) {
     return el.content;
   }
@@ -99,7 +99,7 @@ function disqus() {
   };
 
   if (!window.DISQUS) {
-    var s = use('//' + disqus_shortname + '.disqus.com/embed.js');
+    use('//' + disqus_shortname + '.disqus.com/embed.js');
   } else {
     reset();
   }
