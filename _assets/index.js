@@ -1,7 +1,6 @@
 if (/windows/i.test(navigator.userAgent)) {
   document.getElementsByTagName('html')[0].className = 'windows';
 }
-var weixin = /MicroMessenger/i.test(navigator.userAgent) && document.querySelector;
 
 var turbolinks = require('turbolinks');
 var social = require('social');
@@ -9,7 +8,9 @@ var query = require('query');
 require('google-analytics');
 
 turbolinks.on('page:change', function() {
-  weixinTitle();
+  if (location.port) return;
+
+  weixin();
 
   ga('send', 'pageview', {
     page: location.pathname,
@@ -35,9 +36,9 @@ function pureTitle() {
   }
 }
 
-function weixinTitle() {
+function weixin() {
   // change title for weixin
-  if (weixin) {
+  if (/MicroMessenger/i.test(navigator.userAgent) && document.querySelector) {
     var title = pureTitle();
     if (title) {
       document.title = title;

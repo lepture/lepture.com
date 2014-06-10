@@ -70,6 +70,15 @@ I have a little knowledge about:
 
 ## Experience
 
+**HiHex.com**
+
+A startup company of a friend.
+
+- Position: Developer & SA
+- Location: Shenzhen, China
+- Dates: Nov. 2013 - Apr. 2014
+
+
 **Alipay.com**
 
 This is my first job.
@@ -100,3 +109,4 @@ This is my first and only internship.
 
 - Thailand: Sep. 24 2012 - Oct. 24 2012
 - Malaysia: Oct. 24 2012 - Oct. 28 2012
+- China: Apr. 1 2014 - Jun. 10 2014

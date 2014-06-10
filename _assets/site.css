@@ -23,8 +23,6 @@ html, body {
 }
 a {
   color: #434344;
-  -webkit-transition: all 0.25 ease-in;
-  -moz-transition: all 0.25 ease-in;
   transition: all 0.25 ease-in;
 }
 a:hover {
@@ -92,8 +90,6 @@ a:hover {
   font-weight: 300;
   margin-bottom: 20px;
   border-bottom: 4px solid #eee;
-  -webkit-transition: all 0.25 ease-in;
-  -moz-transition: all 0.25 ease-in;
   transition: all 0.25 ease-in;
 }
 #brand a:hover {
