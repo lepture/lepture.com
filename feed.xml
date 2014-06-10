@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2014-06-06T19:15:26.146877+08:00</updated>
+    <updated>2014-06-10T23:40:08.514700+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[別樣經歷搭車記]]></title>
@@ -178,7 +178,6 @@
 <p>一路過來，最喜歡的還是大理。真羨慕奚媛妹子，住在了這樣一個山青水秀人傑地靈的地方。在大理的時光，還要感謝奚媛帶我去吃當地美食，又煩她一起爬山，去桃溪谷探探山泉，回三文筆茶場的莫催茶室喝茶。</p>
 <p>品着茶，從半山腰的茶室遠眺洱海蒼山，遠眺山下大理，觀茶室姑娘練毛筆字，練蘇軾的《赤壁賦》，生活多麼愜意。多想留在大理住下，可惜我不是歸人，是個過客。</p>
 <div class="footnotes">
-<hr>
 <ol><li id="fn-1"><p>因爲沒有跟團的經歷，沒有比較，只是個人感覺。<a href="#fnref-1" rev="footnote">&#8617;</a></p></li>
 <li id="fn-2"><p>下关风，上关花，苍山雪，洱海月。<a href="#fnref-2" rev="footnote">&#8617;</a></p></li>
 <li id="fn-3"><p>那個時候我還不知道淨空法師，是 <a href="https://twitter.com/mathena/status/453141498993733632">徐宥告訴我的</a>。<a href="#fnref-3" rev="footnote">&#8617;</a></p></li>
@@ -220,7 +219,6 @@
 <li>昆明氣候偏乾燥，從溼潤地過來的人注意保溼</li>
 </ol>
 <div class="footnotes">
-<hr>
 <ol><li id="fn-gull"><p>紅嘴鷗是昆明冬季的一大特色，現在正是紅嘴鷗離開昆明的時間。<a href="#fnref-gull" rev="footnote">&#8617;</a></p></li>
 <li id="fn-viola"><p>有一個生物學的博士同學真好，每每遇到不認識的植物，拍照問問總能得到正確答案。<a href="#fnref-viola" rev="footnote">&#8617;</a></p></li>
 </ol>
@@ -316,7 +314,6 @@ Open source can be a business for a company, but not for individuals.</p>
 <p>我並不總是在寫自己的代碼，也會給別人<a href="https://github.com/hhatto/python-hoedown/issues/5">提問題</a>，也會給別人<a href="https://github.com/chjj/marked/pull/129">發 patch</a>。但是前提是，我在使用，而且在使用過程中遇到了問題。也許你發現的並不是什麼大問題，比如文檔裏的某個單詞寫錯了，沒有關係，大膽地給作者發 pull request 吧。</p>
 <p>最後，在參與的過程中注意一下「<a href="https://github.com/seajs/seajs/blob/master/CONTRIBUTING.md">如何向开源社区提问题</a>」。</p>
 <div class="footnotes">
-<hr>
 <ol><li id="fn-open-source"><p>開源軟體，這大約就是一般人眼裏的開源，也就是所謂狹義的開源。<a href="#fnref-open-source" rev="footnote">&#8617;</a></p></li>
 <li id="fn-source"><p>Source 的本意即是來源、出處、根源。<a href="#fnref-source" rev="footnote">&#8617;</a></p></li>
 <li id="fn-github-top"><p>最活躍並不代表什麼，說起來也沒有什麼特別拿得出手的東西。最近活躍度變低了，名次一直在掉，但是截止到寫這篇文章依舊是大陸區第一。<a href="#fnref-github-top" rev="footnote">&#8617;</a></p></li>
@@ -478,7 +475,6 @@ another time.</p>
 <p><em>This post and all posts in markdown format on this site are rendered with
 mistune.</em></p>
 <div class="footnotes">
-<hr>
 <ol><li id="fn-sundown-deprecated"><p>Sundown is deprecated a year ago with a <a href="https://github.com/vmg/sundown/commit/37728fb2d7137ff7c37d0a474cb827a8d6d846d8">commit</a> by vmg, but the new markdown parser is still missing.<a href="#fnref-sundown-deprecated" rev="footnote">&#8617;</a></p></li>
 <li id="fn-c-hoedown"><p>Hoedown is a fork of Sundown, it is a C library. It reverted the <a href="https://github.com/hoedown/hoedown/commit/aa43a77283c613662033039eddb477f2e0fd3d63">deprecated message</a> 5 months ago.<a href="#fnref-c-hoedown" rev="footnote">&#8617;</a></p></li>
 <li id="fn-upskirt"><p>Links about upskirt are missing now, they are all 404.<a href="#fnref-upskirt" rev="footnote">&#8617;</a></p></li>
@@ -524,7 +520,6 @@ standards in the real world now.<a href="#fnref-mistune-features" rev="footnote"
 <p>你看，雖然我寫得一塌糊涂，完全不知所云，但是仍然有發表出來的勇氣，也見得暫未患這成熟病了。最後送上顾城的一首詩，望君喜歡。</p>
 <blockquote><p>天是灰色的<br>路是灰色的<br>楼是灰色的<br>雨是灰色的<br>在一片死灰中<br>走过两个孩子<br>一个鲜红<br>一个淡绿</p>
 </blockquote><div class="footnotes">
-<hr>
 <ol><li id="fn-compromise"><p>中文妥協一詞與英文 compromise 頗不相同，中文的妥協更多時候只是一方的退讓。<a href="#fnref-compromise" rev="footnote">&#8617;</a></p></li>
 <li id="fn-not-accomplished"><p>當我談成熟時，這個成熟只限定於本文的意義。它是非普適的，亦不是你認爲的意義。<a href="#fnref-not-accomplished" rev="footnote">&#8617;</a></p></li>
 <li id="fn-bus-boycott"><p>The Montgomery Bus Boycott, a seminal event in the U.S. civil rights movement, was a political and social protest campaign against the policy of racial segregation on the public transit system of Montgomery, Alabama.<a href="#fnref-bus-boycott" rev="footnote">&#8617;</a></p></li>
