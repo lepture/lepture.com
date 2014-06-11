@@ -8,24 +8,20 @@ var query = require('query');
 require('google-analytics');
 
 turbolinks.on('page:change', function() {
+  // enable social widget
+  var el = query('.social-button');
+  if (el) social(el);
+  // enable github cards
+  gitcards();
+  disqus();
+
   if (location.port) return;
-
   weixin();
-
   ga('send', 'pageview', {
     page: location.pathname,
     location: location.href,
     title: pureTitle() || document.title
   });
-
-  // enable social widget
-  var el = query('.social-button');
-  if (el) social(el);
-
-  // enable github cards
-  gitcards();
-
-  disqus();
 });
 
 
@@ -88,7 +84,9 @@ function gitcards() {
 }
 
 function disqus() {
-  if (!query('#disqus_thread')) return;
+  var el = query('#disqus_thread');
+  if (!el) return;
+  el.innerHTML = '';
 
   var reset = function() {
     DISQUS.reset({
