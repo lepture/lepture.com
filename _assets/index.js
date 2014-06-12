@@ -7,7 +7,11 @@ var social = require('social');
 var query = require('query');
 require('google-analytics');
 
+turbolinks.on('page:visit', function() {
+  document.body.className = 'page-loading';
+});
 turbolinks.on('page:change', function() {
+  document.body.className = '';
   // enable social widget
   var el = query('.social-button');
   if (el) social(el);

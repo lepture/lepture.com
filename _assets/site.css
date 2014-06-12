@@ -28,7 +28,12 @@ a {
 a:hover {
   opacity: 0.8;
 }
-
+body {
+  transition: opacity .4s ease-in;
+}
+.page-loading {
+  opacity: 0.3;
+}
 .yue {
   font-family: "Lora", "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
 }
