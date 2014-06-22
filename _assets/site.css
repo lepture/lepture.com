@@ -308,6 +308,12 @@ body {
   }
 }
 
+.flattr iframe {
+  display: inline;
+  float: left;
+  margin: 6px;
+}
+
 /* for social widget */
 @font-face {
   font-family: 'social';
