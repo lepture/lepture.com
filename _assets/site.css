@@ -308,10 +308,10 @@ body {
   }
 }
 
-.flattr iframe {
+.yue .flattr {
   display: inline;
   float: left;
-  margin: 6px;
+  margin: 2px 4px;
 }
 
 /* for social widget */
