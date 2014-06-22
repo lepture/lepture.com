@@ -26,10 +26,10 @@ disadvantages of them.">
   <meta name="twitter:domain" content="lepture.com">
   <link rel="canonical" href="http://lepture.com/en/2014/markdown-parsers-in-python">
 <meta name="google-analytics" content="UA-21475122-1">
-<link rel="stylesheet" href="/assets/site.css?v=902e2">
+<link rel="stylesheet" href="/assets/site.css?v=a8c7b">
 <link rel="stylesheet" href="/assets/font.css?v=bed34">
 
-<script src="/assets/site.js?v=745c6"></script></head>
+<script src="/assets/site.js?v=0cd07"></script></head>
 <body>
   <div id="header">
     <div class="container yue">
@@ -55,7 +55,7 @@ disadvantages of them.
       <time class="updated" datetime="2014-02-26T16:55:00+08:00" itemprop="datePublished" pubdate>
         Feb 26, 2014
       </time>
-      <em>1345 words</em>
+      <em>1363 words</em>
     </div>
   <div class="entry-content" itemprop="articleBody">
     <p>There are many markdown parsers in Python. Misaka was my favorite one.
@@ -109,8 +109,9 @@ than that.</p>
 <p>It looks promissing, and even misaka's author recommends it. I've tried it,
 but failed with one issue, <a href="https://github.com/hhatto/python-hoedown/issues/5">a magic error</a> that I can't do anything:</p>
 <pre><code>terminated by signal SIGSEGV (Address boundary error)</code></pre>
-<p>This isssue is not fixed yet. Once it does, hoedown would be a good choice
+<p>This isssue is not fixed yet. Once it does, <del>hoedown would be a good choice</del>
 for non-AE users.</p>
+<p><em>Updated at Jun 23, 2014</em>: you can use <a href="https://github.com/Anomareh/Hoep">Hoep</a> as the Python Binding.</p>
 <h2>cMarkdown &amp; Discount</h2>
 <p><a href="https://github.com/paulsmith/cMarkdown">cMarkdown</a> is much like Misaka,
 except that it is based on upskirt<sup class="footnote-ref" id="fnref-upskirt"><a href="#fn-upskirt" rel="footnote">3</a></sup> rather than sundown. The
@@ -196,7 +197,6 @@ another time.</p>
 <p><em>This post and all posts in markdown format on this site are rendered with
 mistune.</em></p>
 <div class="footnotes">
-<hr>
 <ol><li id="fn-sundown-deprecated"><p>Sundown is deprecated a year ago with a <a href="https://github.com/vmg/sundown/commit/37728fb2d7137ff7c37d0a474cb827a8d6d846d8">commit</a> by vmg, but the new markdown parser is still missing.<a href="#fnref-sundown-deprecated" rev="footnote">&#8617;</a></p></li>
 <li id="fn-c-hoedown"><p>Hoedown is a fork of Sundown, it is a C library. It reverted the <a href="https://github.com/hoedown/hoedown/commit/aa43a77283c613662033039eddb477f2e0fd3d63">deprecated message</a> 5 months ago.<a href="#fnref-c-hoedown" rev="footnote">&#8617;</a></p></li>
 <li id="fn-upskirt"><p>Links about upskirt are missing now, they are all 404.<a href="#fnref-upskirt" rev="footnote">&#8617;</a></p></li>
@@ -220,7 +220,9 @@ standards in the real world now.<a href="#fnref-mistune-features" rev="footnote"
           <span class="tag">python</span>
           <span class="tag">markdown</span>
         </div>
-        <div class="social-button" data-url="http://lepture.com/en/2014/markdown-parsers-in-python" data-text="Markdown Parsers in Python — A list of all markdown parsers in Python. The advantages and
+<div class="flattr">
+  <script id='fbhzlg6'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=lepture&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbhzlg6');</script>
+</div>        <div class="social-button" data-url="http://lepture.com/en/2014/markdown-parsers-in-python" data-text="Markdown Parsers in Python — A list of all markdown parsers in Python. The advantages and
 disadvantages of them." data-twitter="lepture" data-weibo="lepture" data-facebook="lepture" data-count="true"></div>
       </div>
     </div>

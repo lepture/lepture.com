@@ -24,10 +24,10 @@
   <meta name="twitter:domain" content="lepture.com">
   <link rel="canonical" href="http://lepture.com/zh/2014/chinese-fonts-and-yue-css">
 <meta name="google-analytics" content="UA-21475122-1">
-<link rel="stylesheet" href="/assets/site.css?v=902e2">
+<link rel="stylesheet" href="/assets/site.css?v=a8c7b">
 <link rel="stylesheet" href="/assets/font.css?v=bed34">
 
-<script src="/assets/site.js?v=745c6"></script></head>
+<script src="/assets/site.js?v=0cd07"></script></head>
 <body>
   <div id="header">
     <div class="container yue">
@@ -52,7 +52,7 @@
       <time class="updated" datetime="2014-05-09T15:35:00+08:00" itemprop="datePublished" pubdate>
         May 09, 2014
       </time>
-      <em>1483 words</em>
+      <em>1485 words</em>
     </div>
   <div class="entry-content" itemprop="articleBody">
     <p>我時常更新自己的博客程序，也時常更新自己的博客主題。偏右言：「世上有兩種前端工程師，寫博客的，和寫博客的。」我之謂也。我的博客主題一直保持着簡潔的樣式，保持着我認爲適合閱讀的文字排版。</p>
@@ -70,11 +70,11 @@
 <p>那麼，在 Windows 上，我的選擇是 16px 的中易宋體。但是我並非實際使用者，有 Windows 使用者反饋說微軟雅黑挺好的。還是希望能有更多的 Windows 使用者的反饋。</p>
 <h2>Linux</h2>
 <p>在使用 Mac 之前，我一直使用的是 Ubuntu，所有的經驗也都停留在那一時期。也不知道過了這許多年，Linux 上的字體渲染發展得如何了。</p>
-<p>Linux 上我的選擇是 18px 的 <del>文泉驛微米黑</del> Droid Sans。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。</p>
+<p>Linux 上我的選擇是 18px 的 <del>文泉驛微米黑</del> Droid Sans Fallback。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。</p>
 <h2>The Code</h2>
 <p>這些經驗最終彙集到了 <a href="https://github.com/lepture/yue.css">yue.css</a> 這個樣式庫。尤其是對 Windows 的處理，反反覆覆，時而會把微軟雅黑添加進來，時而又移出。到寫作此文時，字體樣式便成了：</p>
 <div class="highlight"><pre><span class="nc">.yue</span> <span class="p">{</span>
-  <span class="k">font</span><span class="o">:</span> <span class="m">400</span> <span class="m">18px</span><span class="o">/</span><span class="m">1</span><span class="o">.</span><span class="m">62</span> <span class="s2">&quot;Georgia&quot;</span><span class="o">,</span> <span class="s2">&quot;Xin Gothic&quot;</span><span class="o">,</span> <span class="s2">&quot;Hiragino Sans GB&quot;</span><span class="o">,</span> <span class="s2">&quot;Droid Sans&quot;</span><span class="o">,</span> <span class="s2">&quot;Microsoft YaHei&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">font</span><span class="o">:</span> <span class="m">400</span> <span class="m">18px</span><span class="o">/</span><span class="m">1</span><span class="o">.</span><span class="m">62</span> <span class="s2">&quot;Georgia&quot;</span><span class="o">,</span> <span class="s2">&quot;Xin Gothic&quot;</span><span class="o">,</span> <span class="s2">&quot;Hiragino Sans GB&quot;</span><span class="o">,</span> <span class="s2">&quot;Droid Sans Fallback&quot;</span><span class="o">,</span> <span class="s2">&quot;Microsoft YaHei&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.windows</span> <span class="nc">.yue</span> <span class="p">{</span>
   <span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>

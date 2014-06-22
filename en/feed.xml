@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/en/feed.xml" rel="self" />
     <link href="http://lepture.com/en/" />
-    <updated>2014-06-11T18:46:52.798091+08:00</updated>
+    <updated>2014-06-23T00:59:28.486101+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[Markdown Parsers in Python]]></title>
@@ -67,8 +67,9 @@ than that.</p>
 but failed with one issue, <a href="https://github.com/hhatto/python-hoedown/issues/5">a magic error</a> that I can't do anything:</p>
 <pre><code>terminated by signal SIGSEGV (Address boundary error)
 </code></pre>
-<p>This isssue is not fixed yet. Once it does, hoedown would be a good choice
+<p>This isssue is not fixed yet. Once it does, <del>hoedown would be a good choice</del>
 for non-AE users.</p>
+<p><em>Updated at Jun 23, 2014</em>: you can use <a href="https://github.com/Anomareh/Hoep">Hoep</a> as the Python Binding.</p>
 <h2>cMarkdown &amp; Discount</h2>
 <p><a href="https://github.com/paulsmith/cMarkdown">cMarkdown</a> is much like Misaka,
 except that it is based on upskirt<sup class="footnote-ref" id="fnref-upskirt"><a href="#fn-upskirt" rel="footnote">3</a></sup> rather than sundown. The

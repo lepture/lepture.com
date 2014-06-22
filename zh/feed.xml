@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/zh/feed.xml" rel="self" />
     <link href="http://lepture.com/zh/" />
-    <updated>2014-06-11T18:46:52.798091+08:00</updated>
+    <updated>2014-06-23T00:59:28.486101+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[別樣經歷搭車記]]></title>
@@ -103,11 +103,11 @@
 <p>那麼，在 Windows 上，我的選擇是 16px 的中易宋體。但是我並非實際使用者，有 Windows 使用者反饋說微軟雅黑挺好的。還是希望能有更多的 Windows 使用者的反饋。</p>
 <h2>Linux</h2>
 <p>在使用 Mac 之前，我一直使用的是 Ubuntu，所有的經驗也都停留在那一時期。也不知道過了這許多年，Linux 上的字體渲染發展得如何了。</p>
-<p>Linux 上我的選擇是 18px 的 <del>文泉驛微米黑</del> Droid Sans。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。</p>
+<p>Linux 上我的選擇是 18px 的 <del>文泉驛微米黑</del> Droid Sans Fallback。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。</p>
 <h2>The Code</h2>
 <p>這些經驗最終彙集到了 <a href="https://github.com/lepture/yue.css">yue.css</a> 這個樣式庫。尤其是對 Windows 的處理，反反覆覆，時而會把微軟雅黑添加進來，時而又移出。到寫作此文時，字體樣式便成了：</p>
 <pre><code class="lang-css">.yue {
-  font: 400 18px/1.62 &quot;Georgia&quot;, &quot;Xin Gothic&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans&quot;, &quot;Microsoft YaHei&quot;, sans-serif;
+  font: 400 18px/1.62 &quot;Georgia&quot;, &quot;Xin Gothic&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;
 }
 .windows .yue {
   font-size: 16px;
