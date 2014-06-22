@@ -78,10 +78,12 @@ but failed with one issue, [a magic error](https://github.com/hhatto/python-hoed
 
     terminated by signal SIGSEGV (Address boundary error)
 
-This isssue is not fixed yet. Once it does, hoedown would be a good choice
+This isssue is not fixed yet. Once it does, ~~hoedown would be a good choice~~
 for non-AE users.
 
 [^c-hoedown]: Hoedown is a fork of Sundown, it is a C library. It reverted the [deprecated message](https://github.com/hoedown/hoedown/commit/aa43a77283c613662033039eddb477f2e0fd3d63) 5 months ago.
+
+*Updated at Jun 23, 2014*: you can use [Hoep](https://github.com/Anomareh/Hoep) as the Python Binding.
 
 ## cMarkdown & Discount
 
