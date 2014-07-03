@@ -1,5 +1,18 @@
 {% extends "layout.html" %}
 
+{% block extra_meta %}
+  <meta name="description" content="{{ site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ site.name }}">
+  <meta property="og:url" content="{{ site.baseurl }}/">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:image" content="/logo.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@lepture">
+  <meta name="twitter:creator" content="@lepture">
+  <meta name="twitter:domain" content="lepture.com">
+{% endblock %}
+
 {% block container %}
 <style>
   .entry-content h2 {

@@ -1,5 +1,6 @@
 name: Just lepture
 author: Hsiaoming Yang
+description: "Love its people, but never trust its government. Believe in evolution rather than revolution."
 baseurl: "http://lepture.com"
 permalink: "/:dirname/:filename"
 timezone: Asia/Chongqing
