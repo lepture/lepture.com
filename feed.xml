@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2014-06-23T01:29:27.551657+08:00</updated>
+    <updated>2014-07-03T17:24:06.978801+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[別樣經歷搭車記]]></title>
@@ -112,14 +112,12 @@
 .windows .yue {
   font-size: 16px;
   font-family: &quot;Georgia&quot;, &quot;SimSun&quot;, sans-serif;
-}
-</code>
-</pre><p>Windows 使用 16px 是爲了兼容 Windows XP。在 XP 上，沒有微軟雅黑只有中易宋體，在這種情況下會 Fallback 到中易宋體，而 18px 會導致字體變形。你可能需要一句 JavaScript 來添加 <code>.windows</code> 的 class：</p>
+}</code></pre>
+<p>Windows 使用 16px 是爲了兼容 Windows XP。在 XP 上，沒有微軟雅黑只有中易宋體，在這種情況下會 Fallback 到中易宋體，而 18px 會導致字體變形。你可能需要一句 JavaScript 來添加 <code>.windows</code> 的 class：</p>
 <pre><code class="lang-javascript">if(/windows/i.test(navigator.userAgent)){
   document.getElementsByTagName(&#39;html&#39;)[0].className += &#39; windows&#39;
-}
-</code>
-</pre><p>至於 16px，我個人以爲偏小。但是還有許多網站在使用 14px，甚至於還有 12px 的。以現在顯示器的分辨率，14px 的文字閱讀起來就有點吃力了。當然，也有可能我高估了高分屏的普及率了。</p>
+}</code></pre>
+<p>至於 16px，我個人以爲偏小。但是還有許多網站在使用 14px，甚至於還有 12px 的。以現在顯示器的分辨率，14px 的文字閱讀起來就有點吃力了。當然，也有可能我高估了高分屏的普及率了。</p>
 <h2>Criticism</h2>
 <ol>
 <li>豆瓣的日誌影評書評等內容皆是 12px 的，必須點名批評一下。現在已經是 2014 年了，這個字體大小真的看起來很累。</li>
@@ -178,6 +176,7 @@
 <p>一路過來，最喜歡的還是大理。真羨慕奚媛妹子，住在了這樣一個山青水秀人傑地靈的地方。在大理的時光，還要感謝奚媛帶我去吃當地美食，又煩她一起爬山，去桃溪谷探探山泉，回三文筆茶場的莫催茶室喝茶。</p>
 <p>品着茶，從半山腰的茶室遠眺洱海蒼山，遠眺山下大理，觀茶室姑娘練毛筆字，練蘇軾的《赤壁賦》，生活多麼愜意。多想留在大理住下，可惜我不是歸人，是個過客。</p>
 <div class="footnotes">
+<hr>
 <ol><li id="fn-1"><p>因爲沒有跟團的經歷，沒有比較，只是個人感覺。<a href="#fnref-1" rev="footnote">&#8617;</a></p></li>
 <li id="fn-2"><p>下关风，上关花，苍山雪，洱海月。<a href="#fnref-2" rev="footnote">&#8617;</a></p></li>
 <li id="fn-3"><p>那個時候我還不知道淨空法師，是 <a href="https://twitter.com/mathena/status/453141498993733632">徐宥告訴我的</a>。<a href="#fnref-3" rev="footnote">&#8617;</a></p></li>
@@ -219,6 +218,7 @@
 <li>昆明氣候偏乾燥，從溼潤地過來的人注意保溼</li>
 </ol>
 <div class="footnotes">
+<hr>
 <ol><li id="fn-gull"><p>紅嘴鷗是昆明冬季的一大特色，現在正是紅嘴鷗離開昆明的時間。<a href="#fnref-gull" rev="footnote">&#8617;</a></p></li>
 <li id="fn-viola"><p>有一個生物學的博士同學真好，每每遇到不認識的植物，拍照問問總能得到正確答案。<a href="#fnref-viola" rev="footnote">&#8617;</a></p></li>
 </ol>
@@ -314,6 +314,7 @@ Open source can be a business for a company, but not for individuals.</p>
 <p>我並不總是在寫自己的代碼，也會給別人<a href="https://github.com/hhatto/python-hoedown/issues/5">提問題</a>，也會給別人<a href="https://github.com/chjj/marked/pull/129">發 patch</a>。但是前提是，我在使用，而且在使用過程中遇到了問題。也許你發現的並不是什麼大問題，比如文檔裏的某個單詞寫錯了，沒有關係，大膽地給作者發 pull request 吧。</p>
 <p>最後，在參與的過程中注意一下「<a href="https://github.com/seajs/seajs/blob/master/CONTRIBUTING.md">如何向开源社区提问题</a>」。</p>
 <div class="footnotes">
+<hr>
 <ol><li id="fn-open-source"><p>開源軟體，這大約就是一般人眼裏的開源，也就是所謂狹義的開源。<a href="#fnref-open-source" rev="footnote">&#8617;</a></p></li>
 <li id="fn-source"><p>Source 的本意即是來源、出處、根源。<a href="#fnref-source" rev="footnote">&#8617;</a></p></li>
 <li id="fn-github-top"><p>最活躍並不代表什麼，說起來也沒有什麼特別拿得出手的東西。最近活躍度變低了，名次一直在掉，但是截止到寫這篇文章依舊是大陸區第一。<a href="#fnref-github-top" rev="footnote">&#8617;</a></p></li>
@@ -385,6 +386,7 @@ than that.</p>
 <p>It looks promissing, and even misaka's author recommends it. I've tried it,
 but failed with one issue, <a href="https://github.com/hhatto/python-hoedown/issues/5">a magic error</a> that I can't do anything:</p>
 <pre><code>terminated by signal SIGSEGV (Address boundary error)
+
 </code></pre>
 <p>This isssue is not fixed yet. Once it does, <del>hoedown would be a good choice</del>
 for non-AE users.</p>
@@ -453,9 +455,8 @@ class MyRenderer(mistune.Renderer):
 
 renderer = MyRenderer()
 md = mistune.Markdown(renderer=renderer)
-print(md.render(&#39;Some Markdown text.&#39;))
-</code>
-</pre><h2>Additional Notes</h2>
+print(md.render(&#39;Some Markdown text.&#39;))</code></pre>
+<h2>Additional Notes</h2>
 <p>I did a benchmark on my MacBook Air, <a href="https://github.com/lepture/mistune/issues/1">view the results</a>.
 You can run the benchmark script yourself: <a href="https://github.com/lepture/mistune/blob/master/tests/bench.py">bench.py</a></p>
 <pre><code>Parsing the Markdown Syntax document 1000 times...
@@ -465,17 +466,18 @@ Misaka: 0.550502s
 Markdown: 46.4342s
 Markdown2: 78.2267s
 cMarkdown: 0.664128s
-Discount is not available
-</code></pre>
+Discount is not available</code></pre>
 <hr>
 <p>Mistune can be compiled with Cython if you have Cython installed already.</p>
 <pre><code>$ pip install cython mistune
+
 </code></pre>
 <p>The magic happens in the <code>setup.py</code> script. I'd like to introduce this part
 another time.</p>
 <p><em>This post and all posts in markdown format on this site are rendered with
 mistune.</em></p>
 <div class="footnotes">
+<hr>
 <ol><li id="fn-sundown-deprecated"><p>Sundown is deprecated a year ago with a <a href="https://github.com/vmg/sundown/commit/37728fb2d7137ff7c37d0a474cb827a8d6d846d8">commit</a> by vmg, but the new markdown parser is still missing.<a href="#fnref-sundown-deprecated" rev="footnote">&#8617;</a></p></li>
 <li id="fn-c-hoedown"><p>Hoedown is a fork of Sundown, it is a C library. It reverted the <a href="https://github.com/hoedown/hoedown/commit/aa43a77283c613662033039eddb477f2e0fd3d63">deprecated message</a> 5 months ago.<a href="#fnref-c-hoedown" rev="footnote">&#8617;</a></p></li>
 <li id="fn-upskirt"><p>Links about upskirt are missing now, they are all 404.<a href="#fnref-upskirt" rev="footnote">&#8617;</a></p></li>
@@ -521,6 +523,7 @@ standards in the real world now.<a href="#fnref-mistune-features" rev="footnote"
 <p>你看，雖然我寫得一塌糊涂，完全不知所云，但是仍然有發表出來的勇氣，也見得暫未患這成熟病了。最後送上顾城的一首詩，望君喜歡。</p>
 <blockquote><p>天是灰色的<br>路是灰色的<br>楼是灰色的<br>雨是灰色的<br>在一片死灰中<br>走过两个孩子<br>一个鲜红<br>一个淡绿</p>
 </blockquote><div class="footnotes">
+<hr>
 <ol><li id="fn-compromise"><p>中文妥協一詞與英文 compromise 頗不相同，中文的妥協更多時候只是一方的退讓。<a href="#fnref-compromise" rev="footnote">&#8617;</a></p></li>
 <li id="fn-not-accomplished"><p>當我談成熟時，這個成熟只限定於本文的意義。它是非普適的，亦不是你認爲的意義。<a href="#fnref-not-accomplished" rev="footnote">&#8617;</a></p></li>
 <li id="fn-bus-boycott"><p>The Montgomery Bus Boycott, a seminal event in the U.S. civil rights movement, was a political and social protest campaign against the policy of racial segregation on the public transit system of Montgomery, Alabama.<a href="#fnref-bus-boycott" rev="footnote">&#8617;</a></p></li>
@@ -574,9 +577,8 @@ One day, a brilliant idea came to me — livereload for wsgi.</p>
 
 server = Server(wsgi_app)
 server.watch(&#39;static/app.css&#39;)
-server.serve()
-</code>
-</pre><p>Wow, that looks good. It seems something that I will use in my daily life.
+server.serve()</code></pre>
+<p>Wow, that looks good. It seems something that I will use in my daily life.
 Since I prefer Flask, I can write the scripts with Flask-Script in a
 <code>manage.py</code> file:</p>
 <pre><code class="lang-python">app = create_app()
@@ -586,9 +588,8 @@ def liveserver(port=5000):
     from livereload import Server
     server = Server(app.wsgi_app)
     server.watch(&#39;static/*.css&#39;)
-    server.serve(port=port)
-</code>
-</pre><p>And whenenver a css file changes, the browser will refresh it itself.</p>
+    server.serve(port=port)</code></pre>
+<p>And whenenver a css file changes, the browser will refresh it itself.</p>
 <p>Actually, my environment of front end development is far more complex,
 I use rework for css processing, component for javascript modular. The
 real example would be gorgeous.</p>
@@ -601,9 +602,8 @@ def liveserver(port=5000):
     server.watch(&#39;assets/styles/*.css&#39;, &#39;make -C assets rework&#39;)
     server.watch(&#39;assets/lib/*.js&#39;, &#39;make -C assets build&#39;)
     server.watch(&#39;app/templates&#39;)
-    server.serve(port)
-</code>
-</pre><h2>Do one job, and do it well</h2>
+    server.serve(port)</code></pre>
+<h2>Do one job, and do it well</h2>
 <p>Version 2.0 of livereload is more a library rather than an application.
 Which means other libraries in Python can easily bundle it in. I hope it
 can be a great library.</p>
@@ -615,9 +615,8 @@ well.</p>
 <p>The lack of compilers does not affect much. Since livereload provides you
 a way to execute shell command. As you can see in the above example that
 <code>server.watch</code> supports executing shell commands, so that we can do:</p>
-<pre><code class="lang-python">server.watch(&#39;src/foo.js&#39;, &#39;uglifyjs src/foo.js -m -o build/foo.js&#39;)
-</code>
-</pre><p>That's why compilers are removed, since every compiler is some sort of a
+<pre><code class="lang-python">server.watch(&#39;src/foo.js&#39;, &#39;uglifyjs src/foo.js -m -o build/foo.js&#39;)</code></pre>
+<p>That's why compilers are removed, since every compiler is some sort of a
 shell command, there is no reason for wrapping them in Python any more.</p>
 <p>By removing compilers, livereload focuses on the server implementation,
 and file watcher. The core code is much simple now.</p>
@@ -629,6 +628,7 @@ in the last two years is Makefile.</p>
 it. Like what I did/do in my daily life. The examples above are using
 Makefile:</p>
 <pre><code>server.watch('assets/styles/*.css', 'make -C assets rework')
+
 </code></pre>
 <h2>The future</h2>
 <p>The rewritted version 2.0 of livereload was released days ago. There are
@@ -1015,9 +1015,8 @@ def home():
 
 if __name__ == &#39;__main__&#39;:
     db.create_all()
-    app.run()
-</code>
-</pre><p>And this is the template of <code>home.html</code>:</p>
+    app.run()</code></pre>
+<p>And this is the template of <code>home.html</code>:</p>
 <pre><code class="lang-html+jinja">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -1037,9 +1036,8 @@ if __name__ == &#39;__main__&#39;:
     &lt;input type=&quot;submit&quot;&gt;
   &lt;/form&gt;
 &lt;/body&gt;
-&lt;/html&gt;
-</code>
-</pre><p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p>
+&lt;/html&gt;</code></pre>
+<p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p>
 <h2>Creating OAuth 1 Server</h2>
 <p>Before implementing the actual OAuth part, we need to define an OAuth 1
 Client. A client requires client_key, client_secret, redirect_uris,
@@ -1093,9 +1091,8 @@ def client():
     return jsonify(
         client_key=item.client_key,
         client_secret=item.client_secret
-    )
-</code>
-</pre><p>You can find the whole new code at <a href="https://github.com/lepture/example-oauth1-server/tree/2cafa624dd8e82054a5208ce7c156f024d0bb109">commit#2cafa62</a>. Now, run the script
+    )</code></pre>
+<p>You can find the whole new code at <a href="https://github.com/lepture/example-oauth1-server/tree/2cafa624dd8e82054a5208ce7c156f024d0bb109">commit#2cafa62</a>. Now, run the script
 and visit <code>/client</code>.</p>
 <h3>Implement OAuth 1 Provider</h3>
 <p>It is time to create a provider now. However, before we initialize a
@@ -1103,9 +1100,8 @@ provider, we need to update the configuration.</p>
 <pre><code class="lang-python">app.config.update({
     &#39;OAUTH1_PROVIDER_ENFORCE_SSL&#39;: False,
     &#39;OAUTH1_PROVIDER_KEY_LENGTH&#39;: (10, 100),
-})
-</code>
-</pre><p>Because we are developing on a local machine, it would be easier for us
+})</code></pre>
+<p>Because we are developing on a local machine, it would be easier for us
 to implement it over HTTP. This is why we set <code>OAUTH1_PROVIDER_ENFORCE_SSL</code>
 to <code>False</code>. After this, we can create a provider:</p>
 <pre><code class="lang-python">from flask_oauthlib.provider import OAuth1Provider
@@ -1113,9 +1109,8 @@ oauth = OAuth1Provider(app)
 
 @oauth.clientgetter
 def load_client(client_key):
-    return Client.query.filter_by(client_key=client_key).first()
-</code>
-</pre><p>Check code at <a href="https://github.com/lepture/example-oauth1-server/tree/78f6cf5ebbad01694ff3d5e78ad827acfefbea86">commit#78f6cf5</a>.</p>
+    return Client.query.filter_by(client_key=client_key).first()</code></pre>
+<p>Check code at <a href="https://github.com/lepture/example-oauth1-server/tree/78f6cf5ebbad01694ff3d5e78ad827acfefbea86">commit#78f6cf5</a>.</p>
 <p>There will be lots of code, and they would flush this article. In this case,
 I would keep them in a repo, and create a revision every time a milestone
 finished. You need to follow the links to view the changes.</p>
@@ -1135,12 +1130,14 @@ a client to verify it. We created a client with Flask-OAuthlib itself at
 <a href="https://github.com/lepture/example-oauth1-server/commit/f8b1d09b17f3bbcc9ecc41b44e061185e0e87e51">commit#f8b1d09</a>.</p>
 <p>Let's have a game. Start your provider server with:</p>
 <pre><code>$ python app.py
+
 </code></pre>
 <p>We visit <code>http://127.0.0.1:5000/</code> and fill a username. And then we visit
 <code>http://127.0.0.1:5000/client</code>, take the client key and client secret, and
 modify our <code>client.py</code> script with the key and secret. Now, we can start
 the client server with:</p>
 <pre><code>$ python client.py
+
 </code></pre>
 <p>We visit <code>http://localhost:8000/</code>, everything should work correctly. We
 will be redirected to a confirm page, if we choose yes, client will obtain
@@ -1153,16 +1150,14 @@ is easy with a decorator <code>require_oauth</code>:</p>
 @oauth.require_oauth()
 def me(req):
     user = req.user
-    return jsonify(username=user.username)
-</code>
-</pre><p><strong>CHANGED SINCE VERSION 0.5.0. YOU WILL WRITE THIS SNIPPET LIKE THIS:</strong></p>
+    return jsonify(username=user.username)</code></pre>
+<p><strong>CHANGED SINCE VERSION 0.5.0. YOU WILL WRITE THIS SNIPPET LIKE THIS:</strong></p>
 <pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
 @oauth.require_oauth()
 def me():
     user = request.oauth.user
-    return jsonify(username=user.username)
-</code>
-</pre><p>This <code>req</code> parameter is an oauth request object, it contains many useful
+    return jsonify(username=user.username)</code></pre>
+<p>This <code>req</code> parameter is an oauth request object, it contains many useful
 data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p>
 <p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
 This commit added a tokengetter, and fixed some bugs I created. After the
@@ -1192,9 +1187,8 @@ oauth = OAuth2Provider(app)
 
 @oauth.clientgetter
 def load_client(client_id):
-    return Client.query.filter_by(client_id=client_id).first()
-</code>
-</pre><p>Then we would <a href="https://github.com/lepture/example-oauth2-server/commit/a10c376b6f48bfde52d5fa2d6a8c5cd50e3096e1">create Grant Token</a> and
+    return Client.query.filter_by(client_id=client_id).first()</code></pre>
+<p>Then we would <a href="https://github.com/lepture/example-oauth2-server/commit/a10c376b6f48bfde52d5fa2d6a8c5cd50e3096e1">create Grant Token</a> and
 <a href="https://github.com/lepture/example-oauth2-server/commit/ba1fd40293e673ae35180a1c10f95820c6a93d23">Access Token</a> , and their getters and setters. It is
 much simpler than OAuth 1, since we don't have to create timestamp and nonce.</p>
 <p>OAuth 2 has no Request Token. The handlers are simple too. What you need is
@@ -1203,17 +1197,15 @@ and an authorize handler for user to confirm the request.</p>
 <pre><code class="lang-python">@app.route(&#39;/oauth/token&#39;)
 @oauth.token_handler
 def access_token():
-    return None
-</code>
-</pre><p>Flask-OAuthlib has done all the tricks, you don't need to handle the data
+    return None</code></pre>
+<p>Flask-OAuthlib has done all the tricks, you don't need to handle the data
 yourself. However, you can return things that matter to you. They are
 advanced skills, and I will not cover it here.</p>
 <p>Changes can be found at <a href="https://github.com/lepture/example-oauth2-server/commit/cbc3e12a3123f4bbc9d68eb8438247357f213583">commit#cbc3e12</a>.</p>
 <p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p>
 <pre><code class="lang-python">import os
-os.environ[&#39;DEBUG&#39;] = &#39;true&#39;
-</code>
-</pre><p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
+os.environ[&#39;DEBUG&#39;] = &#39;true&#39;</code></pre>
+<p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
 developing on a local machine, we don't have HTTPS, As a result, it is
 hard to meet this requirement. Fortunately, OAuthlib has a mechanism for
 us to debug on HTTP, that is the environ variable <code>DEBUG</code>.
@@ -1230,9 +1222,8 @@ to the handler.</p>
 <pre><code class="lang-python">@app.route(&#39;/api/me&#39;)
 @oauth.require_oauth()
 def me():
-    return jsonify(username=request.oauth.user.username)
-</code>
-</pre><p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
+    return jsonify(username=request.oauth.user.username)</code></pre>
+<p>The demo is finished at <a href="https://github.com/lepture/example-oauth2-server/commit/b30339ee5df40ef75e3313587aff11d0ec67339e">commit#b30339e</a>. Check out
 the source code and enjoy it yourself.</p>
 <h2>References &amp; Other Resources</h2>
 <p>I must confess that it is not easy to setup an OAuth server. You need to
@@ -1267,12 +1258,10 @@ target. Chances are that you've already lost your patience.</p>
             <![CDATA[ <p>前同事在微信羣裏發來往的二維碼，我其實也很想加，但是嫌麻煩，就略過了。</p>
 <p>我實在不能理解這樣的傳播方式。我至少需要兩部手機，相互掃描二維碼，才能加來往好友，但是我不是土豪。後來聽說不需要兩部手機，把圖片保存下來，來往可以掃描本地圖片，但是我不是阿裏員工。</p>
 <p>肉食者鄙，常常做出一些想當然的決策。具體到這件事來說，二維碼是不適合在手機間傳播的。那麼什麼合適呢？我以爲還是 URI 比較好，雖然不夠新潮。比如：</p>
-<pre><code>laiwang://user/lepture
-</code></pre>
+<pre><code>laiwang://user/lepture</code></pre>
 <p>但是微信不會解析該協議，可是微信會解析 HTTP，那我們做一次重定向:</p>
 <pre><code>http://laiwang.com/app/user/lepture
-=&gt; laiwang://user/lepture
-</code></pre>
+=&gt; laiwang://user/lepture</code></pre>
 <p>我知道這樣不夠新潮，可是你確定你追求的是新潮？</p>
 <p>這篇上接<a href="http://lepture.com/zh/2013/anti-long-weibo">《長微博及其它》</a>，喚爲：</p>
 <blockquote><p>You are doing it wrong !</p>
@@ -1301,9 +1290,8 @@ target. Chances are that you've already lost your patience.</p>
 <p>當你發出一條包含網址的 Tweet 時，Twitter 會去查看該網址是否包含可展示的內容。具體的要求則是該網址包含 Twitter 所要求的標記。比如：</p>
 <pre><code class="lang-html">&lt;meta name=&quot;twitter:card&quot; content=&quot;summary&quot;&gt;
 &lt;meta name=&quot;twitter:title&quot; content=&quot;長微博及其它&quot;&gt;
-&lt;meta name=&quot;twitter:description&quot; content=&quot;....&quot;&gt;
-</code>
-</pre><p>然後向 Twitter 提交你的網站，待 Twitter 認證後，包含你網站的 Tweet 便會展示相關摘要了。請放心，這一步相當快，Twitter 的審覈在幾分鍾內就完成了。</p>
+&lt;meta name=&quot;twitter:description&quot; content=&quot;....&quot;&gt;</code></pre>
+<p>然後向 Twitter 提交你的網站，待 Twitter 認證後，包含你網站的 Tweet 便會展示相關摘要了。請放心，這一步相當快，Twitter 的審覈在幾分鍾內就完成了。</p>
 <figure><img src="http://ww1.sinaimg.cn/large/5d261318gw1edquzpeksnj20eb0akjsf.jpg" alt="Twitter Cards" /></figure>
 <h2>標準的價值</h2>
 <p>Twitter 的方案並非原創，是模仿的 <a href="http://ogp.me/">Open Graph</a>。這一方案的好處是顯而易見的，一種包羅萬象的大氣。所謂互聯網者，當互聯也，關起門來獨攬全活叫自閉而非互聯。而協議就是這互聯的基礎。</p>
@@ -1313,9 +1301,8 @@ target. Chances are that you've already lost your patience.</p>
   &lt;h1 itemprop=&quot;name&quot;&gt;Shiny Trinket&lt;/h1&gt;
   &lt;img itemprop=&quot;image&quot; src=&quot;{image-url}&quot; /&gt;
   &lt;p itemprop=&quot;description&quot;&gt;Shiny trinkets are shiny.&lt;/p&gt;
-&lt;/body&gt;
-</code>
-</pre><p>標準需要的不一定是技術，有時只是一個想法就足夠了。比如說 RSS、Atom。</p>
+&lt;/body&gt;</code></pre>
+<p>標準需要的不一定是技術，有時只是一個想法就足夠了。比如說 RSS、Atom。</p>
 <h2>對微博建議</h2>
 <p>文字圖片的弊端也不再述了，我也知道中國人的獨特需求，他們喜歡被圈養，不太願意跳出圍城。但是這並不意味着我們就需要污染環境。</p>
 <p>正如 Twitter 模仿 Open Graph，我們也可以模仿 Schema：</p>
@@ -1327,9 +1314,8 @@ target. Chances are that you've already lost your patience.</p>
   &lt;div itemprop=&quot;content&quot;&gt;
     {content}
   &lt;/div&gt;
-&lt;/div&gt;
-</code>
-</pre><p>當我們分享一條鏈接時，微博便去索引此篇文章，找到全文內容，儲存爲純文本，在需要的時候展示全文。</p>
+&lt;/div&gt;</code></pre>
+<p>當我們分享一條鏈接時，微博便去索引此篇文章，找到全文內容，儲存爲純文本，在需要的時候展示全文。</p>
 <p>這個想法是免費的，隨時歡迎微博取用。也衷心希望對這個世界溫柔一點，儘量使用更低能耗的純文本。珍愛世界，從我做起，如果你的郵箱簽名帶有圖片，請把圖片去掉。</p>
 <hr>
 <p>2014-03-02 修正：</p>
@@ -1389,41 +1375,33 @@ target. Chances are that you've already lost your patience.</p>
 <p>我們只需要簡單介紹一下基本的文法，聰明者如你應該不需要五分鐘就可學會。</p>
 <ul>
 <li><p>一級標題（大標題）</p>
-<pre><code># 這是一級標題
-</code></pre>
+<pre><code># 這是一級標題</code></pre>
 </li>
 <li><p>二級標題（副標題）</p>
-<pre><code>## 這個是副標題
-</code></pre>
+<pre><code>## 這個是副標題</code></pre>
 </li>
 <li><p>那麼三級標題，四級標題也就很容易猜出來了</p>
 <pre><code>### 三級標題
-#### 四級標題
-</code></pre>
+#### 四級標題</code></pre>
 </li>
 <li><p>圖片與鏈接</p>
 <pre><code>![image description](image URL)
-[link text](link URL)
-</code></pre>
+[link text](link URL)</code></pre>
 </li>
 <li><p>著重強調</p>
 <pre><code>*emphasize*    **strong**
-_emphasize_    __strong__
-</code></pre>
+_emphasize_    __strong__</code></pre>
 </li>
 <li><p>引用的內容</p>
-<pre><code>&gt; 生命是一襲華美的袍，爬滿了虱子。
-</code></pre>
+<pre><code>&gt; 生命是一襲華美的袍，爬滿了虱子。</code></pre>
 </li>
 <li><p>有序列表</p>
 <pre><code>1. 有序列表第一條
-2. 有序列表第二條
-</code></pre>
+2. 有序列表第二條</code></pre>
 </li>
 <li><p>無序列表</p>
 <pre><code>* 無序列表
-* 無序列表
-</code></pre>
+* 無序列表</code></pre>
 </li>
 </ul>
 <p>現在你已經了解了所有你需要知道的了，這難道能叫做難學麼？忘記介紹段落了，你只需要保證段落之間有空行就可以了。</p>
@@ -1520,12 +1498,10 @@ For example, the volumn control is a StatusBar App.</p>
 </ol>
 <h3>StatusBar</h3>
 <p>Create the statusBar property in your <code>AppDelegate.h</code> file:</p>
-<pre><code class="lang-objc">@property (strong, nonatomic) NSStatusItem *statusBar;
-</code>
-</pre><p>Synthesize it in the <code>AppDelegate.m</code> file:</p>
-<pre><code class="lang-objc">@synthesize statusBar = _statusBar;
-</code>
-</pre><p>Initialize the statusBar:</p>
+<pre><code class="lang-objc">@property (strong, nonatomic) NSStatusItem *statusBar;</code></pre>
+<p>Synthesize it in the <code>AppDelegate.m</code> file:</p>
+<pre><code class="lang-objc">@synthesize statusBar = _statusBar;</code></pre>
+<p>Initialize the statusBar:</p>
 <pre><code class="lang-objc">- (void) awakeFromNib {
     self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 
@@ -1536,9 +1512,8 @@ For example, the volumn control is a StatusBar App.</p>
 
     self.statusBar.menu = self.statusMenu;
     self.statusBar.highlightMode = YES;
-}
-</code>
-</pre><p><code>awakeFromNib</code> is earlier than <code>applicationDidFinishLaunching</code> in the lifecycle.</p>
+}</code></pre>
+<p><code>awakeFromNib</code> is earlier than <code>applicationDidFinishLaunching</code> in the lifecycle.</p>
 <h3>App Go</h3>
 <p>Let's test this application.</p>
 <ol>
@@ -1547,8 +1522,7 @@ For example, the volumn control is a StatusBar App.</p>
 </ol>
 <p>It works! But it doesn't work the right way. It is on the dock, it shows the menu on the left.</p>
 <p>Fix it in <code>StatusBarApp-Info.plist</code>, add a row:</p>
-<pre><code>Application is agent (UIElement)  = YES
-</code></pre>
+<pre><code>Application is agent (UIElement)  = YES</code></pre>
 <figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg" alt="connect menu outlet" /></figure>
 <p>Run your application again, it won't be on the dock, it won't show the menu.</p>
 <h3>Do More</h3>
