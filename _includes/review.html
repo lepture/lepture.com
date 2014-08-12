@@ -9,7 +9,7 @@
     </div>
   {% endif %}
   <div class="entry-content" itemprop="reviewBody">
-    {{ page.body|markdown }}
+    {{ page.body|markdown(lazyimg=True) }}
   </div>
   <div class="entry-footer">
     <span itemprop="itemReviewed">{{ page.review }}</span>

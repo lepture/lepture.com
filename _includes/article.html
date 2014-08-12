@@ -9,7 +9,7 @@
     </div>
   {% endif %}
   <div class="entry-content" itemprop="articleBody">
-    {{ page.body|markdown }}
+    {{ page.body|markdown(lazyimg=True) }}
   </div>
   <div class="hide">
     <span class="author vcard">

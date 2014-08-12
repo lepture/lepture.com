@@ -12,6 +12,10 @@ turbolinks.on('page:visit', function() {
 });
 turbolinks.on('page:change', function() {
   document.body.className = '';
+
+  // lazy load image
+  lazyimg(query.all('.entry-content img'));
+
   // enable social widget
   var el = query('.social-button');
   if (el) social(el);
@@ -105,5 +109,14 @@ function disqus() {
     use('//' + disqus_shortname + '.disqus.com/embed.js');
   } else {
     reset();
+  }
+}
+
+function lazyimg(images) {
+  if (images.length) {
+    for (var i = 0; i < images.length; i++) {
+      var src = images[i].getAttribute('data-src');
+      if (src) images[i].src = src;
+    }
   }
 }
