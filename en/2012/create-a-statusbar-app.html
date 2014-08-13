@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114.png">
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
   <link rel="logo" type="image/svg" href="/logo.svg">
-  <link rel="dns-prefetch" href="http://lepture.com">
+  <link rel="dns-prefetch" href="http://dn-lepture.qbox.me">
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Create a StatusBar App">
@@ -21,10 +21,11 @@
   <meta name="twitter:domain" content="lepture.com">
   <link rel="canonical" href="http://lepture.com/en/2012/create-a-statusbar-app">
 <meta name="google-analytics" content="UA-21475122-1">
-<link rel="stylesheet" href="/assets/site.css?v=52401">
+<meta name="google-site-verification" content="at2ye66Rzr0dthIDpBZfL4nUZWPBS336jT9NUHaLSHM" />
+<link rel="stylesheet" href="/assets/site.css?v=6c5e5">
 <link rel="stylesheet" href="/assets/font.css?v=bed34">
 
-<script src="/assets/site.js?v=0cd07"></script></head>
+<script src="/assets/site.js?v=a5210"></script></head>
 <body>
   <div id="header">
     <div class="container yue">
@@ -66,7 +67,7 @@ For example, the volumn control is a StatusBar App.</p>
 <li><p>Open your Xcode (I am on Xcode 4.3.3)</p>
 </li>
 <li><p>Create a cocoa application project</p>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg" alt="create a project" /></figure>
+<figure><img data-src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step1.jpg" alt="create a project" /></figure>
 </li>
 <li><p>Name the project <strong>StatusBarApp</strong></p>
 </li>
@@ -75,21 +76,21 @@ For example, the volumn control is a StatusBar App.</p>
 </ol>
 <p>Now you will get an App with window. However, our app is a StatusBar App, it has no window.</p>
 <p>The final app should be like:</p>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/application.jpg" alt="application" /></figure>
+<figure><img data-src="https://github.com/lepture/StatusBarApp/raw/master/assets/application.jpg" alt="application" /></figure>
 <h3>Menu</h3>
 <p>We will create the menu first.</p>
 <ol>
 <li><p>Drag a menu to the interface builder</p>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg" alt="drag a menu" /></figure>
+<figure><img data-src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step2.jpg" alt="drag a menu" /></figure>
 </li>
 <li><p>Edit the menu item</p>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg" alt="edit menu item" /></figure>
+<figure><img data-src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step3.jpg" alt="edit menu item" /></figure>
 </li>
 <li><p>Decorate the menu with seprator</p>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg" alt="decorate with seprator" /></figure>
+<figure><img data-src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step4.jpg" alt="decorate with seprator" /></figure>
 </li>
 <li><p>Connect the menu to your code outlet, and name it <code>statusMenu</code></p>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg" alt="connect menu outlet" /></figure>
+<figure><img data-src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step5.jpg" alt="connect menu outlet" /></figure>
 </li>
 </ol>
 <h3>StatusBar</h3>
@@ -122,12 +123,12 @@ For example, the volumn control is a StatusBar App.</p>
 <p>It works! But it doesn't work the right way. It is on the dock, it shows the menu on the left.</p>
 <p>Fix it in <code>StatusBarApp-Info.plist</code>, add a row:</p>
 <pre><code>Application is agent (UIElement)  = YES</code></pre>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg" alt="connect menu outlet" /></figure>
+<figure><img data-src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step6.jpg" alt="connect menu outlet" /></figure>
 <p>Run your application again, it won't be on the dock, it won't show the menu.</p>
 <h3>Do More</h3>
 <p>But you can't quit the application, that could be annoying. We did have a Quit item on the application, but it won't work right now.</p>
 <p>Fix it:</p>
-<figure><img src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step7.jpg" alt="quit" /></figure>
+<figure><img data-src="https://github.com/lepture/StatusBarApp/raw/master/assets/Step7.jpg" alt="quit" /></figure>
 <h2>Reference:</h2>
 <ul>
 <li><a href="http://cocoatutorial.grapewave.com/2010/01/creating-a-status-bar-application/">Creating a Status Bar Application</a></li>
