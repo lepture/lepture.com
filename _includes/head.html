@@ -1,4 +1,9 @@
+{% if site.google_analytics %}
 <meta name="google-analytics" content="{{ site.google_analytics }}">
+{% endif %}
+{% if site.google_webmaster %}
+<meta name="google-site-verification" content="{{ site.google_webmaster }}" />
+{% endif %}
 <link rel="stylesheet" href="{{ static_url('_site/assets/site.css', '/assets/site.css') }}">
 <link rel="stylesheet" href="{{ static_url('_assets/font.css', '/assets/font.css') }}">
 
