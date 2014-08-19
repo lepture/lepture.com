@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Python on A Hard Wheel — Just lepture</title>
+  <link rel="author" href="https://plus.google.com/117887319435448092628">
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
+  <link rel="logo" type="image/svg" href="/logo.svg">
+  <link rel="dns-prefetch" href="http://dn-lepture.qbox.me">
+  <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Python on A Hard Wheel">
+  <meta property="og:url" content="http://lepture.com/en/2014/python-on-a-hard-wheel">
+    <meta name="description" content="How to build and distribute binary wheels on your Mac for every Mac.">
+    <meta property="og:description" content="How to build and distribute binary wheels on your Mac for every Mac.">
+    <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@lepture">
+  <meta name="twitter:creator" content="@lepture">
+  <meta name="twitter:domain" content="lepture.com">
+  <link rel="canonical" href="http://lepture.com/en/2014/python-on-a-hard-wheel">
+<meta name="google-analytics" content="UA-21475122-1">
+<meta name="google-site-verification" content="at2ye66Rzr0dthIDpBZfL4nUZWPBS336jT9NUHaLSHM" />
+<link rel="stylesheet" href="/assets/site.css?v=6c5e5">
+<link rel="stylesheet" href="/assets/font.css?v=bed34">
+
+<script src="/assets/site.js?v=a5210"></script></head>
+<body>
+  <div id="header">
+    <div class="container yue">
+      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
+      <div id="nav" role="navigation">
+          <a href="/resume">About</a>
+          <a href="/zh/">Chinese</a>
+          <a href="/en/">English</a>
+      </div>
+    </div>
+  </div>
+  <div id="subheader">
+    <div class="container yue">
+  How to build and distribute binary wheels on your Mac for every Mac.
+    </div>
+  </div>
+  <div id="main">
+    <div class="container yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">Python on A Hard Wheel</h1>
+    <div class="entry-meta">
+      <time class="updated" datetime="2014-08-19T16:00:00+08:00" itemprop="datePublished" pubdate>
+        Aug 19, 2014
+      </time>
+      <em>1068 words</em>
+    </div>
+  <div class="entry-content" itemprop="articleBody">
+    <p>Wheel is a distribution file format for Python, which was introduced a few
+years ago with <a href="http://legacy.python.org/dev/peps/pep-0427/">PEP427</a>. In
+case you have no knowledge about wheel, you should read the PEP. If you are
+a fan of Armin Ronacher, you might like to read <a href="http://lucumr.pocoo.org/2014/1/27/python-on-wheels/">Python on Wheels</a>.</p>
+<p>The wheel format is designed as a binary package format. I had never tried
+<code>bdist_rpm</code>, because I don't use Red Hat based systems. I had never tried
+eggs, which I believe belongs to the old world. Actually, I had never tried
+to upload any binary package to PyPI. When I publish a libary, I publish it
+as a source package.</p>
+<p>I had <a href="https://github.com/lepture/mistune/issues/3">a try on wheel</a> recently.
+It wasn't a pleasant experience. It takes me too much time to create the
+powerful format for a binary library:</p>
+<pre><code>macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.whl</code></pre>
+<p>If you take a look at <a href="https://pypi.python.org/pypi/Cython">Cython PyPI</a>,
+you would find the wheels end with this format. But you can't simply build
+the wheel yourself.</p>
+<hr>
+<p>PyPI currently only allows uploading platform-specific wheels for Windows
+and Mac OS X. Linux is not included. But it is still useful to create
+wheels for these platforms, better than nothing.</p>
+<p>For pure Python, a wheel would be something like:</p>
+<div class="highlight"><pre><span class="c"># python setup.py bdist_wheel --universal</span>
+mistune-0.4-py2.py3-none-any.whl
+</pre></div>
+<p>Building wheels for pure Python is easy. Building binary wheels for all Mac
+OSX is not. At the very first, I created wheels for <a href="https://github.com/lepture/mistune">mistune</a>:</p>
+<pre><code>mistune-0.4-cp27-none-macosx_10_4_x86_64.whl</code></pre>
+<p>It is good. But I've seen the wheel for Cython, Pandas and Numpy. They all
+end with the complex filename. WTF. Did I miss something? The PEP describes
+the file name format as:</p>
+<pre><code>{distribution}-{version}(-{build tag})?-{python tag}-{abi tag}-{platform tag}.whl</code></pre>
+<p>The different ending is platform tag:</p>
+<ol>
+<li><code>mistune</code> is the distribution name</li>
+<li><code>0.4</code> is package version</li>
+<li><code>cp27</code> is python tag</li>
+<li><code>none</code> is ABI tag</li>
+<li><code>macosx_10_4_x86_64</code> is platform tag</li>
+</ol>
+<p>I've read the source code of <code>bdist_wheel.py</code>, it turned out that the platform tag
+was generated by <code>distutils.util.get_platform()</code>. Why is my platform tag <code>macosx_10_4_x86_64</code>?
+Why can't I build a <code>macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.whl</code>?
+I've googled a lot. The result was not good enough. After all, I've found what I need,
+<a href="https://github.com/MacPython/wiki/wiki/Spinning-wheels">Spinning wheels</a>. In this
+very wiki, I've learnt the popular Pythons and their platform tags.</p>
+<table>
+<thead><tr>
+<th>Python source</th>
+<th>Python version</th>
+<th>OSX version</th>
+<th><code>get_platform()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python.org</td>
+<td>2.7</td>
+<td>10.9</td>
+<td>macosx-10.6-intel</td>
+</tr>
+<tr>
+<td>System Python</td>
+<td>2.7</td>
+<td>10.9</td>
+<td>macosx-10.9-intel</td>
+</tr>
+<tr>
+<td>Macports</td>
+<td>2.7</td>
+<td>10.9</td>
+<td>macosx-10.9-x86_64</td>
+</tr>
+<tr>
+<td>Homebrew</td>
+<td>2.7</td>
+<td>10.9</td>
+<td>macosx-10.9-x86_64</td>
+</tr>
+<tr>
+<td>Python.org</td>
+<td>3.4</td>
+<td>10.9</td>
+<td>macosx-10.6-intel</td>
+</tr>
+<tr>
+<td>Python.org</td>
+<td>2.7</td>
+<td>10.7</td>
+<td>macosx-10.6-intel</td>
+</tr>
+<tr>
+<td>System Python</td>
+<td>2.7</td>
+<td>10.7</td>
+<td>macosx-10.7-intel</td>
+</tr>
+</tbody>
+</table>
+<p>My platform tag is not in the table, because I was using the Python created by
+<a href="https://github.com/yyuu/pyenv">pyenv</a>. When I tried the System Python, the
+wheel turned out:</p>
+<pre><code>mistune-0.4-cp27-none-macosx_10_9_intel.whl</code></pre>
+<p>In the wiki of <a href="https://github.com/MacPython/wiki/wiki/Spinning-wheels">Spinning wheels</a>,
+I've learnt the very important idea, a <code>macosx_10_6_intel</code> would be compatible
+with <code>macosx_10_9_intel</code> and <code>macosx_10_9_x86_64</code>. In this case, you can simply
+rename the filename from <code>macosx_10_6_intel</code> to:</p>
+<pre><code>macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64</code></pre>
+<blockquote><p>Because having a fat binary includes having x86_64, so is compatible with
+x86_64-only builds. Stuff compiled with the 10.6 SDK should also be
+compatible with stuff built against later SDK versions
+(up to and including 10.9). </p>
+</blockquote><p>In the wiki <a href="https://github.com/MacPython/wiki/wiki/Wheel-building">MacPython OSX wheel building</a>,
+a Travis CI approach is teached to you. You can build the idea wheel with
+Travis CI, which is exactly the way <a href="https://github.com/MacPython/pandas-wheels">pandas</a>
+and <a href="https://github.com/MacPython/numpy-wheels">numpy</a> are using.</p>
+<hr>
+<p>But what if I want to build the wheels on my own machine? All I need is a
+Python with platform <code>macosx_10_6_intel</code>. But why did pyenv create the python
+with platform tag <code>macosx_10_4_x86_64</code>?</p>
+<p>The source code of pythonz tells me that <code>macosx_10_4</code> is defined by environ
+variable <code>MACOSX_DEPLOYMENT_TARGET</code>, and <code>intel</code> can be created by configure
+options <code>--enable-universalsdk=/ --with-universal-archs=intel</code> when building
+Python. Since I've switched to pyenv, it would be done with the shell profile:</p>
+<div class="highlight"><pre><span class="c"># bash and zsh</span>
+<span class="nb">export </span><span class="nv">MACOSX_DEPLOYMENT_TARGET</span><span class="o">=</span><span class="s2">&quot;10.6&quot;</span>
+<span class="nb">export </span><span class="nv">PYTHON_CONFIGURE_OPTS</span><span class="o">=</span><span class="s2">&quot;--enable-universalsdk=/ --with-universal-archs=intel&quot;</span>
+</pre></div>
+<p>Installing python with pyenv:</p>
+<pre><code>$ pyenv install 2.7.8</code></pre>
+<p>The compiled python would be <code>macosx_10_6_intel</code> now. Check the platform tag:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">distutils.util</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">distutils</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">get_platform</span><span class="p">())</span>
+<span class="n">macosx</span><span class="o">-</span><span class="mf">10.6</span><span class="o">-</span><span class="n">intel</span>
+</pre></div>
+<p>You can install as many pythons as you like, such as 3.3.5 and 3.4.1, so that
+you can create wheels for Python 3.3 and Python 3.4.</p>
+<hr>
+<p>The final patch for <code>setup.py</code> would make it easy to create powerful Mac
+wheels:</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">wheel.bdist_wheel</span> <span class="kn">import</span> <span class="n">bdist_wheel</span>
+
+    <span class="k">class</span> <span class="nc">_bdist_wheel</span><span class="p">(</span><span class="n">bdist_wheel</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">get_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">tag</span> <span class="o">=</span> <span class="n">bdist_wheel</span><span class="o">.</span><span class="n">get_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">repl</span> <span class="o">=</span> <span class="s">&#39;macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64&#39;</span>
+            <span class="k">if</span> <span class="n">tag</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;macosx_10_6_intel&#39;</span><span class="p">:</span>
+                <span class="n">tag</span> <span class="o">=</span> <span class="p">(</span><span class="n">tag</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tag</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">repl</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">tag</span>
+
+    <span class="n">cmdclass</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;bdist_wheel&#39;</span><span class="p">:</span> <span class="n">_bdist_wheel</span><span class="p">}</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">cmdclass</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="c"># ...</span>
+    <span class="n">cmdclass</span><span class="o">=</span><span class="n">cmdclass</span><span class="p">,</span>
+    <span class="c"># ...</span>
+<span class="p">)</span>
+</pre></div>
+<p>I would suggest that you use this patch for binary wheel. A simple renaming
+is not as good as this one patch. This patch would change the platform tag,
+and write the information to the wheel meta:</p>
+<pre><code># file: mistune-0.4.dist-info/WHEEL
+Wheel-Version: 1.0
+Generator: bdist_wheel (0.24.0)
+Root-Is-Purelib: false
+Tag: cp27-none-macosx_10_6_intel
+Tag: cp27-none-macosx_10_9_intel
+Tag: cp27-none-macosx_10_9_x86_64</code></pre>
+<p>But a simple renaming would not add those tags to wheel meta. If you dare
+have a look at pandas wheel meta:</p>
+<pre><code># file: pandas-0.14.1.dist-info/WHEEL
+Wheel-Version: 1.0
+Generator: bdist_wheel (0.24.0)
+Root-Is-Purelib: false
+Tag: cp27-none-macosx_10_6_intel</code></pre>
+<p>It has no tag for <code>macosx_10_9_intel</code> and <code>macosx_10_9_x86_64</code>.</p>
+<p>This is how I created <a href="https://pypi.python.org/pypi/mistune">wheels for mistune</a>.
+I'd try windows later (or never).</p>
+<div class="highlight"><pre><span class="nv">$ </span>python setup.py bdist_wheel upload
+</pre></div>
+
+  </div>
+  <div class="hide">
+    <span class="author vcard">
+      <span class="fn" itemprop="author">Hsiaoming Yang</span>
+    </span>
+  </div>
+</div>      <div class="entry-extra">
+        <div class="entry-tags">
+          <span class="tag">python</span>
+        </div>
+<a class="flattr" href="https://flattr.com/submit/auto?user_id=lepture&url=http://lepture.com/en/2014/python-on-a-hard-wheel&title=Python%20on%20A%20Hard%20Wheel&description=How%20to%20build%20and%20distribute%20binary%20wheels%20on%20your%20Mac%20for%20every%20Mac.&category=text">
+  <img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr Python on A Hard Wheel" />
+</a>        <div class="social-button" data-url="http://lepture.com/en/2014/python-on-a-hard-wheel" data-text="Python on A Hard Wheel — How to build and distribute binary wheels on your Mac for every Mac." data-twitter="lepture" data-weibo="lepture" data-facebook="lepture" data-count="true"></div>
+      </div>
+    </div>
+  </div>
+<div class="entry-comments yue">
+  <div id="disqus_thread" class="container"></div>
+</div>
+<script>
+    var disqus_shortname='lepture';
+    var disqus_title='Python on A Hard Wheel';
+    var disqus_url='http://lepture.com/en/2014/python-on-a-hard-wheel';
+</script>
+  <div id="footer">
+    <div class="container">
+      <p>&copy; Copyright 2014 by Hsiaoming Yang.</p>
+    </div>
+  </div>
+</body>
+</html>
