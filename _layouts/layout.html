@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>{% block title %}{{ site.name }}{% endblock %}</title>
-  <link rel="author" href="https://plus.google.com/117887319435448092628">
   <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114.png">
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
   <link rel="logo" type="image/svg" href="/logo.svg">
@@ -15,17 +14,17 @@
   {% block extra_head %}{% endblock %}
 </head>
 <body>
-  <div id="header">
+  <header id="header">
     <div class="container yue">
-      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
-      <div id="nav" role="navigation">
+      <div id="brand" role="banner"><a href="/">Just <strong>lepture</strong></a></div>
+      <nav id="nav" role="navigation">
         {% for item in site.links %}
           <a href="{{ item.url }}">{{ item.name }}</a>
         {% endfor %}
-      </div>
+      </nav>
     </div>
-  </div>
-  <div id="subheader">
+  </header>
+  <header id="subheader">
     <div class="container yue">
       {% block subheader %}
       Contact me via
@@ -36,16 +35,16 @@
       and <a href="{{ item.url }}">{{ item.name }}</a>.
       {% endblock %}
     </div>
-  </div>
+  </header>
   {% block main %}
     <div id="main">
-      <div class="container yue">{% block container %}{% endblock %}</div>
+      <div class="container yue" role="main">{% block container %}{% endblock %}</div>
     </div>
   {% endblock %}
-  <div id="footer">
+  <footer id="footer" role="contentinfo">
     <div class="container">
       <p>&copy; Copyright {{ site.now.year }} by {{ site.author }}.</p>
     </div>
-  </div>
+  </footer>
 </body>
 </html>
