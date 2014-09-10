@@ -20,7 +20,7 @@ I did, do and will always believe in
 
 ## Contact
 
-I am currently living in Shenzhen, China.
+I am currently living in Shanghai, China.
 
 You can reach me by
 
