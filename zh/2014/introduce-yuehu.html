@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>閱乎，你好 — Just lepture</title>
-  <link rel="author" href="https://plus.google.com/117887319435448092628">
   <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114.png">
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
   <link rel="logo" type="image/svg" href="/logo.svg">
@@ -27,24 +26,24 @@
 
 <script src="/assets/site.js?v=a5210"></script></head>
 <body>
-  <div id="header">
+  <header id="header">
     <div class="container yue">
-      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
-      <div id="nav" role="navigation">
+      <div id="brand" role="banner"><a href="/">Just <strong>lepture</strong></a></div>
+      <nav id="nav" role="navigation">
           <a href="/resume">About</a>
           <a href="/zh/">Chinese</a>
           <a href="/en/">English</a>
-      </div>
+      </nav>
     </div>
-  </div>
-  <div id="subheader">
+  </header>
+  <header id="subheader">
     <div class="container yue">
   閱乎目前主打的功能是「合輯」，這是一個由多人（也可以是一人）編輯維護的文章集，代表了某類話題下這些編輯的口味。
     </div>
-  </div>
+  </header>
   <div id="main">
-    <div class="container yue">
-<div class="hentry" itemscope itemtype="http://schema.org/Article">
+    <div class="container yue" role="main">
+<article class="hentry" itemscope itemtype="http://schema.org/Article">
   <h1 class="entry-title" itemprop="name">閱乎，你好</h1>
     <div class="entry-meta">
       <time class="updated" datetime="2014-03-31T02:30:00+08:00" itemprop="datePublished" pubdate>
@@ -85,12 +84,12 @@
 <p>古人云，一鼓作氣，再而衰，三而竭。已經改過數次版了，幾乎到了「三而竭」的地步。於是更新了域名，從 .me 換作了 .io，假裝是一個新的開始，而不至於立馬就竭了。</p>
 
   </div>
-  <div class="hide">
+  <div class="hide" aria-hidden="true">
     <span class="author vcard">
       <span class="fn" itemprop="author">Hsiaoming Yang</span>
     </span>
   </div>
-</div>      <div class="entry-extra">
+</article>      <div class="entry-extra">
         <div class="entry-tags">
           <span class="tag">yuehu</span>
         </div>
@@ -106,10 +105,10 @@
     var disqus_title='閱乎，你好';
     var disqus_url='http://lepture.com/zh/2014/introduce-yuehu';
 </script>
-  <div id="footer">
+  <footer id="footer" role="contentinfo">
     <div class="container">
       <p>&copy; Copyright 2014 by Hsiaoming Yang.</p>
     </div>
-  </div>
+  </footer>
 </body>
 </html>

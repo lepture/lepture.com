@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>New life of livereload — Just lepture</title>
-  <link rel="author" href="https://plus.google.com/117887319435448092628">
   <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114.png">
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
   <link rel="logo" type="image/svg" href="/logo.svg">
@@ -27,24 +26,24 @@
 
 <script src="/assets/site.js?v=a5210"></script></head>
 <body>
-  <div id="header">
+  <header id="header">
     <div class="container yue">
-      <div id="brand"><a href="/">Just <strong>lepture</strong></a></div>
-      <div id="nav" role="navigation">
+      <div id="brand" role="banner"><a href="/">Just <strong>lepture</strong></a></div>
+      <nav id="nav" role="navigation">
           <a href="/resume">About</a>
           <a href="/zh/">Chinese</a>
           <a href="/en/">English</a>
-      </div>
+      </nav>
     </div>
-  </div>
-  <div id="subheader">
+  </header>
+  <header id="subheader">
     <div class="container yue">
   This is not a changelog of a project. It is what I learned in the development of livereload.
     </div>
-  </div>
+  </header>
   <div id="main">
-    <div class="container yue">
-<div class="hentry" itemscope itemtype="http://schema.org/Article">
+    <div class="container yue" role="main">
+<article class="hentry" itemscope itemtype="http://schema.org/Article">
   <h1 class="entry-title" itemprop="name">New life of livereload</h1>
     <div class="entry-meta">
       <time class="updated" datetime="2013-12-31T13:30:00+08:00" itemprop="datePublished" pubdate>
@@ -153,13 +152,13 @@ libraries that depend on this project and making the web development of
 more fun.</p>
 
   </div>
-  <div class="hide">
+  <div class="hide" aria-hidden="true">
     <span class="author vcard">
       <span class="fn" itemprop="author">Hsiaoming Yang</span>
     </span>
   </div>
     <div class="github-card" data-github="lepture/python-livereload"></div>
-</div>      <div class="entry-extra">
+</article>      <div class="entry-extra">
         <div class="entry-tags">
           <span class="tag">python</span>
           <span class="tag">web</span>
@@ -178,10 +177,10 @@ more fun.</p>
     var disqus_title='New life of livereload';
     var disqus_url='http://lepture.com/en/2013/new-life-of-livereload';
 </script>
-  <div id="footer">
+  <footer id="footer" role="contentinfo">
     <div class="container">
       <p>&copy; Copyright 2014 by Hsiaoming Yang.</p>
     </div>
-  </div>
+  </footer>
 </body>
 </html>
