@@ -106,7 +106,7 @@ function disqus() {
   };
 
   if (!window.DISQUS) {
-    use('//' + disqus_shortname + '.disqus.com/embed.js');
+    use('https://' + disqus_shortname + '.disqus.com/embed.js');
   } else {
     reset();
   }
