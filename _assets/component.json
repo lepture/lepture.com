@@ -21,5 +21,11 @@
     "site.css",
     "pygments.css",
     "book.css"
+  ],
+  "fonts": [
+    "fonts/social.woff",
+    "fonts/social.eot",
+    "fonts/social.svg",
+    "fonts/social.ttf"
   ]
 }
