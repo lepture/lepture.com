@@ -3,8 +3,33 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2014-10-12T10:39:08.596850+08:00</updated>
+    <updated>2014-11-10T18:01:31.200390+08:00</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[看不懂的文字]]></title>
+        <link href="http://lepture.com/zh/2014/love-of-nonsense"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2014-11-10T18:00:00+08:00</updated>
+        <published>2014-11-10T18:00:00+08:00</published>
+        <id>http://lepture.com/zh/2014/love-of-nonsense</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>人們說，一切看不懂的留言都當作表白<br>不用去想不用去猜<br>書的扉頁正是寄託情思的所在</p>
+<p>異國的風情遮掩筆者的膽怯<br>他鄉的平凡掩飾詞藻的欠缺</p>
+<p>我如果用日語，淡淡一句<br>今天的晚霞真美<br>可是我沒有夏目漱石的婉轉</p>
+<p>我如果用法語，解構相思時的情境<br>遠離的卻是我，留下的才是你<br>但是我沒有羅蘭巴特的深沈</p>
+<p>我如果用英語<br>哦，親愛的如何說出口<br>況且，這世界語，你都看得懂</p>
+<p>用中文吧，寫點古體詩吧</p>
+<p>可是</p>
+<p>我想說的，詩經說的比我還要赤裸<br>我想寫的，唐人寫的比我還要瑰麗</p>
+<p>萬般思緒，卻無從下筆</p>
+<p>最後化作筆端的只是<br>一點看不懂的不能稱作詩歌的亂語</p>
+<hr>
+<p>這是「為你寫詩」的第一篇，記錄每一次的靈感。本來加過了腳注，但是想想，給自己的寫作加註釋也是蠻奇怪的。</p>
+ ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[不被重視的 HTML：Accessibility]]></title>
         <link href="http://lepture.com/zh/2014/talk-on-accessibility-jsdc2014"/>
@@ -1650,41 +1675,6 @@ _emphasize_    __strong__</code></pre>
 <p>也許你還需要一個編輯器來輔助你，例如我現在正在用 Mou 來寫作這篇文章。對，你所看到的這篇文章正是用 Markdown 寫作的。也許你對自己的寫作不放心，需要實時預覽，借助<a href="http://www.zhihu.com/question/19637157">這些工具</a>也許能讓你更放心。其實真的不需要，例如當我寫作這篇文章時，我並不需要即時預覽，我知道我寫出來的效果一定就會是我想要的。</p>
 <p>另外我正在編寫一個網頁版的 <a href="http://lab.lepture.com/editor/">Markdown 編輯器</a>，雖然還沒有完成，不過已經足以幫助你熟悉一下 Markdown 的文法了。我也為你準備了一份詳細的<a href="http://lab.lepture.com/editor/markdown">英文版文法</a>說明。</p>
 <p>也許你還會覺得這些文法不夠用，你還是想把你的文章弄得花花綠綠的，我想這篇文章不是為你而寫的。我也深深為你的審美捉急呀。</p>
- ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[早安曼谷]]></title>
-        <link href="http://lepture.com/zh/2012/hello-bangkok"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2012-11-22T00:00:00+08:00</updated>
-        <published>2012-11-22T00:00:00+08:00</published>
-        <id>http://lepture.com/zh/2012/hello-bangkok</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <blockquote><p>沒有睡過機場的旅行不完整。</p>
-</blockquote><p>彭哲夫如是說。</p>
-<p>到達曼谷的時候是午夜，第一個夜晚便在機場度過。於是，旅行從一開始就完整了——也許並不是，因為不曾睡過。這一天是 2012 年九月五號。</p>
-<p>曼谷的機場，空調開得很冷，在 Money Exchange 兌換了一點鈔票（Tips: 匯率極差，後來才發現，原來從 ATM 里直接取鈔匯率會更好），馬上就去星巴克點了杯熱飲，暖和一下，也順便給手機充一下電。</p>
-<p>無事可做，又沒有網路，只好发呆。拿起 Kindle 看了點書，是齊邦媛的《巨流河》。後來連書也看不下去了，終於鼓起了勇氣 Say Hello。</p>
-<figure><img src="http://i.imgur.com/q1Ck3.jpg" alt="曼谷機場" /></figure>
-<p>Sunny 是泰國人，但是長著一副歐洲人的面孔，英文說得又好，如果他不說，我是萬料不到的。後來見到的泰國人也確實同 Sunny 長得不一樣，也許是混血吧。</p>
-<p>他教我用 Foursquare，我才發現以前從未用過 Explore 的功能，而且因為沒有了中國政府，地圖定位精確，Explore 可算是幫了大忙。他又慷慨地分享網路給我，為我挑選了一些景點做了個 Foursquare List，順便下載了幾個關於曼谷的 App（雖然後來也沒用過）。</p>
-<p>這是我在泰國陸地上遇到的第一個泰國人，給了我很大幫助。</p>
-<p>大約五點的光景，快到 City Line 的首班時間，同 Sunny 告別後便到樓下等車。</p>
-<p>也不知是從哪裡看來的一條路線（豆瓣？），大約是這樣的：</p>
-<ol>
-<li>City Line 到 BTS phaya thai 下車</li>
-<li>乘坐 BTS 到 Siam 換乘 W 線</li>
-<li>到 Saphan Taksin 下車，到天橋下換乘曼谷水上巴士</li>
-<li>到 Tha Phra Athit 下船，去 Khaosan。</li>
-</ol>
-<p>BTS 其實就是城市輕軌，也許因為早晨的原因，BTS 上沒什麼遊客。車上多是看報的泰國人，當然也有玩手機的。有一份報紙，叫《M2F》，是免費發放的，所以車上看到的報紙大多是這一份，到天橋下乘船時，也有人給我派發報紙，這是第一次被人錯看成泰國人。</p>
-<p>然後轉乘水上巴士。船有多種，實在分不清也沒關係，總之不要去坐 Tourist Boat 就好，貴。</p>
-<p>湄公河的水很混濁，黃滾滾的，水面上漂浮著樹枝，向下游蕩去，起起浮浮。沿河兩岸，有時是破舊的未完工的樓，有時是富麗的皇宮或者佛寺，因為睡眠不足，大多錯過了，頗為可惜。</p>
-<p>水路很長，多虧了售票阿姨的提醒，算是順利抵達。</p>
-<p>上了岸，旅途才剛剛開始，早安曼谷。</p>
  ]]>
         </content>
     </entry>
