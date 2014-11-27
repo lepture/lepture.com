@@ -23,7 +23,7 @@ html, body {
 }
 a {
   color: #434344;
-  transition: all 0.25 ease-in;
+  transition: all 0.25s ease-in;
 }
 a:hover {
   opacity: 0.8;
