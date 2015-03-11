@@ -206,3 +206,10 @@ I'd try windows later (or never).
 ```bash
 $ python setup.py bdist_wheel upload
 ```
+
+---
+
+Update: I am using Travis CI to build wheels for mistune now. It will upload
+the wheels to GitHub releases.
+
+Checkout <https://github.com/lepture/python-wheels>.
