@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/en/feed.xml" rel="self" />
     <link href="http://lepture.com/en/" />
-    <updated>2015-01-25T19:25:51.415045+08:00</updated>
+    <updated>2015-03-11T13:28:48.364122+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[Python on A Hard Wheel]]></title>
@@ -192,6 +192,10 @@ Tag: cp27-none-macosx_10_6_intel</code></pre>
 <p>This is how I created <a href="https://pypi.python.org/pypi/mistune">wheels for mistune</a>.
 I'd try windows later (or never).</p>
 <pre><code class="lang-bash">$ python setup.py bdist_wheel upload</code></pre>
+<hr>
+<p>Update: I am using Travis CI to build wheels for mistune now. It will upload
+the wheels to GitHub releases.</p>
+<p>Checkout <a href="https://github.com/lepture/python-wheels">github.com/lepture/python-wheels</a>.</p>
  ]]>
         </content>
     </entry>
