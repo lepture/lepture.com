@@ -177,6 +177,16 @@ body {
   font-weight: 300;
   font-size: 14px;
 }
+.hentry .entry-footer .buy-button {
+  display: inline-block;
+  padding: 2px 12px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  color: #787878;
+  text-transform: uppercase;
+}
 
 .paginator {
   padding: 20px 0;

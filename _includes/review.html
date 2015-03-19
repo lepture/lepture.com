@@ -20,5 +20,8 @@
     {% if page.rating %}
     — Rating <span itemprop="reviewRating">{{ page.rating }}</span>
     {% endif %}
+    {% if page.amazon %}
+     — <a class="buy-button" href="{{ page.amazon }}?tag=lepture-23">Buy it</a>
+    {% endif %}
   </div>
 </div>

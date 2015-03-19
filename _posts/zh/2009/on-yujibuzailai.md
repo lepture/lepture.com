@@ -5,6 +5,7 @@
 - review: 雨季不再來
 - rating: 4.5
 - author: 三毛
+- amazon: http://www.amazon.cn/gp/product/B005E7KRDE/
 - image: //dn-lepture.qbox.me/blog/yujibuzailai.jpg
 
 人生是不該折斷了來看的，純粹的悲與喜的人生是經不住品閱的，縱使淒苦，其間也總有欣慰的事，異彩又或者點滴卑微的滿足。
