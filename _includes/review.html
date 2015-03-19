@@ -18,7 +18,7 @@
       <span class="fn" itemprop="author">{{ site.author }}</span>
     </span>
     {% if page.rating %}
-    — Rating <span itemprop="reviewRating">{{ page.rating }}</span>
+    — Rating <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><span itemprop="ratingValue">{{ page.rating }}</span></span>
     {% endif %}
     {% if page.amazon %}
      — <a class="buy-button" href="{{ page.amazon }}?tag=lepture-23">Buy it</a>
