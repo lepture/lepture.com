@@ -229,6 +229,9 @@ body {
   #brand strong, .social-button {
     display: none;
   }
+  .yue {
+    word-break: break-all;
+  }
   .container {
     padding-left: 18px;
     padding-right: 18px;

@@ -15,7 +15,7 @@
 {% macro Blog(title, description, link, weibo=None, twitter=None) %}
   <div class="site">
     <h3><a href="{{ link }}">{{ title }}</a></h3>
-    <p class="description">{{ description }}</p>
+    <a href="{{ link }}" class="description">{{ description }}</a>
     <div class="social">
       {% if twitter %}
       <a class="twitter" href="https://twitter.com/{{twitter}}">@{{twitter}}</a>
@@ -54,8 +54,13 @@
   }
 </style>
 <div id="main">
+  <div class="entry-header">
+    <div class="container">
+      <h1 class="entry-title">Friends</h1>
+      <p class="entry-description">Friends who are still blogging, especially in Chinese.</p>
+    </div>
+  </div>
   <div class="container yue">
-    <p class="entry-description">Friends who are still blogging, especially in Chinese.</p>
 
     {{ Blog('光陰海', "Shun's weblog, he writes about life, stories, poems, and etc.", 'http://blog.lishun.me/', 'riverscn', 'riverscn') }}
 

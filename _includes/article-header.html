@@ -13,10 +13,10 @@
 
       {% if page.github %}
         <a class="button" rel="nofollow" href="https://github.com/{{ page.github }}">GitHub</a>
-      {% endif %}
-
-      {% if page.amazon %}
-       <a class="button" rel="nofollow" href="{{ page.amazon }}?tag=lepture-23">Buy it</a>
+      {% elif page.amazon %}
+        <a class="button" rel="nofollow" href="{{ page.amazon }}?tag=lepture-23">Buy it</a>
+      {% elif 'travel' in page.tags %}
+        <a class="button" rel="nofollow" href="https://www.flickr.com/photos/lepture/">Flickr</a>
       {% endif %}
     </div>
   </div>
