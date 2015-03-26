@@ -16,24 +16,15 @@
 <body>
   <header id="header">
     <div class="container yue">
-      <div id="brand" role="banner"><a href="/">Just <strong>lepture</strong></a></div>
+      <a id="brand" role="banner" href="/">
+        {% include "logo.svg" %}
+        <strong>Just lepture</strong>
+      </a>
       <nav id="nav" role="navigation">
         {% for item in site.links %}
           <a href="{{ item.url }}">{{ item.name }}</a>
         {% endfor %}
       </nav>
-    </div>
-  </header>
-  <header id="subheader">
-    <div class="container yue">
-      {% block subheader %}
-      Contact me via
-      {% for item in site.social[:-1] %}
-      <a href="{{ item.url }}">{{ item.name }}</a>,
-      {% endfor %}
-      {% set item = site.social[-1] %}
-      and <a href="{{ item.url }}">{{ item.name }}</a>.
-      {% endblock %}
     </div>
   </header>
   {% block main %}

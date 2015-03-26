@@ -3,56 +3,55 @@
 {% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
 
 {% block extra_meta %}
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="{{ page.title }}">
-  <meta property="og:url" content="{{ site.baseurl }}{{ page.url }}">
-  {% if page.description %}
-    <meta name="description" content="{{ page.description }}">
-    <meta property="og:description" content="{{ page.description }}">
-  {% endif %}
-  {% if page.cover %}
-    <meta property="og:image" content="{{ page.cover }}">
-  {% elif page.image %}
-    <meta property="og:image" content="{{ page.image }}">
-  {% endif %}
-  {% if page.cover %}
-    <meta name="twitter:card" content="summary_large_image">
-  {% else %}
-    <meta name="twitter:card" content="summary">
-  {% endif %}
-  <meta name="twitter:site" content="@lepture">
-  <meta name="twitter:creator" content="@lepture">
-  <meta name="twitter:domain" content="lepture.com">
-  <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}">
+  {% include "twitter-card.html" %}
 {% endblock %}
 
-{% block subheader %}
-{% if page.description %}
-  {{ page.description }}
-{% else %}
-  {{ super() }}
-{% endif %}
-{% endblock %}
+{% macro WebPage(schema='Article') %}
+<article id="main" role="main" class="hentry yue" itemscope itemtype="http://schema.org/{{schema}}">
+  {% include "article-header.html" %}
+
+  <div class="entry-content container" itemprop="articleBody">
+    {{ page.body|markdown(lazyimg=True) }}
+  </div>
+
+  <div class="entry-footer container">
+    {% if page.review %}
+      <span itemprop="itemReviewed">{{ page.review }}</span>
+      Reviewed by
+      <span class="author vcard">
+        <span class="fn" itemprop="author">{{ site.author }}</span>
+      </span>
+      {% if page.rating %}
+      — Rating <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><span itemprop="ratingValue">{{ page.rating }}</span></span>
+      {% endif %}
+    {% else %}
+      <span class="author vcard">
+        <span class="fn" itemprop="author">{{ site.author }}</span>
+      </span>
+    {% endif %}
+  </div>
+</article>
+{% endmacro %}
+
 
 {% block main %}
-  <div id="main">
-    <div class="container yue" role="main">
-      {% if page.review %}
-        {% include "review.html" %}
-      {% else %}
-        {% include "article.html" %}
-      {% endif %}
-      <div class="entry-extra">
-        {% if page.tags %}
-        <div class="entry-tags">
-          {% for tag in page.tags %}
-          <span class="tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
-        <div class="social-button" data-url="{{ site.baseurl }}{{ page.url }}" data-text="{{ page.title }}{% if page.description %} — {{ page.description }}{% endif %}" data-twitter="lepture" data-weibo="lepture" data-facebook="lepture" data-count="true"></div>
-      </div>
+  {% if page.review %}
+    {{ WebPage("Review") }}
+  {% else %}
+    {{ WebPage("Article") }}
+  {% endif %}
+
+  <div class="entry-extra container">
+    {% if page.tags %}
+    <div class="entry-tags">
+      {% for tag in page.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
     </div>
+    {% endif %}
+
+    <div class="social-button" data-url="{{ site.baseurl }}{{ page.url }}" data-text="{{ page.title }}{% if page.description %} — {{ page.description }}{% endif %}" data-twitter="lepture" data-weibo="lepture" data-facebook="lepture" data-count="true"></div>
   </div>
+
   {% include "disqus.html" %}
 {% endblock %}

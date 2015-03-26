@@ -12,7 +12,6 @@ html, body {
 }
 .container {
   max-width: 650px;
-  *width: 650px;
   margin: 0 auto;
   zoom: 1;
 }
@@ -34,50 +33,13 @@ body {
 .page-loading {
   opacity: 0.3;
 }
-.yue {
-  font-family: "Lora", "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
-}
-.yue .cite-quote {
-  font-size: 20px;
-  text-align: left;
-  margin: 20px;
-  border: 0;
-  padding: 0;
-}
-.yue .cite-quote cite {
-  display: block;
-  text-align: center;
-  font-size: 16px;
-  font-style: normal;
-  color: #999;
-}
-.yue .cite-quote p + cite {
-  margin-top: -10px;
-}
-.yue .cite-quote cite:before {
-  content: '—';
-  margin-right: 10px;
-}
-.yue .highlight td:first-of-type pre {
-  text-align: right;
-  color: #aaa;
-}
 
 #header {
-  padding: 60px 0 30px;
-  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #f9f9f9;
 }
-#subheader {
-  background: #fbfbfa;
-  padding: 16px 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  text-align: center;
-}
-#subheader .yue {
-  color: #565656;
-  font-size: 15px;
-  font-family: "Avenir Next", "Avenir", "Helvetica Neue", sans-serif;
+#header .container {
+  max-width: 860px;
 }
 #header a {
   color: #444;
@@ -89,28 +51,39 @@ body {
   opacity: 1;
   color: #222;;
 }
-#brand a {
+
+#brand {
+  float: left;
   display: inline-block;
-  font-size: 30px;
+  cursor: pointer;
+}
+#brand:hover strong {
+  opacity: .8;
+}
+#brand strong {
+  opacity: .08;
+  color: #444;
+  font-size: 24px;
   font-weight: 300;
-  margin-bottom: 20px;
-  border-bottom: 4px solid #eee;
-  transition: all 0.25 ease-in;
+  vertical-align: top;
+  line-height: 30px;
+  transition: all 0.25s ease-in;
 }
 #brand a:hover {
   border-color: #444;
+}
+
+#nav {
+  float: right;
 }
 #nav a {
   font-size: 16px;
   margin-right: 15px;
 }
 #nav a:hover {
-  border-bottom: 2px solid #222;
+  opacity: 0.6;
 }
 
-#main {
-  padding: 30px 0;
-}
 #footer {
   padding: 10px 0 20px;
   text-align: center;
@@ -120,11 +93,17 @@ body {
   font-family: "Optima", "Helvetica Neue", sans-serif;
 }
 
+.updated:after {
+  content: ' — ';
+}
+
 #main .entry-list {
   margin: 0;
   padding: 0;
+  padding: 2em 0;
   list-style-type: none;
 }
+
 .entry-list .entry-item {
   margin: 25px 0 35px;
   line-height: 25px;
@@ -140,9 +119,7 @@ body {
   font-size: 13px;
   color: #999;
 }
-.entry-list .entry-meta time:after {
-  content: ' — ';
-}
+
 .entry-list h2 {
   margin: 8px 0 12px;
   font-size: 24px;
@@ -155,37 +132,46 @@ body {
   font-size: 18px;
 }
 
-.hentry .entry-title {
-  text-align: center;
+.entry-header .container {
+  padding-top: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #eee;
 }
-.hentry .entry-meta {
+.entry-header .entry-title {
+  margin: 0;
+  padding: .6em 0;
+  font-size: 42px;
+}
+.entry-header .entry-description {
+  color: #787879;
+  font-size: 22px;
+}
+
+.entry-header .entry-meta {
+  position: relative;
   display: block;
-  margin-bottom: 26px;
-  text-align: center;
   font-size: 14px;
   font-family: "Optima", "Helvetica Neue", sans-serif;
 }
-.hentry .entry-content h2 {
+.entry-header .entry-meta .button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.entry-content {
+  padding: 2em 0;
+}
+
+.entry-content h2 {
   margin-top: 2em;
   border-bottom: 1px solid #eee;
 }
-.hentry .entry-meta .updated:after {
-  content: ' — ';
-}
+
 .hentry .entry-footer {
   color: #999;
   font-weight: 300;
   font-size: 14px;
-}
-.hentry .entry-footer .buy-button {
-  display: inline-block;
-  padding: 2px 12px;
-  font-weight: bold;
-  text-decoration: none;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  color: #787878;
-  text-transform: uppercase;
 }
 
 .paginator {
@@ -240,46 +226,19 @@ body {
 }
 
 @media (max-width: 650px) {
-  #header {
-    padding-top: 40px;
+  #brand strong, .social-button {
+    display: none;
   }
   .container {
-    padding: 0 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .entry-content figure {
+    margin-left: -18px;
+    margin-right: -18px;
   }
 }
-.highlight-wrapper {
-  overflow-x: scroll;
-  border: 1px solid #dadada;
-  border-radius: 3px;
-  margin-bottom: 20px;
-}
-.highlight-wrapper table {
-  margin: 0;
-  padding: 0;
-  border: 0 none;
-}
-.highlight-wrapper table td {
-  border: 0 none;
-  padding: 0;
-  margin: 0;
-}
-.highlight-wrapper table pre {
-  margin: 0;
-  border: 0 none;
-  background: none;
-}
-.highlight-wrapper table .linenos {
-  color: #797979;
-  border-right: 1px solid #dadada;
-}
-.gist table {
-  margin: 0;
-  padding: 0;
-  border: 0 none;
-}
-.gist table td {
-  border: 0 none;
-}
+
 .footnote-ref a {
   font-size: 13px;
   padding: 0 2px;
@@ -300,6 +259,7 @@ body {
 .footnotes a[rev=footnote] {
   margin-left: 4px;
 }
+
 @media (min-width: 980px) {
   .highlight {
     margin: 0 -30px;
@@ -316,46 +276,4 @@ body {
   .hentry .entry-meta {
     display: none;
   }
-}
-
-.yue .flattr {
-  display: inline;
-  float: left;
-  margin: 2px 4px;
-}
-
-/* for social widget */
-@font-face {
-  font-family: 'social';
-  src:url('fonts/social.eot?-1d3ukg');
-  src:url('fonts/social.eot?#iefix-1d3ukg') format('embedded-opentype'),
-    url('fonts/social.woff?-1d3ukg') format('woff'),
-    url('fonts/social.ttf?-1d3ukg') format('truetype'),
-    url('fonts/social.svg?-1d3ukg#social') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-  font-family: 'social';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-weibo:before {
-  content: "\e601";
-}
-.icon-twitter:before {
-  content: "\e604";
-}
-.icon-facebook:before {
-  content: "\e60d";
 }

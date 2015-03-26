@@ -1,0 +1,114 @@
+a.button {
+  text-decoration: none;
+  border: 3px solid rgba(0, 0, 0, 0.07);
+  padding: 6px 20px;
+  margin-right: 20px;
+  border-radius: 20px;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: #999;
+}
+a.button:hover {
+  opacity: 1;
+  border-color: #666;
+}
+
+/* reset yue.css */
+.yue {
+  font-family: "Lora", "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+}
+.yue .cite-quote {
+  font-size: 20px;
+  text-align: left;
+  margin: 20px;
+  border: 0;
+  padding: 0;
+}
+.yue .cite-quote cite {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  color: #999;
+}
+.yue .cite-quote p + cite {
+  margin-top: -10px;
+}
+.yue .cite-quote cite:before {
+  content: '—';
+  margin-right: 10px;
+}
+.yue .highlight td:first-of-type pre {
+  text-align: right;
+  color: #aaa;
+}
+
+.highlight-wrapper {
+  overflow-x: scroll;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.highlight-wrapper table {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+.highlight-wrapper table td {
+  border: 0 none;
+  padding: 0;
+  margin: 0;
+}
+.highlight-wrapper table pre {
+  margin: 0;
+  border: 0 none;
+  background: none;
+}
+.highlight-wrapper table .linenos {
+  color: #797979;
+  border-right: 1px solid #dadada;
+}
+
+.gist table {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+.gist table td {
+  border: 0 none;
+}
+
+/* for social widget */
+@font-face {
+  font-family: 'social';
+  src:url('fonts/social.eot?-1d3ukg');
+  src:url('fonts/social.eot?#iefix-1d3ukg') format('embedded-opentype'),
+    url('fonts/social.woff?-1d3ukg') format('woff'),
+    url('fonts/social.ttf?-1d3ukg') format('truetype'),
+    url('fonts/social.svg?-1d3ukg#social') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'social';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weibo:before {
+  content: "\e601";
+}
+.icon-twitter:before {
+  content: "\e604";
+}
+.icon-facebook:before {
+  content: "\e60d";
+}
