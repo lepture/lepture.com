@@ -11,7 +11,7 @@ html, body {
   display: none;
 }
 .container {
-  max-width: 650px;
+  max-width: 760px;
   margin: 0 auto;
   zoom: 1;
 }
@@ -159,11 +159,11 @@ body {
   bottom: 0;
 }
 
-.entry-content {
-  padding: 2em 0;
+.hentry .entry-content {
+  padding-top: 2em;
 }
 
-.entry-content h2 {
+.hentry .entry-content h2 {
   margin-top: 2em;
   border-bottom: 1px solid #eee;
 }
@@ -260,19 +260,11 @@ body {
   margin-left: 4px;
 }
 
-@media (min-width: 980px) {
-  .highlight {
-    margin: 0 -30px;
-  }
-  .yue .cite-quote {
-    text-align: center;
-    margin: 36px -60px;
-    font-size: 24px;
-  }
-}
 @media print {
-  #header, #subheader, #footer,
+  #header, #footer,
   .entry-extra, .entry-comments,
+  .hentry .entry-description,
+  .hentry .entry-footer,
   .hentry .entry-meta {
     display: none;
   }

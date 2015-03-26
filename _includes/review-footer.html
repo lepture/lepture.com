@@ -1,0 +1,10 @@
+<div class="entry-footer container">
+  <span itemprop="itemReviewed">{{ page.review }}</span>
+  Reviewed by
+  <span class="author vcard">
+    <span class="fn" itemprop="author">{{ site.author }}</span>
+  </span>
+  {% if page.rating %}
+  — Rating <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><span itemprop="ratingValue">{{ page.rating }}</span></span>
+  {% endif %}
+</div>

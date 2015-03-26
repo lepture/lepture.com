@@ -68,6 +68,17 @@ a.button:hover {
   border-right: 1px solid #dadada;
 }
 
+@media (min-width: 980px) {
+  .highlight {
+    margin: 0 -30px;
+  }
+  .yue .cite-quote {
+    text-align: center;
+    margin: 36px -60px;
+    font-size: 24px;
+  }
+}
+
 .gist table {
   margin: 0;
   padding: 0;

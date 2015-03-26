@@ -14,32 +14,14 @@
     {{ page.body|markdown(lazyimg=True) }}
   </div>
 
-  <div class="entry-footer container">
-    {% if page.review %}
-      <span itemprop="itemReviewed">{{ page.review }}</span>
-      Reviewed by
-      <span class="author vcard">
-        <span class="fn" itemprop="author">{{ site.author }}</span>
-      </span>
-      {% if page.rating %}
-      — Rating <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><span itemprop="ratingValue">{{ page.rating }}</span></span>
-      {% endif %}
-    {% else %}
-      <span class="author vcard">
-        <span class="fn" itemprop="author">{{ site.author }}</span>
-      </span>
-    {% endif %}
-  </div>
-</article>
-{% endmacro %}
-
-
-{% block main %}
   {% if page.review %}
-    {{ WebPage("Review") }}
+    {% include "review-footer.html" %}
   {% else %}
-    {{ WebPage("Article") }}
+    <span class="author vcard hide">
+      <span class="fn" itemprop="author">{{ site.author }}</span>
+    </span>
   {% endif %}
+  </div>
 
   <div class="entry-extra container">
     {% if page.tags %}
@@ -49,9 +31,21 @@
       {% endfor %}
     </div>
     {% endif %}
-
     <div class="social-button" data-url="{{ site.baseurl }}{{ page.url }}" data-text="{{ page.title }}{% if page.description %} — {{ page.description }}{% endif %}" data-twitter="lepture" data-weibo="lepture" data-facebook="lepture" data-count="true"></div>
   </div>
+
+</article>
+{% endmacro %}
+
+
+{% block main %}
+  {% if page.review %}
+    {{ WebPage("Review") }}
+  {% elif page.date %}
+    {{ WebPage("Article") }}
+  {% else %}
+    {{ WebPage("WebPage") }}
+  {% endif %}
 
   {% include "disqus.html" %}
 {% endblock %}
