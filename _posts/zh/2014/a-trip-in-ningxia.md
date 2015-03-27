@@ -2,7 +2,7 @@
 
 - date: 2014-05-15 00:56
 - tags: travel, city
-- cover: http://dn-lepture.qbox.me/blog/shapotou-desert-tree.jpg/thumbnail
+- cover: http://dn-lepture.qbox.me/blog/suyukou-little-flowers.jpg/thumbnail
 
 白雪紛飛的蘇峪口，烈日灼灼的沙坡頭，這是寧夏的冰與火之歌。
 

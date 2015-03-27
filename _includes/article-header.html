@@ -1,3 +1,8 @@
+{% if page.cover %}
+<style>
+  .entry-header[data-cover]:before {background-image: url({{page.cover|replace('/thumbnail', '/cover')}});}
+</style>
+{% endif %}
 <div class="entry-header"{% if page.cover %} data-cover="{{ page.cover }}"{% endif %}>
   <div class="container">
     <h1 class="entry-title" itemprop="name">{{ page.title }}</h1>

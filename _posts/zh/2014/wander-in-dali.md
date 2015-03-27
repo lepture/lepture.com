@@ -2,7 +2,7 @@
 
 - date: 2014-04-29 19:26
 - tags: travel, city
-- cover: http://dn-lepture.qbox.me/blog/erhai-and-vallige.jpg
+- cover: http://dn-lepture.qbox.me/blog/erhai-and-vallige.jpg/thumbnail
 
 在大理，時間是一件挺無關緊要的事物，更多的時候，時間被人遺忘，留下的是如畫風景，是過往人事。
 

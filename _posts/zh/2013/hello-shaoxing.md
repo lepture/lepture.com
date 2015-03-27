@@ -2,7 +2,7 @@
 
 - date: 2013-10-20 10:30
 - tags: city, travel
-- cover: http://dn-lepture.qbox.me/blog/shaoxing-denglong.jpg
+- cover: http://dn-lepture.qbox.me/blog/shaoxing-denglong.jpg/thumbnail
 
 紹興的老街像小時候的夢，又破又舊又瑰麗。
 
