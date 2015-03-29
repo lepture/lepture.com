@@ -3,8 +3,34 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/zh/feed.xml" rel="self" />
     <link href="http://lepture.com/zh/" />
-    <updated>2015-03-27T11:00:00.303186+08:00</updated>
+    <updated>2015-03-29T21:01:27.270687+08:00</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[青島小住]]></title>
+        <link href="http://lepture.com/zh/2015/one-week-at-qingdao"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2015-03-29T20:42:00+08:00</updated>
+        <published>2015-03-29T20:42:00+08:00</published>
+        <id>http://lepture.com/zh/2015/one-week-at-qingdao</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>上海的租房特別冷，空調不工作，夜晚的時候，瑟瑟躲在被子裏，聽窗外車來車往，不時又是幾聲汽車的鳴笛，時常難以入睡。</p>
+<p>年後回上海，短暫待了幾天就逃到北京去了，在公司的民居裏住了兩周。一時又不太願意回上海，正好去青島的機票便宜，北京到青島與青島到上海的機票加起來仍然比北京到上海的高鐵便宜，於是便過去小住一周。</p>
+<p>第一次來青島還是大一的暑假，那時是第一次出省，坐了一晚上的火車才到阿姨家。去嶗山，觀雲水，去海邊，看風帆。後來又來過一次，記憶卻很模糊。這次是第三次了。</p>
+<p>阿姨家在海邊，出了小區走幾步便到海岸線了。青島的海算是國內少有的看着還算乾淨的海了。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/rocks-in-sea.jpg/thumbnail" alt="海中岩石" /><figcaption>青島的海 by Olympus E-PL5</figcaption></figure><p>工作日的早晨，一般七點多起牀，看 Slack 上只有 slackbot 與我兩個人在線，先看一下 GitHub，有沒有需要處理的 issue 與 pull request，再看一眼 Trello，想想今天要做點什麼。然後吃個早餐洗漱一下，便開始了一天的編碼工作。</p>
+<p>要做的事情很明確的時候，寫代碼就成了一種享受。沒有人在旁邊聊天，沒有人會突然跑過來找你，你只需要構思清楚，然後一點一點實現，一個接一個的 pull request，沉浸其中，只覺得這一天沒有虛度。當然這樣好的狀態也不是常有，也會有耗在一個小問題上很長時間的時候，到了晚上便有點「今天什麼也沒有做」的沮喪感。</p>
+<p>這些天的天氣並不好，海上霧氣一直很濃。後來下了一場雨，起了些風，終於吹淡了些許。下午四點多的時候，寫了一天代碼，眼睛也有點累了，伸個懶腰，到海邊放個風。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/shearwater-mist-day.jpg/thumbnail" alt="陰天時海鷗" /><figcaption>陰天時拍攝的海鷗 by iPhone 6</figcaption></figure><figure><img src="//dn-lepture.qbox.me/blog/shearwaters-sunny-day.jpg/thumbnail" alt="晴天時海鷗" /><figcaption>晴天時拍攝的海鷗 by Olympus E-PL5</figcaption></figure><p>這個時節頗多海鷗，可是沒有長焦鏡頭，相機與手機的差距並不明顯。週末的時候，在奧帆中心看別人長焦拍攝，海鷗浮在水上，遊動時身前兩撇水紋清晰可見，一條條弧線優雅盪開。雖然想買，不過一想到攜帶不便，就猶豫了起來。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/sunset-at-aofan.jpg/thumbnail" alt="奧帆中心夕陽" /><figcaption>在奧帆中心附近拍攝的夕陽 by iPhone 6</figcaption></figure><p>還沒到旅遊旺季，海邊的遊客很少，多是本地住戶。小夫妻們提着個小桶，在海邊的水窪裏搜尋着海螺和小魚。小孩子拿着鏟子在沙灘上挖坑，旁邊的母親們坐着聊聊天。還有出來遛狗的，黑白的蘇牧，雪白的薩摩耶，歡快地在海邊奔跑着。還有坐在海岩上孤獨沉思的老者。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/thinking-over-sea.jpg/thumbnail" alt="海岩上孤獨沉思的老者" /><figcaption>海岩上孤獨沉思的老者 by Olympus E-PL5</figcaption></figure><p>夜晚的時候，坐了一天也腰酸背痛了，需要運動運動，於是沿着海岸線跑跑步。路燈微黃，海風吹拂，稍微跑一跑，出點汗，不亦快哉。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/qingdao-bay.jpg/thumbnail" alt="海岸線" /><figcaption>海岸線 by Olympus E-PL5</figcaption></figure><p>最近正在玩 <a href="https://www.duolingo.com/lepture">Duolingo</a>，臨睡前學一點西班牙語，十一點左右的時候便入睡了。不像在上海的時候，總是要到十二點以後，甚至一點以後才能入睡。</p>
+<p>青島小住，工作日的一天大抵如此。</p>
+<p>這段時間裏開始整理 Flickr 了，打算照片用 Flickr 來管理，歡迎 <a href="https://www.flickr.com/photos/lepture/">Follow 我的 Flickr</a>。</p>
+ ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[東北偏北，漠河之美]]></title>
         <link href="http://lepture.com/zh/2015/a-trip-in-mohe"/>
@@ -906,28 +932,6 @@ _emphasize_    __strong__</code></pre>
 <p>她們在店外揮手告別，有一個朋友同她們不是一路，向另一個方向去了。隔著玻璃窗，看著她著白色短袖一頭短髪的身影離去，消失在綠蔭叢中。</p>
 <p>倒不是因為有多漂亮，也並非因為陪襯的關係。可是一眼就注意到了她，只注意到了她。現在想來多半因為她的笑容了。不是所謂的淑女的不露齒的笑，是開心的、爽朗的、迷人的笑容。</p>
 <p>喜歡 Keira Knightley，是喜歡她在傲慢與偏見裡笑時的酒窩，喜歡她笑時眯起的眼睛。</p>
- ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[未下筆的故事]]></title>
-        <link href="http://lepture.com/zh/2011/unwritten-story"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2011-12-11T00:00:00+08:00</updated>
-        <published>2011-12-11T00:00:00+08:00</published>
-        <id>http://lepture.com/zh/2011/unwritten-story</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>許多年前，其實也就是四五年前，我曾想過寫點小說。可是終於沒有動筆，大抵因為人生閱歷過於膚淺，總不能寫出滿意的文字。尤其，我對故事並不能特別喜好，反而過分糾纏於文字，糾纏於遣詞造句，捨本求末地關注於表象。即使是現在，也深深影響著我的工作，也大約正因了此，才終於選擇了這樣一個職業。</p>
-<p>可是有時也會有不捨，想要重拾過去的故事，大半又忘記了。也可以見得是多麼蒼白無力的故事呵，不寫也罷。縱然寫，縱然是現在，閱歷也怕是不夠。何況於我是那種讀死人書的人，自己寫的雖然會包庇點，怕是也不能滿意。</p>
-<p>有一個故事卻沒有忘記，其實又很幼稚，難登大雅。標題都想好了，叫《胭脂》，還真是個小氣的名字。主角是一個姑娘，名字叫作書靜——是我以前一個同學的名字，挺有意境的。故事只有三幕，也不知文字能有幾何。</p>
-<p>是一個夜晚，小公園裡的泛黃吊燈下的小長椅上，書靜那時一個人坐著。如果認真點寫的話，總該會有大段大段的環境描寫，印象中的設計，應該還有一個乞丐，也是普遍的體會，乞丐總是無處不在的，也正說明著整個社會的狀態。而且單單是一個人的話，孤獨感並非那麼強烈。可是加上一個乞丐，正好襯托出這份孤單與無助。</p>
-<p>她給她父親打電話，訴說自己的不愉快，想要到他家住一晚。他父親又不同意，叫她回她母親那裡去，大晚上的不要在外面呆著。大約是這樣的。可是她父親又為何不同意，這點倒忘記了，但是原因總是可以編造出來的。書靜覺得了委屈，向她父親訴說她母親和繼父又吵架了，她因為呆不下去了，所以才跑出來，今晚是無論如何都不肯回去的。她又說著聽到母親要和繼父鬧離婚了，希望父親可以和母親復婚。她父親覺得可笑，追問是怎麼一回事。</p>
-<p>於是故事就轉到了第二幕，是她母親和繼父吵架的畫面。屋子有點零亂，還有碎的瓷片，大概也有動手。書靜躲在門角，靜靜的看這場面，又不敢出聲。是她母親洗衣服發現繼父的衣服上有唇印，而且不是第一次了，突然就在今天爆發了，跟繼父大吵起來，甚至於要動手動腳了。她繼父又一再申明這是絕對沒有的事。大抵若此。然而讀者又不免覺得像是庸俗的電視劇了，衣服上的唇印，多麼無聊的劇情。可是是真的，兩個人吵得又那樣凶。</p>
-<p>那麼回到第一幕，也就是夜晚的公園的長椅上。書靜向父親講述這一切，說現在家裡亂得不成樣了，當時自己跑了出來，現在也不知道是怎麼一個情形，害怕回去看到這一切。她父親只好勉強答應她，讓她過來住一晚。她當然不免又勸說起她父親，希望父母可以復婚。當然是一廂情願，她父親這麼些年了，自然也有了心儀的對象。</p>
-<p>至於起承轉合，當然似乎是有構思。故事的結尾是這樣一個場景：書靜在盥漱間里，對著鏡子塗著鮮紅的唇膏，嘴角浮起一絲笑意。</p>
-<p>其實很簡單的構思，真要寫的話，流水賬般的故事，大約幾百個字就結束了。因為會去糾纏文字，怕是不至於一眼望到頭。也許有一天，會去寫出來，也許不會，畢竟過於小家子氣了。</p>
  ]]>
         </content>
     </entry>
