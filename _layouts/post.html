@@ -41,10 +41,8 @@
 {% block main %}
   {% if page.review %}
     {{ WebPage("Review") }}
-  {% elif page.date %}
-    {{ WebPage("Article") }}
   {% else %}
-    {{ WebPage("WebPage") }}
+    {{ WebPage("Article") }}
   {% endif %}
 
   {% include "disqus.html" %}
