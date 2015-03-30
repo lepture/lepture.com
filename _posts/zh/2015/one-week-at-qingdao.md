@@ -1,7 +1,7 @@
 # 青島小住
 
 - date: 2015-03-29 20:42
-- cover: http://dn-lepture.qbox.me/blog/thinking-over-sea.jpg/thumbnail
+- cover: http://dn-lepture.qbox.me/blog/qingdao-bay.jpg/thumbnail
 - tags: travel, remote
 
 一邊旅遊一邊工作，在青島短暫待了一週，閒暇時間，去海邊拍拍照，看海鷗浮水，又或者沿海岸線跑跑步。
