@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/zh/feed.xml" rel="self" />
     <link href="http://lepture.com/zh/" />
-    <updated>2015-03-30T15:13:40.470514+08:00</updated>
+    <updated>2015-04-01T16:59:39.068645+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[青島小住]]></title>
@@ -16,7 +16,7 @@
         <id>http://lepture.com/zh/2015/one-week-at-qingdao</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
             <![CDATA[ <p>上海的租房特別冷，空調不工作，夜晚的時候，瑟瑟躲在被子裏，聽窗外車來車往，不時又是幾聲汽車的鳴笛，時常難以入睡。</p>
-<p>年後回上海，短暫待了幾天就逃到北京去了，在公司的民居裏住了兩周。一時又不太願意回上海，正好去青島的機票便宜，北京到青島與青島到上海的機票加起來仍然比北京到上海的高鐵便宜，於是便過去小住一周。</p>
+<p>年後回上海，短暫待了幾天就逃到北京去了，在公司的民居裏住了兩周。一時又不太願意回上海，正好去青島的機票便宜，北京到青島與青島到上海的機票加起來仍然比北京到上海的高鐵便宜，於是便過去小住一週。</p>
 <p>第一次來青島還是大一的暑假，那時是第一次出省，坐了一晚上的火車才到阿姨家。去嶗山，觀雲水，去海邊，看風帆。後來又來過一次，記憶卻很模糊。這次是第三次了。</p>
 <p>阿姨家在海邊，出了小區走幾步便到海岸線了。青島的海算是國內少有的看着還算乾淨的海了。</p>
 <figure><img src="//dn-lepture.qbox.me/blog/rocks-in-sea.jpg/thumbnail" alt="海中岩石" /><figcaption>青島的海 by Olympus E-PL5</figcaption></figure><p>工作日的早晨，一般七點多起牀，看 Slack 上只有 slackbot 與我兩個人在線，先看一下 GitHub，有沒有需要處理的 issue 與 pull request，再看一眼 Trello，想想今天要做點什麼。然後吃個早餐洗漱一下，便開始了一天的編碼工作。</p>
