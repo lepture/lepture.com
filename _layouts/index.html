@@ -10,15 +10,15 @@
 <div id="main" class="container yue">
   <ul class="entry-list" role="main">
     {% for page in paginator.posts %}
-    <li class="entry-item">
+    <li class="entry-item" itemscope itemtype="http://schema.org/Article">
     <div class="entry-meta">
-      <time class="updated">{{ page.date.strftime('%b %d, %Y') }}</time>
+      <time class="updated" itemprop="datePublished">{{ page.date.strftime('%b %d, %Y') }}</time>
       <em>{{ page.body|wordcount }} words</em>
     </div>
     <div class="detail">
-      <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+      <h2 itemprop="name"><a itemprop="url" href="{{ page.url }}">{{ page.title }}</a></h2>
       {% if page.description %}
-      <a href="{{ page.url }}" class="description">{{ page.description }}</a>
+      <div itemprop="description"><a href="{{ page.url }}" class="description">{{ page.description }}</a></div>
       {% endif %}
     </div>
     </li>

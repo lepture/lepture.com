@@ -2,11 +2,12 @@
 <style>
   .entry-header[data-cover]:before {background-image: url({{page.cover|replace('/thumbnail', '/cover')}});}
 </style>
+<link itemprop="image" href="{{ page.cover }}">
 {% endif %}
 <div class="entry-header"{% if page.cover %} data-cover="{{ page.cover }}"{% endif %}>
   <div class="container">
     <h1 class="entry-title" itemprop="name">{{ page.title }}</h1>
-    <p class="entry-description">{{ page.description }}</p>
+    <p class="entry-description" itemprop="headline">{{ page.description }}</p>
 
     <div class="entry-meta">
       {% if page.date %}
@@ -20,6 +21,8 @@
         <a class="button" rel="nofollow" href="https://github.com/{{ page.github }}">GitHub</a>
       {% elif page.amazon %}
         <a class="button" rel="nofollow" href="{{ page.amazon }}?tag=lepture-23">Buy it</a>
+      {% elif page.link %}
+        <a class="button" rel="nofollow" href="{{ page.link }}">Link</a>
       {% elif 'travel' in page.tags %}
         <a class="button" rel="nofollow" href="https://www.flickr.com/photos/lepture/">Flickr</a>
       {% endif %}
