@@ -11,7 +11,7 @@
   {% include "article-header.html" %}
 
   <div class="entry-content container" itemprop="articleBody">
-    {{ page.body|markdown(lazyimg=True) }}
+    {{ page.content|markdown(lazyimg=True) }}
   </div>
 
   {% if page.review %}
