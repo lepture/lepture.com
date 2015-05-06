@@ -3,6 +3,8 @@
 - github: lepture/StatusBarApp
 - date: 2012-07-20 21:15
 - tags: learning, cocoa
+- redirect_from:
+  - /work/create-a-statusbar-app
 
 A StatusBar App is what on the right side of the menu bar, it doesn't contain a main window.
 

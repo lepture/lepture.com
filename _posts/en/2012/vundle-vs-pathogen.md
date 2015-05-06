@@ -3,6 +3,10 @@
 - date: 2012-05-02
 - github: lepture/dotfiles
 - tags: vim
+- redirect_from:
+  - /work/vundle-vs-pathogen
+  - /work/vundle-vs-pathogen/
+  - /work/manage-vim/
 
 A compare between vundle and pathogen. Which is better for vim plugins management.
 
