@@ -2,6 +2,8 @@
 
 - date: 2008-06-04
 - tags: memory, education, school
+- redirect_from:
+  - /life/past-in-highschool/
 
 回憶是一首跑了調的歌。許多時候許多人，作起回憶來，無限的依依，無限的懷念，無限的愛，無限的美好……
 

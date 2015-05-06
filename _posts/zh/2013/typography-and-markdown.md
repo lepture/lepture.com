@@ -2,6 +2,8 @@
 
 - date: 2013-03-24 16:35
 - tags: writing, markdown
+- redirect_from:
+  - /work/typography-and-markdown
 
 寫給文字工作者的 Markdown 介紹。
 

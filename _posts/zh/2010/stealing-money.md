@@ -2,6 +2,8 @@
 
 - date: 2010-09-03
 - tags: memory, childhood, family
+- redirect_from:
+  - /life/stealing-money
 
 也忘卻了是出於甚麼一種心境，總之是偷了錢。因為家裡的錢通常都是放在房間里的抽屜里的，而且抽屜一般又未上鎖，所以想偷點錢還是很簡單的。也輕易就拿了七塊錢。
 

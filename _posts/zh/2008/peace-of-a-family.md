@@ -2,6 +2,8 @@
 
 - date: 2008-09-15
 - tags: family, childhood
+- redirect_from:
+  - /life/peace-of-a-family/
 
 無盡的夜，黑黢黢的，鬼魅般浸入到每一個角落，也浸入到汝良的眼睛里，染就一雙黑亮黑亮的眼珠。
 

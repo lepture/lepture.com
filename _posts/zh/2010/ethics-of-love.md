@@ -4,6 +4,8 @@
 - tags: reading, novel
 - review: 心經
 - rating: 3.5
+- redirect_from:
+  - /life/ethics-of-love/
 
 《心經》在張愛玲的短篇里，大約沒甚麼名氣，然而別具一格，也還是張愛玲的味道。
 

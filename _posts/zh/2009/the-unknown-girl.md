@@ -2,6 +2,8 @@
 
 - date: 2009-04-21
 - tags: reading, school, girl
+- redirect_from:
+  - /life/the-unknown-girl/
 
 時常也會想起那樣一個女孩子——一個可愛的陌生人。
 
