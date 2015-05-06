@@ -18,4 +18,10 @@
 <meta name="twitter:site" content="@lepture">
 <meta name="twitter:creator" content="@lepture">
 <meta name="twitter:domain" content="lepture.com">
+<meta property="og:site_name" content="{{ site.name }}">
+{% if '/zh/' in page.url %}
+  <meta property="og:locale" content="zh_TW">
+{% else %}
+  <meta property="og:locale" content="en_US">
+{% endif %}
 <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}">

@@ -2,6 +2,8 @@
 
 - date: 2014-03-12 18:10
 - tags: github, python, git
+- redirect_from:
+  - /work/dive-into-open-source/
 
 開源對我來說是一件順便的事，沒有什麼崇高的目的。與理想無關，更多的是一種實用主義。
 

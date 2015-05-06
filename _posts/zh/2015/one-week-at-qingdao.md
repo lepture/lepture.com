@@ -16,7 +16,7 @@
 
 阿姨家在海邊，出了小區走幾步便到海岸線了。青島的海算是國內少有的看着還算乾淨的海了。
 
-![海中岩石](//dn-lepture.qbox.me/blog/rocks-in-sea.jpg/thumbnail "青島的海 by Olympus E-PL5")
+[![海中岩石](//dn-lepture.qbox.me/blog/rocks-in-sea.jpg/thumbnail "青島的海 by Olympus E-PL5")][1]
 
 工作日的早晨，一般七點多起牀，看 Slack 上只有 slackbot 與我兩個人在線，先看一下 GitHub，有沒有需要處理的 issue 與 pull request，再看一眼 Trello，想想今天要做點什麼。然後吃個早餐洗漱一下，便開始了一天的編碼工作。
 
@@ -24,24 +24,31 @@
 
 這些天的天氣並不好，海上霧氣一直很濃。後來下了一場雨，起了些風，終於吹淡了些許。下午四點多的時候，寫了一天代碼，眼睛也有點累了，伸個懶腰，到海邊放個風。
 
-![陰天時海鷗](//dn-lepture.qbox.me/blog/shearwater-mist-day.jpg/thumbnail "陰天時拍攝的海鷗 by iPhone 6")
+[![陰天時海鷗](//dn-lepture.qbox.me/blog/shearwater-mist-day.jpg/thumbnail "陰天時拍攝的海鷗 by iPhone 6")][2]
 
-![晴天時海鷗](//dn-lepture.qbox.me/blog/shearwaters-sunny-day.jpg/thumbnail "晴天時拍攝的海鷗 by Olympus E-PL5")
+[![晴天時海鷗](//dn-lepture.qbox.me/blog/shearwaters-sunny-day.jpg/thumbnail "晴天時拍攝的海鷗 by Olympus E-PL5")][3]
 
 這個時節頗多海鷗，可是沒有長焦鏡頭，相機與手機的差距並不明顯。週末的時候，在奧帆中心看別人長焦拍攝，海鷗浮在水上，遊動時身前兩撇水紋清晰可見，一條條弧線優雅盪開。雖然想買，不過一想到攜帶不便，就猶豫了起來。
 
-![奧帆中心夕陽](//dn-lepture.qbox.me/blog/sunset-at-aofan.jpg/thumbnail "在奧帆中心附近拍攝的夕陽 by iPhone 6")
+[![奧帆中心夕陽](//dn-lepture.qbox.me/blog/sunset-at-aofan.jpg/thumbnail "在奧帆中心附近拍攝的夕陽 by iPhone 6")][4]
 
 還沒到旅遊旺季，海邊的遊客很少，多是本地住戶。小夫妻們提着個小桶，在海邊的水窪裏搜尋着海螺和小魚。小孩子拿着鏟子在沙灘上挖坑，旁邊的母親們坐着聊聊天。還有出來遛狗的，黑白的蘇牧，雪白的薩摩耶，歡快地在海邊奔跑着。還有坐在海岩上孤獨沉思的老者。
 
-![海岩上孤獨沉思的老者](//dn-lepture.qbox.me/blog/thinking-over-sea.jpg/thumbnail "海岩上孤獨沉思的老者 by Olympus E-PL5")
+[![海岩上孤獨沉思的老者](//dn-lepture.qbox.me/blog/thinking-over-sea.jpg/thumbnail "海岩上孤獨沉思的老者 by Olympus E-PL5")][5]
 
 夜晚的時候，坐了一天也腰酸背痛了，需要運動運動，於是沿着海岸線跑跑步。路燈微黃，海風吹拂，稍微跑一跑，出點汗，不亦快哉。
 
-![海岸線](//dn-lepture.qbox.me/blog/qingdao-bay.jpg/thumbnail "海岸線 by Olympus E-PL5")
+[![海岸線](//dn-lepture.qbox.me/blog/qingdao-bay.jpg/thumbnail "海岸線 by Olympus E-PL5")][6]
 
 最近正在玩 [Duolingo](https://www.duolingo.com/lepture)，臨睡前學一點西班牙語，十一點左右的時候便入睡了。不像在上海的時候，總是要到十二點以後，甚至一點以後才能入睡。
 
 青島小住，工作日的一天大抵如此。
 
 這段時間裏開始整理 Flickr 了，打算照片用 Flickr 來管理，歡迎 [Follow 我的 Flickr](https://www.flickr.com/photos/lepture/)。
+
+[1]: https://www.flickr.com/photos/lepture/16685078337/
+[2]: https://www.flickr.com/photos/lepture/16673050299/
+[3]: https://www.flickr.com/photos/lepture/16858027332/
+[4]: https://www.flickr.com/photos/lepture/16685079697/
+[5]: https://www.flickr.com/photos/lepture/16705011880/
+[6]: https://www.flickr.com/photos/lepture/16685096857/
