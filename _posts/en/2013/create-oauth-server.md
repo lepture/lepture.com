@@ -331,7 +331,7 @@ def me():
 This `req` parameter is an oauth request object, it contains many useful
 data. You can learn more about it at [Protect Resource](https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource).
 
-Now, find the final `client.py` at [commit#ac3b88d](https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb).
+Now, find the final `client.py` at [commit#ac3b88d](https://github.com/lepture/example-oauth1-server/commit/ac3b88d0eac572bb216c3aeea6a359872866cfdb)
 This commit added a tokengetter, and fixed some bugs I created. After the
 client obtained an access token, visit `http://localhost:8000/`, and you
 will see the information of current user.
@@ -397,6 +397,13 @@ Now it is time for testing. We would [create a client.py](https://github.com/lep
 ```python
 import os
 os.environ['DEBUG'] = 'true'
+```
+
+**UPDATED**: you should use `OAUTHLIB_INSECURE_TRANSPORT` now:
+
+```python
+import os
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = 'true'
 ```
 
 Remember what I have said? OAuth 2 requires SSL all the time, since we are
