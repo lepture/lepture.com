@@ -20,6 +20,8 @@ in a flavor of Flask with the help of Flask-OAuthlib.">
 <meta name="twitter:site" content="@lepture">
 <meta name="twitter:creator" content="@lepture">
 <meta name="twitter:domain" content="lepture.com">
+<meta property="og:site_name" content="Just lepture">
+  <meta property="og:locale" content="en_US">
 <link rel="canonical" href="http://lepture.com/en/2013/create-oauth-server"><meta name="google-analytics" content="UA-21475122-1">
 <meta name="google-site-verification" content="at2ye66Rzr0dthIDpBZfL4nUZWPBS336jT9NUHaLSHM" />
 <link rel="stylesheet" href="/assets/site.css?t=1427428020">
@@ -58,7 +60,7 @@ in a flavor of Flask with the help of Flask-OAuthlib.</p>
         <time class="updated" datetime="2013-11-21T16:30:00+08:00" itemprop="datePublished" pubdate>
           Nov 21, 2013
         </time>
-        <span>2662 words</span>
+        <span>2675 words</span>
 
         <a class="button" rel="nofollow" href="https://github.com/lepture/flask-oauthlib">GitHub</a>
     </div>
@@ -326,7 +328,7 @@ is easy with a decorator <code>require_oauth</code>:</p>
 </pre></div>
 <p>This <code>req</code> parameter is an oauth request object, it contains many useful
 data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p>
-<p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
+<p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/ac3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>
 This commit added a tokengetter, and fixed some bugs I created. After the
 client obtained an access token, visit <code>http://localhost:8000/</code>, and you
 will see the information of current user.</p>
@@ -374,6 +376,10 @@ advanced skills, and I will not cover it here.</p>
 <p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;DEBUG&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;true&#39;</span>
+</pre></div>
+<p><strong>UPDATED</strong>: you should use <code>OAUTHLIB_INSECURE_TRANSPORT</code> now:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;OAUTHLIB_INSECURE_TRANSPORT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;true&#39;</span>
 </pre></div>
 <p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
 developing on a local machine, we don't have HTTPS, As a result, it is

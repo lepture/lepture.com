@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2015-05-06T11:36:37.590525+08:00</updated>
+    <updated>2015-05-07T13:05:41.774422+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[戴珍珠耳環的美少女]]></title>
@@ -28,7 +28,7 @@
 <p>偶爾想到最初的畫作會不會不是黑色的背景，像 Vermeer 的其他人物作品一樣，也有各種裝飾，只是後來修改成了這樣。畫家描繪的是他們眼中的世界，最初也許像《倒牛奶的女僕》那樣，有牆壁，有桌子。可是到了後來，畫家眼中只剩下了少女本人，旁的雜物已經黯淡無光了。</p>
 <p>等到看到書的很後面時，書裏描寫的彷彿一開始便是黑色的背景，「這幅畫一點都不像他其他的畫，上面只有我——我的頭和肩膀，沒有桌子或窗簾、沒有窗戶或粉刷來緩和或分散視線」。</p>
 <p>他後來也有純黑背景的作品，但是《戴珍珠耳環的少女》是他第一幅這樣的畫作，也是後來者無法超越的存在。比如他另作的一幅仿《戴珍珠耳環的少女》的畫作《少女》，重點是主人公不如戴珍珠耳環的少女。</p>
-<figure><img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Vermeer-Portrait_of_a_Young_Woman.jpg/800px-Vermeer-Portrait_of_a_Young_Woman.jpg" alt="少女" /><figcaption>Portrait of a Young Woman</figcaption></figure><p>所以人美也是關鍵。我們看電影《戴珍珠耳環的少女》的劇照，看仿畫部分的劇照，結果便很不如人意。不如<figure><iframe width="650" height="366" src="http://www.youtube.com/embed/dpNvNjl9OM8" frameborder="0" allowfullscreen></iframe><figcaption><a href="https://www.youtube.com/watch?v=dpNvNjl9OM8">武井咲扮演的</a></figcaption></figure>優雅。</p>
+<figure><img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Vermeer-Portrait_of_a_Young_Woman.jpg/800px-Vermeer-Portrait_of_a_Young_Woman.jpg" alt="少女" /><figcaption>Portrait of a Young Woman</figcaption></figure><p>所以人美也是關鍵。我們看電影《戴珍珠耳環的少女》的劇照，看仿畫部分的劇照，結果便很不如人意。不如<a href="https://www.youtube.com/watch?v=dpNvNjl9OM8">武井咲扮演的</a>優雅。</p>
 <figure><img src="http://dn-lepture.qbox.me/blog/girl-with-a-pearl-earring-movie-photo.jpg" alt="戴珍珠耳環的少女劇照" /></figure>
 <p>沒能見到真跡真是遺憾，許多細節都無法觀察到。比如像書中描寫的，「後來我再去看那幅畫，在我左眼之上，他加了一縷從藍布底下偷溜出來的頭髮」。然而我卻如何也發現不了這「偷溜出來的頭髮」。也許有一天能一睹真顔，那時再細細分辨吧。</p>
  ]]>
@@ -48,13 +48,13 @@
 <p>年後回上海，短暫待了幾天就逃到北京去了，在公司的民居裏住了兩周。一時又不太願意回上海，正好去青島的機票便宜，北京到青島與青島到上海的機票加起來仍然比北京到上海的高鐵便宜，於是便過去小住一週。</p>
 <p>第一次來青島還是大一的暑假，那時是第一次出省，坐了一晚上的火車才到阿姨家。去嶗山，觀雲水，去海邊，看風帆。後來又來過一次，記憶卻很模糊。這次是第三次了。</p>
 <p>阿姨家在海邊，出了小區走幾步便到海岸線了。青島的海算是國內少有的看着還算乾淨的海了。</p>
-<figure><img src="//dn-lepture.qbox.me/blog/rocks-in-sea.jpg/thumbnail" alt="海中岩石" /><figcaption>青島的海 by Olympus E-PL5</figcaption></figure><p>工作日的早晨，一般七點多起牀，看 Slack 上只有 slackbot 與我兩個人在線，先看一下 GitHub，有沒有需要處理的 issue 與 pull request，再看一眼 Trello，想想今天要做點什麼。然後吃個早餐洗漱一下，便開始了一天的編碼工作。</p>
+<figure><a href="https://www.flickr.com/photos/lepture/16685078337/"><img src="//dn-lepture.qbox.me/blog/rocks-in-sea.jpg/thumbnail" alt="海中岩石" /></a><figcaption>青島的海 by Olympus E-PL5</figcaption></figure><p>工作日的早晨，一般七點多起牀，看 Slack 上只有 slackbot 與我兩個人在線，先看一下 GitHub，有沒有需要處理的 issue 與 pull request，再看一眼 Trello，想想今天要做點什麼。然後吃個早餐洗漱一下，便開始了一天的編碼工作。</p>
 <p>要做的事情很明確的時候，寫代碼就成了一種享受。沒有人在旁邊聊天，沒有人會突然跑過來找你，你只需要構思清楚，然後一點一點實現，一個接一個的 pull request，沉浸其中，只覺得這一天沒有虛度。當然這樣好的狀態也不是常有，也會有耗在一個小問題上很長時間的時候，到了晚上便有點「今天什麼也沒有做」的沮喪感。</p>
 <p>這些天的天氣並不好，海上霧氣一直很濃。後來下了一場雨，起了些風，終於吹淡了些許。下午四點多的時候，寫了一天代碼，眼睛也有點累了，伸個懶腰，到海邊放個風。</p>
-<figure><img src="//dn-lepture.qbox.me/blog/shearwater-mist-day.jpg/thumbnail" alt="陰天時海鷗" /><figcaption>陰天時拍攝的海鷗 by iPhone 6</figcaption></figure><figure><img src="//dn-lepture.qbox.me/blog/shearwaters-sunny-day.jpg/thumbnail" alt="晴天時海鷗" /><figcaption>晴天時拍攝的海鷗 by Olympus E-PL5</figcaption></figure><p>這個時節頗多海鷗，可是沒有長焦鏡頭，相機與手機的差距並不明顯。週末的時候，在奧帆中心看別人長焦拍攝，海鷗浮在水上，遊動時身前兩撇水紋清晰可見，一條條弧線優雅盪開。雖然想買，不過一想到攜帶不便，就猶豫了起來。</p>
-<figure><img src="//dn-lepture.qbox.me/blog/sunset-at-aofan.jpg/thumbnail" alt="奧帆中心夕陽" /><figcaption>在奧帆中心附近拍攝的夕陽 by iPhone 6</figcaption></figure><p>還沒到旅遊旺季，海邊的遊客很少，多是本地住戶。小夫妻們提着個小桶，在海邊的水窪裏搜尋着海螺和小魚。小孩子拿着鏟子在沙灘上挖坑，旁邊的母親們坐着聊聊天。還有出來遛狗的，黑白的蘇牧，雪白的薩摩耶，歡快地在海邊奔跑着。還有坐在海岩上孤獨沉思的老者。</p>
-<figure><img src="//dn-lepture.qbox.me/blog/thinking-over-sea.jpg/thumbnail" alt="海岩上孤獨沉思的老者" /><figcaption>海岩上孤獨沉思的老者 by Olympus E-PL5</figcaption></figure><p>夜晚的時候，坐了一天也腰酸背痛了，需要運動運動，於是沿着海岸線跑跑步。路燈微黃，海風吹拂，稍微跑一跑，出點汗，不亦快哉。</p>
-<figure><img src="//dn-lepture.qbox.me/blog/qingdao-bay.jpg/thumbnail" alt="海岸線" /><figcaption>海岸線 by Olympus E-PL5</figcaption></figure><p>最近正在玩 <a href="https://www.duolingo.com/lepture">Duolingo</a>，臨睡前學一點西班牙語，十一點左右的時候便入睡了。不像在上海的時候，總是要到十二點以後，甚至一點以後才能入睡。</p>
+<figure><a href="https://www.flickr.com/photos/lepture/16673050299/"><img src="//dn-lepture.qbox.me/blog/shearwater-mist-day.jpg/thumbnail" alt="陰天時海鷗" /></a><figcaption>陰天時拍攝的海鷗 by iPhone 6</figcaption></figure><figure><a href="https://www.flickr.com/photos/lepture/16858027332/"><img src="//dn-lepture.qbox.me/blog/shearwaters-sunny-day.jpg/thumbnail" alt="晴天時海鷗" /></a><figcaption>晴天時拍攝的海鷗 by Olympus E-PL5</figcaption></figure><p>這個時節頗多海鷗，可是沒有長焦鏡頭，相機與手機的差距並不明顯。週末的時候，在奧帆中心看別人長焦拍攝，海鷗浮在水上，遊動時身前兩撇水紋清晰可見，一條條弧線優雅盪開。雖然想買，不過一想到攜帶不便，就猶豫了起來。</p>
+<figure><a href="https://www.flickr.com/photos/lepture/16685079697/"><img src="//dn-lepture.qbox.me/blog/sunset-at-aofan.jpg/thumbnail" alt="奧帆中心夕陽" /></a><figcaption>在奧帆中心附近拍攝的夕陽 by iPhone 6</figcaption></figure><p>還沒到旅遊旺季，海邊的遊客很少，多是本地住戶。小夫妻們提着個小桶，在海邊的水窪裏搜尋着海螺和小魚。小孩子拿着鏟子在沙灘上挖坑，旁邊的母親們坐着聊聊天。還有出來遛狗的，黑白的蘇牧，雪白的薩摩耶，歡快地在海邊奔跑着。還有坐在海岩上孤獨沉思的老者。</p>
+<figure><a href="https://www.flickr.com/photos/lepture/16705011880/"><img src="//dn-lepture.qbox.me/blog/thinking-over-sea.jpg/thumbnail" alt="海岩上孤獨沉思的老者" /></a><figcaption>海岩上孤獨沉思的老者 by Olympus E-PL5</figcaption></figure><p>夜晚的時候，坐了一天也腰酸背痛了，需要運動運動，於是沿着海岸線跑跑步。路燈微黃，海風吹拂，稍微跑一跑，出點汗，不亦快哉。</p>
+<figure><a href="https://www.flickr.com/photos/lepture/16685096857/"><img src="//dn-lepture.qbox.me/blog/qingdao-bay.jpg/thumbnail" alt="海岸線" /></a><figcaption>海岸線 by Olympus E-PL5</figcaption></figure><p>最近正在玩 <a href="https://www.duolingo.com/lepture">Duolingo</a>，臨睡前學一點西班牙語，十一點左右的時候便入睡了。不像在上海的時候，總是要到十二點以後，甚至一點以後才能入睡。</p>
 <p>青島小住，工作日的一天大抵如此。</p>
 <p>這段時間裏開始整理 Flickr 了，打算照片用 Flickr 來管理，歡迎 <a href="https://www.flickr.com/photos/lepture/">Follow 我的 Flickr</a>。</p>
  ]]>
@@ -1589,7 +1589,7 @@ def me():
 </code></pre>
 <p>This <code>req</code> parameter is an oauth request object, it contains many useful
 data. You can learn more about it at <a href="https://flask-oauthlib.readthedocs.org/en/latest/oauth1.html#protect-resource">Protect Resource</a>.</p>
-<p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/c3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>.
+<p>Now, find the final <code>client.py</code> at <a href="https://github.com/lepture/example-oauth1-server/commit/ac3b88d0eac572bb216c3aeea6a359872866cfdb">commit#ac3b88d</a>
 This commit added a tokengetter, and fixed some bugs I created. After the
 client obtained an access token, visit <code>http://localhost:8000/</code>, and you
 will see the information of current user.</p>
@@ -1637,6 +1637,10 @@ advanced skills, and I will not cover it here.</p>
 <p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p>
 <pre><code class="lang-python">import os
 os.environ[&#39;DEBUG&#39;] = &#39;true&#39;
+</code></pre>
+<p><strong>UPDATED</strong>: you should use <code>OAUTHLIB_INSECURE_TRANSPORT</code> now:</p>
+<pre><code class="lang-python">import os
+os.environ[&#39;OAUTHLIB_INSECURE_TRANSPORT&#39;] = &#39;true&#39;
 </code></pre>
 <p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
 developing on a local machine, we don't have HTTPS, As a result, it is
