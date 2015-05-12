@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2015-05-07T13:05:41.774422+08:00</updated>
+    <updated>2015-05-12T11:15:20.566319+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[戴珍珠耳環的美少女]]></title>
@@ -889,6 +889,7 @@ Discount is not available
 </code></pre>
 <p>The magic happens in the <code>setup.py</code> script. I'd like to introduce this part
 another time.</p>
+<p><strong>mistune is used by many great projects such as IPython, Rodeo and crossbar.</strong></p>
 <p>*This post and all posts in markdown format on this site are rendered with
 mistune.*</p>
 <div class="footnotes">
@@ -1326,7 +1327,10 @@ generally happier writing it</p>
         <published>2013-11-21T16:30:00+08:00</published>
         <id>http://lepture.com/en/2013/create-oauth-server</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>I've searched the whole internet on how to create an OAuth server or
+            <![CDATA[ <p>**UPDATE: I am creating a real OAuth service, which is an API based forum-like
+project. If you have interests in supporting me, please email <a href="mailto:me@lepture.com">me@lepture.com</a>.
+**</p>
+<p>I've searched the whole internet on how to create an OAuth server or
 provider, but failed every time. Sometimes it was the language that stopped
 me, and sometimes it was something that didn't even work.</p>
 <p>And one day, I found <a href="https://github.com/ib-lundgren/flask-oauthprovider">Flask-OAuthProvider</a>, which was a
@@ -1343,7 +1347,9 @@ making it known by the world.</p>
 library, without any specific HTTP request library. It focuses on the
 definition of RFCs.</p>
 <h2>Flask-OAuthlib</h2>
-<p>It has been 6 months since I started this project named as <a href="https://github.com/lepture/flask-oauthlib">Flask-OAuthlib</a>, which is a successor of Flask-OAuthProvider and Flask-OAuth.</p>
+<p>It has been 6 months since I started this project named as
+<a href="https://github.com/lepture/flask-oauthlib">Flask-OAuthlib</a>, which is a successor of Flask-OAuthProvider
+and Flask-OAuth.</p>
 <p>With the great work of OAuthlib, I finished the client part in 4 days, and
 made it a replacement of Flask-OAuth. It is well designed with a good
 intention for compatability of the non-standard oauth servers. If you are
