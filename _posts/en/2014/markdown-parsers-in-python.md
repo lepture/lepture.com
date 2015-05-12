@@ -211,6 +211,8 @@ Mistune can be compiled with Cython if you have Cython installed already.
 The magic happens in the `setup.py` script. I'd like to introduce this part
 another time.
 
+**mistune is used by many great projects such as IPython, Rodeo and crossbar.**
+
 *This post and all posts in markdown format on this site are rendered with
 mistune.*
 

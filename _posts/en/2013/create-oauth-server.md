@@ -9,6 +9,12 @@ in a flavor of Flask with the help of Flask-OAuthlib.
 
 -----
 
+> UPDATE: I am creating a real OAuth service, which is an API based forum-like
+> project, but not just for forum. You can create other things based on it.
+> I am planing to start it on Kickstarter. If you have interests in supporting
+> me, please email <me@lepture.com>, I will notify you when it is available on
+> Kickstarter. At: 2015-05-12
+
 I've searched the whole internet on how to create an OAuth server or
 provider, but failed every time. Sometimes it was the language that stopped
 me, and sometimes it was something that didn't even work.
@@ -32,7 +38,9 @@ definition of RFCs.
 
 ## Flask-OAuthlib
 
-It has been 6 months since I started this project named as [Flask-OAuthlib][flask_oauthlib], which is a successor of Flask-OAuthProvider and Flask-OAuth.
+It has been 6 months since I started this project named as
+[Flask-OAuthlib][flask_oauthlib], which is a successor of Flask-OAuthProvider
+and Flask-OAuth.
 
 With the great work of OAuthlib, I finished the client part in 4 days, and
 made it a replacement of Flask-OAuth. It is well designed with a good
