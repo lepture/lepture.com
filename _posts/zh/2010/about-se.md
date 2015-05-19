@@ -3,7 +3,6 @@
 - date: 2010-10-11
 - tags: reading, chinese
 - redirect_from:
-  - /life/about-se
   - /life/about-se/
 
 目好五色，為之黼黻文章以表其能；耳樂鐘磬，為之調諧八音以蕩其心。

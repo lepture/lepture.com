@@ -4,7 +4,6 @@
 - github: lepture/dotfiles
 - tags: vim
 - redirect_from:
-  - /work/vundle-vs-pathogen
   - /work/vundle-vs-pathogen/
   - /work/manage-vim/
 

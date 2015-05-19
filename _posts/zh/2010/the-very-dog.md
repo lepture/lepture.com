@@ -3,7 +3,6 @@
 - date: 2010-08-29
 - tags: memory, family
 - redirect_from:
-  - /life/the-very-dog
   - /life/the-very-dog/
 
 

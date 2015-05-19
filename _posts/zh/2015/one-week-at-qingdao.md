@@ -26,7 +26,7 @@
 
 [![陰天時海鷗](//dn-lepture.qbox.me/blog/shearwater-mist-day.jpg/thumbnail "陰天時拍攝的海鷗 by iPhone 6")][2]
 
-[![晴天時海鷗](//dn-lepture.qbox.me/blog/shearwaters-sunny-day.jpg/thumbnail "晴天時拍攝的海鷗 by Olympus E-PL5")][3]
+[![晴天時海鷗](//dn-lepture.qbox.me/blog/shearwaters-sunny-day.jpg/thumbnail "晴天時拍攝的海鷗 by iPhone 6")][3]
 
 這個時節頗多海鷗，可是沒有長焦鏡頭，相機與手機的差距並不明顯。週末的時候，在奧帆中心看別人長焦拍攝，海鷗浮在水上，遊動時身前兩撇水紋清晰可見，一條條弧線優雅盪開。雖然想買，不過一想到攜帶不便，就猶豫了起來。
 
@@ -38,7 +38,7 @@
 
 夜晚的時候，坐了一天也腰酸背痛了，需要運動運動，於是沿着海岸線跑跑步。路燈微黃，海風吹拂，稍微跑一跑，出點汗，不亦快哉。
 
-[![海岸線](//dn-lepture.qbox.me/blog/qingdao-bay.jpg/thumbnail "海岸線 by Olympus E-PL5")][6]
+[![海岸線](//dn-lepture.qbox.me/blog/qingdao-bay.jpg/thumbnail "海岸線 by iPhone 6")][6]
 
 最近正在玩 [Duolingo](https://www.duolingo.com/lepture)，臨睡前學一點西班牙語，十一點左右的時候便入睡了。不像在上海的時候，總是要到十二點以後，甚至一點以後才能入睡。
 
@@ -48,7 +48,7 @@
 
 [1]: https://www.flickr.com/photos/lepture/16685078337/
 [2]: https://www.flickr.com/photos/lepture/16673050299/
-[3]: https://www.flickr.com/photos/lepture/16858027332/
+[3]: https://www.flickr.com/photos/lepture/16704832398/
 [4]: https://www.flickr.com/photos/lepture/16685079697/
 [5]: https://www.flickr.com/photos/lepture/16705011880/
 [6]: https://www.flickr.com/photos/lepture/16685096857/
