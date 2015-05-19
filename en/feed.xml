@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/en/feed.xml" rel="self" />
     <link href="http://lepture.com/en/" />
-    <updated>2015-05-12T11:15:20.566319+08:00</updated>
+    <updated>2015-05-19T11:07:42.126651+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[Python on A Hard Wheel]]></title>
@@ -569,10 +569,12 @@ generally happier writing it</p>
         <published>2013-11-21T16:30:00+08:00</published>
         <id>http://lepture.com/en/2013/create-oauth-server</id>
         <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>**UPDATE: I am creating a real OAuth service, which is an API based forum-like
-project. If you have interests in supporting me, please email <a href="mailto:me@lepture.com">me@lepture.com</a>.
-**</p>
-<p>I've searched the whole internet on how to create an OAuth server or
+            <![CDATA[ <blockquote><p>UPDATE: I am creating a real OAuth service, which is an API based forum-like
+project, but not just for forum. You can create other things based on it.
+I am planing to start it on Kickstarter. If you have interests in supporting
+me, please email <a href="mailto:me@lepture.com">me@lepture.com</a>, I will notify you when it is available on
+Kickstarter. At: 2015-05-12</p>
+</blockquote><p>I've searched the whole internet on how to create an OAuth server or
 provider, but failed every time. Sometimes it was the language that stopped
 me, and sometimes it was something that didn't even work.</p>
 <p>And one day, I found <a href="https://github.com/ib-lundgren/flask-oauthprovider">Flask-OAuthProvider</a>, which was a
