@@ -4,6 +4,7 @@
 - tags: thought
 - redirect_from:
   - /life/murmurs/
+  - /zh/2008/murmurs
 
 謊言是必須的，它給這戲劇性的人生又憑添了一重戲劇感。我經常說謊，以為是很快樂的事情。當然總是在說過後向別人解釋一下，這是一個謊言。
 
