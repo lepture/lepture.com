@@ -2,6 +2,8 @@
 
 - date: 2010-10-03
 - tags: memory, movie, childhood
+- redirect_from:
+  - /life/movie-outdoor/
 
 夜，最可愛的時候還是在夏季。當然，不是今時的夏，是往昔。往昔的夏夜裡的月影樹下的乘涼，閒話，長舌婦的月夜；雖然俗氣，因為時間的隔閡，是難以遇見的了，朦朧得竟或有些許詩意了。
 

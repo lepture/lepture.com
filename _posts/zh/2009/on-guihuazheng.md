@@ -2,6 +2,8 @@
 
 - date: 2009-10-12
 - tags: reading, chinese
+- redirect_from:
+  - /life/on-guihuazheng/
 
 「秋是一個歌，但是『桂花蒸』的夜，像在廚裏吹的簫調，白天像小孩子唱的歌，又熱又熟又清又濕。」——炎櫻
 

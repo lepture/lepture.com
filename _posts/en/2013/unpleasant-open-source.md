@@ -2,6 +2,8 @@
 
 - date: 2013-12-06 16:40
 - tags: thought
+- redirect_from:
+  - /work/dive-into-open-source/
 
 I appreciate open source, I open source sometimes. But there are unpleasant
 things in open source.

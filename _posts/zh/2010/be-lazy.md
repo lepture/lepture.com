@@ -2,6 +2,8 @@
 
 - date: 2010-09-23
 - tags: reading, chinese, school
+- redirect_from:
+  - /life/be-lazy/
 
 梁實秋先生嘗談“懶”，謂“懶”字原作“嬾”，從女旁。漢字的考究則不必了，一是目下實行簡體，一是書同文，自然作“嬾”亦是不會有誤的。
 

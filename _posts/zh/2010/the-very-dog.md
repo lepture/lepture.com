@@ -2,6 +2,10 @@
 
 - date: 2010-08-29
 - tags: memory, family
+- redirect_from:
+  - /life/the-very-dog
+  - /life/the-very-dog/
+
 
 當然“小灰”“小白”之類的名字也會提出來。妹妹想到她家以前的狗了，叫西虎，於是提議這狗就叫西虎吧。
 
