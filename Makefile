@@ -17,8 +17,9 @@ serve:
 
 clean:
 	@rm -fr _site
-	@mkdir -p _site/assets
-	@make -C _assets clean
+	@rm -fr .cache
+
+clean-build: clean build
 
 publish:
 	@ghp-import _site -p -n

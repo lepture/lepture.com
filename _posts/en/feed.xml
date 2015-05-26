@@ -5,7 +5,7 @@
     <link href="{{ site.baseurl }}/en/" />
     <updated>{{ site.now|xmldatetime }}</updated>
     <id>{{ site.baseurl }}/</id>
-    {% for item in site.posts(subdirectory='en', count=10) %}
+    {% for item in site.posts('en', count=10) %}
     <entry>
         <title type="html"><![CDATA[{{ item.title }}]]></title>
         <link href="{{ site.baseurl }}{{ item.url }}"/>
