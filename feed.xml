@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2015-05-19T21:22:55.573839+08:00</updated>
+    <updated>2015-05-26T18:14:34.756132+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[戴珍珠耳環的美少女]]></title>
@@ -700,7 +700,7 @@ the wheels to GitHub releases.</p>
 <p>例如我曾閒暇無聊時整理過<a href="https://github.com/lepture/chinalaw">中華人民共和國的法律</a>，它不是軟體，不是代碼，但是我一樣認爲這是一個開源庫。本質上來說，它甚至不是源<sup class="footnote-ref" id="fnref-source"><a href="#fn-source" rel="footnote">2</a></sup>。但是換一個角度來看，它又是第一個整理成 Markdown 格式的法律集，那麼從這個角度來說，也可看作是源了。</p>
 <p>因爲職業的關係，我所能談的也只有 Open-source code 了。但是萬不要以爲開源就只有代碼，你可以開源任何事物。</p>
 <hr>
-<p>你也許不知道，我是 GitHub 上最活躍的大陸華人<sup class="footnote-ref" id="fnref-github-top"><a href="#fn-github-top" rel="footnote">3</a></sup>。創建了一個又一個的開源庫，挖了許多坑，也填了許多坑。這樣看來彷彿我挺熱衷於開源的，其實不然，我是屬於消極開源的一類人。</p>
+<p>你也許不知道，我曾是 GitHub 上最活躍的大陸華人<sup class="footnote-ref" id="fnref-github-top"><a href="#fn-github-top" rel="footnote">3</a></sup>。創建了一個又一個的開源庫，挖了許多坑，也填了許多坑。這樣看來彷彿我挺熱衷於開源的，其實不然，我是屬於消極開源的一類人。</p>
 <p>例如我曾在 <a href="/en/2013/unpleasant-open-source">The Unpleasant Part of Open Source</a> 一文裏提到：</p>
 <blockquote><p>We open source not because people need us. We just happen to open source things that solve our problems, and wish it may help other people.
 Open source can be a business for a company, but not for individuals.</p>
