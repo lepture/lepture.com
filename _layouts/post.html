@@ -27,7 +27,7 @@
     {% if page.tags %}
     <div class="entry-tags">
       {% for tag in page.tags %}
-      <span class="tag">{{ tag }}</span>
+      <a class="tag" href="/archive#{{tag}}">{{ tag }}</a>
       {% endfor %}
     </div>
     {% endif %}

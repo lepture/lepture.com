@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}Archive — {{ site.name }}{% endblock %}
+
+{% block main %}
+<div class="entry-header">
+  <div class="container yue">
+    <h1 class="entry-title">Archive</h1>
+    <p class="entry-description"><span id="entry-count">Everything</span> in the <strong id="entry-category"></strong> category.</p>
+  </div>
+</div>
+
+<div id="main" class="container yue">
+  <ul class="entry-list" role="main">
+    {% for item in site.posts() %}
+    <li class="entry-item {{item.tags|join(' ')}} {{item.date.year}}">
+    <div class="entry-meta"><time>{{ item.date.strftime('%b %d, %Y') }}</time></div>
+    <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<script>
+  if (location.hash && document.querySelectorAll) {
+    var items = document.querySelectorAll('.entry-item');
+    var className = location.hash.replace('#', '');
+    var count = 0;
+    for (var i = 0; i < items.length; i++) {
+      (function(el) {
+        if (el.classList.contains(className)) {
+          count += 1;
+        } else {
+          el.style.display = 'none';
+        }
+      })(items[i]);
+    }
+    var $ = function(id) { return document.getElementById(id) };
+    $('entry-category').innerHTML = location.hash;
+    $('entry-count').innerHTML = count + ' entries';
+  }
+</script>
+{% endblock %}

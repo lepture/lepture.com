@@ -3,34 +3,19 @@
 {% block title %}404 — {{ site.name }}{% endblock %}
 
 {% block main %}
-<div class="container">
-  <div class="entry-content">
-    <p>This page is missing, check somewhere else.</p>
-  </div>
-  <div class="lists">
-    <ul class="unstyled">
-      {% for item in site.posts() %}
-      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-      {% endfor %}
-    </ul>
+<div class="entry-header">
+  <div class="container yue">
+    <h1 class="entry-title">404</h1>
+    <p class="entry-description">You are lost in the 404 page.</p>
+    <a class="button" href="/">View Homepage</a>
   </div>
 </div>
-<script>
-  var items = document.getElementsByTagName('a');
-  function similar(a, b) {
-    a = a.split('/');
-    b = b.split('/');
-    if (a[a.length-1] === b[b.length-1]) {
-      return true;
-    }
-    return false;
-  }
-  for (var i = 0; i < items.length; i++) {
-    (function(href) {
-      if (similar(href, location.pathname)) {
-        location.href = href;
-      }
-    })(items[i].href);
-  }
-</script>
+
+<div id="main" class="container yue">
+  <ul class="entry-list">
+    {% for item in site.posts(count=5) %}
+    <li><h3><a href="{{ item.url }}">{{ item.title }}</a></h3></li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}
