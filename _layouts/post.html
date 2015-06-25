@@ -45,18 +45,5 @@
     {{ WebPage("Article") }}
   {% endif %}
 
-  {% if page.file_type == 'post' %}
-  <div class="related-posts yue container">
-    <div class="related-item">
-      {% for item in site.related(page) %}
-      <a href="{{ item.url }}">
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-  {% endif %}
-
   {% include "disqus.html" %}
 {% endblock %}

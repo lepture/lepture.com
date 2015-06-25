@@ -183,23 +183,6 @@ body {
   font-weight: 300;
   font-size: 14px;
 }
-.related-posts {
-  padding: 20px 0;
-}
-.related-posts a {
-  display: block;
-  text-decoration: none;
-  padding: 20px 10px;
-  background-color: #f9f9f9;
-  margin: 16px 0;
-}
-.related-posts h3 {
-  margin: 0;
-}
-.related-posts p {
-  color: #999;
-  margin: 0;
-}
 
 .paginator {
   padding: 20px 0;
