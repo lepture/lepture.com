@@ -7,7 +7,6 @@
   "dependencies": {
     "component/query": "*",
     "yuehu/google-analytics": "*",
-    "yuehu/turbolinks": "*",
     "lepture/social": "*",
     "lepture/yue.css": "*"
   },

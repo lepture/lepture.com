@@ -1,6 +1,6 @@
 
 build: components index.js
-	@component runtime -o ../_site/assets -n site
+	@component build -o ../_site/assets -n site
 
 components: component.json
 	@component install --dev
