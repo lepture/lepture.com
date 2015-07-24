@@ -136,7 +136,7 @@ JSON-LD 誕生的時間更晚，是一套使用 JSON 格式標注數據的方案
 
 ![電影展示](//dn-lepture.qbox.me/blog/siri-movie.jpg "Siri 展示的模仿遊戲")
 
-這個內容來自[爛番茄](http://www.rottentomatoes.com/)，爛番茄的網頁有使用 Schema.org 的 Microdata 標注，不知道 Siri 是否解析了 Microdata，還是專門為爛番茄作瞭解析。
+這個內容來自[爛番茄](http://www.rottentomatoes.com/)，爛番茄的網頁有使用 Schema.org 的 Microdata 標注，不知道 Siri 是否解析了 Microdata，還是專門為爛番茄作了解析。
 
 再次詢問 Siri 附近吃飯的地方，返回了大眾點評的數據：
 
