@@ -11,7 +11,7 @@ Love its people, but never trust its government. Believe in evolution rather tha
 Hi! My name is **Hsiaoming Yang** (aka **lepture** elsewhere).
 
 I am a creative web developer, firm believer in open source software.
-I love everything that worth the word beauty.
+I love everything that is worth the word beauty.
 
 I did, do and will always believe in
 
