@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/zh/feed.xml" rel="self" />
     <link href="http://lepture.com/zh/" />
-    <updated>2015-07-24T19:20:00.718071+08:00</updated>
+    <updated>2015-08-10T14:57:28.818374+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[前端的基礎修養：Microdata]]></title>
@@ -103,7 +103,7 @@ document.getItems(&#39;http://schema.org/Article&#39;)
 <li><a href="https://help.yandex.com/webmaster/schema-org/what-is-schema-org.xml">help.yandex.com/webmaster/schema-org/what-is-schema-org.xml</a></li>
 </ol>
 <p>結構化的數據不僅僅能被這些 Web 搜索引擎使用，還能被諸如 Siri, Cortana 等語音設備使用，當然，他們也能被當作搜索引擎。例如我問 Siri 最近有什麼電影可看，於是找到了《模仿遊戲》</p>
-<figure><img src="//dn-lepture.qbox.me/blog/siri-movie.jpg" alt="電影展示" /><figcaption>Siri 展示的模仿遊戲</figcaption></figure><p>這個內容來自<a href="http://www.rottentomatoes.com/">爛番茄</a>，爛番茄的網頁有使用 Schema.org 的 Microdata 標注，不知道 Siri 是否解析了 Microdata，還是專門為爛番茄作瞭解析。</p>
+<figure><img src="//dn-lepture.qbox.me/blog/siri-movie.jpg" alt="電影展示" /><figcaption>Siri 展示的模仿遊戲</figcaption></figure><p>這個內容來自<a href="http://www.rottentomatoes.com/">爛番茄</a>，爛番茄的網頁有使用 Schema.org 的 Microdata 標注，不知道 Siri 是否解析了 Microdata，還是專門為爛番茄作了解析。</p>
 <p>再次詢問 Siri 附近吃飯的地方，返回了大眾點評的數據：</p>
 <figure><img src="//dn-lepture.qbox.me/blog/siri-restaurants.jpg" alt="餐廳列表" /><figcaption>Siri 展示的餐廳列表</figcaption></figure><p>查看大眾點評的網頁，亦是使用 Schema.org 的 Microdata 標注的。</p>
 <p>因為沒有 Android 與 Windows 手機，無法展示 Google Now 與 Cortana 的效果。查閱 <a href="https://msdn.microsoft.com/en-us/library/dn632191.aspx">Microsoft Cortana 的文檔</a>可知其是支持 Schema.org 的。Google Now 就更不必說了。</p>
