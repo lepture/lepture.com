@@ -12,7 +12,7 @@
     {% for page in paginator.posts %}
     <li class="entry-item" itemscope itemtype="http://schema.org/Article">
     <div class="entry-meta">
-      <time class="updated" itemprop="datePublished">{{ page.date.strftime('%b %d, %Y') }}</time>
+      <time class="updated" itemprop="datePublished" datetime="{{ page.date|xmldatetime }}">{{ page.date.strftime('%b %d, %Y') }}</time>
       <em>{{ page.body|wordcount }} words</em>
     </div>
     <div class="detail">

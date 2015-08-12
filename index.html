@@ -13,7 +13,7 @@
   <meta name="twitter:domain" content="lepture.com">
 {% endblock %}
 
-{% block container %}
+{% block extra_head %}
 <style>
   .lists {
     padding-top: 2em;
@@ -50,6 +50,9 @@
     margin-top: -24px;
   }
 </style>
+{% endblock %}
+
+{% block container %}
 <div class="entry-content lists">
   <a class="yuehu" href="http://yuehu.io/editors-picks?utm_source=lepture.com&utm_medium=home-image"><img src="https://dn-yuehu.qbox.me/cover/editors-picks/q8Up172j5piiqQvu.jpg/cover" alt="一篇推薦 + 更好的閱讀體驗 = 閱乎">
     <h2>阅乎</h2>
@@ -65,7 +68,7 @@
   <h2>Latest Updates</h2>
   <ul class="unstyled">
     {% for item in site.posts(count=5) %}
-      <li><time>{{ item.date.strftime('%Y-%m-%d') }}</time> — <a href="{{ item.url }}">{{ item.title }}</a></li>
+      <li><time datetime="{{ item.date|xmldatetime }}">{{ item.date.strftime('%Y-%m-%d') }}</time> — <a href="{{ item.url }}">{{ item.title }}</a></li>
     {% endfor %}
   </ul>
 </div>

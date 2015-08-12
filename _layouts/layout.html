@@ -17,11 +17,11 @@
 <body>
   <header id="header">
     <div class="container yue">
-      <a id="brand" role="banner" href="/">
+      <a id="brand" href="/">
         {% include "logo.svg" %}
         <strong>Just lepture</strong>
       </a>
-      <nav id="nav" role="navigation">
+      <nav id="nav">
         {% for item in site.links %}
           <a href="{{ item.url }}">{{ item.name }}</a>
         {% endfor %}
@@ -30,10 +30,10 @@
   </header>
   {% block main %}
     <div id="main">
-      <div class="container yue" role="main">{% block container %}{% endblock %}</div>
+      <div class="container yue">{% block container %}{% endblock %}</div>
     </div>
   {% endblock %}
-  <footer id="footer" role="contentinfo">
+  <footer id="footer">
     <div class="container">
       <p>&copy; Copyright 2010 - {{ site.now.year }} by {{ site.author }}.</p>
     </div>
