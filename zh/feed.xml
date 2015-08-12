@@ -3,10 +3,10 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/zh/feed.xml" rel="self" />
     <link href="http://lepture.com/zh/" />
-    <updated>2015-08-12T21:41:42.271382+08:00</updated>
+    <updated>2015-08-12T21:48:09.098596+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
-        <title type="html"><![CDATA[前端的基础修养：aria-label]]></title>
+        <title type="html"><![CDATA[前端的基礎修養：aria-label]]></title>
         <link href="http://lepture.com/zh/2015/fe-aria-label"/>
         <author>
             <name>Hsiaoming Yang</name>
