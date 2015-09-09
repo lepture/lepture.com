@@ -2,6 +2,18 @@
 {% block title %}English — {{ site.name }}{% endblock %}
 {% block extra_head %}
   <link rel="alternate" type="application/atom+xml" title="Subscribe English Feed" href="http://feeds.lepture.com/lepture/english">
+  <meta name="description" content="Articles written in English. Talks on code, skill and open source.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="English">
+  <meta property="og:url" content="{{ site.baseurl }}/en/">
+  <meta property="og:description" content="Articles written in English. Talks on code, skill and open source.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@lepture">
+  <meta name="twitter:creator" content="@lepture">
+  <meta name="twitter:domain" content="lepture.com">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:locale" content="en_US">
+  <link rel="canonical" href="{{ site.baseurl }}/en/">
 {% endblock %}
 
 {% block header %}
