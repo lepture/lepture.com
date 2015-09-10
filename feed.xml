@@ -3,8 +3,32 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2015-09-09T22:54:45.649619+08:00</updated>
+    <updated>2015-09-10T17:43:52.981260+08:00</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[談藥]]></title>
+        <link href="http://lepture.com/zh/2015/about-yao"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2015-09-10T17:38:00+08:00</updated>
+        <published>2015-09-10T17:38:00+08:00</published>
+        <id>http://lepture.com/zh/2015/about-yao</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>本擬作「藥字的研究」，不過一時興致，觀楊冰談<a href="http://blog.josui.me/2015-09-03-the-battle-between-traditional-chinese-and-simplified-chinese/">《簡化字、日本語漢字和正體字》</a>忽而想到的。到底心虛，故未敢妄言研究，且作談資罷了。</p>
+<p>英文藥字作 drug，以醫人以害人也。或言藥字當作 medicine，便是醫人良方了，無毒品之意，而 medicine 又有巫術之意，彷彿驅鬼的道士畫個符咒燒晝了兌水喝。噫，不料竟頗得中華傳統精髓。</p>
+<p>常言道是藥三分毒，作 drug 亦未嘗不可，便如那嗎啡，作藥使得，作毒亦使得。且待我藥死那武大郎，來與官人相歡：</p>
+<blockquote><p>那張驢儿把毒藥放在羊肚儿湯里，實指望藥死了你，要霸占我為妻。</p>
+</blockquote><p>昔者，神農嚐百草以爲藥也，而未知後世鳥獸魚蟲亦可入藥。是故，藥字作了個草頭，及至東壁先生作《本草綱目》仍以草爲藥之上賓。中華之藥或譯爲 herb 更爲合適。</p>
+<p>藥字，上草下樂。草爲意部，樂爲聲部。咦，樂字是聲部？何以樂音 yuè，藥音 yào 呢？</p>
+<p>廣韻藥字「以灼切，以母藥韻」，中原音韻「影母蕭豪韻」，換作普通話，大抵 yao 音。廣韻樂字「五敎切，疑母效韻」近似 yao 音，又有音「五角切，疑母 覺韻」近似 yue 音；中原音韻樂字收錄頗多音，中有「影母蕭豪韻」與藥一般。由是觀之，「樂」確爲「藥」字音部。</p>
+<p>何以現代發音便不相同了呢？便是普通話正韻擇音的問題了，沒能選擇恰當的標準音。比如我們家鄉話裏，藥樂便近似同音，大約 yo 音，陽平偏上聲。家鄉話裏「樂」作快樂之意時大約 lo 音，陽平偏去聲，近於洪武正韻音「歷各切 入聲六藥 洛小韻」。其實「音樂」之音，亦有不少人言「yin lo」。</p>
+<p>大陸簡化藥作「药」，上草下約，從約聲，這便很奇妙了。現代音「約」多用 yuē 音，約會嘛，不過口語 yāo 音有所保留，偶爾還能聽見。廣韻「於笑切 要小韻」或「於略切 約小韻，影母藥韻」，咦，竟是「影母藥韻」。中原音韻作「影母蕭豪韻」，與藥字同音。算是認真研究後做的「藥」字的簡化，不料「約」字又被正韻爲 yuē 了，頗爲可惜。</p>
+<p>忽而想到「藥药」聲部「樂約」單看作聲符不免浪費了。料想一個人生病了，必定痛苦，吃了藥，病好了，不亦「樂」乎。這樣說來，鴉片還真是好藥，令人快樂的草呀。大陸簡化「药」，彷彿催促着你按時吃药，便是與醫生作了約定般。</p>
+<p>以上乃愚之亂語，非學術研究，諸君自辨。</p>
+ ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[前端的基礎修養：aria-label]]></title>
         <link href="http://lepture.com/zh/2015/fe-aria-label"/>
@@ -1295,74 +1319,6 @@ I hope people will enjoy it. It is a library now, I am looking forward to
 libraries that depend on this project and making the web development of
 more fun.</p>
  ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[The Unpleasant Part of Open Source]]></title>
-        <link href="http://lepture.com/en/2013/unpleasant-open-source"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2013-12-06T16:40:00+08:00</updated>
-        <published>2013-12-06T16:40:00+08:00</published>
-        <id>http://lepture.com/en/2013/unpleasant-open-source</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>It has been 9 months since I sent the <a href="https://github.com/chjj/marked/pull/129">renderer feature</a> to marked.
-It was merged some days ago, when I finally lost my patience and created
-a forked project named <a href="https://github.com/lepture/markit">markit</a>.</p>
-<p>I do not suggest you use markit right now. We are working on marked. And
-we hope that renderer feature will be available soon.</p>
-<hr>
-<p>Why it takes so much time for one pull request? Reason varies from people
-to people. Maybe he is focusing on other projects. Maybe he just doesn't
-like this feature. Maybe FUD.</p>
-<blockquote class="cite-quote"><p>marked does so many weird optimizations that I'm worried only I understand</p>
-<cite>Christopher Jeffrey</cite>
-</blockquote><p>I don't blame <a href="https://github.com/chjj">Christopher Jeffrey</a>. On the
-contrary, he did a great job. marked is a well written, good designed
-project. I appreciate his humility for I've read the code of markdown-js
-which I am just too stupid to understand.</p>
-<p>It is usually the fear of breaking things, the uncertainty of the changes,
-and the doubt of the people that stops us.</p>
-<hr>
-<p>We open source not because people need us. We just happen to open source
-things that solve our problems, and wish it may help other people. Open
-source can be a business for a company, but not for individuals.</p>
-<blockquote class="cite-quote"><p>Lots of people in the Open Source community develop something that solve
-particular problems they have themselves.</p>
-<cite>Armin Ronacher</cite>
-</blockquote><p>I created <a href="create-oauth-server">Flask-OAuthlib</a> for my own, because I
-needed to create an OAuth 2 server at that time. I contribute to OAuthLib,
-because I need to fix that bug or add that feature for Flask-OAuthlib. I
-don't contribute for my own amusement.</p>
-<p>Armin Roncher wrote in his recent post <a href="http://lucumr.pocoo.org/2013/11/28/emotional-programming/">Emotional Programming in Open Source</a>:</p>
-<blockquote><p>I found it quite hard this year to work on my own projects because the
-bug trackers were full of things I personally did not really care about.
-The things I wrote over the last few years all work so well for me, that
-I don't need to fix problems or add things.</p>
-</blockquote><p>That is true for individual devlopers. At least that is true for me.</p>
-<p>Individual developers open source in their own time, they don't get paid.
-However, sometimes, they are too good to accept features that they don't
-care. This is the time for us to give our thanks, our stars and our tweets.</p>
-<hr>
-<p>Our stars and tweets matter a lot. A good library should be promoted. Yes,
-I mean <a href="https://github.com/idan/oauthlib">OAuthLib</a>. The funny things is that python-oauth2 has
-more stars than OAuthLib. python-oauth2 is not really designed for OAuth 2,
-it is OAuth 1. What a sarcastic reality!</p>
-<p>That's why we should promote the good libraries. Let them to be known. This
-encourages developers and makes them happy — but sometimes it may be a
-burden to them.</p>
-<p>It takes time to build a good library — the design, the documentation, and
-the test cases.</p>
-<hr>
-<p>Somtimes, when you finish a good project, a good name for your project is
-already taken by another people. And when you find out that it is only a
-spawn of a unix command, you feel angry that you have to name your project
-as "something 2". That is really disappointed.</p>
-<p>May you happy, may the developers happy.</p>
-<blockquote><p>high quality of lots of Open Source code is that the developers are
-generally happier writing it</p>
-</blockquote> ]]>
         </content>
     </entry>
 </feed>
