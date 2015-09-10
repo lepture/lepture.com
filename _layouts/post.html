@@ -44,6 +44,14 @@
   {% else %}
     {{ WebPage("Article") }}
   {% endif %}
-
+  <script>
+    var images = document.getElementsByTagName('img');
+    if (images.length) {
+      for (var i = 0; i < images.length; i++) {
+        var src = images[i].getAttribute('data-src');
+        if (src) images[i].src = src;
+      }
+    }
+  </script>
   {% include "disqus.html" %}
 {% endblock %}

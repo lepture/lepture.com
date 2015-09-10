@@ -10,9 +10,13 @@
   <link rel="logo" type="image/svg" href="/logo.svg">
   <link rel="dns-prefetch" href="http://dn-lepture.qbox.me">
   <link rel="alternate" type="application/atom+xml" title="Subscribe Feed" href="http://feeds.lepture.com/lepture">
-  {% block extra_meta %}{% endblock %}
-  {% include "head.html" %}
+  {% if site.google_webmaster %}
+  <meta name="google-site-verification" content="{{ site.google_webmaster }}" />
+  {% endif %}
+  <link rel="stylesheet" href="{{ static_url('_assets/site.css', '/assets/site.css') }}">
+  <link rel="stylesheet" href="{{ static_url('_assets/font.css', '/assets/font.css') }}">
   {% block extra_head %}{% endblock %}
+  <script>{% include "ga.js" %}</script>
 </head>
 <body>
   <header id="header">
@@ -38,6 +42,5 @@
       <p>&copy; Copyright 2010 - {{ site.now.year }} by {{ site.author }}.</p>
     </div>
   </footer>
-  <script src="{{ static_url('_assets/index.js', '/assets/site.js') }}"></script>
 </body>
 </html>

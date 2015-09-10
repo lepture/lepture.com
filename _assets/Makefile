@@ -1,11 +1,3 @@
-
-build: components index.js
-	@component build -o ../_site/assets -n site
-
-components: component.json
-	@component install --dev
-
-clean:
-	rm -fr components
-
-.PHONY: clean
+build:
+	@cat yue.css ui.css site.css pygments.css book.css | cleancss -o ../_site/assets/site.css
+	@cp font.css ../_site/assets/font.css
