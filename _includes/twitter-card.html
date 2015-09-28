@@ -9,6 +9,8 @@
   <meta property="og:image" content="{{ page.cover }}">
 {% elif page.image %}
   <meta property="og:image" content="{{ page.image }}">
+{% else %}
+  <meta property="og:image" content="/apple-touch-icon-152.png">
 {% endif %}
 {% if page.cover %}
   <meta name="twitter:card" content="summary_large_image">

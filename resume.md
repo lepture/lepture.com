@@ -1,4 +1,4 @@
-# Résumé
+# About Me
 
 - disqus: false
 
@@ -20,35 +20,37 @@ I did, do and will always believe in
 
 ## Contact
 
-I am currently living in Shanghai, China.
+I am currently living in Hangzhou, China.
 
 You can reach me by
 
 - [Twitter](https://twitter.com/lepture)
-- [Facebook](https://facebook.com/lepture)
 - [Weibo](http://weibo.com/lepture)
 - <me@lepture.com>
 
 
 ## Projects
 
-All open source can be found on [Github](https://github.com/lepture),
+All open source can be found on [GitHub](https://github.com/lepture),
 and they are all under BSD License, except that I have declared it under
 another License.
 
-I do have a [Projects](http://lab.lepture.com/) page, head over as your wish.
-
 ## Working On
 
-**[Yuehu](http://yuehu.me)**
+**[Yuehu](http://yuehu.io)**
 
-Yuehu is a reading platform and a read later service. It's under heavy
-development right now.
+Yuehu is a reading platform and a read later service.
 
 
 **[Python China](http://python-china.org)**
 
-A forum for Pythoner in China.
+A forum for Pythonist in China.
+
+
+**[CN Open Data](https://github.com/cn)**
+
+Open data of China.
+
 
 ## Skills
 
@@ -61,40 +63,8 @@ I am familiar with:
 
 I have a little knowledge about:
 
-- C (Language)
-- Objective-C (Language)
-- Ruby (Language)
-- MySQL (Database)
-- MongoDB (Database)
-
-
-## Experience
-
-**HiHex.com**
-
-A startup company of a friend.
-
-- Position: Developer & SA
-- Location: Shenzhen, China
-- Dates: Nov. 2013 - Apr. 2014
-
-
-**Alipay.com**
-
-This is my first job.
-
-- Position: Front End Developer
-- Location: Hangzhou, China
-- Dates: Jul. 2011 - Sep. 2013
-
-
-**Kingsoft.com**
-
-This is my first and only internship.
-
-- Position: Web Developer
-- Location: Zhuhai, China
-- Dates: Jul. 2010 - Oct. 2010
+- Redis
+- PostgreSQL
 
 
 ## Education
@@ -104,9 +74,3 @@ This is my first and only internship.
 - Fields: Electronics(optical) and Information
 - Dates: Sep. 2007 - Jul. 2011
 - Location: Wuhan, China
-
-## Travel
-
-- Thailand: Sep. 24 2012 - Oct. 24 2012
-- Malaysia: Oct. 24 2012 - Oct. 28 2012
-- China: Apr. 1 2014 - Jun. 10 2014

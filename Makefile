@@ -3,10 +3,6 @@ output=_site/assets/site
 assets:
 	@mkdir -p _site/assets
 	@make -C _assets build
-	@cp _assets/font.css _site/assets/font.css
-	@autoprefixer ${output}.css -o ${output}.css
-	@cleancss ${output}.css --s0 -o ${output}.css
-	@uglifyjs ${output}.js -m -o ${output}.js
 
 build:
 	@writeup build
