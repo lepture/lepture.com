@@ -3,7 +3,7 @@
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', '{{ site.google_analytics }}');
-(function(d){
+(function(){
   {% if page %}
     var title="{{ page.title }}";
   {% else %}
@@ -14,4 +14,4 @@ ga('create', '{{ site.google_analytics }}');
     location: location.href,
     title: title,
   });
-})(document);
+})();
