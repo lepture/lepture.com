@@ -30,12 +30,6 @@ a:hover {
 body {
   transition: opacity .4s ease-in;
 }
-h3 a:after {
-  content: '→';
-  color: #999;
-  margin-left: 8px;
-  vertical-align: middle;
-}
 .page-loading {
   opacity: 0.3;
 }
@@ -85,9 +79,11 @@ h3 a:after {
 #nav a {
   font-size: 16px;
   margin-right: 15px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
 }
 #nav a:hover {
-  opacity: 0.6;
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 #footer {
