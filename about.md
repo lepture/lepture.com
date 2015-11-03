@@ -1,6 +1,8 @@
 # About Me
 
 - disqus: false
+- redirect_from:
+  - /resume
 
 Love its people, but never trust its government. Believe in evolution rather than revolution.
 
@@ -9,11 +11,6 @@ Love its people, but never trust its government. Believe in evolution rather tha
 ## About
 
 Hi! My name is **Hsiaoming Yang** (aka **lepture** elsewhere).
-
-I am a creative web developer, firm believer in open source software.
-I love everything that is worth the word beauty.
-
-I did, do and will always believe in
 
 > Love its people, but never trust its government.
 > Believe in evolution rather than revolution.
@@ -25,7 +22,6 @@ I am currently living in Hangzhou, China.
 You can reach me by
 
 - [Twitter](https://twitter.com/lepture)
-- [Weibo](http://weibo.com/lepture)
 - <me@lepture.com>
 
 
@@ -35,42 +31,23 @@ All open source can be found on [GitHub](https://github.com/lepture),
 and they are all under BSD License, except that I have declared it under
 another License.
 
-## Working On
-
-**[Yuehu](http://yuehu.io)**
+### [Yuehu](http://yuehu.io)
 
 Yuehu is a reading platform and a read later service.
 
 
-**[Python China](http://python-china.org)**
+### [Python China](https://python-china.org)
 
 A forum for Pythonist in China.
 
 
-**[CN Open Data](https://github.com/cn)**
+### [CN Open Data](https://github.com/cn)
 
 Open data of China.
 
+## Photography
 
-## Skills
+I take photos in daily life. Find them on [Flickr](https://www.flickr.com/photos/lepture). Here are some albums:
 
-I am familiar with:
-
-- Python (Language)
-- JavaScript (Language)
-- CSS / HTML (Language)
-- Git (Version Control)
-
-I have a little knowledge about:
-
-- Redis
-- PostgreSQL
-
-
-## Education
-
-**Wuhan University**
-
-- Fields: Electronics(optical) and Information
-- Dates: Sep. 2007 - Jul. 2011
-- Location: Wuhan, China
+- [I love Hangzhou](https://www.flickr.com/photos/lepture/sets/72157657372539678)
+- [Early In The Morning](https://www.flickr.com/photos/lepture/sets/72157651788592517)

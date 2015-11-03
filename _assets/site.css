@@ -30,6 +30,12 @@ a:hover {
 body {
   transition: opacity .4s ease-in;
 }
+h3 a:after {
+  content: '→';
+  color: #999;
+  margin-left: 8px;
+  vertical-align: middle;
+}
 .page-loading {
   opacity: 0.3;
 }

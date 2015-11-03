@@ -12,7 +12,7 @@ excludes: ["Makefile", "_config.yml"]
 
 links:
   - name: About
-    url: /resume
+    url: /about
   - name: Chinese
     url: /zh/
   - name: English
