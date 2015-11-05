@@ -30,10 +30,6 @@ a:hover {
 body {
   transition: opacity .4s ease-in;
 }
-.page-loading {
-  opacity: 0.3;
-}
-
 #header {
   padding: 20px 0;
   border-bottom: 1px solid #f9f9f9;
@@ -94,7 +90,6 @@ body {
   font-size: 13px;
   font-family: "Optima", "Helvetica Neue", sans-serif;
 }
-
 .updated:after {
   content: ' — ';
 }
@@ -185,7 +180,18 @@ body {
   font-weight: 300;
   font-size: 14px;
 }
-
+.entry-content a {
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #999;
+}
+.entry-content a:hover {
+  color: #d45e13;
+  border-color: #d45e13;
+}
+.entry-content a.img-link {
+  border-bottom: 0;
+}
 .paginator {
   padding: 20px 0;
   text-align: center;
