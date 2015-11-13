@@ -8,15 +8,6 @@ Love its people, but never trust its government. Believe in evolution rather tha
 
 ---------
 
-<style>
-h3 a:after {
-  content: '→';
-  color: #999;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-</style>
-
 Hi! My name is **Hsiaoming Yang** (aka **lepture** elsewhere).
 
 > Love its people, but never trust its government.
