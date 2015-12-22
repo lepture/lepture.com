@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% block extra_info%}{% if "/zh/" in page.url %} lang="zh"{% endif %}{% endblock %}
 
 {% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
 
