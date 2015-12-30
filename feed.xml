@@ -3,8 +3,33 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/feed.xml" rel="self" />
     <link href="http://lepture.com/" />
-    <updated>2015-12-24T10:12:39.085520+08:00</updated>
+    <updated>2015-12-30T12:17:09.371458+08:00</updated>
     <id>http://lepture.com/</id>
+    <entry>
+        <title type="html"><![CDATA[日記，初めまして]]></title>
+        <link href="http://lepture.com/zh/2015/first-day-koshigaya"/>
+        <author>
+            <name>Hsiaoming Yang</name>
+        </author>
+        <updated>2015-12-30T11:30:00+08:00</updated>
+        <published>2015-12-30T11:30:00+08:00</published>
+        <id>http://lepture.com/zh/2015/first-day-koshigaya</id>
+        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
+            <![CDATA[ <p>早晨醒來的時候，天已大亮，陽光透過窗簾，染就一片朦朧的黃，又有幾束光線鑽了簾幕的空隙射向地面，給室內憑添了幾分暖意。印象里，三四點的時候電視機突然自己打開了，播放起電視節目，我下了閣樓去關掉電視，也不知是真實還是夢境，或許只是昨晚的酒精作祟。</p>
+<p>我一向是不喝酒的，昨晚的忘年會飲了兩杯果酒（大約是果酒吧），甜甜的溫和的誘人的味道，純度雖然很低，臉卻熱乎乎起來，人也跟著興奮了，想想還是有點尷尬的。</p>
+<p>這是我在日本的第一個早晨。拉開窗簾，步到陽台上，陽台朝東南，正好遇著此時直射過來的太陽，整個人都暖洋洋的。天空藍得有點假，放眼望去，沒有一點雲。陽台正對著元荒川，早起的風吹拂水面，陽光灑在水上，一片一片閃爍著，波光粼粼。</p>
+<p>我嗅了嗅外衣，還殘留著昨晚忘年會的燒烤味，裡面的毛衣亦是，便拿到陽台晾著，順便把昨晚的衣服也丟進了洗衣機，就出門去買早餐了。我那時只穿了件襯衫，外面加了件羊毛開衫，走在元荒川的堤上，寒風吹過，原來今天也是很冷的，被陽台的陽光欺騙了。不過還是先忍一忍，待買過了早餐再回家加件外套。</p>
+<p>元荒川的堤上鋪著瀝青，靠河的一邊長滿了青草，另一邊的青草地偶爾有一片修剪過的灌木群，也是一片綠，簡直不像冬天。走在堤上，看風吹起河邊柳枝，水中倒映著柳枝飛舞。或有兩三行人經過，跑步的，牽著狗溜達的。</p>
+<p>沿著堤向西，西邊天際倒還有幾絲雲，模模糊糊不太真切。路上遇著一片鴨子，在河邊啄著草地，我以為是誰家養的，便左右望了望，也沒見著放鴨子的人。回家的時候，這群鴨子已經換了地方，靠近我的住所附近了。忽而有只黑色的大鳥展翅飛過，倒有點鷹姿，黑乎乎的呱呱叫著，原來是烏鴉。這麼大的烏鴉我還是第一回見到，老家的烏鴉個子都小小的，哪裡會有鷹的感覺。這烏鴉落向鴨子處，驚嚇了群鴨，鴨子們撲撲翅膀跳著飛往河中了。</p>
+<p>後來才知道這不是家鴨，是野鴨。越谷市的吉祥物便是野鴨背大蔥，是越谷挺有名的物種，大蔥我卻還沒見識到。野鴨害怕烏鴉，倒是一點都不怕人。</p>
+<p>只可惜路還不太熟，不曾尋到吃早餐的店，又不太想過河，只得回家先晾過洗衣機里的衣服再出門了。</p>
+<p>いいお天気ですね。初めまして。</p>
+<hr>
+<p>2015.12.29 - 越谷</p>
+<p>附注：日記者非每日記錄也，是日本記事之簡寫。</p>
+ ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[杭州記憶]]></title>
         <link href="http://lepture.com/zh/2015/beloved-hangzhou"/>
@@ -1075,173 +1100,6 @@ Open source can be a business for a company, but not for individuals.</p>
 <li id="fn-github-top"><p>最活躍並不代表什麼，說起來也沒有什麼特別拿得出手的東西。最近活躍度變低了，名次一直在掉，但是截止到寫這篇文章依舊是大陸區第一。<a href="#fnref-github-top" rev="footnote">&#8617;</a></p></li>
 <li id="fn-code-style"><p>我喜歡漂亮的代碼。漂亮多半時候指的是代碼風格，也偶爾指漂亮的邏輯。<a href="#fnref-code-style" rev="footnote">&#8617;</a></p></li>
 <li id="fn-dog-food"><p>所謂 Eat your own dog food 是也。<a href="#fnref-dog-food" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
- ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Markdown Parsers in Python]]></title>
-        <link href="http://lepture.com/en/2014/markdown-parsers-in-python"/>
-        <author>
-            <name>Hsiaoming Yang</name>
-        </author>
-        <updated>2014-02-26T16:55:00+08:00</updated>
-        <published>2014-02-26T16:55:00+08:00</published>
-        <id>http://lepture.com/en/2014/markdown-parsers-in-python</id>
-        <content type="html" xml:base="http://lepture.com/" xml:lang="en">
-            <![CDATA[ <p>There are many markdown parsers in Python. Misaka was my favorite one.
-However, misaka is deprecated now, and the successor which is called
-hoedown still has issues to solve. That's why it is a <strong>was</strong>. But I still
-love it.</p>
-<p>Here is a list of markdown parsers for Python in my knowledge:</p>
-<ul>
-<li>Misaka: A python binding for Sundown. (CPython required)</li>
-<li>Hoedown: A python binding for Hoedown, successor of Misaka.</li>
-<li>Discount: A python binding for Discount. (CPython required)</li>
-<li>cMarkdown: Markdown for Python, accelerated by C. (CPython required)</li>
-<li>Markdown: A pure markdown parser, the very first implementation.</li>
-<li>Markdown2: Another pure markdown parser.</li>
-</ul>
-<p>And I've just released another pure markdown parser too, which is called
-<strong><a href="https://github.com/lepture/mistune">mistune</a></strong>.</p>
-<h2>Misaka</h2>
-<p><a href="https://github.com/FSX/misaka">Misaka</a> was my favorite markdown parser. It
-is a python binding of Sundown, which means that it has all the features
-that Sundown provides.</p>
-<p>It is super fast! Actually, it is the top one in my benchmarks. Since it is
-a binding of a C library, no wonder that it is this fast. If speed is what
-you want, you should try misaka, and as well as other bindings of a C library.</p>
-<p>But misaka is more than speed. It is the custom renderer feature that catches
-my heart. I am so fond of it, that's why I implement the custom renderer
-feature in my own markdown parser <strong>mistune</strong>.</p>
-<p>A quick and very useful sample is <a href="http://misaka.61924.nl/manual/#toc_15">code highlighting</a>.</p>
-<p>However, it is a binding of a C libary. It requires CPython, if you prefer
-PyPy, you have no access to it. Some App Engines have a limitation on compiling
-C libraries too, you can't use misaka in this case. And even if you are
-using CPython, it is still difficult to install it on a Windows OS.</p>
-<blockquote><p>Visual Studio's support for C is not optimal and most VS compilers are
-missing stdint.h, which is needed to compile Misaka.</p>
-</blockquote><p>If you are on a Windows, may god helps you. I don't care it a shit.</p>
-<p>Footnote feature is missing in Misaka. Maybe many of you don't need such a
-thing, in this case, misaka has nothing bad. It is stable, efficient, and
-has many GFM features.</p>
-<p>The only trouble is Sundown is deprecated.<sup class="footnote-ref" id="fnref-sundown-deprecated"><a href="#fn-sundown-deprecated" rel="footnote">1</a></sup></p>
-<h2>Hoedown</h2>
-<p>Because the Sundown library is deprecated, here comes hoedown<sup class="footnote-ref" id="fnref-c-hoedown"><a href="#fn-c-hoedown" rel="footnote">2</a></sup>,
-which is the fork of the original Sundown. It has a Python binding also
-called as hoedown.</p>
-<p>Since Hoedown is the successor of Sundown, and <a href="https://github.com/hhatto/python-hoedown">python-hoedown</a> is the successor of Misaka, all features
-that misaka has, python-hoedown has them too. But python-hoedown is more
-than that.</p>
-<ol>
-<li>It is PyPy compatible.</li>
-<li>It has footnote feature.</li>
-</ol>
-<p>It looks promissing, and even misaka's author recommends it. I've tried it,
-but failed with one issue, <a href="https://github.com/hhatto/python-hoedown/issues/5">a magic error</a> that I can't do anything:</p>
-<pre><code>terminated by signal SIGSEGV (Address boundary error)
-</code></pre>
-<p>This isssue is not fixed yet. Once it does, <del>hoedown would be a good choice</del>
-for non-AE users.</p>
-<p><em>Updated at Jun 23, 2014</em>: you can use <a href="https://github.com/Anomareh/Hoep">Hoep</a> as the Python Binding.</p>
-<h2>cMarkdown &amp; Discount</h2>
-<p><a href="https://github.com/paulsmith/cMarkdown">cMarkdown</a> is much like Misaka,
-except that it is based on upskirt<sup class="footnote-ref" id="fnref-upskirt"><a href="#fn-upskirt" rel="footnote">3</a></sup> rather than sundown. The
-history is very interesting, sundown is a fork of upskirt, hoedown is a
-fork of sundown. And now, sundown is deprecated, upskirt is missing. The
-new markdown parser that vmg promised is still not available.</p>
-<p>cMarkdown has all the disadvantages of Misaka, and it is a little slower
-than Misaka. This means you really should use misaka instead of cMarkdown.</p>
-<hr>
-<p>Discount is a joke for me, I can't even install it successfully! There is
-not much to say. But I do know that Discount is slower than Sundown.</p>
-<h2>Markdown &amp; Markdown2</h2>
-<p><a href="https://github.com/waylan/Python-Markdown">Python-Markdown</a> is the very first markdown parser in pure Python. It is
-good, except the documentation. However, I miss the renderer feature in
-misaka, which is not in Python-Markdown.</p>
-<p>Python-Markdown is not that slow as I expected, since Python-Markdown2
-calls itself as:</p>
-<blockquote><p>A fast and complete implementation of Markdown in Python.</p>
-</blockquote><p>But it is not true. Python-Markdown2 is much slower than Python-Markdown.
-I have no idea why it says itself fast. All features that 2 has, the older
-one has too.</p>
-<p>The benchmark shows that Python-Markdown2 is almost twice slower than
-Python-Markdown. No wonder it is 2.</p>
-<h2>Mistune</h2>
-<p><a href="https://github.com/lepture/mistune">Mistune</a> is a new (just released)
-markdown parser. It is the <strong>fastest</strong> one in all pure Python implementations.
-Almost <strong>4 times faster</strong><sup class="footnote-ref" id="fnref-bench"><a href="#fn-bench" rel="footnote">4</a></sup> than Python-Markdown in pure Python
-environment, almost <strong>5 times faster</strong> with Cython's help.</p>
-<p>I didn't expect it to be so fast when I wrote it. I know it would be a fast
-one, but I didn't know that it would be 4 times faster and even 5 times
-faster.</p>
-<hr>
-<p>I have never thought of creating a Markdown parser my own. But it has been
-months since I reported the issue to Hoedown. The issue is still there,
-not solved a bit. Because it is a C binding, I am not able to do any help,
-the only thing I can do is waiting.</p>
-<p>I don't use Python-Markdown or Python-Markdown2, because they have no renderer
-feature, and they are slow.</p>
-<p>I have <a href="/en/2013/unpleasant-open-source">introduced renderer feature to marked</a>, which is
-finally merged. And now I am trying to add the <a href="https://github.com/chjj/marked/pull/351">footnote feature</a>.
-It occured to me that I can port marked to Python, since I know marked well,
-and I know it is the fastest in all pure JavaScript implementations. It
-would be fast in Python too, and it really does.</p>
-<hr>
-<p>If you are looking for a fast, full featured<sup class="footnote-ref" id="fnref-mistune-features"><a href="#fn-mistune-features" rel="footnote">5</a></sup> and pure
-Python implementation, Mistune is a good choice. It also has renderer
-feature just like Misaka. You can always influnce the rendering results
-with custom renderers.</p>
-<pre><code class="lang-python">import mistune
-from pygments import highlight
-from pygments.lexers import get_lexer_by_name
-from pygments.formatters import HtmlFormatter
-
-class MyRenderer(mistune.Renderer):
-    def block_code(self, code, lang):
-        if not lang:
-            return &#39;\n&lt;pre&gt;&lt;code&gt;%s&lt;/code&gt;&lt;/pre&gt;\n&#39; % \
-                mistune.escape(code.strip())
-        lexer = get_lexer_by_name(lang, stripall=True)
-        formatter = HtmlFormatter()
-        return highlight(code, lexer, formatter)
-
-renderer = MyRenderer()
-md = mistune.Markdown(renderer=renderer)
-print(md.render(&#39;Some Markdown text.&#39;))
-</code></pre>
-<h2>Additional Notes</h2>
-<p>I did a benchmark on my MacBook Air, <a href="https://github.com/lepture/mistune/issues/1">view the results</a>.
-You can run the benchmark script yourself: <a href="https://github.com/lepture/mistune/blob/master/tests/bench.py">bench.py</a></p>
-<pre><code>Parsing the Markdown Syntax document 1000 times...
-Mistune: 12.7255s
-Mistune (with Cython): 9.74075s
-Misaka: 0.550502s
-Markdown: 46.4342s
-Markdown2: 78.2267s
-cMarkdown: 0.664128s
-Discount is not available
-</code></pre>
-<hr>
-<p>Mistune can be compiled with Cython if you have Cython installed already.</p>
-<pre><code>$ pip install cython mistune
-</code></pre>
-<p>The magic happens in the <code>setup.py</code> script. I'd like to introduce this part
-another time.</p>
-<p><strong>mistune is used by many great projects such as IPython, Rodeo and crossbar.</strong></p>
-<p>*This post and all posts in markdown format on this site are rendered with
-mistune.*</p>
-<div class="footnotes">
-<hr>
-<ol><li id="fn-sundown-deprecated"><p>Sundown is deprecated a year ago with a <a href="https://github.com/vmg/sundown/commit/37728fb2d7137ff7c37d0a474cb827a8d6d846d8">commit</a> by vmg, but the new markdown parser is still missing.<a href="#fnref-sundown-deprecated" rev="footnote">&#8617;</a></p></li>
-<li id="fn-c-hoedown"><p>Hoedown is a fork of Sundown, it is a C library. It reverted the <a href="https://github.com/hoedown/hoedown/commit/aa43a77283c613662033039eddb477f2e0fd3d63">deprecated message</a> 5 months ago.<a href="#fnref-c-hoedown" rev="footnote">&#8617;</a></p></li>
-<li id="fn-upskirt"><p>Links about upskirt are missing now, they are all 404.<a href="#fnref-upskirt" rev="footnote">&#8617;</a></p></li>
-<li id="fn-bench"><p>I've did a benchmark on all markdown parsers I know. <a href="https://github.com/lepture/mistune/issues/1">Checkout the Benchmarks</a>.<a href="#fnref-bench" rev="footnote">&#8617;</a></p></li>
-<li id="fn-mistune-features"><p>Mistune is full featured, it has autolink, strikethrough, table,
-fenced code, footnotes. And you can't disable them. I believe that
-it is a good design to enable all these features, since they are the
-standards in the real world now.<a href="#fnref-mistune-features" rev="footnote">&#8617;</a></p></li>
 </ol>
 </div>
  ]]>
