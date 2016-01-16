@@ -15,7 +15,7 @@ Hi! My name is **Hsiaoming Yang** (aka **lepture** elsewhere).
 
 ## Contact
 
-I am currently living in Hangzhou, China.
+I am currently living in Koshigaya, Japan
 
 You can reach me by
 
@@ -29,10 +29,6 @@ All open source can be found on [GitHub](https://github.com/lepture),
 and they are all under BSD License, except that I have declared it under
 another License.
 
-### [Yuehu](http://yuehu.io)
-
-Yuehu is a reading platform and a read later service.
-
 
 ### [Python China](https://python-china.org)
 
@@ -43,9 +39,10 @@ A forum for Pythonist in China.
 
 Open data of China.
 
+
 ## Photography
 
-I take photos in daily life. Find them on [Flickr](https://www.flickr.com/photos/lepture). Here are some albums:
+I take photos in daily life. Find them on [Instagram](https://www.instagram.com/lepture/) or [Flickr](https://www.flickr.com/photos/lepture). Here are some albums:
 
 - [I love Hangzhou](https://www.flickr.com/photos/lepture/sets/72157657372539678)
 - [Early In The Morning](https://www.flickr.com/photos/lepture/sets/72157651788592517)
