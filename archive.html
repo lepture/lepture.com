@@ -21,13 +21,18 @@
   </ul>
 </div>
 <script>
-  if (location.hash && document.querySelectorAll) {
+  if (document.querySelectorAll) {
+    if (location.hash) showArticles();
+    window.onhashchange = showArticles;
+  }
+  function showArticles() {
     var items = document.querySelectorAll('.entry-item');
     var className = location.hash.replace('#', '');
     var count = 0;
     for (var i = 0; i < items.length; i++) {
       (function(el) {
         if (el.classList.contains(className)) {
+          el.style.display = 'block';
           count += 1;
         } else {
           el.style.display = 'none';
