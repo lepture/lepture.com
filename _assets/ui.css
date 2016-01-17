@@ -13,9 +13,6 @@ a.button:hover {
 }
 
 /* reset yue.css */
-.yue {
-  font-family: "Lora", "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
-}
 .yue .cite-quote {
   font-size: 20px;
   text-align: left;
