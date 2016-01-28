@@ -2,6 +2,11 @@ html, body {
   padding: 0;
   margin: 0;
 }
+
+.yue {
+  font-family: "Lora", "Xin Gothic", "PingFang TC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+  color: #444443;
+}
 ::selection, .yue ::selection {
   background-color: #222;
   color: #f9f9f9;

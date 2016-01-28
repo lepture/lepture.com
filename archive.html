@@ -2,6 +2,32 @@
 
 {% block title %}Archive — {{ site.name }}{% endblock %}
 
+{% block extra_head %}
+<style>
+  ul.archive-list {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0;
+  }
+  .archive-list li {
+    margin-bottom: 10px;
+  }
+  .archive-list time {
+    color: #6b747f;
+    margin-right: 16px;
+    font-family: "Hevetica Neue", Arial, sans-serif;
+  }
+  .archive-list a {
+    text-decoration: none;
+    color: #4D545D;
+  }
+  .archive-list .entry-year {
+    font-size: 22px;
+    margin: 28px 0 16px;
+  }
+</style>
+{% endblock %}
+
 {% block main %}
 <div class="entry-header">
   <div class="container yue">
@@ -11,11 +37,16 @@
 </div>
 
 <div id="main" class="container yue">
-  <ul class="entry-list" role="main">
+  <ul class="archive-list" role="main">
+    {% set year = 0 %}
     {% for item in site.posts() %}
+    {% if year != item.date.year %}
+    {% set year = item.date.year %}
+    <li class="entry-year">{{ year }}</li>
+    {% endif %}
     <li class="entry-item {{item.tags|join(' ')}} {{item.date.year}}">
-    <div class="entry-meta"><time>{{ item.date.strftime('%b %d, %Y') }}</time></div>
-    <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+      <time>{{ item.date.strftime('%Y-%m-%d') }}</time>
+      <a href="{{ item.url }}">{{ item.title }}</a>
     </li>
     {% endfor %}
   </ul>
@@ -26,6 +57,10 @@
     window.onhashchange = showArticles;
   }
   function showArticles() {
+    var years = document.querySelectorAll('.entry-year');
+    for (var i = 0; i < years.length; i++) {
+      years[i].style.display = 'none';
+    }
     var items = document.querySelectorAll('.entry-item');
     var className = location.hash.replace('#', '');
     var count = 0;
