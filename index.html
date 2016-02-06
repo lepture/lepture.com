@@ -27,8 +27,9 @@
 </style>
 {% endblock %}
 
-{% block container %}
-<div class="hentry">
+{% block main %}
+<div id="main">
+<div class="hentry yue">
 <div class="entry-header">
   <div class="container">
     <h1 class="entry-title">Just lepture</h1>
@@ -37,7 +38,8 @@
   </div>
 </div>
 
-<ul class="entry-list" role="main">
+<div class="container">
+<ul class="entry-list container" role="main">
   {% for page in site.posts(count=3) %}
   <li class="entry-item" itemscope itemtype="http://schema.org/Article">
   <div class="entry-meta">
@@ -54,7 +56,8 @@
   {% endfor %}
 </ul>
 <hr>
-<div class="about-content">
+</div>
+<div class="about-content container">
 {% filter markdown %}
 ## About
 
@@ -75,6 +78,7 @@ under any public domain.
 - [Friends](/links): where my friends blogging.
 
 {% endfilter %}
+</div>
 </div>
 </div>
 {% endblock %}
