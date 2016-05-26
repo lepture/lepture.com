@@ -24,8 +24,8 @@
 <meta name="twitter:domain" content="lepture.com">
 <meta property="og:site_name" content="Just lepture">
   <meta property="og:locale" content="en_US">
-<link rel="canonical" href="http://lepture.com/en/2013/new-life-of-livereload">  <link rel="stylesheet" href="/assets/site.css?t=1450775550">
-  <link rel="stylesheet" href="/assets/font.css?t=1437645997">
+<link rel="canonical" href="http://lepture.com/en/2013/new-life-of-livereload">  <link rel="stylesheet" href="/assets/site.css?t=1461769283">
+  <link rel="stylesheet" href="/assets/font.css?t=1461769283">
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -105,22 +105,22 @@ enthusiasm in the maintainence of it.</p>
 <p>But I do believe that livereload is a good idea. Maybe I just did it wrong.
 One day, a brilliant idea came to me — livereload for wsgi.</p>
 <p>A simple example of the idea:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">livereload</span> <span class="kn">import</span> <span class="n">Server</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">livereload</span> <span class="kn">import</span> <span class="n">Server</span>
 
 <span class="n">server</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="n">wsgi_app</span><span class="p">)</span>
-<span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;static/app.css&#39;</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s1">&#39;static/app.css&#39;</span><span class="p">)</span>
 <span class="n">server</span><span class="o">.</span><span class="n">serve</span><span class="p">()</span>
 </pre></div>
 <p>Wow, that looks good. It seems something that I will use in my daily life.
 Since I prefer Flask, I can write the scripts with Flask-Script in a
 <code>manage.py</code> file:</p>
-<div class="highlight"><pre><span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
 
 <span class="nd">@manager.command</span>
 <span class="k">def</span> <span class="nf">liveserver</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
     <span class="kn">from</span> <span class="nn">livereload</span> <span class="kn">import</span> <span class="n">Server</span>
     <span class="n">server</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">wsgi_app</span><span class="p">)</span>
-    <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;static/*.css&#39;</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s1">&#39;static/*.css&#39;</span><span class="p">)</span>
     <span class="n">server</span><span class="o">.</span><span class="n">serve</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
 </pre></div>
 <p>And whenenver a css file changes, the browser will refresh it itself.</p>
@@ -128,14 +128,14 @@ Since I prefer Flask, I can write the scripts with Flask-Script in a
 I use rework for css processing, component for javascript modular. The
 real example would be gorgeous.</p>
 <p>Take a peep of my scripts:</p>
-<div class="highlight"><pre><span class="nd">@manager.command</span>
+<div class="highlight"><pre><span></span><span class="nd">@manager.command</span>
 <span class="k">def</span> <span class="nf">liveserver</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
     <span class="kn">from</span> <span class="nn">livereload</span> <span class="kn">import</span> <span class="n">Server</span>
 
     <span class="n">server</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">wsgi_app</span><span class="p">)</span>
-    <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;assets/styles/*.css&#39;</span><span class="p">,</span> <span class="s">&#39;make -C assets rework&#39;</span><span class="p">)</span>
-    <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;assets/lib/*.js&#39;</span><span class="p">,</span> <span class="s">&#39;make -C assets build&#39;</span><span class="p">)</span>
-    <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;app/templates&#39;</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s1">&#39;assets/styles/*.css&#39;</span><span class="p">,</span> <span class="s1">&#39;make -C assets rework&#39;</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s1">&#39;assets/lib/*.js&#39;</span><span class="p">,</span> <span class="s1">&#39;make -C assets build&#39;</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s1">&#39;app/templates&#39;</span><span class="p">)</span>
     <span class="n">server</span><span class="o">.</span><span class="n">serve</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
 </pre></div>
 <h2>Do one job, and do it well</h2>
@@ -150,7 +150,7 @@ well.</p>
 <p>The lack of compilers does not affect much. Since livereload provides you
 a way to execute shell command. As you can see in the above example that
 <code>server.watch</code> supports executing shell commands, so that we can do:</p>
-<div class="highlight"><pre><span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s">&#39;src/foo.js&#39;</span><span class="p">,</span> <span class="s">&#39;uglifyjs src/foo.js -m -o build/foo.js&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">server</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s1">&#39;src/foo.js&#39;</span><span class="p">,</span> <span class="s1">&#39;uglifyjs src/foo.js -m -o build/foo.js&#39;</span><span class="p">)</span>
 </pre></div>
 <p>That's why compilers are removed, since every compiler is some sort of a
 shell command, there is no reason for wrapping them in Python any more.</p>
@@ -214,7 +214,7 @@ more fun.</p>
 </script>
   <footer id="footer">
     <div class="container">
-      <p>&copy; Copyright 2010 - 2015 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2010 - 2016 by Hsiaoming Yang.</p>
     </div>
   </footer>
 </body>

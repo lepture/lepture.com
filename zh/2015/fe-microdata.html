@@ -24,8 +24,8 @@
 <meta name="twitter:domain" content="lepture.com">
 <meta property="og:site_name" content="Just lepture">
   <meta property="og:locale" content="zh_TW">
-<link rel="canonical" href="http://lepture.com/zh/2015/fe-microdata">  <link rel="stylesheet" href="/assets/site.css?t=1450775550">
-  <link rel="stylesheet" href="/assets/font.css?t=1437645997">
+<link rel="canonical" href="http://lepture.com/zh/2015/fe-microdata">  <link rel="stylesheet" href="/assets/site.css?t=1461769283">
+  <link rel="stylesheet" href="/assets/font.css?t=1461769283">
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -82,34 +82,34 @@ ga('create', 'UA-21475122-1');
 <h2>Microdata 基礎</h2>
 <p>Mircodata 主要用到這幾個 attributes 來標注信息：itemscope, itemtype, itemprop，另外還有 itemid 與 itemref。</p>
 <p>包含 <strong>itemscope</strong> 這個 attribute 的 DOM 樹就是一個事物(item)，例如：</p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">itemscope</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">itemscope</span><span class="p">&gt;</span>
 ...
-<span class="nt">&lt;/div&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 <p>我們可以給這個事物定義一個類型，比如一本書，這時就需要用到 <strong>itemtype</strong>，它的值是一個或多個 URL：</p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://example.com/Book&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">itemscope</span> <span class="na">itemtype</span><span class="o">=</span><span class="s">&quot;http://example.com/Book&quot;</span><span class="p">&gt;</span>
 ...
-<span class="nt">&lt;/div&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 <p>如上的代碼片斷，我們知道它是一本書了，但是它還缺少書的信息，需要用 <strong>itemprop</strong> 來標示：</p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://example.com/Book&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div&gt;</span>書名：<span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>改革歷程<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;div&gt;</span>作者：<span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>趙紫陽<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">itemscope</span> <span class="na">itemtype</span><span class="o">=</span><span class="s">&quot;http://example.com/Book&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>書名：<span class="p">&lt;</span><span class="nt">span</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">&gt;</span>改革歷程<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>作者：<span class="p">&lt;</span><span class="nt">span</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;author&quot;</span><span class="p">&gt;</span>趙紫陽<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   ...
-<span class="nt">&lt;/div&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 <p>也許因為奇怪的設計方案，也許因為 PM 的無理取鬧，也許就是因為代碼不太好寫，佈局並不能輕易合乎要求，itemprop 可能散落於其它地方，這時可以使用 <strong>itemref</strong> 將它們連接起來：</p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://example.com/Book&quot;</span> <span class="na">itemref=</span><span class="s">&quot;a b&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div&gt;</span>作者：<span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>趙紫陽<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">itemscope</span> <span class="na">itemtype</span><span class="o">=</span><span class="s">&quot;http://example.com/Book&quot;</span> <span class="na">itemref</span><span class="o">=</span><span class="s">&quot;a b&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>作者：<span class="p">&lt;</span><span class="nt">span</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;author&quot;</span><span class="p">&gt;</span>趙紫陽<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   ...
-<span class="nt">&lt;/div&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
 <span class="c">&lt;!-- 因為某些原因，書名與價格不在 scope 裡面 --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;a&quot;</span><span class="nt">&gt;</span>書名：<span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>改革歷程<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;b&quot;</span><span class="nt">&gt;</span>價格：<span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;price&quot;</span><span class="nt">&gt;</span>$12<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;a&quot;</span><span class="p">&gt;</span>書名：<span class="p">&lt;</span><span class="nt">span</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">&gt;</span>改革歷程<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">&gt;</span>價格：<span class="p">&lt;</span><span class="nt">span</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;price&quot;</span><span class="p">&gt;</span>$12<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 <p>Microdata 也定義了 DOM API，目前只有 Firefox 與 Opera 支持，用途不太大，可以在 Firefox 的終端里測試一下：</p>
-<div class="highlight"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">getItems</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">getItems</span><span class="p">()</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">getItems</span><span class="p">(</span><span class="s1">&#39;http://schema.org/Article&#39;</span><span class="p">)</span>
 </pre></div>
 <h2>Microdata 與 Schema.org</h2>
@@ -117,39 +117,39 @@ ga('create', 'UA-21475122-1');
 <p>Schema.org 不是標準化組織，所做的卻是標準化的事情。查閱 <a href="https://schema.org/docs/gs.html">Schema.org 快速入門</a>文檔，瞭解如何使用。例如你正在看的這篇文章所在的頁面便在使用 <a href="http://schema.org/Article">schema.org/Article</a> 這個 itemtype，你可以查看一下本頁面的源碼。</p>
 <p>Schema.org 定義了<a href="http://schema.org/docs/full.html">許多類型</a>，仍然在<a href="https://github.com/schemaorg/schemaorg">創建更多的類型</a>。這些定義對後端開發也有意義，幫助你理解業務模型，瞭解某一模型應該包含哪些數據，亦是不小的啓發。</p>
 <p>比如我們來賣個車看看：<a href="http://schema.org/Car">schema.org/Car</a></p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/Car&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h2</span> <span class="na">itemprop=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>奇瑞QQ<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">itemprop=</span><span class="s">&quot;description&quot;</span><span class="nt">&gt;</span>中國汽車製造商奇瑞汽車公司於2003年推出的一款微型車(...)<span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;img</span> <span class="na">itemprop=</span><span class="s">&quot;image&quot;</span> <span class="na">href=</span><span class="s">&quot;2003_qq.png&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;strong&gt;</span>顏色<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;color&quot;</span><span class="nt">&gt;</span>黑色<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;strong&gt;</span>齒輪數<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;numberOfForwardGears&quot;</span><span class="nt">&gt;</span>6<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">itemprop=</span><span class="s">&quot;vehicleEngine&quot;</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/EngineSpecification&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div&gt;</span>
-      <span class="nt">&lt;strong&gt;</span>引擎<span class="nt">&lt;/strong&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>1.1 L SQR472F I4 DOHC 16v — 50 kW at 6000 rpm, 90 N·m at 3500 rpm<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;strong&gt;</span>氣囊數<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;airbags&quot;</span><span class="nt">&gt;</span>4<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">itemscope</span> <span class="na">itemtype</span><span class="o">=</span><span class="s">&quot;http://schema.org/Car&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">&gt;</span>奇瑞QQ<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;description&quot;</span><span class="p">&gt;</span>中國汽車製造商奇瑞汽車公司於2003年推出的一款微型車(...)<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;2003_qq.png&quot;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>顏色<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;color&quot;</span><span class="p">&gt;</span>黑色<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>齒輪數<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;numberOfForwardGears&quot;</span><span class="p">&gt;</span>6<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;vehicleEngine&quot;</span> <span class="na">itemscope</span> <span class="na">itemtype</span><span class="o">=</span><span class="s">&quot;http://schema.org/EngineSpecification&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>引擎<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">&gt;</span>1.1 L SQR472F I4 DOHC 16v — 50 kW at 6000 rpm, 90 N·m at 3500 rpm<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>氣囊數<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;airbags&quot;</span><span class="p">&gt;</span>4<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 <h2>RDFa, Microformats 與 JSON-LD</h2>
 <p>結構化數據在 Microdata 出來之前就已經有了，比如 RDFa，比如 Microformats。Microdata 正是站在他們肩膀上，總結他們的得失利弊發展起來的。</p>
 <p>Schema.org 的示例通常包含 Microdata，RDFa 與 JSON-LD 格式。RDFa 主要引入了 vocab, typeof 與 property 作為 attributes。這裡不再談 RDFa 的格式與實現，推薦使用 Microdata。但是需知 RDFa 仍然在被使用，比如豆瓣網，因為創建時間早，又沒有升級代碼，仍然使用著 RDFa，他們使用的字典集是 <a href="http://www.data-vocabulary.org/">www.data-vocabulary.org/</a>。</p>
 <p>Microformats 已經十年了，這是一套使用 class 輔以其它屬性來標記事物的方案。比如這篇文章的這個頁面亦使用 Microformats 做了標注，類型是 <a href="http://microformats.org/wiki/hentry">hentry</a>。Microformats 現在推出了 2.0 版本，預測支持性不會太好，但是仍然值得一讀，當作指導前端的 class 命名也不錯。正在使用的 hentry 是 1.0:</p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;hentry&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;entry-title&quot;</span><span class="nt">&gt;</span>前端的基礎修養：Microdata<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;entry-content&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;hentry&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;entry-title&quot;</span><span class="p">&gt;</span>前端的基礎修養：Microdata<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;entry-content&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   ...
-<span class="nt">&lt;/div&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 <p>JSON-LD 誕生的時間更晚，是一套使用 JSON 格式標注數據的方案。最大的優點是 JSON 格式便於解析，缺點是數據冗余，尤其是在需要 HTML 展示大段內容的情況下。</p>
 <h2>Microdata &amp; Schema.org 的現狀與未來</h2>
@@ -218,7 +218,7 @@ ga('create', 'UA-21475122-1');
 </script>
   <footer id="footer">
     <div class="container">
-      <p>&copy; Copyright 2010 - 2015 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2010 - 2016 by Hsiaoming Yang.</p>
     </div>
   </footer>
 </body>

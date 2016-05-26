@@ -26,8 +26,8 @@ disadvantages of them.">
 <meta name="twitter:domain" content="lepture.com">
 <meta property="og:site_name" content="Just lepture">
   <meta property="og:locale" content="en_US">
-<link rel="canonical" href="http://lepture.com/en/2014/markdown-parsers-in-python">  <link rel="stylesheet" href="/assets/site.css?t=1450775550">
-  <link rel="stylesheet" href="/assets/font.css?t=1437645997">
+<link rel="canonical" href="http://lepture.com/en/2014/markdown-parsers-in-python">  <link rel="stylesheet" href="/assets/site.css?t=1461769283">
+  <link rel="stylesheet" href="/assets/font.css?t=1461769283">
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -180,7 +180,7 @@ would be fast in Python too, and it really does.</p>
 Python implementation, Mistune is a good choice. It also has renderer
 feature just like Misaka. You can always influnce the rendering results
 with custom renderers.</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">mistune</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mistune</span>
 <span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
 <span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_lexer_by_name</span>
 <span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
@@ -188,7 +188,7 @@ with custom renderers.</p>
 <span class="k">class</span> <span class="nc">MyRenderer</span><span class="p">(</span><span class="n">mistune</span><span class="o">.</span><span class="n">Renderer</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">lang</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&lt;pre&gt;&lt;code&gt;</span><span class="si">%s</span><span class="s">&lt;/code&gt;&lt;/pre&gt;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> \
+            <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&lt;pre&gt;&lt;code&gt;</span><span class="si">%s</span><span class="s1">&lt;/code&gt;&lt;/pre&gt;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> \
                 <span class="n">mistune</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
         <span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">stripall</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">()</span>
@@ -196,7 +196,7 @@ with custom renderers.</p>
 
 <span class="n">renderer</span> <span class="o">=</span> <span class="n">MyRenderer</span><span class="p">()</span>
 <span class="n">md</span> <span class="o">=</span> <span class="n">mistune</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="n">renderer</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;Some Markdown text.&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;Some Markdown text.&#39;</span><span class="p">))</span>
 </pre></div>
 <h2>Additional Notes</h2>
 <p>I did a benchmark on my MacBook Air, <a href="https://github.com/lepture/mistune/issues/1">view the results</a>.
@@ -215,8 +215,8 @@ Discount is not available</code></pre>
 <p>The magic happens in the <code>setup.py</code> script. I'd like to introduce this part
 another time.</p>
 <p><strong>mistune is used by many great projects such as IPython, Rodeo and crossbar.</strong></p>
-<p>*This post and all posts in markdown format on this site are rendered with
-mistune.*</p>
+<p><em>This post and all posts in markdown format on this site are rendered with
+mistune.</em></p>
 <div class="footnotes">
 <hr>
 <ol><li id="fn-sundown-deprecated"><p>Sundown is deprecated a year ago with a <a href="https://github.com/vmg/sundown/commit/37728fb2d7137ff7c37d0a474cb827a8d6d846d8">commit</a> by vmg, but the new markdown parser is still missing.<a href="#fnref-sundown-deprecated" rev="footnote">&#8617;</a></p></li>
@@ -270,7 +270,7 @@ standards in the real world now.<a href="#fnref-mistune-features" rev="footnote"
 </script>
   <footer id="footer">
     <div class="container">
-      <p>&copy; Copyright 2010 - 2015 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2010 - 2016 by Hsiaoming Yang.</p>
     </div>
   </footer>
 </body>

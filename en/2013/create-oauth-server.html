@@ -26,8 +26,8 @@ in a flavor of Flask with the help of Flask-OAuthlib.">
 <meta name="twitter:domain" content="lepture.com">
 <meta property="og:site_name" content="Just lepture">
   <meta property="og:locale" content="en_US">
-<link rel="canonical" href="http://lepture.com/en/2013/create-oauth-server">  <link rel="stylesheet" href="/assets/site.css?t=1450775550">
-  <link rel="stylesheet" href="/assets/font.css?t=1437645997">
+<link rel="canonical" href="http://lepture.com/en/2013/create-oauth-server">  <link rel="stylesheet" href="/assets/site.css?t=1461769283">
+  <link rel="stylesheet" href="/assets/font.css?t=1461769283">
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -153,7 +153,7 @@ Any site which has OAuth service has a user system.</p>
 think about it, we need a user system, we need it because we want to
 identify the current user. But we can skip the registration part.</p>
 <p>This is a basic, simple, yet functional server:</p>
-<div class="highlight"><pre><span class="c"># coding: utf-8</span>
+<div class="highlight"><pre><span></span><span class="c1"># coding: utf-8</span>
 
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">request</span>
@@ -161,11 +161,11 @@ identify the current user. But we can skip the registration part.</p>
 <span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
 
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">,</span> <span class="n">template_folder</span><span class="o">=</span><span class="s">&#39;templates&#39;</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">,</span> <span class="n">template_folder</span><span class="o">=</span><span class="s1">&#39;templates&#39;</span><span class="p">)</span>
 <span class="n">app</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="s">&#39;secret&#39;</span>
+<span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="s1">&#39;secret&#39;</span>
 <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
-    <span class="s">&#39;SQLALCHEMY_DATABASE_URI&#39;</span><span class="p">:</span> <span class="s">&#39;sqlite:///db.sqlite&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SQLALCHEMY_DATABASE_URI&#39;</span><span class="p">:</span> <span class="s1">&#39;sqlite:///db.sqlite&#39;</span><span class="p">,</span>
 <span class="p">})</span>
 <span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
@@ -176,52 +176,52 @@ identify the current user. But we can skip the registration part.</p>
 
 
 <span class="k">def</span> <span class="nf">current_user</span><span class="p">():</span>
-    <span class="k">if</span> <span class="s">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">session</span><span class="p">:</span>
-        <span class="n">uid</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">session</span><span class="p">:</span>
+        <span class="n">uid</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
 
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="s">&#39;POST&#39;</span><span class="p">))</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>
-        <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;username&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
         <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
             <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
             <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
             <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-        <span class="n">session</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
-        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+        <span class="n">session</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">current_user</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&#39;home.html&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;home.html&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">db</span><span class="o">.</span><span class="n">create_all</span><span class="p">()</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 <p>And this is the template of <code>home.html</code>:</p>
-<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">if</span> <span class="nv">user</span> <span class="cp">%}</span>
-    <span class="nt">&lt;p&gt;</span>You are <span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You are <span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
-    <span class="nt">&lt;p&gt;</span>You are not authenticated<span class="nt">&lt;/p&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You are not authenticated<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
 
-  <span class="nt">&lt;p&gt;</span>Type any username:<span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span> <span class="na">action=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/form&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Type any username:<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;username&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 <p>You can download these files from this <a href="https://github.com/lepture/example-oauth1-server/tree/6cfb8db25b4427648e4229507d1649be04ddb7ef">commit#6cfb8db</a>. And I will continue working on this repo, browser the revisions for more details.</p>
 <h2>Creating OAuth 1 Server</h2>
@@ -231,7 +231,7 @@ default_redirect_uri and default_realms. Find more in the <a href="https://flask
 <p>All clients are bound to a developer (developer is a user). The developer
 need to fill a form and describe the application. In this simple demo, we
 will skip this part. It will create a client when you visit <code>/client</code>.</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span>
 <span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">gen_salt</span>
 
 
@@ -239,9 +239,9 @@ will skip this part. It will create a client when you visit <code>/client</code>
     <span class="n">client_key</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">client_secret</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">55</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
-    <span class="c"># creator of the client</span>
-    <span class="n">user_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;user.id&#39;</span><span class="p">))</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&#39;User&#39;</span><span class="p">)</span>
+    <span class="c1"># creator of the client</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;user.id&#39;</span><span class="p">))</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">)</span>
     <span class="n">_realms</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Text</span><span class="p">)</span>
     <span class="n">_redirect_uris</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Text</span><span class="p">)</span>
 
@@ -262,11 +262,11 @@ will skip this part. It will create a client when you visit <code>/client</code>
         <span class="k">return</span> <span class="p">[]</span>
 
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/client&#39;</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/client&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">current_user</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
     <span class="n">item</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
         <span class="n">client_key</span><span class="o">=</span><span class="n">gen_salt</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
         <span class="n">client_secret</span><span class="o">=</span><span class="n">gen_salt</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
@@ -284,15 +284,15 @@ and visit <code>/client</code>.</p>
 <h3>Implement OAuth 1 Provider</h3>
 <p>It is time to create a provider now. However, before we initialize a
 provider, we need to update the configuration.</p>
-<div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
-    <span class="s">&#39;OAUTH1_PROVIDER_ENFORCE_SSL&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-    <span class="s">&#39;OAUTH1_PROVIDER_KEY_LENGTH&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+<div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="s1">&#39;OAUTH1_PROVIDER_ENFORCE_SSL&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s1">&#39;OAUTH1_PROVIDER_KEY_LENGTH&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
 <span class="p">})</span>
 </pre></div>
 <p>Because we are developing on a local machine, it would be easier for us
 to implement it over HTTP. This is why we set <code>OAUTH1_PROVIDER_ENFORCE_SSL</code>
 to <code>False</code>. After this, we can create a provider:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask_oauthlib.provider</span> <span class="kn">import</span> <span class="n">OAuth1Provider</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask_oauthlib.provider</span> <span class="kn">import</span> <span class="n">OAuth1Provider</span>
 <span class="n">oauth</span> <span class="o">=</span> <span class="n">OAuth1Provider</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 <span class="nd">@oauth.clientgetter</span>
@@ -331,14 +331,14 @@ hesitate to tell me. You can also debug it yourself. We enabled the
 logging for Flask-OAuthlib so that you can debug easily.</p>
 <p>The last part of this tutorial on OAuth 1 is protecting user resources. It
 is easy with a decorator <code>require_oauth</code>:</p>
-<div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/api/me&#39;</span><span class="p">)</span>
 <span class="nd">@oauth.require_oauth</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">me</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">user</span>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
 </pre></div>
 <p><strong>CHANGED SINCE VERSION 0.5.0. YOU WILL WRITE THIS SNIPPET LIKE THIS:</strong></p>
-<div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/api/me&#39;</span><span class="p">)</span>
 <span class="nd">@oauth.require_oauth</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">me</span><span class="p">():</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">oauth</span><span class="o">.</span><span class="n">user</span>
@@ -369,7 +369,7 @@ We created the Client following the documentation on <a href="https://flask-oaut
 <p>The next step is the implementation for OAuth 2 Provider since we have
 finished all preparation works. It is the same as OAuth 1 provider, except
 we don't have to make any configuration. via <a href="https://github.com/lepture/example-oauth2-server/commit/3b60b5d769b807b1549157f76cd46151dd3b8f1d">commit#3b60b5d</a>.</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask_oauthlib.provider</span> <span class="kn">import</span> <span class="n">OAuth2Provider</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask_oauthlib.provider</span> <span class="kn">import</span> <span class="n">OAuth2Provider</span>
 <span class="n">oauth</span> <span class="o">=</span> <span class="n">OAuth2Provider</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 <span class="nd">@oauth.clientgetter</span>
@@ -382,7 +382,7 @@ much simpler than OAuth 1, since we don't have to create timestamp and nonce.</p
 <p>OAuth 2 has no Request Token. The handlers are simple too. What you need is
 a token handler that handles response with access token or refresh token,
 and an authorize handler for user to confirm the request.</p>
-<div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/oauth/token&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/oauth/token&#39;</span><span class="p">)</span>
 <span class="nd">@oauth.token_handler</span>
 <span class="k">def</span> <span class="nf">access_token</span><span class="p">():</span>
     <span class="k">return</span> <span class="bp">None</span>
@@ -392,12 +392,12 @@ yourself. However, you can return things that matter to you. They are
 advanced skills, and I will not cover it here.</p>
 <p>Changes can be found at <a href="https://github.com/lepture/example-oauth2-server/commit/cbc3e12a3123f4bbc9d68eb8438247357f213583">commit#cbc3e12</a>.</p>
 <p>Now it is time for testing. We would <a href="https://github.com/lepture/example-oauth2-server/commit/060da19663e006fab409b9e87639f8e00d3c8e22">create a client.py</a> to do the job. Here is a little trick:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;DEBUG&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;true&#39;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DEBUG&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span>
 </pre></div>
 <p><strong>UPDATED</strong>: you should use <code>OAUTHLIB_INSECURE_TRANSPORT</code> now:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;OAUTHLIB_INSECURE_TRANSPORT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;true&#39;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OAUTHLIB_INSECURE_TRANSPORT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span>
 </pre></div>
 <p>Remember what I have said? OAuth 2 requires SSL all the time, since we are
 developing on a local machine, we don't have HTTPS, As a result, it is
@@ -413,7 +413,7 @@ You will finally get an access token.</p>
 part of this tutorial on OAuth 2 server. We protect them with a decorator
 <code>@oauth.require_oauth</code>, and this decorator will add an additional paramter
 to the handler.</p>
-<div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/api/me&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/api/me&#39;</span><span class="p">)</span>
 <span class="nd">@oauth.require_oauth</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">me</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">oauth</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
@@ -479,7 +479,7 @@ target. Chances are that you've already lost your patience.</p>
 </script>
   <footer id="footer">
     <div class="container">
-      <p>&copy; Copyright 2010 - 2015 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2010 - 2016 by Hsiaoming Yang.</p>
     </div>
   </footer>
 </body>

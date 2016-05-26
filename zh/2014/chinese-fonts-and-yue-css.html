@@ -24,8 +24,8 @@
 <meta name="twitter:domain" content="lepture.com">
 <meta property="og:site_name" content="Just lepture">
   <meta property="og:locale" content="zh_TW">
-<link rel="canonical" href="http://lepture.com/zh/2014/chinese-fonts-and-yue-css">  <link rel="stylesheet" href="/assets/site.css?t=1450775550">
-  <link rel="stylesheet" href="/assets/font.css?t=1437645997">
+<link rel="canonical" href="http://lepture.com/zh/2014/chinese-fonts-and-yue-css">  <link rel="stylesheet" href="/assets/site.css?t=1461769283">
+  <link rel="stylesheet" href="/assets/font.css?t=1461769283">
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -93,16 +93,16 @@ ga('create', 'UA-21475122-1');
 <p>Linux 上我的選擇是 18px 的 <del>文泉驛微米黑</del> Droid Sans Fallback。因爲 Linux 用戶自己喜歡折騰，我的選擇也許無關痛癢。</p>
 <h2>The Code</h2>
 <p>這些經驗最終彙集到了 <a href="https://github.com/lepture/yue.css">yue.css</a> 這個樣式庫。尤其是對 Windows 的處理，反反覆覆，時而會把微軟雅黑添加進來，時而又移出。到寫作此文時，字體樣式便成了：</p>
-<div class="highlight"><pre><span class="nc">.yue</span> <span class="p">{</span>
-  <span class="k">font</span><span class="o">:</span> <span class="m">400</span> <span class="m">18px</span><span class="o">/</span><span class="m">1</span><span class="o">.</span><span class="m">62</span> <span class="s2">&quot;Georgia&quot;</span><span class="o">,</span> <span class="s2">&quot;Xin Gothic&quot;</span><span class="o">,</span> <span class="s2">&quot;Hiragino Sans GB&quot;</span><span class="o">,</span> <span class="s2">&quot;Droid Sans Fallback&quot;</span><span class="o">,</span> <span class="s2">&quot;Microsoft YaHei&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="nc">.yue</span> <span class="p">{</span>
+  <span class="nb">font</span><span class="o">:</span> <span class="m">400</span> <span class="m">18px</span><span class="o">/</span><span class="m">1</span><span class="o">.</span><span class="m">62</span> <span class="s2">&quot;Georgia&quot;</span><span class="o">,</span> <span class="s2">&quot;Xin Gothic&quot;</span><span class="o">,</span> <span class="s2">&quot;Hiragino Sans GB&quot;</span><span class="o">,</span> <span class="s2">&quot;Droid Sans Fallback&quot;</span><span class="o">,</span> <span class="s2">&quot;Microsoft YaHei&quot;</span><span class="o">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.windows</span> <span class="nc">.yue</span> <span class="p">{</span>
-  <span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
-  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Georgia&quot;</span><span class="o">,</span> <span class="s2">&quot;SimSun&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="nb">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+  <span class="nb">font-family</span><span class="o">:</span> <span class="s2">&quot;Georgia&quot;</span><span class="o">,</span> <span class="s2">&quot;SimSun&quot;</span><span class="o">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 <p>Windows 使用 16px 是爲了兼容 Windows XP。在 XP 上，沒有微軟雅黑只有中易宋體，在這種情況下會 Fallback 到中易宋體，而 18px 會導致字體變形。你可能需要一句 JavaScript 來添加 <code>.windows</code> 的 class：</p>
-<div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="sr">/windows/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">)){</span>
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="sr">/windows/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">)){</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">className</span> <span class="o">+=</span> <span class="s1">&#39; windows&#39;</span>
 <span class="p">}</span>
 </pre></div>
@@ -160,7 +160,7 @@ ga('create', 'UA-21475122-1');
 </script>
   <footer id="footer">
     <div class="container">
-      <p>&copy; Copyright 2010 - 2015 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2010 - 2016 by Hsiaoming Yang.</p>
     </div>
   </footer>
 </body>

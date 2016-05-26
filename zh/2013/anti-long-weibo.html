@@ -24,8 +24,8 @@
 <meta name="twitter:domain" content="lepture.com">
 <meta property="og:site_name" content="Just lepture">
   <meta property="og:locale" content="zh_TW">
-<link rel="canonical" href="http://lepture.com/zh/2013/anti-long-weibo">  <link rel="stylesheet" href="/assets/site.css?t=1450775550">
-  <link rel="stylesheet" href="/assets/font.css?t=1437645997">
+<link rel="canonical" href="http://lepture.com/zh/2013/anti-long-weibo">  <link rel="stylesheet" href="/assets/site.css?t=1461769283">
+  <link rel="stylesheet" href="/assets/font.css?t=1461769283">
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -83,9 +83,9 @@ ga('create', 'UA-21475122-1');
 <p>批評有時顯得蒼白無力，需要一點建設性意見。我們也偶爾需要承認，外國的月亮確實要圓一點。看看 Twitter 是如何做的。</p>
 <p>Twitter 有一個特性叫作 <a href="https://dev.twitter.com/cards">Twitter Cards</a>，用來展示嵌入內容。它可以是摘要，可以是圖片，可以是視頻，還可以是 App。</p>
 <p>當你發出一條包含網址的 Tweet 時，Twitter 會去查看該網址是否包含可展示的內容。具體的要求則是該網址包含 Twitter 所要求的標記。比如：</p>
-<div class="highlight"><pre><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;twitter:card&quot;</span> <span class="na">content=</span><span class="s">&quot;summary&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;twitter:title&quot;</span> <span class="na">content=</span><span class="s">&quot;長微博及其它&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;twitter:description&quot;</span> <span class="na">content=</span><span class="s">&quot;....&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;twitter:card&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;summary&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;twitter:title&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;長微博及其它&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;twitter:description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;....&quot;</span><span class="p">&gt;</span>
 </pre></div>
 <p>然後向 Twitter 提交你的網站，待 Twitter 認證後，包含你網站的 Tweet 便會展示相關摘要了。請放心，這一步相當快，Twitter 的審覈在幾分鍾內就完成了。</p>
 <figure><img data-src="http://ww1.sinaimg.cn/large/5d261318gw1edquzpeksnj20eb0akjsf.jpg" alt="Twitter Cards" /></figure>
@@ -93,25 +93,25 @@ ga('create', 'UA-21475122-1');
 <p>Twitter 的方案並非原創，是模仿的 <a href="http://ogp.me/">Open Graph</a>。這一方案的好處是顯而易見的，一種包羅萬象的大氣。所謂互聯網者，當互聯也，關起門來獨攬全活叫自閉而非互聯。而協議就是這互聯的基礎。</p>
 <p>Open Graph 是由臉書提出的，Twitter 繼承而生 Twitter Cards，而 <a href="https://developers.google.com/+/web/snippet/">Google+</a> 兼而得之。</p>
 <p>尤其值得一提的是 <a href="http://schema.org/">Schema</a> 標準，真正有一股描述世界的霸氣：</p>
-<div class="highlight"><pre><span class="nt">&lt;body</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/Product&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h1</span> <span class="na">itemprop=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Shiny Trinket<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;img</span> <span class="na">itemprop=</span><span class="s">&quot;image&quot;</span> <span class="na">src=</span><span class="s">&quot;{image-url}&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">itemprop=</span><span class="s">&quot;description&quot;</span><span class="nt">&gt;</span>Shiny trinkets are shiny.<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span> <span class="na">itemscope</span> <span class="na">itemtype</span><span class="o">=</span><span class="s">&quot;http://schema.org/Product&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">&gt;</span>Shiny Trinket<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;image&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{image-url}&quot;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;description&quot;</span><span class="p">&gt;</span>Shiny trinkets are shiny.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </pre></div>
 <p>標準需要的不一定是技術，有時只是一個想法就足夠了。比如說 RSS、Atom。</p>
 <h2>對微博建議</h2>
 <p>文字圖片的弊端也不再述了，我也知道中國人的獨特需求，他們喜歡被圈養，不太願意跳出圍城。但是這並不意味着我們就需要污染環境。</p>
 <p>正如 Twitter 模仿 Open Graph，我們也可以模仿 Schema：</p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://weibo.com/LongWeibo&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;creator&quot;</span> <span class="na">content=</span><span class="s">&quot;@lepture&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h1</span> <span class="na">itemprop=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Article Title<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;img</span> <span class="na">itemprop=</span><span class="s">&quot;image&quot;</span> <span class="na">src=</span><span class="s">&quot;{image-url}&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">itemprop=</span><span class="s">&quot;description&quot;</span><span class="nt">&gt;</span>Shiny trinkets are shiny.<span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">itemprop=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">itemscope</span> <span class="na">itemtype</span><span class="o">=</span><span class="s">&quot;http://weibo.com/LongWeibo&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;creator&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;@lepture&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">&gt;</span>Article Title<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;image&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{image-url}&quot;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;description&quot;</span><span class="p">&gt;</span>Shiny trinkets are shiny.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
     {content}
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 <p>當我們分享一條鏈接時，微博便去索引此篇文章，找到全文內容，儲存爲純文本，在需要的時候展示全文。</p>
 <p>這個想法是免費的，隨時歡迎微博取用。也衷心希望對這個世界溫柔一點，儘量使用更低能耗的純文本。珍愛世界，從我做起，如果你的郵箱簽名帶有圖片，請把圖片去掉。</p>
@@ -159,7 +159,7 @@ ga('create', 'UA-21475122-1');
 </script>
   <footer id="footer">
     <div class="container">
-      <p>&copy; Copyright 2010 - 2015 by Hsiaoming Yang.</p>
+      <p>&copy; Copyright 2010 - 2016 by Hsiaoming Yang.</p>
     </div>
   </footer>
 </body>

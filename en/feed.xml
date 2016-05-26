@@ -3,7 +3,7 @@
     <title><![CDATA[Just lepture]]></title>
     <link href="http://lepture.com/en/feed.xml" rel="self" />
     <link href="http://lepture.com/en/" />
-    <updated>2016-03-13T11:51:22.022157+08:00</updated>
+    <updated>2016-05-27T01:05:55.821174+08:00</updated>
     <id>http://lepture.com/</id>
     <entry>
         <title type="html"><![CDATA[Python on A Hard Wheel]]></title>
@@ -362,8 +362,8 @@ Discount is not available
 <p>The magic happens in the <code>setup.py</code> script. I'd like to introduce this part
 another time.</p>
 <p><strong>mistune is used by many great projects such as IPython, Rodeo and crossbar.</strong></p>
-<p>*This post and all posts in markdown format on this site are rendered with
-mistune.*</p>
+<p><em>This post and all posts in markdown format on this site are rendered with
+mistune.</em></p>
 <div class="footnotes">
 <hr>
 <ol><li id="fn-sundown-deprecated"><p>Sundown is deprecated a year ago with a <a href="https://github.com/vmg/sundown/commit/37728fb2d7137ff7c37d0a474cb827a8d6d846d8">commit</a> by vmg, but the new markdown parser is still missing.<a href="#fnref-sundown-deprecated" rev="footnote">&#8617;</a></p></li>
