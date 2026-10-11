@@ -1,0 +1,179 @@
+---
+import SiteFooter from '@/components/SiteFooter.astro'
+import SiteHeader from '@/components/SiteHeader.astro'
+import { getSite } from '@/lib/site'
+import {
+  getStaticAlternate,
+  getLanguageFallback,
+  otherLanguage,
+  type Language,
+} from '@/lib/i18n'
+import '@/styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+  previousUrl?: string
+  nextUrl?: string
+  language?: Language
+  alternateUrl?: string | null
+  image?: string
+}
+
+const {
+  title,
+  description,
+  previousUrl,
+  nextUrl,
+  language = 'en',
+  alternateUrl = getStaticAlternate(Astro.url.pathname, language),
+  image,
+} = Astro.props
+const site = (await getSite(language)).data
+const pageTitle = title
+  ? `${title} — ${site.title}`
+  : `${site.title} — ${site.tagline}`
+const pageImage = image ?? site.logo
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
+const pageDescription = description ?? site.description
+const languageSwitchHref =
+  alternateUrl ?? getLanguageFallback(Astro.url.pathname, language)
+---
+
+<!doctype html>
+<html
+  class="min-w-80 scroll-smooth bg-canvas motion-reduce:scroll-auto"
+  lang={language}
+  data-theme="light"
+  data-theme-preference="system"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={pageDescription} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f4f3ef" />
+    <link rel="icon" type="image/jpeg" href={site.logo} />
+    <link rel="canonical" href={canonicalUrl} />
+    {alternateUrl && (
+      <>
+        <link rel="alternate" hreflang={language} href={canonicalUrl} />
+        <link
+          rel="alternate"
+          hreflang={otherLanguage(language)}
+          href={new URL(alternateUrl, Astro.site)}
+        />
+      </>
+    )}
+    {previousUrl && <link rel="prev" href={new URL(previousUrl, Astro.site)} />}
+    {nextUrl && <link rel="next" href={new URL(nextUrl, Astro.site)} />}
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${site.title} ${language === 'zh' ? '全部文章' : 'All posts'} RSS`}
+      href="/feed.xml"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${site.title} English RSS`}
+      href="/en/feed.xml"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${site.title} 中文 RSS`}
+      href="/zh/feed.xml"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL(pageImage, Astro.site)} />
+    <meta name="twitter:card" content="summary" />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      let themePreference = 'system'
+      try {
+        const savedTheme = localStorage.getItem('aster-theme')
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+          themePreference = savedTheme
+        }
+      } catch {}
+      const theme =
+        themePreference === 'system'
+          ? matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light'
+          : themePreference
+      document.documentElement.dataset.themePreference = themePreference
+      document.documentElement.dataset.theme = theme
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute('content', theme === 'dark' ? '#090909' : '#f4f3ef')
+    </script>
+  </head>
+  <body class="bg-canvas font-sans text-base leading-[1.65] text-ink antialiased selection:bg-ink selection:text-canvas [text-rendering:optimizeLegibility] transition-colors duration-200 motion-reduce:transition-none">
+    <SiteHeader
+      site={site}
+      language={language}
+      languageSwitchHref={languageSwitchHref}
+      hasTranslation={Boolean(alternateUrl)}
+    />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter site={site} language={language} />
+
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>(
+        '[data-theme-toggle]',
+      )
+      const systemTheme = matchMedia('(prefers-color-scheme: dark)')
+
+      function updateToggleLabel(theme: 'dark' | 'light') {
+        const isChinese = document.documentElement.lang === 'zh'
+        toggle?.setAttribute(
+          'aria-label',
+          theme === 'dark'
+            ? isChinese
+              ? '切换到浅色主题'
+              : 'Switch to light theme'
+            : isChinese
+              ? '切换到深色主题'
+              : 'Switch to dark theme',
+        )
+      }
+
+      function applyTheme(theme: 'dark' | 'light') {
+        document.documentElement.dataset.theme = theme
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute('content', theme === 'dark' ? '#090909' : '#f4f3ef')
+        updateToggleLabel(theme)
+      }
+
+      systemTheme.addEventListener('change', ({ matches }) => {
+        if (document.documentElement.dataset.themePreference === 'system') {
+          applyTheme(matches ? 'dark' : 'light')
+        }
+      })
+
+      toggle?.addEventListener('click', () => {
+        const currentTheme =
+          document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark'
+
+        document.documentElement.dataset.themePreference = nextTheme
+        try {
+          localStorage.setItem('aster-theme', nextTheme)
+        } catch {}
+        applyTheme(nextTheme)
+      })
+
+      updateToggleLabel(
+        document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
+      )
+    </script>
+  </body>
+</html>

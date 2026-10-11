@@ -1,0 +1,64 @@
+---
+interface Props {
+  columns: 2 | 3 | 4
+}
+
+const { columns } = Astro.props
+---
+
+<dl
+  class="metadata-grid mt-6 border-y border-rule text-sm"
+  data-columns={columns}
+  style={`--columns: ${columns}`}
+>
+  <slot />
+</dl>
+
+<style>
+  .metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .metadata-grid > :global(div) {
+    min-width: 0;
+    padding-block: 0.75rem;
+    padding-inline-end: 0.75rem;
+  }
+  .metadata-grid > :global(div:nth-child(even)) {
+    border-inline-start: 1px solid var(--rule);
+    padding-inline-start: 0.75rem;
+  }
+  .metadata-grid > :global(div:nth-child(n + 3)) {
+    border-block-start: 1px solid var(--rule);
+  }
+  .metadata-grid[data-columns='3'] > :global(div:last-child) {
+    grid-column: span 2;
+  }
+  .metadata-grid :global(dt) {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--muted);
+  }
+  .metadata-grid :global(dd) {
+    margin-top: 0.25rem;
+    overflow-wrap: anywhere;
+  }
+  @media (min-width: 640px) {
+    .metadata-grid {
+      grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+    }
+    .metadata-grid > :global(div) {
+      padding-inline-end: 1rem;
+    }
+    .metadata-grid > :global(div:not(:first-child)) {
+      border-inline-start: 1px solid var(--rule);
+      padding-inline-start: 1rem;
+    }
+    .metadata-grid > :global(div:nth-child(n + 3)) {
+      border-block-start: 0;
+    }
+    .metadata-grid[data-columns='3'] > :global(div:last-child) {
+      grid-column: auto;
+    }
+  }
+</style>

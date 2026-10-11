@@ -1,0 +1,71 @@
+---
+title: '談談 AMP 及其他'
+publishedAt: 2017-04-20T15:05:01Z
+updatedAt: 2022-04-10T02:28:22Z
+tags: ['Web']
+---
+
+AMP 是 Accelerated Mobile Pages 的縮寫，顧名思義，是用來加速 Mobile 頁面的。該項目由 Google 領頭，Twitter、Pinterest、WordPress 等協同，於 2015 年下半年創建，至今已有無數網站支持 AMP 了，包括 WIRED、華盛頓郵報、紐約時報等媒體——因為 AMP 正是為媒體而生的。
+
+我的個人博客也支持 AMP。是的，我又改寫了我的博客程序。
+
+## AMP 有什麼作用
+
+[AMP](https://www.ampproject.org) 是由 Google 提出來的一套移動加速方案與標準，它會在 Google 的服務器上緩存一份 AMP 網頁，用來快速加載。當你在移動端使用 Google 搜索時，支持 AMP 的網頁會顯示一個閃電標誌。點擊該鏈接，頁面是瞬間打開的，完全沒有延時。這是因為 Google 已經提前加載好了頁面所需內容。
+
+![AMP 網絡請求](https://i.typlog.com/lepture/vh/a_mCeaIE11rbQUGa_T2A.png)
+
+如圖所示，我們在移動端使用 Google 搜索 [Python Markdown Parsers](/en/2014/markdown-parsers-in-python)，第二條顯示該頁面支持 AMP，我們看看此時的網絡請求，發現當前頁面提前加載了一份 AMP 的緩存內容，該緩存內容在域名 `lepture-com.cdn.ampproject.org` 上。點擊該鏈接，打開的是 `https://www.google.com/amp/` 下的鏈接，而非 lepture.com 下面的頁面。因為已經提前載入了 HTML 內容，所以網頁才會瞬間打開。
+
+AMP 不只是加載速度快，Google 聲稱 AMP 的頁面在搜索結果里排名會更靠前。
+
+除了 Google，還有 Yahoo、[Bing](https://blogs.bing.com/search/September-2016/bing-app-joins-the-amp-open-source-effort)、[Pinterest](https://medium.com/@Pinterest_Engineering/building-a-faster-mobile-web-experience-with-amp-a73c651ded7) 等支持 AMP 瞬間打開。國內搜索引擎如百度、搜狗也聲稱支持 AMP，不過它們都搜索不到什麼有用的內容，我也沒有辦法驗證。
+
+AMP 的缺點亦是十分明顯的，因為 Google 的緩存，打開網頁的地址是 Google 的鏈接，原網站的品牌感便消失了。
+
+## 如何實現 AMP
+
+AMP 是為媒體內容設計的（博客也是媒體內容），不適合功能型網站。在你打算給自己的網站添加 AMP 支持的時候，請先定位好自己的網站類型。
+
+首先，你需要額外製作一份 AMP 網頁，該網頁包含三個核心部分：
+
+1. **AMP HTML**  
+   特定的 HTML 標籤及 AMP 自定義標籤。
+2. **AMP JS**  
+   加速網頁加載速度，異步加載媒體資源。
+3. **AMP Cache**  
+   Google 會幫你緩存頁面所需要的各種資源。
+
+一些製作 AMP 網頁的要點：
+
+- AMP 頁面必須以 `<html ⚡>` 或者 `<html amp>` 來聲明自己。
+- AMP 不能使用外鏈的 CSS 資源。
+- AMP 不能使用 `<img>` 標籤，需要使用 `<amp-img>`，同時需要標明圖片長寬。
+
+具體實現參考[官方文檔](https://www.ampproject.org/docs/)。製作完 AMP 頁面後，便可在相應的文章頁里聲明 AMP 網頁的地址：
+
+```
+<link rel="amphtml" href="https://lepture.com/amp/zh/2017/thought-on-amp>
+```
+
+正是因為 `<amp-img>` 需要標明圖片長寬，而 Markdown 的語法不支持添加圖片長寬信息，即使支持，我也懶得一個一個自己標注圖片大小，又有一些其它的功能點想實現，所以重寫了博客系統，來支援這些想法。
+
+## AMP 與 Web Component
+
+除了 `<amp-img>`，還有許多別的自定義標籤，比如 `<amp-carousel>`、`<amp-ad>` 等。這些自定義標籤都是通過 Web Component 實現的，目前 Web Component 的可使用率大約 58%，剩下的都要靠 Polyfill 來打補丁了，可謂相當超前。
+
+Web Component 是一套編寫瀏覽器原生組件的標準，你可以編寫一個可交互的可重用的自定義標籤，如同 React、Vue、Angular 的組件一樣，只是不再依賴特定框架了。
+
+AMP 正是使用 Custom Element、Shadow Dom、 template 等來實現的。你可以在[其源碼里](https://github.com/ampproject/amphtml/blob/master/src/custom-element.js)一窺究竟。
+
+## AMP 與開放標準
+
+我最欣賞 Google 的一點便是它的開放標準意識。無論是 [Schema](/zh/2015/fe-microdata) 還是 AMP，它們都有自己單獨的網站與組織，有標準的文檔，有與其它網站的合作，這些標準至少看起來像是第三方運營的，不是 Google 的私家花園。
+
+與 AMP 同類型的移動端加速方案還有一些，比如 Facebook Instance Articles，微博的長文章等，但是它們都是私家羊圈，不過是吸血蟲，將互聯網變成一個又一個局域網。互聯網就這樣一點一點被蠶食，世界也變得越來越沒有意思。
+
+## 重新思考
+
+> 這些標準至少看起來像是第三方運營的，不是 Google 的私家花園。
+
+果然只是看起來。AMP 只是 Google 的私家花園。

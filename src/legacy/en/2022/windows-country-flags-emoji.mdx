@@ -1,0 +1,56 @@
+---
+title: 'Display country flags emoji on Windows'
+publishedAt: 2022-04-30T09:51:46Z
+updatedAt: 2026-08-18T11:37:40Z
+tags: ['Web']
+socialImage: 'https://i.typlog.com/lepture/8348689775_772165.jpg'
+---
+
+I've been using Windows for a while now. Everything goes well except it doesn't render country flags emoji. I didn't notice this until I became a Windows user.
+
+In the [Typlog](https://typlog.com) admin portal, there is a region visit metric that displays country flags via emoji. It looks terrible on Windows. Here is how would it look like on Windows:
+
+![Broken country flags](https://i.typlog.com/lepture/8348687989_856062.jpg 'Broken country flags')
+
+There are several ways to fix this problem:
+
+- Display country flags with `<img>` tag: [https://github.com/hampusborgos/country-flags](https://github.com/hampusborgos/country-flags)
+- Using CSS sprits with class names: [https://github.com/lipis/flag-icons](https://github.com/lipis/flag-icons)
+- Render emoji with web fonts: [https://github.com/talkjs/country-flag-emoji-polyfill](https://github.com/talkjs/country-flag-emoji-polyfill)
+
+I prefer the web font way, although this repo contains only a few stars on GitHub. I didn't use the code provided by `country-flag-emoji-polyfill`, it is the `woff2` font I'm using directly in CSS. The font is a subset of "Twemoji Mozilla".
+
+We would load the web font only on Windows because Mac and Linux can display country flags emoji well. In this way, it would reduce the HTTP requests and net bandwidth, though the font is quite small.
+
+A simple JavaScript is required:
+
+```js
+if (/windows/i.test(navigator.userAgent)) {
+  document.body.classList.add('win')
+}
+```
+
+This code will add a `win` class to the `<body>` tag. We would only use the web font for `.win` in CSS:
+
+```css
+@font-face {
+  font-family: 'Twemoji Country Flags';
+  unicode-range:
+    U+1F1E6-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067, U+E006C, U+E006E,
+    U+E0073-E0074, U+E0077, U+E007F;
+  src: url('https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1/dist/TwemojiCountryFlags.woff2')
+    format('woff2');
+}
+
+body {
+  font-family: var(--user-defined-font), sans-serif;
+}
+
+.win {
+  font-family: 'Twemoji Country Flags', var(--user-defined-font), sans-serif;
+}
+```
+
+Here is what the region visit metric looks like on Windows now.
+
+![Twemoji Country Flags](https://i.typlog.com/lepture/8348687961_643282.jpg 'Display with Twemoji Country Flags')

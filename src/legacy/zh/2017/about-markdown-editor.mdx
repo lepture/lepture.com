@@ -1,0 +1,44 @@
+---
+title: '談談 Markdown 編輯器'
+publishedAt: 2017-04-05T15:17:02Z
+updatedAt: 2022-05-08T16:50:11Z
+tags: []
+---
+
+多年前，我曾寫過一個 [Markdown 編輯器][editor]，不過是一時心血來潮，沒有認真打理，亦未作宣傳，不覺間竟成了我 GitHub 上星數最多的一個項目。而我認真寫作的一個 [Python Markdown Parser][mistune] 還未過千星，人心之難測幾何哉。
+
+寫 [Markdown Editor][editor] 不過是因為好玩，過後自己並不曾使用，便至於荒疏了，因為「自己使用是一個很重要的原則」。
+
+---
+
+選擇 Markdown 便是選擇自由，選擇不受制於編輯器的自由，因為任何一個文本輸入框都可以成為你的 Markdown 編輯器。
+
+正如 Markdown 的作者 John Gruber 所言：
+
+> A Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions...
+
+> To this end, Markdown’s syntax is comprised entirely of punctuation characters, which punctuation characters have been carefully chosen so as to look like what they mean. E.g., asterisks around a word actually look like _emphasis_. Markdown lists look like, well, lists.
+
+雖然 Markdown 整體的語法設計並不完美，但並不妨礙它成為當今最流行的文本標記語言。誠如 John Gruber 所說，Markdown 的標記符號確實是精心挑選的（_carefully chosen_）的，符號本身的表意簡潔明瞭，而需要學習的語法量較少，最是[適合文字工作者][writer]。
+
+譬如當我們看到`**這種強調**`的文法時，我們一眼便知道它表示強調，而不必看到渲染後的結果，這也正是 Markdown 的設計初衷。如果你必定要使用一個 Markdown 編輯器才能使用 Markdown 寫作的話，「你可能在用假的 Markdown」。
+
+自然，我並不是排斥 Markdown 編輯器。即使達到了手中無劍心中有劍的境界，亦不妨手持利刃，只是其究竟是否利刃？
+
+最下者，實時預覽之 Markdown 編輯器。何也？實時預覽一是無用，二是擾人思緒。
+
+編輯器之實時預覽多半與最終呈現效果並不一致，最終的展現效果當是由最終頁的樣式決定的，而這個樣式通常並非實時預覽時的樣式。既是如此，又何必實時預覽。Markdown 是所想即所得，假使預覽，亦只是檢查一下是否有些許不當的標記文法。
+
+更要緊者便是擾人思緒。寫作之時，當專注於內容，而非樣式。不像一般的所見即所得編輯器，Markdown 的實時預覽多半是與寫作輸入框分開的。實時預覽，屏幕便不得不實時刷新，勾引作者去看渲染後的結果，於寫作無益，打擾作者思緒罷了。
+
+次下者，花姿招展文法高亮之 Markdown 編輯器也。這不過是代碼編輯器的通病，用顏色來提示代碼文法固然不錯，但用於 Markdown 則失之偏頗了。顏色是用來提醒代碼文法的，Markdown 卻是寫作之用，這番提醒於寫作無益，亦只是打擾作者思緒罷了。便是有文法高亮，亦當節制，不過灰度上的變化便可。
+
+我個人覺得 GitHub Issues 的輸入框便是很不錯的 Markdown 編輯器。事實上任何一個大小適合的 `<textarea>` 都是個合格的 Markdown 編輯器，如果再加上一個最終預覽功能的話，便是錦上添花了。GitHub Issues 的輸入框正如此，其預覽功能所顯示的樣式亦是文字最終的呈現效果，最是完美的編輯器。
+
+這樣想來，我之所作編輯器倒不算很壞的編輯器，文法高亮之顏色相當節制，有預覽功能而無實時預覽之擾人。是否應該撿起這最多星之項目呢？可是我已成為了 `<textarea>` 愛好者，於此種編輯器並無憐惜之情。
+
+最後一點建言。排版，應當是寫作完成之後才需要做的事。寫作需要無拘無束，心無旁騖。便如圖片、鏈接等，可於寫作完成之後再標注，圖片不妨在其處放一個標記符號，鏈接不妨先放在文本框里，不急於與文字對應上。待到文字有成，需要預覽之時，再拾遺補缺。
+
+[writer]: http://lepture.com/zh/2013/typography-and-markdown
+[editor]: https://github.com/lepture/editor
+[mistune]: https://github.com/lepture/mistune

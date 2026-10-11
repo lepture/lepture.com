@@ -1,0 +1,28 @@
+---
+import type { Moment } from '@/lib/content'
+
+interface Props {
+  moment: Moment
+}
+
+const { moment } = Astro.props
+---
+
+<div class="space-y-6">
+  {moment.data.photos.map((photo) => (
+    <figure class="m-0">
+      <img
+        class="m-0 block h-auto w-full"
+        src={photo.src}
+        alt={photo.alt || moment.data.title}
+        width={photo.width}
+        height={photo.height}
+        loading="lazy"
+        decoding="async"
+      />
+      {photo.caption && (
+        <figcaption class="mt-3 text-sm text-muted">{photo.caption}</figcaption>
+      )}
+    </figure>
+  ))}
+</div>

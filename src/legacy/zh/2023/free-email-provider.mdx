@@ -1,0 +1,154 @@
+---
+title: '個人域名郵箱免費方案'
+publishedAt: 2023-08-20T07:30:07Z
+updatedAt: 2023-08-22T17:16:34Z
+tags: []
+---
+
+Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我將個人郵箱 (me@lepture.com) 從 Google Workspace 轉到了 Cloudflare Email Routing，每月節省了 6 美金。
+
+我們知道 Cloudflare Email Routing 可以接收郵件然後轉發到你指定的另一個郵箱，但是並不能發送郵件。這樣的話，我們就不能使用自己的個人域名郵箱了。所以要搭配一個方案，讓我們可以用自己的域名發郵件。所以我另外註冊了一個 Gmail 來發郵件。
+
+下面是我遷移的整個流程：
+
+## 備份郵件
+
+首先我們需要備份個人域名郵箱里的郵件，如果你沒有什麼重要的郵件的話，也可以不備份。不過最好還是備份一下。這裡我選擇將郵件導入到我新註冊的 Gmail 里。如果你已經有一個 `@gmail.com` 的郵箱了，這一步可以省略。不過我還是註冊了一個全新的 Gmail，這樣比較清爽。
+
+進入 Gmail 的設置裡面，選擇 **Accounts and Import**，在下面可以找到 **Check mail from other accounts**，點擊 **Add a mail account**。在彈出的對話框里輸入自己的郵箱，按照引導會進入填寫 POP 服務的頁面。
+
+![Sync emails](https://i.typlog.com/lepture/8307487731_322001.jpg) ![Add mail account](https://i.typlog.com/lepture/8307487022_940852.png)
+
+按照[官方文檔](https://support.google.com/mail/answer/7104828?hl=zh-Hans)，你需要填寫的信息：
+
+- 用戶名：你的郵箱
+- 密碼：你的郵箱密碼
+- POP 服務器：pop.gmail.com
+- 端口：995
+- 要求 SSL：是
+
+> **Important**
+>
+> 你也許無法成功添加郵箱賬戶。這裡可能會出現錯誤提示：
+>
+> Server denied POP3 access for the given username and password.
+
+我們需要先開啓個人域名郵箱（Google Workspace Gmail）里的 POP3 功能。到你的個人郵箱設置里，選擇 **Forwarding and POP/IMAP**，然後開啓 POP 服務。
+
+![Enable POP](https://i.typlog.com/lepture/8307486563_982321.jpg)
+
+但是可能還是無法成功，這是因為 Gmail 的安全機制導致的。雖然官方文檔里說密碼使用郵箱的登錄密碼就可以了，但其實不行。這裡有兩個解決方案：
+
+1. 使用 App password
+2. 修改賬戶安全等級
+
+在下面的章節里會介紹如何創建 App password，這裡先介紹一下修改賬戶安全等級。因為我們這個 Google workspace 賬戶最終是要銷戶的，所以修改賬戶安全等級並沒有什麼影響。進入[賬戶安全中心](https://myaccount.google.com/security)，激活 **Less secure app access** 即可。
+
+![Less secure app access](https://i.typlog.com/lepture/8307485881_938867.png)
+
+再次嘗試添加 POP 郵箱賬戶，應該就會成功了。你需要等待一段時間才能備份完所有郵件。也許睡一覺，明天再繼續？
+
+## 開啓 Cloudflare Email Routing
+
+當郵件備份完後就可以開啓 Cloudflare Email Routing 了。進入 Cloudflare，選擇你的域名，進入 Email Routing 設置。
+
+![Email Routing](https://i.typlog.com/lepture/8307485590_671038.jpg)
+
+比如你註冊的 Gmail 叫 `example@gmail.com`，你的個人域名郵箱是 `me@example.com`，上面的表單可以填寫：
+
+- Custom address: `me`
+- Destination: `example@gmail.com`
+
+然後根據 Cloudflare 的提示，三步後就可以開啓 Cloudflare Email Routing 了。現在，當別人發郵件給 `me@example.com` 時，你的 `example@gmail.com` 郵箱就會收到郵件了。
+
+## 個人域名發件人
+
+最後我們需要讓發件人使用我們自己的域名。這一步與上面的備件郵件有些類似。進入 Gmail 的設置中心，選擇 **Accounts and Import**。在 **Send mail as** 里選擇添加一個新郵箱。
+
+![Send mail as](https://i.typlog.com/lepture/8307485148_297025.jpg)
+
+比如我添加自己的郵箱 `me@lepture.com`，根據提示一步一步走，會進入最後的 SMTP 服務器設置：
+
+### 使用 AWS SES
+
+> **Warning**
+>
+> 如果你還沒有開通 AWS SES，建議試試其他 SMTP，比如 Alibaba Direct Mail。因為 AWS SES 默認為 sandbox 環境，需要申請才能開通生產環境，但是有可能申請不通過。
+
+之前介紹的 Gmail SMTP 方案（在文章最下面）沒有 DKIM 驗證，會導致郵件進入垃圾箱。我們可以使用其他的 SMTP 服務來發送郵件。比如 AWS SES，因爲 SES 會提供每個月 3000 封免費郵件，這對於個人用戶來説絕對夠用了。
+
+首先你需要注冊一個 AWS 賬戶，這裏就不介紹了。注冊後，到 SES Dashboard 裏面添加自己的域名，比如我的：
+
+![SES](https://i.typlog.com/lepture/8307464387_801556.png)
+
+下一步，設置 DNS，讓 SES 支持 DKIM 認證。你將需要設置類似如下的 CNAME。注意，**在 Cloudflare 裏面設置 CNAME 時要關閉 Proxy**。
+
+![Setup DNS](https://i.typlog.com/lepture/8307463952_243525.png)
+
+接下來，我們為這個域名創建一個 SMTP 登錄賬戶：
+
+![Create SMTP credentials](https://i.typlog.com/lepture/8307463704_46915.png)
+
+只需要一步一步跟著 AWS 的步驟來，你就能創建出 SMTP 登錄賬戶和密碼。之後，再將這個 SMTP 賬戶登記到 Gmail 裏面就可以了。
+
+![Add AWS SES SMTP credentials](https://i.typlog.com/lepture/8307462591_68517.png)
+
+我們需要設置：
+
+1. SMTP Server: `email-smtp.us-west-2.amazonaws.com`
+2. Port: 465
+3. Username：AWS SMTP Username
+4. Password：AWS SMTP Password
+
+完成後，可以在設置頁面里將個人域名郵箱設置為默認發件人。
+
+另外，你還可以設置一下 MAIL FROM 域名，如果沒有設置的話，收件人會看到你發的郵件 `mailed-by: us-west-2.amazonses.com`。
+
+![MAIL FROM](https://i.typlog.com/lepture/8307460439_331902.png)
+
+### 使用其他 SMTP
+
+除了 AWS SES，還有其他 SMTP 服務選擇。比如 SendGrid，比如 Alibaba Direct Mail。
+
+- [SendGrid](https://sendgrid.com/pricing/) 提供每天 100 封免費郵件。
+- [Alibaba Direct Mail](https://www.alibabacloud.com/tc/product/directmail/pricing) 每個阿里雲主帳戶每日可獲 200 封免費郵件發送額度。
+
+## 測試
+
+最後，我們使用自己的域名郵箱發送一封郵件試試。下面是我收到的測試郵件示例：
+
+![Received email](https://i.typlog.com/lepture/8307462892_008056.png)
+
+可以看到，SPF、DKIM 都成功了。
+
+---
+
+下面是使用 Gmail SMTP 的方案，請謹慎使用。
+
+> **Warning**
+>
+> 這個方案有缺陷，沒有 DKIM 認證，只能保證 SPF pass。
+
+這裏我們可以直接使用當前的 Gmail 賬戶，比如 `example@gmail.com`。
+
+![smtp.png](https://i.typlog.com/lepture/8307484834_1006365.png)
+
+我們需要設置：
+
+1. SMTP Server: smtp.gmail.com
+2. Port: 587
+3. Username：你的 Gmail 郵箱（就是你當前在用的這個郵箱）
+4. Password：等一下，這裡需要創建一個 App password
+
+在上面的最後一步需要填寫一個密碼，由於 Gmail 的安全機制，你不能直接填寫賬戶密碼，這裡需要使用一個 App password。
+
+1. 進入[賬戶安全中心](https://myaccount.google.com/security)
+2. 激活兩步驗證（2-Step Verification)：
+
+![2-Step Verification](https://i.typlog.com/lepture/8307484528_354437.jpg)
+
+激活後，進入 2-Step Verification，在頁面的最下面有一個 **App passwords**，進入後創建一個 Mail 的 App password 即可。
+
+![App passwords](https://i.typlog.com/lepture/8307484370_11209.png)
+
+然後在密碼填寫框里使用這個生成的密碼即可。完成後，可以在設置頁面里將個人域名郵箱設置為默認發件人。

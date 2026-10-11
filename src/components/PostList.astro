@@ -1,0 +1,49 @@
+---
+import { Icon } from '@prosefly/astro-components'
+import { formatDate } from '@/lib/format'
+import { getContentUrl, getContentLanguage, type Post } from '@/lib/content'
+import { ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  posts: Post[]
+  language?: Language
+}
+
+const { posts, language = 'en' } = Astro.props
+const copy = ui[language]
+---
+
+{posts.length === 0 && (
+  <p class="mt-5 text-muted">
+    {copy.emptyWriting}{' '}
+    <a class="underline underline-offset-4" href="/archive/">
+      {copy.earlierWriting}
+    </a>
+  </p>
+)}
+{posts.length > 0 && (
+  <ol class="mt-5 list-none border-t border-rule p-0">
+    {posts.map((post) => (
+      <li lang={getContentLanguage(post)}>
+        <a
+          class="grid min-h-[2.65rem] grid-cols-[7.6rem_minmax(0,1fr)_1rem] items-center gap-4 border-b border-rule transition-[color,padding] duration-150 hover:px-[0.35rem] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none max-[760px]:grid-cols-[minmax(0,1fr)_1rem] max-[760px]:gap-x-3 max-[760px]:gap-y-1.5 max-[760px]:py-3"
+          href={getContentUrl(post)}
+        >
+          <time
+            class="font-mono text-[0.7rem] tracking-[0.04em] text-muted uppercase max-[760px]:col-start-1 max-[760px]:row-start-1"
+            datetime={post.data.publishedAt.toISOString()}
+          >
+            {formatDate(post.data.publishedAt, getContentLanguage(post))}
+          </time>
+          <span>{post.data.title}</span>
+          <span
+            class="inline-flex justify-end text-faint max-[760px]:col-start-2 max-[760px]:row-span-2 max-[760px]:row-start-1 max-[760px]:self-center"
+            aria-hidden="true"
+          >
+            <Icon name="lucide:arrow-up-right" size="14" />
+          </span>
+        </a>
+      </li>
+    ))}
+  </ol>
+)}

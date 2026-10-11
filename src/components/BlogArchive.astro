@@ -1,0 +1,59 @@
+---
+import Pagination from '@/components/Pagination.astro'
+import PostList from '@/components/PostList.astro'
+import PageIntro from '@/components/PageIntro.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import type { BlogPost } from '@/lib/content'
+import type { PaginationPage } from '@/lib/pagination'
+import { getBlogPageUrl } from '@/lib/blog'
+import { ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  page: PaginationPage<BlogPost>
+  language?: Language
+}
+
+const { page, language = 'en' } = Astro.props
+const copy = ui[language]
+const pageTitle =
+  page.currentPage === 1
+    ? copy.blog.title
+    : `${copy.blog.title}, ${copy.pagination.page} ${page.currentPage}`
+
+const previousHref =
+  page.currentPage > 1
+    ? getBlogPageUrl(page.currentPage - 1, language)
+    : undefined
+const nextHref =
+  page.currentPage < page.totalPages
+    ? getBlogPageUrl(page.currentPage + 1, language)
+    : undefined
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={copy.blog.description}
+  language={language}
+  previousUrl={previousHref}
+  nextUrl={nextHref}
+>
+  <section class="page-shell pt-18 pb-20 min-[761px]:pt-16">
+    <PageIntro
+      title={copy.blog.heading}
+      emphasis={copy.blog.emphasis}
+      eyebrow={`${copy.blog.title} · ${page.totalItems}`}
+      description={copy.blog.description}
+    />
+  </section>
+
+  <section class="page-shell pb-24" aria-label={copy.blog.title}>
+    <PostList posts={page.items} language={language} />
+    <Pagination
+      currentPage={page.currentPage}
+      totalPages={page.totalPages}
+      previousHref={previousHref}
+      nextHref={nextHref}
+      language={language}
+    />
+  </section>
+</BaseLayout>

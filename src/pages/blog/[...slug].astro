@@ -1,0 +1,21 @@
+---
+import ArticlePage from '@/components/ArticlePage.astro'
+import {
+  getPublishedBlogPosts,
+  getLocalizedPaths,
+  type BlogPost,
+} from '@/lib/content'
+
+export async function getStaticPaths() {
+  return getLocalizedPaths(await getPublishedBlogPosts(), 'en')
+}
+
+interface Props {
+  entry: BlogPost
+  alternateUrl?: string
+}
+
+const { entry, alternateUrl } = Astro.props
+---
+
+<ArticlePage post={entry} alternateUrl={alternateUrl} />

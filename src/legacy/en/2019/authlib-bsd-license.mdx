@@ -1,0 +1,46 @@
+---
+title: 'Authlib Under BSD License'
+publishedAt: 2019-01-01T09:16:29Z
+updatedAt: 2022-04-10T02:28:29Z
+tags: []
+---
+
+The new year has arrived, it is the time to make a change. The [license issue][] of [Authlib] has been there for a long time, AGPL seems not a good choice in first place. Although I had planned to split Authlib into 3 modules and issue them under different licenses, that won't happen in a short time. AGPL is preventing many people from using Authlib, the situation will end soon. New year is the time to change the license, and I'm happy to announce that Authlib is going to be licensed under BSD from next release.
+
+[license issue]: https://github.com/lepture/authlib/issues/59
+[Authlib]: https://authlib.org/
+[Flask-OAuthlib]: https://github.com/lepture/flask-oauthlib
+
+## Background
+
+[Authlib][] was created to replace my [Flask-OAuthlib][] project. In my previous blog article _[Announcement of Authlib](/en/2018/announcement-of-authlib)_, the following is posted:
+
+- Flask-OAuthlib is not designed well.
+
+  It was caused by the API provided by OAuthLib and my poor understanding of OAuth at that time.
+
+- Flask-OAuthlib is not maintained well.
+
+  It was caused by the maintenance problem of OAuthLib at that time (things are better now).
+
+That is why I started Authlib **from scratch** and build it as a **monolithic project**. Starting from scratching would provide Authlib a cleaner and better designed code base, it won't be affected by the maintenance of other projects. Being monolithic would keep specification implementation and framework integrations synchronic in Authlib, and it would also provide a better API design for integrations.
+
+## Sustainable
+
+The original goal of making Authlib sustainable won't change. Being profitable equals being sustainable. Although I had switched Authlib license from AGPL to BSD, it is still suggested that enterprise users [buy a commercial plan](https://authlib.org/plans).
+
+1. You will be enlisted in the security mail list to get security notification at first time;
+2. Your feedbacks will get responses more quickly than community support;
+3. There will be more features in the future.
+
+There is also another way to support my work on Authlib. I'm now accepting donations and sponsorships on [Patreon](https://www.patreon.com/lepture). Thanks for supporting my work on Authlib.
+
+## Get Updates
+
+Version 0.11 should be released in January soon. Follow [Authlib's Twitter](https://twitter.com/authlib) account and subscribe [Authlib's Blog](https://blog.authlib.org/) to get updates.
+
+Here is the official blog announcement: [https://blog.authlib.org/2019/switch-to-bsd-license](https://blog.authlib.org/2019/switch-to-bsd-license).
+
+---
+
+_Happy new license, happy new year._

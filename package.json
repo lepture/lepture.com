@@ -1,0 +1,42 @@
+{
+  "name": "astro-template-aster",
+  "version": "0.1.0",
+  "description": "A minimal Astro projects-and-blog template for independent designers and developers.",
+  "private": true,
+  "type": "module",
+  "license": "BSD-3-Clause",
+  "homepage": "https://astro-template-aster.prosefly.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prosefly/astro-template-aster.git"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^8.0.2",
+    "@astrojs/rss": "^4.0.19",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@prosefly/astro-components": "^0.8.0",
+    "astro": "^7.3.5",
+    "entities": "^8.1.0",
+    "ultrahtml": "^1.7.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.19.2",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^1.0.0",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
+  }
+}

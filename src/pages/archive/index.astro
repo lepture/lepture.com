@@ -1,0 +1,23 @@
+---
+import PostList from '@/components/PostList.astro'
+import PageIntro from '@/components/PageIntro.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { ui } from '@/lib/i18n'
+import { getPublishedPosts } from '@/lib/legacy'
+
+const posts = await getPublishedPosts()
+const { title, description } = ui.en.archive
+---
+
+<BaseLayout title={title} description={description} alternateUrl={null}>
+  <section class="page-shell pt-18 pb-24 min-[761px]:pt-16">
+    <PageIntro
+      title={title}
+      eyebrow={`${title} · ${posts.length}`}
+      description={description}
+    />
+    <div class="mt-12">
+      <PostList posts={posts} />
+    </div>
+  </section>
+</BaseLayout>

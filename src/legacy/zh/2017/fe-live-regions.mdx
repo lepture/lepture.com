@@ -1,0 +1,89 @@
+---
+title: '前端的基礎修養：ARIA Live Regions'
+publishedAt: 2017-09-27T09:40:00Z
+updatedAt: 2022-05-08T16:42:47Z
+tags: ['HTML', '前端的基礎修養']
+---
+
+「前端的基礎修養」這一系列時隔已久，原本打算持續更新的，中間竟斷了兩年，現在又撿起來，亦不知能否堅持下來。所以喚作「修養」，大抵因為心虛，覺得沒有什麼技術含量，不便言之技術。
+
+這一篇還是談 Accessibility，未來亦有相當一部分這一主題的文章。由簡入繁，一點一點提高網站的可訪問性。也是因爲稍微複雜的話題我還需要學習。這一篇單講 Live Regions。
+
+## Live Regions 是什麼
+
+現代的 Web 越來越依賴 JavaScript，頁面裏的內容亦會隨着使用者的操作發生變化，我們需要標註出哪些變化必須通知給讀屏軟件，這些需要標註的動態區域便是 Live Regions。
+
+在實際應用裏，Live Regions 一般用作消息提醒。例如 Twitter，你可以 Inspect 一下頁面代碼，當有新的 Tweet 時會出現，在 `<body>` 的最下面會出現：
+
+```html
+<div id="sr-event-log" class="visuallyhidden" aria-live="polite">
+  <p>New Tweets available. Press period to review them.</p>
+</div>
+```
+
+如果你開啓了 Voice Over[^1] 或者別的讀屏軟件，這些軟件便會誦讀：
+
+> New Tweets available. Press period to review them.
+
+但是你在網頁裏並不會看到這段內容的呈現，因爲它 `class="visuallyhidden"`，與我在 [aria-label](https://lepture.com/zh/2015/fe-aria-label) 一文裏提到過 `.sr-only` 一樣。
+
+## aria-live
+
+如上代碼所示，我們使用 `aria-live` 來標示 Live Region，它有三個可選參數：off/polite/assertive。
+
+- off: 等同於不標示 Live Region，讀屏軟件不做任何處理
+- polite: 通常使用這個設定，在用戶的當前行爲終止後，讀屏軟件發出消息通知
+- assertive: 比 polite 的優先級高，當同時有其它消息時，讀屏軟件會先讀 assertive 的消息
+
+我們看到 Twitter 的那段通知代碼正是用的 `polite`。但是我們偶爾也會有重要的信息，需要即時反饋，這時便可以用 `aria-live="assertive"` 了。例如「保存錯誤」等消息。這裏有一個消息提醒的例子，我們可以看到 Voice Over 的效果：
+
+https://vimeo.com/235672780
+
+1. 註：如果你在中國大陸，可能看不到這個視頻演示。
+2. 註：這個 UI 庫我暫時沒有精力（財力）更新，大家看看就可以了，不要使用。
+
+## aria-atomic
+
+`aria-live` 用來標記 Live Regions，以及定義它們是否打擾式提醒；`aria-atomic` 用來定義是否將 Live Region 當作一個整體。舉例如下：
+
+```html
+<textarea v-model="content"></textarea>
+<div aria-live="polite" aria-atomic="true">
+  You have entered
+  <span v-text="content.length"></span>
+  characters.
+</div>
+```
+
+假使我們不使用 `aria-atomic="true"`，那麼當 `content` 的長度發生變化時，讀屏軟件將只讀出變化的內容，亦即 `<span v-text="content.length"></span>`，你聽到的便是 1、2、3 等。當標記了 `aria-atomic="true"` 後，你聽到的則是完整的一句話：
+
+> You have entered 3 characters.
+
+註：使用不同的讀屏軟件或者不同的瀏覽器，得到的效果會有差異。
+
+## aria-relevant
+
+我們使用 `aria-relevant` 控制讀屏軟件在何種情況下發出通知消息。它的可選參數爲：
+
+1. additions: 當 live region 內有新增的 Node/Element 時
+2. removals: 當 live region 內有 Node/Element 被刪除時
+3. text: 當 live region 內的文本有變化時
+4. all: 以上所有的情況
+
+默認值爲：`aria-relevant="additions text"`，也就是說，如果 live region 內有節點被移除的話，讀屏軟件不會通告。這在一般情況下是合理的，但是有時我們也想知道是否有節點被移除了，比如當我們要做一個 Todo 時：
+
+```html
+<ul aria-live="polite" aria-relevant="additions removals">
+  <li v-for="(s, i) in todo" :key="i">{{s}}</li>
+</ul>
+```
+
+當我們在其它地方的操作導致 Todo 裏的項目減少時，我們亦希望得到通知，這時需要給 `aria-relevant` 添加 `removals` 參數。
+
+---
+
+- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions
+- http://pauljadam.com/demos/aria-atomic-relevant.html
+- https://dev.opera.com/articles/introduction-to-wai-aria/
+
+[^1]: Voice Over 是 Apple (Mac & iOS) 的讀屏軟件

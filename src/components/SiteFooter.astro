@@ -1,0 +1,39 @@
+---
+import { getNavigationCurrent, type Site } from '@/lib/site'
+import type { Language } from '@/lib/i18n'
+
+interface Props {
+  site: Site
+  language: Language
+}
+const { site, language } = Astro.props
+
+const year = new Date().getFullYear()
+---
+
+<footer class="flex w-full flex-col items-start justify-center gap-4 border-t border-rule/50 px-4 py-5 text-xs text-faint sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:px-12 sm:py-4">
+  <nav
+    class="flex max-w-full flex-wrap items-center gap-x-5 gap-y-3"
+    aria-label={language === 'zh' ? '页脚导航' : 'Footer navigation'}
+  >
+    {site.footer.map(({ href, label }) => (
+      <a
+        class="whitespace-nowrap hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink aria-[current=page]:text-ink aria-[current=location]:text-ink"
+        href={href}
+        aria-current={getNavigationCurrent(href, Astro.url)}
+      >
+        {label}
+      </a>
+    ))}
+    <span class="whitespace-nowrap">© {year}</span>
+  </nav>
+  <p class="m-0 text-muted sm:order-first">
+    Powered by{' '}
+    <a
+      class="text-ink underline decoration-faint underline-offset-[0.2em] hover:decoration-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink"
+      href="https://prosefly.com"
+    >
+      Prosefly
+    </a>
+  </p>
+</footer>

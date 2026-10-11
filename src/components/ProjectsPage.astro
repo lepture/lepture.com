@@ -1,0 +1,34 @@
+---
+import ProjectList from '@/components/ProjectList.astro'
+import PageIntro from '@/components/PageIntro.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getPublishedProjects } from '@/lib/content'
+import { ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  language: Language
+}
+const { language } = Astro.props
+const copy = ui[language].projects
+
+const projects = await getPublishedProjects(language)
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.description}
+  language={language}
+>
+  <section class="page-shell pt-18 pb-20 min-[761px]:pt-16">
+    <PageIntro
+      title={copy.heading}
+      emphasis={copy.emphasis}
+      eyebrow={`${copy.title} · ${projects.length}`}
+      description={copy.description}
+    />
+  </section>
+
+  <section class="page-shell pb-24" aria-label={copy.title}>
+    <ProjectList projects={projects} language={language} />
+  </section>
+</BaseLayout>

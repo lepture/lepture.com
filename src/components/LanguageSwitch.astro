@@ -1,0 +1,53 @@
+---
+import { localizedPath, otherLanguage, ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  language: Language
+  href: string
+  hasTranslation: boolean
+}
+
+const { language, href, hasTranslation } = Astro.props
+const targetLanguage = otherLanguage(language)
+const copy = ui[language].languageSwitch
+let targetLabel: string = copy[targetLanguage]
+if (!hasTranslation) {
+  if (href === localizedPath('/blog/', targetLanguage)) targetLabel = copy.blog
+  else if (href === localizedPath('/projects/', targetLanguage))
+    targetLabel = copy.projects
+  else targetLabel = copy.home
+}
+const languages = [
+  { code: 'en', label: 'EN', name: 'English' },
+  { code: 'zh', label: '中文', name: '中文' },
+] as const
+---
+
+<nav
+  class="inline-flex shrink-0 items-center gap-0.5 rounded-full border border-rule p-0.5 font-mono text-[0.65rem]"
+  aria-label={copy.label}
+>
+  {languages.map(({ code, label, name }) =>
+    code === language ? (
+      <span
+        class="rounded-full bg-rule px-2.5 py-1 text-ink"
+        lang={code}
+        aria-label={name}
+        aria-current="true"
+      >
+        {label}
+      </span>
+    ) : (
+      <a
+        class="rounded-full px-2.5 py-1 text-faint transition-colors hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ink motion-reduce:transition-none"
+        href={href}
+        lang={code}
+        hreflang={code}
+        aria-label={targetLabel}
+        title={targetLabel}
+      >
+        {label}
+      </a>
+    ),
+  )}
+</nav>

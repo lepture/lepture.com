@@ -1,0 +1,33 @@
+---
+import type { Language } from '@/lib/i18n'
+
+interface Props {
+  title: string
+  author: string
+  image: string
+  rating: number
+  language?: Language
+}
+
+const { title, author, image, rating, language = 'en' } = Astro.props
+const isChinese = language === 'zh'
+---
+
+<aside
+  class="not-prose mb-10 flex items-start gap-5 border-b border-rule pb-8"
+  aria-label={isChinese ? '书评' : 'Book review'}
+>
+  <img
+    class="m-0 w-20 shrink-0 sm:w-24"
+    src={image}
+    alt={`${title}${isChinese ? '封面' : ' cover'}`}
+    loading="lazy"
+  />
+  <div class="min-w-0">
+    <h2 class="m-0 font-serif text-2xl leading-snug font-normal">{title}</h2>
+    <p class="mt-2 mb-0 text-sm text-muted">{author}</p>
+    <p class="mt-3 mb-0 text-sm">
+      {isChinese ? '评分' : 'Rating'}: {rating} / 5
+    </p>
+  </div>
+</aside>

@@ -1,0 +1,24 @@
+---
+import { render } from 'astro:content'
+import DetailLayout from '@/layouts/DetailLayout.astro'
+import { getContentLanguage, type PageEntry } from '@/lib/content'
+
+interface Props {
+  page: PageEntry
+  alternateUrl?: string
+}
+
+const { page, alternateUrl } = Astro.props
+const language = getContentLanguage(page)
+const { title, description } = page.data
+const { Content } = await render(page)
+---
+
+<DetailLayout
+  title={title}
+  description={description}
+  language={language}
+  alternateUrl={alternateUrl ?? null}
+>
+  <Content />
+</DetailLayout>

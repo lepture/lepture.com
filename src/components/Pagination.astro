@@ -1,0 +1,53 @@
+---
+import { ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  currentPage: number
+  totalPages: number
+  previousHref?: string
+  nextHref?: string
+  language?: Language
+}
+
+const {
+  currentPage,
+  totalPages,
+  previousHref,
+  nextHref,
+  language = 'en',
+} = Astro.props
+const copy = ui[language].pagination
+---
+
+{totalPages > 1 && (
+  <nav
+    class="mt-10 grid grid-cols-[1fr_auto_1fr] items-center gap-4 pt-5"
+    aria-label={copy.label}
+  >
+    <div>
+      {previousHref && (
+        <a
+          class="text-sm text-muted transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
+          href={previousHref}
+          rel="prev"
+        >
+          {copy.previous}
+        </a>
+      )}
+    </div>
+    <span class="font-mono text-[0.7rem] tracking-wider text-faint uppercase">
+      {copy.page} {currentPage} {copy.of} {totalPages}
+    </span>
+    <div class="text-right">
+      {nextHref && (
+        <a
+          class="text-sm text-muted transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
+          href={nextHref}
+          rel="next"
+        >
+          {copy.next}
+        </a>
+      )}
+    </div>
+  </nav>
+)}

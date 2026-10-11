@@ -1,0 +1,15 @@
+---
+import ArticlePage from '@/components/ArticlePage.astro'
+import { getArticlePaths } from '@/lib/legacy'
+import type { LegacyPost } from '@/lib/content'
+
+export const getStaticPaths = () => getArticlePaths('zh')
+
+interface Props {
+  post: LegacyPost
+}
+
+const { post } = Astro.props
+---
+
+<ArticlePage post={post} />

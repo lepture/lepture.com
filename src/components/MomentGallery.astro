@@ -1,0 +1,228 @@
+---
+import { Icon } from '@prosefly/astro-components'
+import type { Moment } from '@/lib/content'
+import { formatDate } from '@/lib/format'
+import type { Language } from '@/lib/i18n'
+
+interface Props {
+  moment: Moment
+  language?: Language
+}
+
+const { moment, language = 'en' } = Astro.props
+const hasMultiplePhotos = moment.data.photos.length > 1
+---
+
+<moment-gallery id={`moment-${moment.id}`}>
+  <figure class="m-0">
+    <div
+      class:list={['photos', { 'photos-carousel': hasMultiplePhotos }]}
+      data-photo-track
+      role={hasMultiplePhotos ? 'region' : undefined}
+      aria-label={
+        hasMultiplePhotos
+          ? language === 'zh'
+            ? `${moment.data.title} 的照片`
+            : `Photos from ${moment.data.title}`
+          : undefined
+      }
+      tabindex={hasMultiplePhotos ? 0 : undefined}
+    >
+      {moment.data.photos.map((photo) => (
+        <figure class="photo m-0">
+          <img
+            class="m-0 block"
+            src={photo.src}
+            alt={photo.alt || moment.data.title}
+            width={photo.width}
+            height={photo.height}
+            draggable={hasMultiplePhotos ? false : undefined}
+            loading="lazy"
+            decoding="async"
+          />
+          {photo.caption && (
+            <figcaption class="mt-3 text-sm text-muted">
+              {photo.caption}
+            </figcaption>
+          )}
+        </figure>
+      ))}
+    </div>
+    <figcaption class="mt-4 flex items-start justify-between gap-4">
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+        <h2 class="m-0 text-sm font-normal">{moment.data.title}</h2>
+        <time class="font-mono text-xs text-muted" datetime={moment.data.date}>
+          {formatDate(new Date(moment.data.date), language)}
+        </time>
+      </div>
+      {hasMultiplePhotos && (
+        <div
+          class="flex shrink-0 gap-2"
+          aria-label={language === 'zh' ? '照片切换' : 'Photo controls'}
+        >
+          <button
+            class="inline-flex size-7 items-center justify-center text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:cursor-default disabled:opacity-30"
+            type="button"
+            data-previous-photo
+            aria-label={
+              language === 'zh'
+                ? `${moment.data.title}：上一张照片`
+                : `Previous photo in ${moment.data.title}`
+            }
+            disabled
+          >
+            <Icon name="lucide:arrow-left" size="16" />
+          </button>
+          <button
+            class="inline-flex size-7 items-center justify-center text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:cursor-default disabled:opacity-30"
+            type="button"
+            data-next-photo
+            aria-label={
+              language === 'zh'
+                ? `${moment.data.title}：下一张照片`
+                : `Next photo in ${moment.data.title}`
+            }
+          >
+            <Icon name="lucide:arrow-right" size="16" />
+          </button>
+        </div>
+      )}
+    </figcaption>
+  </figure>
+</moment-gallery>
+
+<style>
+  moment-gallery {
+    display: block;
+    min-width: 0;
+    scroll-margin-top: 2rem;
+  }
+
+  .photo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .photos-carousel {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    overflow: visible;
+    touch-action: pan-y;
+    transition: transform 250ms ease;
+  }
+
+  .photos-carousel:focus-visible {
+    outline: 1px solid var(--ink);
+    outline-offset: 5px;
+  }
+
+  .photos-carousel .photo {
+    flex: 0 0 auto;
+  }
+
+  .photos-carousel img {
+    width: auto;
+    height: clamp(18rem, 52vw, 32rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .photos-carousel {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  class MomentGallery extends HTMLElement {
+    private controller?: AbortController
+    private observer?: ResizeObserver
+
+    connectedCallback() {
+      const track = this.querySelector<HTMLElement>('[data-photo-track]')
+      const previous = this.querySelector<HTMLButtonElement>(
+        '[data-previous-photo]',
+      )
+      const next = this.querySelector<HTMLButtonElement>('[data-next-photo]')
+      if (!track || !previous || !next) return
+
+      this.controller = new AbortController()
+      const { signal } = this.controller
+      const photos = Array.from(track.querySelectorAll<HTMLElement>('.photo'))
+      let activeIndex = 0
+      let gestureStart: { x: number; y: number } | undefined
+
+      const updateLayout = () => {
+        const offset = photos[activeIndex].offsetLeft - photos[0].offsetLeft
+        track.style.transform = `translateX(${-offset}px)`
+        previous.disabled = activeIndex === 0
+        next.disabled = activeIndex === photos.length - 1
+      }
+
+      const move = (direction: -1 | 1) => {
+        activeIndex = Math.max(
+          0,
+          Math.min(photos.length - 1, activeIndex + direction),
+        )
+        updateLayout()
+      }
+
+      previous.addEventListener('click', () => move(-1), { signal })
+      next.addEventListener('click', () => move(1), { signal })
+      track.addEventListener(
+        'pointerdown',
+        (event) => {
+          if (event.button !== 0) return
+          gestureStart = { x: event.clientX, y: event.clientY }
+          track.setPointerCapture(event.pointerId)
+        },
+        { signal },
+      )
+      track.addEventListener(
+        'pointerup',
+        (event) => {
+          if (!gestureStart) return
+          const deltaX = event.clientX - gestureStart.x
+          const deltaY = event.clientY - gestureStart.y
+          gestureStart = undefined
+          if (Math.abs(deltaX) >= 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            move(deltaX < 0 ? 1 : -1)
+          }
+        },
+        { signal },
+      )
+      track.addEventListener(
+        'pointercancel',
+        () => {
+          gestureStart = undefined
+        },
+        { signal },
+      )
+      track.addEventListener(
+        'keydown',
+        (event) => {
+          if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+          event.preventDefault()
+          move(event.key === 'ArrowRight' ? 1 : -1)
+        },
+        { signal },
+      )
+      track.querySelectorAll('img').forEach((image) => {
+        image.addEventListener('load', updateLayout, { signal })
+      })
+      this.observer = new ResizeObserver(updateLayout)
+      this.observer.observe(track)
+      photos.forEach((photo) => this.observer?.observe(photo))
+      updateLayout()
+    }
+
+    disconnectedCallback() {
+      this.controller?.abort()
+      this.observer?.disconnect()
+    }
+  }
+
+  if (!customElements.get('moment-gallery')) {
+    customElements.define('moment-gallery', MomentGallery)
+  }
+</script>

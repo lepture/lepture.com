@@ -1,0 +1,17 @@
+---
+import Page from '@/components/Page.astro'
+import { getPages, getLocalizedPaths, type PageEntry } from '@/lib/content'
+
+export async function getStaticPaths() {
+  return getLocalizedPaths(await getPages(), 'zh')
+}
+
+interface Props {
+  entry: PageEntry
+  alternateUrl?: string
+}
+
+const { entry, alternateUrl } = Astro.props
+---
+
+<Page page={entry} alternateUrl={alternateUrl} />

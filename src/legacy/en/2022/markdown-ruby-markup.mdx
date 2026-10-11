@@ -1,0 +1,40 @@
+---
+title: 'Markdown on ruby markup'
+publishedAt: 2022-07-14T13:44:30Z
+updatedAt: 2025-11-24T11:08:00Z
+tags: ['Mistune']
+---
+
+The `<ruby>` HTML element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of Japanese and Chinese characters. There is a [`<ruby>` markup syntax discussion][discussion] in the CommonMark Discussion, among which, I prefer the [syntax designed by JuanitoFatas][markup].
+
+[discussion]: https://talk.commonmark.org/t/proper-ruby-text-rb-syntax-support-in-markdown/2279
+[markup]: https://juanitofatas.com/series/ruby/markdown-ruby-markup
+
+```
+[漢字(かんじ)]
+[漢字(かんじ)](https://jisho.org/search/漢字)
+```
+
+The benefits are obvious:
+
+1. The markup looks pretty and easy to understand
+2. It works well together with links
+
+However, the syntax for separated ruby annotations is a little complex:
+
+```
+[[漢(かん)][字(じ)]](https://jisho.org/search/漢字)
+```
+
+While in [mistune](https://github.com/lepture/mistune) **v3**, I've added a ruby plugin for multiple annotations with the below syntax:
+
+```
+[漢(ㄏㄢˋ)字(ㄗˋ)]
+[漢(かん)字(じ)](https://jisho.org/search/漢字)
+```
+
+You can group all ruby texts in `[]` which can reduce the use of punctuation characters.
+
+[Typlog](https://typlog.com/) has been updated with mistune v3, you can use ruby syntax right now in Typlog. Here are the rendered results with the ruby markup syntax:
+
+[漢(ㄏㄢˋ)字(ㄗˋ)] with zhuyin, [漢(hàn)字(zì)] with pinyin, and [漢(かん)字(じ)] with hiragana.

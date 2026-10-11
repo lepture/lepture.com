@@ -1,0 +1,139 @@
+---
+title: 'A semantic BEM style'
+publishedAt: 2017-07-28T02:56:45Z
+updatedAt: 2023-08-31T13:59:56Z
+tags: ['HTML', 'Web']
+---
+
+Naming is a big problem in programming, especially in CSS. There are a lot of ways to maintain CSS class names, it seems that BEM beats them all. I've always been using BEM in my projects, but in a modified way.
+
+```
+.block-name_element-name.Modifier
+```
+
+There are lots of people who don't like BEM. I don't like the original BEM too. Because it is ugly and takes too many characters. e.g.
+
+```html
+<button class="button button--primary button--large"></button>
+```
+
+So I created a modified version of BEM, it is a mix of semantic and BEM. I've used it for a while, and it works pretty well. I'd like to share it with you.
+
+```html
+<button class="button Primary Large"></button>
+```
+
+## Naming rules
+
+Rules for block, element and modifier names:
+
+1. if block/element names have multiple words, words should be joined with `-`
+2. block and element names are connected with `_`
+3. modifier name is in `CamelCase`
+4. modifier can not be used alone
+
+## Flat instead of Nested
+
+Always use flat class names for css rules:
+
+```css
+.dialog {
+}
+.dialog_head {
+}
+.dialog_foot {
+}
+.dialog.Primary {
+}
+```
+
+Don't do this:
+
+```css
+.dialog .dialog_head {
+}
+```
+
+However, you will use nested style when there is a modifier:
+
+```css
+.dialog.Primary .dialog_head {
+}
+```
+
+## Prefer block level modifier
+
+Always put a modifier on the block part if possible. For instance:
+
+```html
+<div class="dialog Primary">
+  <div class="dialog_head"></div>
+</div>
+```
+
+Don't put modifier on element. Don't do this unless you have to:
+
+```html
+<div class="dialog">
+  <div class="dialog_head Primary"></div>
+</div>
+```
+
+## Prefer class name over tag name
+
+There are two ways to create a component:
+
+**class name**
+
+```html
+<div class="dialog">
+  <div class="dialog_head"></div>
+</div>
+```
+
+**tag name**
+
+```html
+<section class="dialog">
+  <header></header>
+</section>
+```
+
+The **class name** way is preferred. But it is better to combine them together:
+
+```html
+<section class="dialog">
+  <header class="dialog_head"></header>
+</section>
+```
+
+## Component inner state
+
+State is different from modifier. A state can only be used to create a component.
+
+```html
+<button-comp class="Large">Button</button-comp>
+```
+
+The class name `Large` is a modifier. But `<button-comp>` has a `_hover` class when hovering:
+
+```html
+<button class="button-comp _hover Large">Button</button>
+```
+
+This `_hover` is added by `<button-comp>` itself, don't add it yourself. Naming state starts with `_` as protected class.
+
+## Break the rules
+
+Sometime, you have to break the rules. For instance, you need to change the color of `dialog_head`, but the flat way has a very low priority, the color will be overwritten by the outer elements.
+
+In this case, you can add `.block` before `.block_element` to create a higher priority:
+
+```css
+.dialog .dialog_head {
+}
+```
+
+Rules are created for better maintenance. When a rule makes it very hard to implement your component, it is time to break it.
+
+But don't break too many.

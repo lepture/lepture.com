@@ -1,0 +1,94 @@
+---
+title: 'Typlog 三週年'
+publishedAt: 2020-05-02T16:50:32Z
+updatedAt: 2022-04-10T02:28:29Z
+tags: []
+---
+
+不曾想，距離 [Typlog 正式亮像][hello]已經三週年了。這是我第一次做付費服務，也虧得是付費服務，不然早就歇業了吧。Typlog 就這樣安安靜靜地過了三年，直到最近才在 [Product Hunt][ph] 上做了一下宣傳，可惜不太成功，只新增了一個付費用戶。
+
+[hello]: https://lepture.com/zh/2017/hello-typlog
+[ph]: https://www.producthunt.com/posts/typlog
+
+三年時間里，Typlog 修修改改亦有不少變化。經營日淺，多半靠著大家捧場口口相傳罷了，也只能分享一點技術方面的收穫了。
+
+## 從靜態到動態
+
+Typlog 是用 Python Flask 寫的，這一點沒有變化。初時的方案是文章內容存在數據庫里，文章發佈時，後端會讀取數據庫，遍歷文章表生成整個網站的靜態文件，這些靜態文件通常是 HTML，通過 nginx 托管。這裡可以分享一個小技巧，註冊 Typlog 後 Typlog 會給你分配一個 Typlog 的域名，在你綁定了域名後，你就有了兩個域名，需要兩個域名都可以訪問，我當時的做法是：
+
+1. 所有靜態文件生成到一個固定的文件夾，比如 `/data/build/lepture`
+2. 創建軟鏈接 `/data/www/lepture.com` 和 `/data/www/lepture.typlog.com` 到 `/data/build/lepture`
+3. Nginx 配置里設置 `root /data/www/$http_host`
+
+如是，當你訪問 `lepture.com` 或者 `lepture.typlog.com` 時便都可以訪問到相應的頁面了。最初設計選擇使用靜態方案是因為之前自己的博客是靜態的，而且靜態博客速度上會快。考慮到靜態緩存的問題，當時我選擇了不做分頁，採用按年歸檔的方案。這樣的好處是顯而易見的，比如 `/archive/2019/`，當 2019 年過後，這個頁面的內容便不會再變化了，而形如 `/page/2` 的設計，每增加一篇文章所有的 `/page/` 頁面都要重新生成一遍。按年歸檔的設計亦保留到現在。
+
+靜態化的方案堅持了許久，漸漸也有了些許用戶，功能也越加越多，設計亦不時變化，每次變化都需要將所有網站的所有內容重新生成一遍，用戶越多耗時越多，這樣是沒有辦法 scale 的，於是不得不考慮改成動態化。
+
+後來發現完全是自己考慮多了，動態化後一點都不慢。我在 Nginx 的日誌里輸出了 `$request_time` 值，這是請求從 nginx 進入 Python 程序到返回 nginx 的時間，通常這個時間是 3ms，真的非常快，這歸功於 Typlog 的緩存設計。因為保留了按年歸檔的設計，我們的緩存非常方便處理，比如當一篇文章更新了，我們會自動清除相應的緩存，假如這篇文章是 2019 年寫的，我們同時也會清理掉 `/archive/2019/` 的緩存，如果是按頁歸檔的話，就沒有如此方便了，只能將緩存時間設置得短一點。
+
+## 從博客到播客
+
+Typlog 誕生時只是一個博客服務，當時的目標是做一個有管理後台的靜態博客。主要是給我自己用，另外如果有其他人能和我一起用的話，服務器的費用便可以省下來了。之前一直在用靜態生成器來生成自己的博客，一個是圖片不好管理，需要找圖床上傳照片；一個是生成的過程太程序員了，沒有寫作的感覺，而且經常時隔很久後相應的編譯環境會出點各種各樣的問題。這便有了做一個有管理後台的博客的想法。
+
+之後又心癢，想做一個播客節目，於是開始想方案將播客融入進 Typlog。這便是為何播客的 Feed 地址是 `/episodes/feed.xml` 而文章的 Feed 是 `/feed.xml`。因為播客是後來加入的，一開始沒有考慮到，不然文章的 Feed 應該設計為 `/posts/feed.xml` 的。最終自己的播客節目並沒有做出來，但是播客的功能卻在 Typlog 里生根了。
+
+我需要感謝 [Niki][]，他是我們的第一個播客用戶。也因為有了播客用戶，Typlog 才能一點一點改進完善播客功能。播客功能亦為 Typlog 帶來了不少用戶，博客多半隨意，播客通常會注重品牌，感謝播客的品牌效應，Typlog 亦漸為人知。
+
+Typlog 也漸漸清晰了自己的定位，才有了我們現在首頁上的宣傳語：
+
+> Share your stories, either in text, images or audio. Focus on your creation and let Typlog take care of the rest.
+
+最近又將圖片功能升級了，於是有了 [Moments](/moments/)。
+
+[Niki]: http://nirokita.cn/
+
+## Admin 的三次重寫
+
+Typlog 的後台 Admin 部分經歷了三次重寫。感謝 Vue，雖然重寫了三次，但是三次都是用的 Vue。
+
+第一次，初版 Admin，未用第三方 UI 庫，界面簡潔，只有文章功能。
+
+第二次，新增播客功能，Admin 變得複雜許多，之前的簡潔佈局已不再適用，於是重新開始設計佈局。當時在 ElementUI 和 iView 里選擇，不知是不是使用有誤，ElementUI 總是出現各種問題，於是選擇了 iView。
+
+第三次，iView 越使用越不好用，如果只使用他已有的 UI 的話還是不錯的，自定義起來就會很麻煩，後來亦遇到了一些問題，也給 iView 提交了修改代碼，但是越用越覺得還是什麼 UI 框架都不用最好。於是便有了現在的 Admin，整個項目結構合理，邏輯清晰，用 Jessie 的話來說便是，Saber（項目代號） 寫起來特別省心。
+
+## 善用第三方服務
+
+Typlog 使用了許多第三方服務，比如：
+
+1. Stripe 用來收款
+2. Cloudflare Partner 綁定用戶的域名，支持 SSL
+3. Sentry 收集錯誤信息
+4. Google Analytics API 生成後台圖表數據
+5. AWS SES 發通知郵件
+6. Alibaba Cloud JP 處理圖片
+
+這是目前使用的部分服務，Typlog 亦替換過不少服務，最典型的便是 Google Cloud Storage。這是一個大坑，慎入。初時不覺，使用量大起來後費用立刻大漲，賬單里的各種信息看不明白，這裡收一點費那裡收一點費，流量分了好幾種、存儲也分了好幾種，與 Cloudflare 里的流量數據對比，Google Cloud Storage 的流量翻了三倍，也不知他是如何計算的。後來便遷移到了 DigitalOcean Spaces，費用立刻降下來了。
+
+之後要做圖片自動裁剪的功能，於是自己搭了一個 [imgproxy](https://github.com/imgproxy/imgproxy)。用過一段時間，時常會遇到一些問題。後來發現阿里雲 OSS 自帶圖片處理功能，於是註冊了日本區的 Alibaba Cloud，將圖片遷移到了阿里的 OSS。現在圖片 URL 上的 `?x-oss-process=` 便是阿里雲 OSS 提供的功能。這一點特別好用，比 Google Cloud Storage 和 AWS S3 不知高到哪裡去了。
+
+Google Analytics 確實是很好用的，我在 Authlib 的博客里分享過如何[通過 API 讀取 Google Analytics 的數據][ga]，有興趣可以一閱。
+
+[ga]: https://blog.authlib.org/2018/access-google-analytics-api
+
+## 開放互聯網
+
+我向來支持互聯網而反對 App，能用瀏覽器的話就不下載 App 了。Web 是互聯的，App 是隔裂的。所以在做 Typlog 時會非常在意規範。比如最基本的，我們支持 Open Graph 和 Twitter Card。此外，我們還完美支持 [Microdata][] 以及 Microformats。最初 Typlog 使用的是 Microformats 1，後來改作了 Microformats 2。
+
+再比如我們還支持 [PubSubHubbub][] 或者 WebSub，這樣的話當你的博客一有更新後，你的 RSS 訂閱者便會收到更新。新近，我們又加入了 IndieWeb 社會，支持了 [Webmention][]。
+
+[Microdata]: https://lepture.com/zh/2015/fe-microdata
+[PubSubHubbub]: https://blog.typlog.com/pubsubhubbub
+[Webmention]: https://typlog.com/integrations/webmention
+
+## 未來的規劃
+
+Typlog 一點點成長，希望他能漸漸成長到可以養活我。近期的規劃是多做一些 Pro 功能，讓 Pro 套餐更吸引人，已經規劃好的功能點：
+
+- 搜索功能已經快完成了，還在優化 (更新：已在內測）
+- 郵件列表，遷移到 AWS SES 便是為郵件列表功能做準備
+- 會員服務，方案還沒有想好
+
+---
+
+感謝 Typlog 用戶們的支持與包容。

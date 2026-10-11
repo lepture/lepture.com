@@ -1,0 +1,32 @@
+---
+import MomentGallery from '@/components/MomentGallery.astro'
+import PageIntro from '@/components/PageIntro.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getMoments } from '@/lib/content'
+import { ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  language: Language
+}
+const { language } = Astro.props
+const copy = ui[language].moments
+
+const moments = await getMoments()
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.description}
+  language={language}
+>
+  <div class="overflow-x-clip">
+    <section class="page-shell pt-18 pb-24 min-[761px]:pt-16">
+      <PageIntro title={copy.title} description={copy.description} />
+      <div class="mt-12 space-y-16">
+        {moments.map((moment) => (
+          <MomentGallery moment={moment} language={language} />
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,87 @@
+---
+import MetadataGrid from '@/components/MetadataGrid.astro'
+import DetailLayout from '@/layouts/DetailLayout.astro'
+import { formatDate } from '@/lib/format'
+import { getReadingStats } from '@/lib/reading'
+import { ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  title: string
+  description?: string
+  summary?: string
+  sectionHref: string
+  sectionLabel: string
+  publishedAt: Date
+  tags: string[]
+  project?: { title: string; href: string }
+  language?: Language
+  alternateUrl?: string | null
+  image?: string
+}
+
+const {
+  title,
+  description,
+  summary,
+  sectionHref,
+  sectionLabel,
+  publishedAt,
+  tags,
+  project,
+  language = 'en',
+  alternateUrl,
+  image,
+} = Astro.props
+const copy = ui[language].blog
+const content = await Astro.slots.render('default')
+const { count, minutes } = getReadingStats(content, language)
+const numberFormat = new Intl.NumberFormat(language)
+---
+
+<DetailLayout
+  title={title}
+  description={description}
+  summary={summary}
+  back={{ href: sectionHref, label: sectionLabel }}
+  language={language}
+  alternateUrl={alternateUrl}
+  image={image}
+>
+  <MetadataGrid slot="metadata" columns={4}>
+    <div>
+      <dt>{copy.date}</dt>
+      <dd>
+        <time datetime={publishedAt.toISOString()}>
+          {formatDate(publishedAt, language)}
+        </time>
+      </dd>
+    </div>
+    <div>
+      <dt>{project ? copy.project : copy.tags}</dt>
+      <dd>
+        {project ? (
+          <a
+            class="rounded-sm underline decoration-faint underline-offset-[0.2em] transition-colors duration-150 hover:bg-(--pf-accent-soft) hover:decoration-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink motion-reduce:transition-none"
+            href={project.href}
+          >
+            {project.title}
+          </a>
+        ) : (
+          tags.join(language === 'zh' ? '、' : ', ') || '—'
+        )}
+      </dd>
+    </div>
+    <div>
+      <dt>{copy.words}</dt>
+      <dd>{numberFormat.format(count)}</dd>
+    </div>
+    <div>
+      <dt>{copy.length}</dt>
+      <dd>
+        {numberFormat.format(minutes)} {copy.minutes}
+      </dd>
+    </div>
+  </MetadataGrid>
+  <Fragment set:html={content} />
+  <slot name="after-content" slot="after-content" />
+</DetailLayout>

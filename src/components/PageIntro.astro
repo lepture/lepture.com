@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string
+  eyebrow?: string
+  emphasis?: string
+  description?: string
+}
+
+const { title, eyebrow, emphasis, description } = Astro.props
+---
+
+{eyebrow && (
+  <p class="mb-3 font-mono text-[0.7rem] tracking-[0.08em] text-faint uppercase">
+    {eyebrow}
+  </p>
+)}
+<h1 class="page-title [&_em]:font-normal [&_em]:text-muted">
+  {title}
+  {emphasis && (
+    <>
+      <br />
+      <em>{emphasis}</em>
+    </>
+  )}
+</h1>
+{(description || Astro.slots.has('default')) && (
+  <p class="mt-8 max-w-2xl text-muted">
+    <slot>{description}</slot>
+  </p>
+)}

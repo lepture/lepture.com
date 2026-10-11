@@ -1,0 +1,52 @@
+---
+import { Icon } from '@prosefly/astro-components'
+import { getContentUrl, type Post } from '@/lib/content'
+import { formatDate } from '@/lib/format'
+import { ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  posts: Post[]
+  language: Language
+}
+
+const { posts, language } = Astro.props
+---
+
+{posts.length > 0 && (
+  <section class="border-t border-rule pt-6" aria-labelledby="read-next">
+    <h2
+      id="read-next"
+      class="m-0 font-mono text-[0.7rem] font-normal tracking-[0.08em] text-faint uppercase"
+    >
+      {ui[language].blog.readNext}
+    </h2>
+    <ol class="mt-6 grid list-none gap-6 p-0 sm:grid-cols-2 sm:gap-10">
+      {posts.map((next) => (
+        <li class="min-w-0">
+          <a
+            class="group flex h-full flex-col gap-3 py-2 transition-colors hover:text-muted focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink motion-reduce:transition-none"
+            href={getContentUrl(next)}
+          >
+            <time
+              class="font-mono text-[0.7rem] tracking-[0.04em] text-faint"
+              datetime={next.data.publishedAt.toISOString()}
+            >
+              {formatDate(next.data.publishedAt, language)}
+            </time>
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="m-0 font-serif text-2xl leading-snug font-normal wrap-break-word">
+                {next.data.title}
+              </h3>
+              <span
+                class="mt-1 shrink-0 text-faint transition-colors group-hover:text-ink motion-reduce:transition-none"
+                aria-hidden="true"
+              >
+                <Icon name="lucide:arrow-up-right" size="16" />
+              </span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}

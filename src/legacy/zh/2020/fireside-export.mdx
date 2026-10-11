@@ -1,0 +1,28 @@
+---
+title: 'Fireside 遷移記'
+publishedAt: 2020-06-11T02:52:34Z
+updatedAt: 2022-04-10T02:28:29Z
+tags: []
+---
+
+上周「[婊醬FM][]」打算遷移到 Typlog，他們之前使用 Fireside 托管，但是賬戶已經過期，RSS 不能訪問，又未能找到 Fireside 的導出功能。於是將賬戶密碼告知我，委託我來處理。我卻是不信 Fireside 沒有導出功能的，結果是真的找不到。
+
+[婊醬FM]: https://biaojiangfm.typlog.io/episodes/
+
+但是我卻發現了 Fireside 有一個 Hiatus Mode，可以用 $5 來托管播客，方便遷移：
+
+![Hiatus Mode](https://i.typlog.com/lepture/8408157585_794095.png)
+
+告知「婊醬FM」確實需要再續費一個月才能方便遷移到 Typlog，但是可以使用這個 Hiatus Mode 來減少費用。申請後，兩個工作日依舊沒有反應，再次申請，還是沒有反應。賬戶信用卡已更新，但是賬戶依舊是 Suspended 狀態。不知道 Fireside 是否沒有人在工作，無法激活賬戶。
+
+這樣等下去也不是辦法。據說互聯網是有記憶的（當然大國只有 404），也許可以在其他地方找回數據。先到[互聯網檔案館](http://archive.org/)尋找，未能找到。
+
+再搜索，找到一個叫 [Listen Notes](https://www.listennotes.com/podcasts/%E5%A9%8A%E9%85%B1bitch-up-bitchup-4NWS-sDvUr2/) 的地方，似乎可以一用。頁面解析起來不太方便，但是這個網站是有 API 的，遂去申請，可惜需要填寫太多資料，還不知道 API 里是否有 Typlog 所需要的全部資料。便先放在一邊，再找找別的地方，實在不行再回來申請 API key。
+
+最終從 [Breaker](https://www.breaker.audio/biao-jiang-bitch-up) 處獲取到了所有數據：
+
+![Breaker](https://i.typlog.com/lepture/8408156671_350819.png 'Breaker Network')
+
+將數據從 Network 里複製出來，剩下的便很簡單了，寫上幾行 Python 腳本，將數據整理成 Typlog 需要的格式導入到 Typlog 里便可以了。Fireside 那裡，即使賬戶已經過期，只要知道音頻文件的地址，音頻文件依然是可以訪問的，所以還是可以將音頻文件抓取到 Typlog 的存儲里。
+
+這裡不得不說，[Typlog](http://typlog.com/) 還是做得不錯的。從一開始就做了導出功能，即使賬戶過期了，網站不可訪問，導出功能依舊可用。

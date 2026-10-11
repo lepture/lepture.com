@@ -1,0 +1,88 @@
+---
+import { render } from 'astro:content'
+import ContactLinks from '@/components/ContactLinks.astro'
+import PostList from '@/components/PostList.astro'
+import ProjectList from '@/components/ProjectList.astro'
+import { getSite } from '@/lib/site'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getPublishedBlogPosts, getPublishedProjects } from '@/lib/content'
+import type { Language } from '@/lib/i18n'
+
+interface Props {
+  language: Language
+}
+const { language } = Astro.props
+const entry = await getSite(language)
+const site = entry.data
+const copy = site.home
+const { Content } = await render(entry)
+
+const [posts, projects] = await Promise.all([
+  getPublishedBlogPosts(language),
+  getPublishedProjects(language),
+])
+---
+
+<BaseLayout language={language} title={copy.name}>
+  <section class="page-shell pt-18 pb-16 min-[761px]:pt-16">
+    <div class="flex items-center gap-5 sm:gap-6">
+      <img
+        class="size-16 shrink-0 rounded-full object-cover sm:size-18"
+        src={site.logo}
+        alt=""
+        width="384"
+        height="420"
+      />
+      <h1 class="page-title tracking-[0.01em]">{copy.name}</h1>
+    </div>
+    <div class="prose mt-8 max-w-2xl text-muted prose-headings:text-ink prose-strong:text-ink">
+      <Content />
+    </div>
+  </section>
+
+  <section class="page-shell pb-12" aria-labelledby="selected-projects">
+    <h2 class="section-title" id="selected-projects">
+      {copy.projects.title}
+    </h2>
+    <p class="mt-3 mb-5 text-muted">{copy.projects.description}</p>
+    <ProjectList
+      language={language}
+      projects={projects
+        .filter(({ data }) => data.featured)
+        .slice(0, copy.projects.limit)}
+    />
+  </section>
+
+  <section class="page-shell pb-12" aria-labelledby="latest-writing">
+    <h2 class="section-title" id="latest-writing">
+      {copy.writing.title}
+    </h2>
+    <p class="mt-3 mb-5 text-muted">{copy.writing.description}</p>
+    <PostList posts={posts.slice(0, copy.writing.limit)} language={language} />
+  </section>
+
+  <section class="page-shell pb-24" aria-labelledby="contact">
+    <h2 class="section-title" id="contact">
+      {copy.contact.title}
+    </h2>
+    <div class="mt-5">
+      <ContactLinks
+        links={copy.contact.links}
+        name={copy.name}
+        avatar={site.logo}
+        language={language}
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 1.625rem;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+</style>

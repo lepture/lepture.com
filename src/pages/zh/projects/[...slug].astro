@@ -1,0 +1,21 @@
+---
+import ProjectPage from '@/components/ProjectPage.astro'
+import {
+  getPublishedProjects,
+  getLocalizedPaths,
+  type Project,
+} from '@/lib/content'
+
+export async function getStaticPaths() {
+  return getLocalizedPaths(await getPublishedProjects(), 'zh')
+}
+
+interface Props {
+  entry: Project
+  alternateUrl?: string
+}
+
+const { entry, alternateUrl } = Astro.props
+---
+
+<ProjectPage project={entry} alternateUrl={alternateUrl} />

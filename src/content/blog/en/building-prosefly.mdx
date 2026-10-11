@@ -1,0 +1,32 @@
+---
+title: Building Prosefly
+description: Why I started Prosefly, what I built first, and a wrong turn with Cloudflare.
+publishedAt: 2026-10-11T00:00:00Z
+project: en/prosefly
+---
+
+## Why build another one?
+
+I had already built Typlog. Why start [Prosefly](/projects/prosefly) too? I think static websites make more sense now, especially with AI. When content lives in Markdown and MDX files alongside the website's code, AI can read and edit it directly, and work on articles and pages together.
+
+How content is stored and how I write it are two separate things, though. I still want a friendly visual editor. Formatting and inserting images feel more comfortable there; I don't want to edit source every time.
+
+AI has also made it easier to build your own theme. You can change the website to suit your ideas and define its frontmatter fields along with it. For a book review, for example, you could add an author and a rating to the schema.
+
+In Typlog, those fields are predefined by me and are not easy for users to change. Prosefly reads the frontmatter schema defined in the project's text files and generates the editing interface from it. When making a new template, I don't have to start by checking whether the platform supports the fields I want.
+
+## Development order
+
+I spent a long time designing the visual editor before starting the complete platform. Most of my attention was on the editor: the files would be Markdown and MDX, but I wanted a visual writing experience. I wanted that part to be mostly ready first.
+
+Once the editor was close to complete, I started working on Prosefly. Even then, I did not jump straight into the web app. I created a GitHub org, made several Astro themes and templates, and then started building the Prosefly platform.
+
+Working on templates first gave me actual websites in which to organize content, define frontmatter, and see how the editor fit. By the time I started the platform, I already had content to edit and websites that used it.
+
+## A wrong turn
+
+The platform runs on Cloudflare Workers and needs to keep data separate for each org. I initially chose [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/). It lets a platform deploy and run users' Worker code, but my main need at that point was to separate data between organizations.
+
+The project became much more complicated. I had already spent a lot of time on the editor and made several templates, but building the platform kept getting harder. At one point, I considered giving up.
+
+Later, I realized that [Durable Objects](https://developers.cloudflare.com/durable-objects/) could handle the data separation I needed. Each org's data could live in its own Durable Object. It would still be one application, without deploying and managing separate Workers for that purpose. Switching to this approach made the platform much simpler, and I kept going.

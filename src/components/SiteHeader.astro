@@ -1,0 +1,58 @@
+---
+import { Icon } from '@prosefly/astro-components'
+import LanguageSwitch from '@/components/LanguageSwitch.astro'
+import { getNavigationCurrent, type Site } from '@/lib/site'
+import type { Language } from '@/lib/i18n'
+
+interface Props {
+  site: Site
+  language: Language
+  languageSwitchHref: string
+  hasTranslation: boolean
+}
+
+const { site, language, languageSwitchHref, hasTranslation } = Astro.props
+---
+
+<header class="page-shell flex min-h-20 flex-wrap items-center justify-between gap-4 py-4 sm:min-h-24 sm:gap-8">
+  <nav
+    class="flex items-center gap-3 sm:gap-7"
+    aria-label={language === 'zh' ? '主导航' : 'Primary navigation'}
+  >
+    {site.navigation.map(({ href, label }) => (
+      <a
+        class="text-xs text-faint transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink aria-[current=page]:text-ink aria-[current=location]:text-ink motion-reduce:transition-none sm:text-sm"
+        href={href}
+        aria-current={getNavigationCurrent(href, Astro.url)}
+      >
+        {label}
+      </a>
+    ))}
+  </nav>
+
+  <div class="flex shrink-0 items-center gap-2">
+    <LanguageSwitch
+      language={language}
+      href={languageSwitchHref}
+      hasTranslation={hasTranslation}
+    />
+
+    <button
+      class="relative grid size-7 cursor-pointer place-items-center border-0 bg-transparent p-0 text-faint transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
+      type="button"
+      aria-label={language === 'zh' ? '切换到深色主题' : 'Switch to dark theme'}
+      data-theme-toggle
+    >
+      <Icon
+        class="col-start-1 row-start-1 transition-[opacity,transform] duration-150 motion-reduce:transition-none light:-rotate-20 light:scale-[0.72] light:opacity-0"
+        name="lucide:sun"
+        size="17"
+      />
+      <Icon
+        class="col-start-1 row-start-1 -rotate-20 scale-[0.72] opacity-0 transition-[opacity,transform] duration-150 motion-reduce:transition-none light:rotate-0 light:scale-100 light:opacity-100"
+        name="lucide:moon"
+        size="16"
+      />
+    </button>
+  </div>
+</header>

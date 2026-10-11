@@ -1,0 +1,22 @@
+---
+import PageIntro from '@/components/PageIntro.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="Page not found"
+  description="The requested page could not be found."
+>
+  <section class="page-shell pt-18 pb-20 min-[761px]:pt-16">
+    <PageIntro title="Nothing here," emphasis="for now." eyebrow="404">
+      The page may have moved or never existed.{' '}
+      <a
+        class="underline decoration-faint underline-offset-[0.22em] transition-colors duration-150 hover:decoration-ink motion-reduce:transition-none"
+        href="/"
+      >
+        Return home
+      </a>
+      .
+    </PageIntro>
+  </section>
+</BaseLayout>

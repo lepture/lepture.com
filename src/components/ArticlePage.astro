@@ -1,0 +1,57 @@
+---
+import { getEntry, render } from 'astro:content'
+import ReadNext from '@/components/ReadNext.astro'
+import ArticleLayout from '@/layouts/ArticleLayout.astro'
+import {
+  getContentLanguage,
+  getContentUrl,
+  getPublishedBlogPosts,
+  type Post,
+} from '@/lib/content'
+import { getPublishedPosts } from '@/lib/legacy'
+import { localizedPath, ui } from '@/lib/i18n'
+
+interface Props {
+  post: Post
+  alternateUrl?: string
+}
+
+const { post, alternateUrl } = Astro.props
+const language = getContentLanguage(post)
+const isLegacy = post.collection === 'legacy'
+const project =
+  post.collection === 'blog' && post.data.project
+    ? await getEntry(post.data.project)
+    : undefined
+const { Content } = await render(post)
+const posts = isLegacy
+  ? await getPublishedPosts(language)
+  : await getPublishedBlogPosts(language)
+const index = posts.findIndex(({ id }) => id === post.id)
+const nextPosts = [...posts.slice(index + 1), ...posts.slice(0, index)].slice(
+  0,
+  2,
+)
+---
+
+<ArticleLayout
+  title={post.data.title}
+  description={post.data.description}
+  summary={isLegacy ? undefined : post.data.description}
+  sectionHref={isLegacy ? '/archive/' : localizedPath('/blog/', language)}
+  sectionLabel={isLegacy ? ui[language].archive.title : ui[language].blog.title}
+  publishedAt={post.data.publishedAt}
+  tags={post.data.tags}
+  project={
+    project && {
+      title: project.data.title,
+      href: getContentUrl(project),
+    }
+  }
+  language={language}
+  alternateUrl={alternateUrl ?? null}
+  image={isLegacy ? post.data.socialImage : undefined}
+>
+  <Content />
+  <ReadNext slot="after-content" posts={nextPosts} language={language} />
+</ArticleLayout>

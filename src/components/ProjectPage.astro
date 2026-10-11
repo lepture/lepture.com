@@ -1,0 +1,102 @@
+---
+import { render } from 'astro:content'
+import PostList from '@/components/PostList.astro'
+import MetadataGrid from '@/components/MetadataGrid.astro'
+import { getSite } from '@/lib/site'
+import DetailLayout from '@/layouts/DetailLayout.astro'
+import {
+  getContentLanguage,
+  getPublishedBlogPosts,
+  type Project,
+} from '@/lib/content'
+import { localizedPath, ui } from '@/lib/i18n'
+
+interface Props {
+  project: Project
+  alternateUrl?: string
+}
+
+const { project, alternateUrl } = Astro.props
+const language = getContentLanguage(project)
+const site = (await getSite(language)).data
+const copy = ui[language].projects
+const links = [
+  { label: copy.website, href: project.data.website, repository: false },
+  { label: copy.repository, href: project.data.repository, repository: true },
+].flatMap(({ label, href, repository }) => {
+  if (!href) return []
+  const url = new URL(href)
+  const text =
+    repository && url.hostname === 'github.com'
+      ? url.pathname.replace(/^\/|\/$/g, '')
+      : href.replace(/\/$/, '')
+  return [{ label, href, text }]
+})
+let columnCount: 2 | 3 | 4 = 2
+if (links.length === 1) columnCount = 3
+if (links.length === 2) columnCount = 4
+const posts = (await getPublishedBlogPosts(language)).filter(
+  ({ data }) => data.project?.id === project.id,
+)
+const relatedPosts = posts.slice(0, site.projects.relatedPostsLimit)
+const hasMoreRelatedPosts = posts.length > site.projects.relatedPostsLimit
+const { Content } = await render(project)
+---
+
+<DetailLayout
+  title={project.data.title}
+  description={project.data.description}
+  summary={project.data.description}
+  back={{ href: localizedPath('/projects/', language), label: copy.title }}
+  language={language}
+  alternateUrl={alternateUrl ?? null}
+>
+  <MetadataGrid slot="metadata" columns={columnCount}>
+    <div>
+      <dt>{copy.category}</dt>
+      <dd>{copy.categories[project.data.category]}</dd>
+    </div>
+    <div>
+      <dt>{copy.since}</dt>
+      <dd>{project.data.year}</dd>
+    </div>
+    {links.map(({ label, href, text }) => (
+      <div>
+        <dt>{label}</dt>
+        <dd>
+          <a
+            class="rounded-sm underline decoration-faint underline-offset-[0.2em] transition-colors duration-150 hover:bg-(--pf-accent-soft) hover:decoration-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink motion-reduce:transition-none"
+            href={href}
+          >
+            {text}
+          </a>
+        </dd>
+      </div>
+    ))}
+  </MetadataGrid>
+  <Content />
+  <Fragment slot="after-content">
+    {relatedPosts.length > 0 && (
+      <section
+        class="border-t border-rule pt-8"
+        aria-labelledby="related-posts"
+      >
+        <h2 class="m-0 text-base leading-snug font-medium" id="related-posts">
+          {copy.related} · {project.data.title}
+        </h2>
+        <p class="mt-2 text-sm leading-relaxed text-muted">
+          {copy.relatedLead}
+        </p>
+        <PostList posts={relatedPosts} language={language} />
+        {hasMoreRelatedPosts && (
+          <a
+            class="mt-5 inline-block text-sm text-muted underline decoration-faint underline-offset-[0.2em] transition-colors duration-150 hover:text-ink hover:decoration-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
+            href={localizedPath('/blog/', language)}
+          >
+            {copy.allWriting}
+          </a>
+        )}
+      </section>
+    )}
+  </Fragment>
+</DetailLayout>

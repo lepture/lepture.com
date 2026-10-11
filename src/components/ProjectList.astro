@@ -1,0 +1,41 @@
+---
+import { Icon } from '@prosefly/astro-components'
+import { getContentUrl, type Project } from '@/lib/content'
+import { ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  projects: Project[]
+  language?: Language
+}
+
+const { projects, language = 'en' } = Astro.props
+const copy = ui[language].projects
+---
+
+{projects.length === 0 && <p class="mt-5 text-muted">{copy.empty}</p>}
+{projects.length > 0 && (
+  <ol class="mt-5 list-none border-t border-rule p-0">
+    {projects.map((project) => (
+      <li>
+        <a
+          class="grid min-h-[2.65rem] grid-cols-[10rem_minmax(0,1fr)_10.5rem_1rem] items-center gap-4 border-b border-rule transition-[color,padding] duration-150 hover:px-[0.35rem] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none max-[760px]:grid-cols-[minmax(0,1fr)_1rem] max-[760px]:gap-x-3 max-[760px]:gap-y-1.5 max-[760px]:py-3"
+          href={getContentUrl(project)}
+        >
+          <span class="max-[760px]:row-start-1">{project.data.title}</span>
+          <span class="min-w-0 overflow-hidden text-ellipsis whitespace-nowrap text-muted max-[760px]:col-start-1 max-[760px]:overflow-visible max-[760px]:whitespace-normal max-[760px]:text-ink">
+            {project.data.description}
+          </span>
+          <span class="whitespace-nowrap font-mono text-[0.7rem] tracking-[0.04em] text-muted uppercase max-[760px]:col-start-1">
+            {project.data.year} · {copy.categories[project.data.category]}
+          </span>
+          <span
+            class="inline-flex justify-end text-faint max-[760px]:col-start-2 max-[760px]:row-span-3 max-[760px]:row-start-1 max-[760px]:self-center"
+            aria-hidden="true"
+          >
+            <Icon name="lucide:arrow-up-right" size="14" />
+          </span>
+        </a>
+      </li>
+    ))}
+  </ol>
+)}

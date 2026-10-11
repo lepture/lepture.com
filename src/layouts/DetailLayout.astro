@@ -1,0 +1,47 @@
+---
+import { Icon } from '@prosefly/astro-components'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import type { Language } from '@/lib/i18n'
+
+interface Props {
+  title: string
+  description?: string
+  summary?: string
+  back?: { href: string; label: string }
+  language: Language
+  alternateUrl?: string | null
+  image?: string
+}
+
+const { title, description, summary, back, language, alternateUrl, image } =
+  Astro.props
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  language={language}
+  alternateUrl={alternateUrl}
+  image={image}
+>
+  <article class="detail-shell pb-24">
+    <header class="pt-18 min-[761px]:pt-16">
+      {back && (
+        <a
+          class="mb-3 inline-flex items-center gap-1.5 font-mono text-[0.7rem] tracking-[0.08em] text-faint uppercase transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
+          href={back.href}
+        >
+          <Icon name="lucide:arrow-left" size="12" />
+          {back.label}
+        </a>
+      )}
+      <h1 class="page-title">{title}</h1>
+      {summary && <p class="mt-3 text-[1.05rem] text-muted">{summary}</p>}
+      <slot name="metadata" />
+    </header>
+    <div class="prose max-w-none py-14 text-muted [--tw-prose-body:var(--muted)] [--tw-prose-bold:var(--ink)] [--tw-prose-bullets:var(--faint)] [--tw-prose-captions:var(--faint)] [--tw-prose-code:var(--ink)] [--tw-prose-counters:var(--faint)] [--tw-prose-headings:var(--ink)] [--tw-prose-hr:var(--rule)] [--tw-prose-lead:var(--muted)] [--tw-prose-links:var(--ink)] [--tw-prose-pre-bg:var(--pf-surface)] [--tw-prose-pre-code:var(--ink)] [--tw-prose-quote-borders:var(--rule)] [--tw-prose-quotes:var(--muted)] [--tw-prose-td-borders:var(--rule)] [--tw-prose-th-borders:var(--rule)] prose-headings:font-serif prose-headings:font-normal prose-headings:tracking-[-0.015em] prose-h2:mt-14 prose-h2:mb-4 prose-h2:text-[2rem] prose-h3:mt-10 prose-h3:mb-3 prose-h3:text-2xl prose-code:font-mono prose-code:text-[0.9em] prose-code:before:content-none prose-code:after:content-none prose-blockquote:font-serif prose-blockquote:text-[1.35rem] prose-blockquote:font-normal prose-blockquote:italic *:first:mt-0">
+      <slot />
+    </div>
+    <slot name="after-content" />
+  </article>
+</BaseLayout>

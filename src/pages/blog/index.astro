@@ -1,0 +1,8 @@
+---
+import BlogArchive from '@/components/BlogArchive.astro'
+import { getBlogPage } from '@/lib/blog'
+
+const page = await getBlogPage('en')
+---
+
+<BlogArchive page={page} language="en" />

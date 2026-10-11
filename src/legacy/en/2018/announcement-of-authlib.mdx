@@ -1,0 +1,70 @@
+---
+title: 'Announcement of Authlib'
+publishedAt: 2018-01-08T13:21:37Z
+updatedAt: 2022-04-10T02:28:28Z
+tags: []
+---
+
+It has been 4 years since I posted _[Create an OAuth Server](https://lepture.com/en/2013/create-oauth-server)_. Flask-OAuthlib has been shining in the Flask community, but it's time to say goodbye. **[Authlib][]** is going to replace Flask-OAuthlib.
+
+Authlib contains everything you need to create OAuth clients and servers. It contains:
+
+- **python-requests** **OAuth1Session** and **OAuth2Session**
+- Flask OAuth clients integrations
+- Django OAuth clients integrations
+- Flask OAuth servers implementations
+- Django OAuth servers implementations (not ready)
+- OpenID and many other things
+
+## Documentation & Playground
+
+No, there will be no guide on how to create an OAuth server in this post. It is hard to keep information updated in a single blog post. Instead, I've deployed **a real OAuth server online** so that everyone can play with.
+
+To get a better understanding, you can read the official documentation and the source code of Authlib playground:
+
+1. Official Documentation: [https://docs.authlib.org/](https://docs.authlib.org/)
+2. Source Code of Authlib: [https://github.com/lepture/authlib](https://github.com/lepture/authlib)
+3. Online Playground: [https://play.authlib.org/](https://play.authlib.org/)
+4. Source Code of Playground: [https://github.com/authlib/playground](https://github.com/authlib/playground)
+
+![Authlib Playground Screenshot](https://i.typlog.com/lepture/AW/tGz13rK1FpH3LfjzeWAQ.png)
+
+## Starting from Scratch
+
+I have several reasons to deprecate Flask-OAuthlib. But the main reason is that Flask-OAuthlib is not maintained well. And it seems things will not go well in the future. Flask-OAuthlib depends on OAuthLib which I believe is in a chaotic maintenance (although I am a maintainer too). Besides, there are many designs I don't like.
+
+**I created [Authlib][] from scratch** - from specification implementation to framework integrations. I didn't understand OAuth well enough when writing Flask-OAuthlib. However, this time, I read every RFC carefully so that there will be less misunderstanding (I'm not a native English speaker). **The experience in OAuthLib helps too**.
+
+## Being Monolithic
+
+I started [Authlib][] with a monolithic design in mind. As I've said _"it is designed from specification implementation to framework integrations"_. **Being monolithic is a feature of Authlib**. I've always hated the _micro modules_ in Node ecosystem, there are even lots of one line code modules in npm.
+
+Being monolithic means it won't break things. When specifications changed, implementation will change too. It keeps everything synchronized. You don’t have to worry about monolithic, it doesn’t cost your memory. If you don’t import a module, it won’t be loaded.
+
+Will it always be monolithic? It depends. As time goes and Authlib becomes mature, maybe I will separate the framework integrations from Authlib source code.
+
+## Profitable = Sustainable
+
+Flask-OAuthlib is not sustainable. I can't spare too much time on it. That's why I created [Authlib][] with a sustainable idea from the beginning. I hope the project will last long enough.
+
+**Profitable equals sustainable**. If I can make a living on [Authlib][], I can spare more time on it, keeping it updated, fixing bugs, resolving vulnerable securities. OAuth server implementation is an enterprise level problem, if you are running a company, you wouldn't like to use a **non-sustainable** module for such an important feature. What you need is a sustainable solution.
+
+The [price model for Authlib](https://authlib.org/plans) is simple yet affordable. It is **$1000/year** (or **$500/year** if your company is small), it is just **1/10** of one month salary for one year. However, if you don't care, you can always use the open source license.
+
+## Road Map
+
+I've released [Authlib v0.3](https://docs.authlib.org/en/latest/changelog.html) when writing this post. It is started from Oct 21, 2017:
+
+1. Common client and Flask client integration is available in **v0.1**
+2. Django client integration is available in **v0.2**
+3. Flask OAuth 2 server is available in **v0.3**
+
+> Flask comes first, Django comes second.
+
+The next implementation will be Flask OAuth 1 server. After that, there will be Django OAuth servers, and more OAuth 2 specification implementation. I wish I can make a **version 1.0** in the end of this year.
+
+---
+
+Now, head over to the [documentation](https://docs.authlib.org/) and [play](https://play.authlib.org/) with Authlib.
+
+[Authlib]: https://authlib.org/
