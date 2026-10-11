@@ -17,7 +17,7 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 進入 Gmail 的設置裡面，選擇 **Accounts and Import**，在下面可以找到 **Check mail from other accounts**，點擊 **Add a mail account**。在彈出的對話框里輸入自己的郵箱，按照引導會進入填寫 POP 服務的頁面。
 
-![Sync emails](https://i.typlog.com/lepture/8307487731_322001.jpg) ![Add mail account](https://i.typlog.com/lepture/8307487022_940852.png)
+![Sync emails](https://images.prosefly.com/lepture/4316879efd1244cb9d6293b6c51ae0b2.jpg) ![Add mail account](https://images.prosefly.com/lepture/c16f80a72185467b839e58df1dfd769c.png)
 
 按照[官方文檔](https://support.google.com/mail/answer/7104828?hl=zh-Hans)，你需要填寫的信息：
 
@@ -35,7 +35,7 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 我們需要先開啓個人域名郵箱（Google Workspace Gmail）里的 POP3 功能。到你的個人郵箱設置里，選擇 **Forwarding and POP/IMAP**，然後開啓 POP 服務。
 
-![Enable POP](https://i.typlog.com/lepture/8307486563_982321.jpg)
+![Enable POP](https://images.prosefly.com/lepture/2d1c53ba26434590867bb9a240d83b82.jpg)
 
 但是可能還是無法成功，這是因為 Gmail 的安全機制導致的。雖然官方文檔里說密碼使用郵箱的登錄密碼就可以了，但其實不行。這裡有兩個解決方案：
 
@@ -44,7 +44,7 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 在下面的章節里會介紹如何創建 App password，這裡先介紹一下修改賬戶安全等級。因為我們這個 Google workspace 賬戶最終是要銷戶的，所以修改賬戶安全等級並沒有什麼影響。進入[賬戶安全中心](https://myaccount.google.com/security)，激活 **Less secure app access** 即可。
 
-![Less secure app access](https://i.typlog.com/lepture/8307485881_938867.png)
+![Less secure app access](https://images.prosefly.com/lepture/e6cf347719e44bcda31596fe1e001a5f.png)
 
 再次嘗試添加 POP 郵箱賬戶，應該就會成功了。你需要等待一段時間才能備份完所有郵件。也許睡一覺，明天再繼續？
 
@@ -52,7 +52,7 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 當郵件備份完後就可以開啓 Cloudflare Email Routing 了。進入 Cloudflare，選擇你的域名，進入 Email Routing 設置。
 
-![Email Routing](https://i.typlog.com/lepture/8307485590_671038.jpg)
+![Email Routing](https://images.prosefly.com/lepture/2bd07877f0434586b600c3eaede54655.jpg)
 
 比如你註冊的 Gmail 叫 `example@gmail.com`，你的個人域名郵箱是 `me@example.com`，上面的表單可以填寫：
 
@@ -65,7 +65,7 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 最後我們需要讓發件人使用我們自己的域名。這一步與上面的備件郵件有些類似。進入 Gmail 的設置中心，選擇 **Accounts and Import**。在 **Send mail as** 里選擇添加一個新郵箱。
 
-![Send mail as](https://i.typlog.com/lepture/8307485148_297025.jpg)
+![Send mail as](https://images.prosefly.com/lepture/2eaedb3065884d3b9142d1dec7cd8964.jpg)
 
 比如我添加自己的郵箱 `me@lepture.com`，根據提示一步一步走，會進入最後的 SMTP 服務器設置：
 
@@ -79,19 +79,19 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 首先你需要注冊一個 AWS 賬戶，這裏就不介紹了。注冊後，到 SES Dashboard 裏面添加自己的域名，比如我的：
 
-![SES](https://i.typlog.com/lepture/8307464387_801556.png)
+![SES](https://images.prosefly.com/lepture/454c64a010c948ef9a6084f2203ebe6b.png)
 
 下一步，設置 DNS，讓 SES 支持 DKIM 認證。你將需要設置類似如下的 CNAME。注意，**在 Cloudflare 裏面設置 CNAME 時要關閉 Proxy**。
 
-![Setup DNS](https://i.typlog.com/lepture/8307463952_243525.png)
+![Setup DNS](https://images.prosefly.com/lepture/47f19f87f6894e63a75a2e18be48e146.png)
 
 接下來，我們為這個域名創建一個 SMTP 登錄賬戶：
 
-![Create SMTP credentials](https://i.typlog.com/lepture/8307463704_46915.png)
+![Create SMTP credentials](https://images.prosefly.com/lepture/4b1dcc741b6e4b8294f2de54d8d8580c.png)
 
 只需要一步一步跟著 AWS 的步驟來，你就能創建出 SMTP 登錄賬戶和密碼。之後，再將這個 SMTP 賬戶登記到 Gmail 裏面就可以了。
 
-![Add AWS SES SMTP credentials](https://i.typlog.com/lepture/8307462591_68517.png)
+![Add AWS SES SMTP credentials](https://images.prosefly.com/lepture/8802f319a676435298e3f953e7a457d7.png)
 
 我們需要設置：
 
@@ -104,7 +104,7 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 另外，你還可以設置一下 MAIL FROM 域名，如果沒有設置的話，收件人會看到你發的郵件 `mailed-by: us-west-2.amazonses.com`。
 
-![MAIL FROM](https://i.typlog.com/lepture/8307460439_331902.png)
+![MAIL FROM](https://images.prosefly.com/lepture/bd2b0c36ecdf4703bb3c1ab599202c6f.png)
 
 ### 使用其他 SMTP
 
@@ -117,7 +117,7 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 最後，我們使用自己的域名郵箱發送一封郵件試試。下面是我收到的測試郵件示例：
 
-![Received email](https://i.typlog.com/lepture/8307462892_008056.png)
+![Received email](https://images.prosefly.com/lepture/fe982c8c022c44108fd788c8d7b5a893.png)
 
 可以看到，SPF、DKIM 都成功了。
 
@@ -131,7 +131,7 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 這裏我們可以直接使用當前的 Gmail 賬戶，比如 `example@gmail.com`。
 
-![smtp.png](https://i.typlog.com/lepture/8307484834_1006365.png)
+![smtp.png](https://images.prosefly.com/lepture/54d896e82cf949a5870fce0c44be303f.png)
 
 我們需要設置：
 
@@ -145,10 +145,10 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 1. 進入[賬戶安全中心](https://myaccount.google.com/security)
 2. 激活兩步驗證（2-Step Verification)：
 
-![2-Step Verification](https://i.typlog.com/lepture/8307484528_354437.jpg)
+![2-Step Verification](https://images.prosefly.com/lepture/0c08b8d1f6144b079c60647fe825adee.jpg)
 
 激活後，進入 2-Step Verification，在頁面的最下面有一個 **App passwords**，進入後創建一個 Mail 的 App password 即可。
 
-![App passwords](https://i.typlog.com/lepture/8307484370_11209.png)
+![App passwords](https://images.prosefly.com/lepture/033a16a19ed2494795f96ffe7fb580f0.png)
 
 然後在密碼填寫框里使用這個生成的密碼即可。完成後，可以在設置頁面里將個人域名郵箱設置為默認發件人。

@@ -13,7 +13,7 @@ AMP 是 Accelerated Mobile Pages 的縮寫，顧名思義，是用來加速 Mobi
 
 [AMP](https://www.ampproject.org) 是由 Google 提出來的一套移動加速方案與標準，它會在 Google 的服務器上緩存一份 AMP 網頁，用來快速加載。當你在移動端使用 Google 搜索時，支持 AMP 的網頁會顯示一個閃電標誌。點擊該鏈接，頁面是瞬間打開的，完全沒有延時。這是因為 Google 已經提前加載好了頁面所需內容。
 
-![AMP 網絡請求](https://i.typlog.com/lepture/vh/a_mCeaIE11rbQUGa_T2A.png)
+![AMP 網絡請求](https://images.prosefly.com/lepture/27fe8d290ebe4c6d8530c736d95e0be0.png)
 
 如圖所示，我們在移動端使用 Google 搜索 [Python Markdown Parsers](/en/2014/markdown-parsers-in-python)，第二條顯示該頁面支持 AMP，我們看看此時的網絡請求，發現當前頁面提前加載了一份 AMP 的緩存內容，該緩存內容在域名 `lepture-com.cdn.ampproject.org` 上。點擊該鏈接，打開的是 `https://www.google.com/amp/` 下的鏈接，而非 lepture.com 下面的頁面。因為已經提前載入了 HTML 內容，所以網頁才會瞬間打開。
 

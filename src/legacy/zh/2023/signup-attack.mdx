@@ -11,7 +11,7 @@ tags: []
 
 我的預感沒有錯，而且我也意識到問題出在了哪裡。進入 AWS SES 後台查看了一下，域名的口碑(domain reputation)出了問題。Typlog 的聯絡郵箱使用的是 Google Workspace，通知郵件是使用的是 SES，他們都是使用的 typlog.com 這個域名。通知郵件服務導致域名出了口碑問題，影響到了聯絡郵箱。
 
-![Complaint rate](https://i.typlog.com/lepture/8303848933_872489.jpg)
+![Complaint rate](https://images.prosefly.com/lepture/99cf534efd0b4deb84a869809b17bdfc.jpg)
 
 為何我們的通知郵件服務會出問題呢？一直以來我都忽略了一個問題，我很早的時候就注意到 Typlog 有很多的垃圾註冊，但是我沒有太在意。一是我們的註冊接口是有頻率限制的，他也註冊不了多少；二是我們是一個付費服務，他註冊了不激活也做不了什麼事。直到 Typlog 的聯絡郵箱出了問題我才意識到我忽略了什麼。
 
