@@ -1,0 +1,13 @@
+# The new English homepage is at the root path.
+/en / 301
+/en/ / 301
+
+# The new archive contains all posts on one page.
+/archive/page/:page /archive/ 301
+/archive/page/:page/ /archive/ 301
+
+# Moment detail pages are now anchored sections on the Moments page.
+/moments/:date /moments/#moment-:date 301
+/moments/:date/ /moments/#moment-:date 301
+/zh/moments/:date /zh/moments/#moment-:date 301
+/zh/moments/:date/ /zh/moments/#moment-:date 301
