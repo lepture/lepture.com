@@ -10,18 +10,7 @@ export default defineConfig({
   build: { format: 'preserve' },
   devToolbar: { enabled: false },
   integrations: [
-    proseflyComponents({
-      markdown: { imageGallery: true },
-      icons: {
-        preload: [
-          'lucide:arrow-left',
-          'lucide:arrow-right',
-          'lucide:arrow-up-right',
-          'lucide:moon',
-          'lucide:sun',
-        ],
-      },
-    }),
+    proseflyComponents(),
     mdx(),
     sitemap(),
   ],

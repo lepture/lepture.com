@@ -12,15 +12,10 @@ const legacySchema = z.object({
   draft: z.boolean().default(false),
 })
 
-function localizedEntryId({ entry }: { entry: string }): string {
-  return entry.replace(/\.mdx$/, '')
-}
-
 const blog = defineCollection({
   loader: glob({
     base: './src/content/blog',
     pattern: '**/*.mdx',
-    generateId: localizedEntryId,
   }),
   schema: z.object({
     title: z.string(),
@@ -36,7 +31,6 @@ const legacy = defineCollection({
   loader: glob({
     base: './src/legacy',
     pattern: '**/*.mdx',
-    generateId: localizedEntryId,
   }),
   schema: legacySchema,
 })
@@ -67,7 +61,6 @@ const projects = defineCollection({
   loader: glob({
     base: './src/content/projects',
     pattern: '**/*.mdx',
-    generateId: localizedEntryId,
   }),
   schema: z.object({
     title: z.string(),
@@ -97,7 +90,6 @@ const site = defineCollection({
   loader: glob({
     base: './src/content/site',
     pattern: '*.mdx',
-    generateId: localizedEntryId,
   }),
   schema: z.object({
     title: z.string(),
@@ -124,7 +116,6 @@ const pages = defineCollection({
   loader: glob({
     base: './src/content/pages',
     pattern: '**/*.mdx',
-    generateId: localizedEntryId,
   }),
   schema: z.object({
     title: z.string(),

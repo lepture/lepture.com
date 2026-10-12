@@ -28,9 +28,9 @@ export function getContentUrl(entry: LocalizedEntry): string {
   return localizedPath(`/${entry.collection}/${slug}`, language)
 }
 
-function getTranslationUrl<Entry extends LocalizedEntry>(
-  entry: Entry,
-  entries: Entry[],
+function getTranslationUrl(
+  entry: LocalizedEntry,
+  entries: LocalizedEntry[],
 ): string | undefined {
   const language = getContentLanguage(entry)
   const translatedId = `${otherLanguage(language)}/${entry.id.slice(language.length + 1)}`
@@ -85,8 +85,4 @@ export async function getPublishedProjects(
     (left, right) =>
       right.data.order - left.data.order || right.data.year - left.data.year,
   )
-}
-
-export async function getPages(): Promise<PageEntry[]> {
-  return getCollection('pages')
 }

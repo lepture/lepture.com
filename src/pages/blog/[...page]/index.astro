@@ -1,13 +1,14 @@
 ---
+import type { GetStaticPaths, Page } from 'astro'
 import BlogArchive from '@/components/BlogArchive.astro'
 import { getBlogPaginationPaths } from '@/lib/blog'
 import type { BlogPost } from '@/lib/content'
-import type { PaginationPage } from '@/lib/pagination'
 
-export const getStaticPaths = () => getBlogPaginationPaths('en')
+export const getStaticPaths: GetStaticPaths = ({ paginate }) =>
+  getBlogPaginationPaths('en', paginate)
 
 interface Props {
-  page: PaginationPage<BlogPost>
+  page: Page<BlogPost>
 }
 
 const { page } = Astro.props

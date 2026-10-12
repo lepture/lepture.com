@@ -1,30 +1,22 @@
+import type { PaginateFunction } from 'astro'
 import { getPublishedBlogPosts } from '@/lib/content'
-import { localizedPath, type Language } from '@/lib/i18n'
-import { createPaginationPage } from '@/lib/pagination'
+import type { Language } from '@/lib/i18n'
 import { getSite } from '@/lib/site'
 
-export function getBlogPageUrl(page: number, language: Language): string {
-  return localizedPath(page === 1 ? '/blog/' : `/blog/page/${page}/`, language)
-}
-
-export async function getBlogPage(language: Language, page: number = 1) {
+export async function getBlogPaginationPaths(
+  language: Language,
+  paginate: PaginateFunction,
+) {
   const [posts, site] = await Promise.all([
     getPublishedBlogPosts(language),
     getSite(language),
   ])
-  return createPaginationPage(posts, page, site.data.blog.postsPerPage)
-}
-
-export async function getBlogPaginationPaths(language: Language) {
-  const [posts, site] = await Promise.all([
-    getPublishedBlogPosts(language),
-    getSite(language),
-  ])
-  const pageSize = site.data.blog.postsPerPage
-  const { totalPages } = createPaginationPage(posts, 1, pageSize)
-
-  return Array.from({ length: totalPages - 1 }, (_, index) => {
-    const page = createPaginationPage(posts, index + 2, pageSize)
-    return { params: { page: String(page.currentPage) }, props: { page } }
-  })
+  // Keep the archive at /blog/ and numbered pages at /blog/page/N/.
+  return paginate(posts, {
+    pageSize: site.data.blog.postsPerPage,
+    format: (url) => `${url.replace(/\/(\d+)$/, '/page/$1')}/`,
+  }).map(({ params, props }) => ({
+    params: { page: params.page ? `page/${params.page}` : undefined },
+    props,
+  }))
 }

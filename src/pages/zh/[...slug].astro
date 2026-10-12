@@ -1,9 +1,10 @@
 ---
+import { getCollection } from 'astro:content'
 import Page from '@/components/Page.astro'
-import { getPages, getLocalizedPaths, type PageEntry } from '@/lib/content'
+import { getLocalizedPaths, type PageEntry } from '@/lib/content'
 
 export async function getStaticPaths() {
-  return getLocalizedPaths(await getPages(), 'zh')
+  return getLocalizedPaths(await getCollection('pages'), 'zh')
 }
 
 interface Props {
