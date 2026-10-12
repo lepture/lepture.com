@@ -1,25 +1,27 @@
 ---
 title: 开发 Prosefly
-description: 为什么做 Prosefly、先做了什么，以及 Cloudflare 选型时走过的弯路。
+description: 做过 Typlog，为何又做 Prosefly？谈谈起因、开发的顺序，以及选型时走过的弯路。
 publishedAt: 2026-10-11T00:00:00Z
 project: zh/prosefly
 ---
 
-我正在运营一个博客和播客托管平台 [Typlog](/zh/projects/typlog)。最近我又开启了一个新项目 [Prosefly](/zh/projects/prosefly)，你可以用 Prosefly 来管理 GitHub 仓库里的文档和文章，使用 Prosefly 的可视化编辑器来写作。
+我已经做了一个博客和播客托管平台 [Typlog](/zh/projects/typlog)，最近又做起了 [Prosefly](/zh/projects/prosefly)。它可以管理 GitHub 仓库里的文档和文章，提供一个可视化编辑器，写完后保存的仍是 Markdown、MDX 文件。
 
 ## 为什么又做一个
 
-我已经做了 [Typlog](https://typlog.com)，为什么又要做 [Prosefly](https://prosefly.com)？现在是做静态网站的黄金时期，尤其是有了 AI 之后，做静态网站特别容易。内容保存成 Markdown、MDX 文件，和网站代码放在一起，AI 就可以直接读取、修改，也方便同时调整文章和页面。
+既然已经有了 [Typlog](https://typlog.com)，为何又要做一个 [Prosefly](https://prosefly.com) 呢？
 
-不过，使用文件保存数据和怎样写文章是两回事。我还是想要一个友好的可视化编辑界面。调整格式、插入图片这些操作，用编辑器做会舒服一些，就不需要每次去改源码了。
+我以为现在是做静态网站的好时候。有了 AI，做一个网站容易多了，自己设计一个主题亦不再那么麻烦。文章保存成 Markdown、MDX 文件，和网站代码放在一起，AI 便可以直接读取、修改，改文章时也可以顺便改一下页面。
 
-有了 AI，自己做一个主题也容易多了。网站可以按自己的想法改，文章需要哪些 frontmatter 字段，也可以跟着网站一起定义。比如写书评时，想加作者和评分，就可以在 schema 里加上。
+不过，文章保存在哪里是一回事，怎样写文章又是另一回事。我仍然想要一个好用的写作后台。调整格式、插入图片，总不想每次都去修改源码。静态网站的自由我想要，写作时的方便亦不想舍弃，于是便有了 Prosefly。
 
-在 Typlog 里，这些字段都是我预先定义好的，用户不方便改。Prosefly 则直接读取项目中用文本定义的 frontmatter schema，再按它生成编辑界面。这样我做新模板时，就不用先考虑平台有没有提供对应的字段。
+还有一个缘由，是文章的 frontmatter。在 Typlog 里，这些字段都是我预先定义好的，用户不方便改。假使想写书评，需要加上作者和评分，便要看平台有没有提供这些字段了。网站可以按自己的想法改，文章的字段却不能随意定义，多少有些不便。
+
+Prosefly 的做法是直接读取项目中用文本定义的 frontmatter schema，再生成相应的编辑界面。需要什么字段，便在 schema 里添加什么字段。这样我做一个新模板时，也不必先想平台支不支持了。
 
 ## 开发顺序
 
-我先花了很久设计可视化编辑器。当时还没有开始做完整的平台，主要精力都放在编辑器上，最终保存的是 Markdown、MDX，写作时又希望有可视化的体验，我想先把这一部分做得差不多。
+最先做的是可视化编辑器，这一部分花了很久。当时还没有开始写完整的平台，只想着先把编辑器做好：写作时可以方便地调整格式，保存下来又是 Markdown、MDX 文件。说起来简单，做起来却颇费时间。
 
 <figure>
   <video src="https://media.prosefly.com/lepture/0b908530761a489bb3e17f2116775092.mp4" controls />
@@ -29,14 +31,16 @@ project: zh/prosefly
   </figcaption>
 </figure>
 
-等编辑器接近完成，才开始做 Prosefly。不过，之后也没有马上写 Web 应用。我先创建了 GitHub 组织，做了几个 Astro 主题和模版，然后才开始开发 Prosefly 平台。
+等编辑器接近完成，才开始做 Prosefly。不过亦没有立刻写 Web 应用，而是先创建了 GitHub 组织，做了几个 Astro 主题和模板，然后才开始开发平台。
 
-先做模板，有机会把内容组织和 frontmatter 的定义放进一个实际的网站里，看看编辑器怎样配合。到开始写平台时，已经有了可以编辑的内容，也有了使用这些内容的网站。
+先做模板，是想看看实际的网站里，文章应该怎样组织，frontmatter 应该怎样定义，编辑器又该如何配合。只对着编辑器想，总不如拿一个网站来试试。于是等到开始写平台时，已经有了可以编辑的内容，也有了使用这些内容的网站。
 
 ## 犯过的错
 
-我是用 Cloudflare Workers 来开发 Prosefly 的，需要按组织来拆分数据哭，做数据隔离。我一开始选了 [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/)。它可以部署和运行用户的 Worker 代码，也确实能做数据分离。
+Prosefly 是用 Cloudflare Workers 写的，需要按组织拆分数据库，让各个组织的数据互不混杂。我最初选了 [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/)，它可以部署和运行用户的 Worker 代码，用来做数据隔离亦是可以的。
 
-结果把项目弄得特别复杂。编辑器已经花了很多时间，模板也做了几个，到了平台这一层，却越做越麻烦，一度打算放弃。
+可是项目越写越复杂。编辑器已经花了许多时间，模板也做了几个，到了平台这一层，却越做越麻烦，一度想就此放弃。原本只是想把各个组织的数据分开，结果还要部署和管理不同的 Worker，平白多出许多事来。
 
-后来才发现，[Durable Objects](https://developers.cloudflare.com/durable-objects/) 就可以做我需要的数据分离。每个组织的数据放在各自的 Durable Object 里，应用还是同一个应用，不需要为此去部署和管理不同的 Worker。换成这个方案后，平台简单了很多，我才继续做了下去。
+后来才发现，[Durable Objects](https://developers.cloudflare.com/durable-objects/) 便可以做我需要的事。每个组织的数据放在各自的 Durable Object 里，应用仍是同一个应用，也不必为此部署和管理不同的 Worker。换了方案后，平台简单了许多，才又有心思继续做下去。
+
+现在想来，完全是自己想复杂了，倒险些把项目也一并放弃了。
