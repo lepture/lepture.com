@@ -54,7 +54,7 @@ const languageSwitchHref =
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={pageDescription} />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#f4f3ef" />
+    <meta name="theme-color" content="#faf9f6" />
     <link rel="icon" type="image/jpeg" href={site.logo} />
     <link rel="canonical" href={canonicalUrl} />
     {alternateUrl && (
@@ -112,7 +112,7 @@ const languageSwitchHref =
       document.documentElement.dataset.theme = theme
       document
         .querySelector('meta[name="theme-color"]')
-        .setAttribute('content', theme === 'dark' ? '#090909' : '#f4f3ef')
+        .setAttribute('content', theme === 'dark' ? '#090909' : '#faf9f6')
     </script>
   </head>
   <body class="bg-canvas font-sans text-base leading-[1.65] text-ink antialiased selection:bg-ink selection:text-canvas [text-rendering:optimizeLegibility] transition-colors duration-200 motion-reduce:transition-none">
@@ -151,7 +151,7 @@ const languageSwitchHref =
         document.documentElement.dataset.theme = theme
         document
           .querySelector('meta[name="theme-color"]')
-          ?.setAttribute('content', theme === 'dark' ? '#090909' : '#f4f3ef')
+          ?.setAttribute('content', theme === 'dark' ? '#090909' : '#faf9f6')
         updateToggleLabel(theme)
       }
 

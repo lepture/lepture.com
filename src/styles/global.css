@@ -53,14 +53,14 @@
 }
 
 :root[data-theme='light'] {
-  --canvas: #f4f3ef;
+  --canvas: #faf9f6;
   --ink: #181817;
   --muted: #5f5e5a;
   --faint: #888681;
   --rule: #d9d7d1;
   --pf-surface: #ebe9e3;
   --pf-accent-soft: #e2e0d9;
-  --pf-accent-contrast: #f4f3ef;
+  --pf-accent-contrast: #faf9f6;
   --pf-border-muted: #c8c5be;
   color-scheme: light;
 }
