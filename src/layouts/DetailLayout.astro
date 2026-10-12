@@ -146,6 +146,15 @@ const {
     margin-top: 0;
   }
 
+  .reading-prose :global(.pf-callout .pf-callout__title) {
+    margin-block: 0;
+  }
+
+  .reading-prose :global(.pf-callout .pf-callout__slot) {
+    line-height: 1.42;
+    margin-block-start: 0.5rem;
+  }
+
   .reading-prose :global(:where(strong):not(:where(.not-prose, .not-prose *))) {
     font-weight: 600;
   }
@@ -224,6 +233,13 @@ const {
 
   .reading-prose > :global(:last-child:not(.not-prose)) {
     margin-bottom: 0;
+  }
+
+  .reading-prose > :global(.footnotes) {
+    font-size: 0.875rem;
+    padding-block-start: 0.725rem;
+    margin-block-start: 3rem;
+    border-top: 1px solid var(--rule);
   }
 
   @media (min-width: 640px) {

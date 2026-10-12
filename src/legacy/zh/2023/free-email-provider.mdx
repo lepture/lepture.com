@@ -27,11 +27,11 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 - 端口：995
 - 要求 SSL：是
 
-> **Important**
->
-> 你也許無法成功添加郵箱賬戶。這裡可能會出現錯誤提示：
->
-> Server denied POP3 access for the given username and password.
+:::tip[Important]
+你也許無法成功添加郵箱賬戶。這裡可能會出現錯誤提示：
+
+Server denied POP3 access for the given username and password.
+:::
 
 我們需要先開啓個人域名郵箱（Google Workspace Gmail）里的 POP3 功能。到你的個人郵箱設置里，選擇 **Forwarding and POP/IMAP**，然後開啓 POP 服務。
 
@@ -71,9 +71,9 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 ### 使用 AWS SES
 
-> **Warning**
->
-> 如果你還沒有開通 AWS SES，建議試試其他 SMTP，比如 Alibaba Direct Mail。因為 AWS SES 默認為 sandbox 環境，需要申請才能開通生產環境，但是有可能申請不通過。
+:::warning
+如果你還沒有開通 AWS SES，建議試試其他 SMTP，比如 Alibaba Direct Mail。因為 AWS SES 默認為 sandbox 環境，需要申請才能開通生產環境，但是有可能申請不通過。
+:::
 
 之前介紹的 Gmail SMTP 方案（在文章最下面）沒有 DKIM 驗證，會導致郵件進入垃圾箱。我們可以使用其他的 SMTP 服務來發送郵件。比如 AWS SES，因爲 SES 會提供每個月 3000 封免費郵件，這對於個人用戶來説絕對夠用了。
 
@@ -125,13 +125,13 @@ Cloudflare Email Routing 這項服務推出來有一段時間了。今日，我�
 
 下面是使用 Gmail SMTP 的方案，請謹慎使用。
 
-> **Warning**
->
-> 這個方案有缺陷，沒有 DKIM 認證，只能保證 SPF pass。
+:::warning
+這個方案有缺陷，沒有 DKIM 認證，只能保證 SPF pass。
+:::
 
 這裏我們可以直接使用當前的 Gmail 賬戶，比如 `example@gmail.com`。
 
-![smtp.png](https://images.prosefly.com/lepture/54d896e82cf949a5870fce0c44be303f.png)
+![SMTP 設置](https://images.prosefly.com/lepture/54d896e82cf949a5870fce0c44be303f.png)
 
 我們需要設置：
 
