@@ -5,11 +5,13 @@ publishedAt: 2026-10-11T00:00:00Z
 project: en/prosefly
 ---
 
+I run [Typlog](/projects/typlog), a hosting platform for blogs and podcasts. Recently, I started a new project, [Prosefly](/projects/prosefly). It lets you manage documents and articles in a GitHub repository and write with a visual editor.
+
 ## Why build another one?
 
-I had already built Typlog. Why start [Prosefly](/projects/prosefly) too? I think static websites make more sense now, especially with AI. When content lives in Markdown and MDX files alongside the website's code, AI can read and edit it directly, and work on articles and pages together.
+I had already built [Typlog](https://typlog.com). Why start [Prosefly](https://prosefly.com) too? This is a golden age for static websites: AI has made them much easier to build. When content lives in Markdown and MDX files alongside the website's code, AI can read and edit it directly, and work on articles and pages together.
 
-How content is stored and how I write it are two separate things, though. I still want a friendly visual editor. Formatting and inserting images feel more comfortable there; I don't want to edit source every time.
+Storing data in files and writing articles are two separate things, though. I still want a friendly visual editor. Formatting and inserting images feel more comfortable there, so I don't have to edit source every time.
 
 AI has also made it easier to build your own theme. You can change the website to suit your ideas and define its frontmatter fields along with it. For a book review, for example, you could add an author and a rating to the schema.
 
@@ -17,16 +19,21 @@ In Typlog, those fields are predefined by me and are not easy for users to chang
 
 ## Development order
 
-I spent a long time designing the visual editor before starting the complete platform. Most of my attention was on the editor: the files would be Markdown and MDX, but I wanted a visual writing experience. I wanted that part to be mostly ready first.
+I spent a long time designing the visual editor before starting the complete platform. Most of my attention was on the editor: the files would be Markdown and MDX, but I wanted a visual writing experience. I wanted that part to be mostly ready first.\
 
-Once the editor was close to complete, I started working on Prosefly. Even then, I did not jump straight into the web app. I created a GitHub org, made several Astro themes and templates, and then started building the Prosefly platform.
+<figure>
+  <video src="https://media.prosefly.com/lepture/0b908530761a489bb3e17f2116775092.mp4" controls />
+  <figcaption>Visual Editor by Prosefly</figcaption>
+</figure>
+
+Once the editor was close to complete, I started working on Prosefly. Even then, I did not jump straight into the web app. I created a GitHub organization, made several Astro themes and templates, and then started building the Prosefly platform.
 
 Working on templates first gave me actual websites in which to organize content, define frontmatter, and see how the editor fit. By the time I started the platform, I already had content to edit and websites that used it.
 
-## A wrong turn
+## A mistake I made
 
-The platform runs on Cloudflare Workers and needs to keep data separate for each org. I initially chose [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/). It lets a platform deploy and run users' Worker code, but my main need at that point was to separate data between organizations.
+I'm building Prosefly with Cloudflare Workers and need to isolate each organization's data. I initially chose [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/). It can deploy and run users' Worker code, and it can provide that data separation too.
 
 The project became much more complicated. I had already spent a lot of time on the editor and made several templates, but building the platform kept getting harder. At one point, I considered giving up.
 
-Later, I realized that [Durable Objects](https://developers.cloudflare.com/durable-objects/) could handle the data separation I needed. Each org's data could live in its own Durable Object. It would still be one application, without deploying and managing separate Workers for that purpose. Switching to this approach made the platform much simpler, and I kept going.
+Later, I realized that [Durable Objects](https://developers.cloudflare.com/durable-objects/) could handle the data separation I needed. Each organization's data could live in its own Durable Object. It would still be one application, without deploying and managing separate Workers for that purpose. Switching to this approach made the platform much simpler, and I kept going.

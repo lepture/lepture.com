@@ -5,28 +5,38 @@ publishedAt: 2026-10-11T00:00:00Z
 project: zh/prosefly
 ---
 
+我正在运营一个博客和播客托管平台 [Typlog](/zh/projects/typlog)。最近我又开启了一个新项目 [Prosefly](/zh/projects/prosefly)，你可以用 Prosefly 来管理 GitHub 仓库里的文档和文章，使用 Prosefly 的可视化编辑器来写作。
+
 ## 为什么又做一个
 
-我已经做了 Typlog，为什么又要做 [Prosefly](/zh/projects/prosefly)？我觉得现在更适合做静态网站了。尤其是有了 AI 之后，内容保存成 Markdown、MDX 文件，和网站代码放在一起，AI 就可以直接读取、修改，也方便同时调整文章和页面。
+我已经做了 [Typlog](https://typlog.com)，为什么又要做 [Prosefly](https://prosefly.com)？现在是做静态网站的黄金时期，尤其是有了 AI 之后，做静态网站特别容易。内容保存成 Markdown、MDX 文件，和网站代码放在一起，AI 就可以直接读取、修改，也方便同时调整文章和页面。
 
-不过，保存成文件和怎样写文章，是两回事。我还是想要一个友好的可视化编辑界面。调整格式、插入图片这些操作，用编辑器做会舒服一些，没有必要每次都去改源码。
+不过，使用文件保存数据和怎样写文章是两回事。我还是想要一个友好的可视化编辑界面。调整格式、插入图片这些操作，用编辑器做会舒服一些，就不需要每次去改源码了。
 
-有了 AI，自己做一个 theme 也容易多了。网站可以按自己的想法改，文章需要哪些 frontmatter 字段，也可以跟着网站一起定义。比如写书评时，想加作者和评分，就可以在 schema 里加上。
+有了 AI，自己做一个主题也容易多了。网站可以按自己的想法改，文章需要哪些 frontmatter 字段，也可以跟着网站一起定义。比如写书评时，想加作者和评分，就可以在 schema 里加上。
 
 在 Typlog 里，这些字段都是我预先定义好的，用户不方便改。Prosefly 则直接读取项目中用文本定义的 frontmatter schema，再按它生成编辑界面。这样我做新模板时，就不用先考虑平台有没有提供对应的字段。
 
 ## 开发顺序
 
-我先花了很久设计 visual editor。当时还没有开始做完整的平台，主要精力都放在编辑器上：最终保存的是 Markdown、MDX，写作时又希望有可视化的体验，我想先把这一部分做得差不多。
+我先花了很久设计可视化编辑器。当时还没有开始做完整的平台，主要精力都放在编辑器上，最终保存的是 Markdown、MDX，写作时又希望有可视化的体验，我想先把这一部分做得差不多。
 
-等编辑器接近完成，才开始做 Prosefly。不过，之后也没有马上写 web app。我先创建了 GitHub org，做了几个 Astro theme 和 template，然后才开始开发 Prosefly platform。
+<figure>
+  <video src="https://media.prosefly.com/lepture/0b908530761a489bb3e17f2116775092.mp4" controls />
+
+  <figcaption>
+    Prosefly 的可视化编辑器
+  </figcaption>
+</figure>
+
+等编辑器接近完成，才开始做 Prosefly。不过，之后也没有马上写 Web 应用。我先创建了 GitHub 组织，做了几个 Astro 主题和模版，然后才开始开发 Prosefly 平台。
 
 先做模板，有机会把内容组织和 frontmatter 的定义放进一个实际的网站里，看看编辑器怎样配合。到开始写平台时，已经有了可以编辑的内容，也有了使用这些内容的网站。
 
-## 选型走了弯路
+## 犯过的错
 
-平台用的是 Cloudflare Workers，需要按 org 分开管理数据。我一开始选了 [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/)。它可以让平台部署和运行用户的 Worker 代码，但我当时主要想解决的是不同组织的数据分离。
+我是用 Cloudflare Workers 来开发 Prosefly 的，需要按组织来拆分数据哭，做数据隔离。我一开始选了 [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/)。它可以部署和运行用户的 Worker 代码，也确实能做数据分离。
 
 结果把项目弄得特别复杂。编辑器已经花了很多时间，模板也做了几个，到了平台这一层，却越做越麻烦，一度打算放弃。
 
-后来才发现，[Durable Objects](https://developers.cloudflare.com/durable-objects/) 就可以做我需要的数据分离。每个 org 的数据放在各自的 Durable Object 里，应用还是同一个应用，不需要为此去部署和管理不同的 Worker。换成这个方案后，平台简单了很多，我才继续做了下去。
+后来才发现，[Durable Objects](https://developers.cloudflare.com/durable-objects/) 就可以做我需要的数据分离。每个组织的数据放在各自的 Durable Object 里，应用还是同一个应用，不需要为此去部署和管理不同的 Worker。换成这个方案后，平台简单了很多，我才继续做了下去。
