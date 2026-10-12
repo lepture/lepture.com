@@ -67,7 +67,7 @@ const { Content } = await render(project)
         <dt>{label}</dt>
         <dd>
           <a
-            class="rounded-sm underline decoration-faint underline-offset-[0.2em] transition-colors duration-150 hover:bg-(--pf-accent-soft) hover:decoration-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink motion-reduce:transition-none"
+            class="rounded-sm underline decoration-muted underline-offset-[0.2em] transition-colors duration-150 hover:bg-(--pf-accent-soft) hover:decoration-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink motion-reduce:transition-none"
             href={href}
           >
             {text}
@@ -92,7 +92,7 @@ const { Content } = await render(project)
         <PostList posts={relatedPosts} language={language} />
         {hasMoreRelatedPosts && (
           <a
-            class="mt-5 inline-block text-sm text-muted underline decoration-faint underline-offset-[0.2em] transition-colors duration-150 hover:text-ink hover:decoration-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
+            class="mt-5 inline-block text-sm text-muted underline decoration-muted underline-offset-[0.2em] transition-colors duration-150 hover:text-ink hover:decoration-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
             href={localizedPath('/blog/', language)}
           >
             {copy.allWriting}

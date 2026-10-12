@@ -13,7 +13,6 @@
   --color-canvas: var(--canvas);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
-  --color-faint: var(--faint);
   --color-rule: var(--rule);
 }
 
@@ -21,11 +20,10 @@
   --canvas: #090909;
   --ink: #f0efec;
   --muted: #aaa8a4;
-  --faint: #696865;
   --rule: #292927;
   --pf-text-strong: var(--ink);
   --pf-text: var(--muted);
-  --pf-text-muted: var(--faint);
+  --pf-text-muted: var(--muted);
   --pf-background: var(--canvas);
   --pf-surface: #111110;
   --pf-accent: var(--ink);
@@ -56,7 +54,6 @@
   --canvas: #faf9f6;
   --ink: #181817;
   --muted: #5f5e5a;
-  --faint: #888681;
   --rule: #d9d7d1;
   --pf-surface: #ebe9e3;
   --pf-accent-soft: #e2e0d9;
@@ -111,7 +108,7 @@
     color: var(--ink);
     border-radius: 0.125rem;
     text-decoration-line: underline;
-    text-decoration-color: var(--faint);
+    text-decoration-color: var(--muted);
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
     transition:

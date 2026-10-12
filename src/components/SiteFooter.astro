@@ -11,14 +11,23 @@ const { site, language } = Astro.props
 const year = new Date().getFullYear()
 ---
 
-<footer class="flex w-full flex-col items-start justify-center gap-4 border-t border-rule/50 px-4 py-5 text-xs text-faint sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:px-12 sm:py-4">
+<footer class="flex w-full flex-col items-start justify-center gap-4 border-t border-rule/50 px-4 py-5 text-sm text-muted sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:px-12 sm:py-4">
+  <p class="m-0 inline-flex min-h-11 items-center gap-1">
+    Powered by
+    <a
+      class="inline-flex min-h-11 min-w-11 items-center rounded-sm text-ink decoration-muted underline-offset-[0.2em] hover:underline hover:decoration-ink focus:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+      href="https://prosefly.com"
+    >
+      Prosefly
+    </a>
+  </p>
   <nav
-    class="flex max-w-full flex-wrap items-center gap-x-5 gap-y-3"
+    class="flex max-w-full flex-wrap items-center gap-x-4 gap-y-1"
     aria-label={language === 'zh' ? '页脚导航' : 'Footer navigation'}
   >
     {site.footer.map(({ href, label }) => (
       <a
-        class="whitespace-nowrap hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink aria-[current=page]:text-ink aria-[current=location]:text-ink"
+        class="inline-flex min-h-11 min-w-11 items-center rounded-sm whitespace-nowrap decoration-muted underline-offset-[0.2em] hover:text-ink hover:underline hover:decoration-ink focus:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink aria-[current]:font-medium aria-[current]:text-ink aria-[current]:decoration-2"
         href={href}
         aria-current={getNavigationCurrent(href, Astro.url)}
       >
@@ -27,13 +36,4 @@ const year = new Date().getFullYear()
     ))}
     <span class="whitespace-nowrap">© {year}</span>
   </nav>
-  <p class="m-0 text-muted sm:order-first">
-    Powered by{' '}
-    <a
-      class="text-ink underline decoration-faint underline-offset-[0.2em] hover:decoration-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink"
-      href="https://prosefly.com"
-    >
-      Prosefly
-    </a>
-  </p>
 </footer>

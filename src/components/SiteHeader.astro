@@ -16,12 +16,12 @@ const { site, language, languageSwitchHref, hasTranslation } = Astro.props
 
 <header class="page-shell flex min-h-20 flex-wrap items-center justify-between gap-4 py-4 sm:min-h-24 sm:gap-8">
   <nav
-    class="flex items-center gap-3 sm:gap-7"
+    class="flex items-center font-medium gap-3 sm:gap-7"
     aria-label={language === 'zh' ? '主导航' : 'Primary navigation'}
   >
     {site.navigation.map(({ href, label }) => (
       <a
-        class="text-xs text-faint transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink aria-[current=page]:text-ink aria-[current=location]:text-ink motion-reduce:transition-none sm:text-sm"
+        class="text-sm text-muted underline-offset-[0.2em] transition-colors duration-150 hover:text-ink hover:underline focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink aria-[current=page]:text-ink aria-[current=location]:text-ink motion-reduce:transition-none sm:text-base"
         href={href}
         aria-current={getNavigationCurrent(href, Astro.url)}
       >
@@ -38,7 +38,7 @@ const { site, language, languageSwitchHref, hasTranslation } = Astro.props
     />
 
     <button
-      class="relative grid size-7 cursor-pointer place-items-center border-0 bg-transparent p-0 text-faint transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
+      class="relative grid size-7 cursor-pointer place-items-center border-0 bg-transparent p-0 text-muted transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
       type="button"
       aria-label={language === 'zh' ? '切换到深色主题' : 'Switch to dark theme'}
       data-theme-toggle

@@ -16,7 +16,7 @@ const { posts, language } = Astro.props
   <section class="border-t border-rule pt-6" aria-labelledby="read-next">
     <h2
       id="read-next"
-      class="m-0 font-mono text-[0.7rem] font-normal tracking-[0.08em] text-faint uppercase"
+      class="m-0 font-mono text-[0.7rem] font-normal tracking-[0.08em] text-muted uppercase"
     >
       {ui[language].blog.readNext}
     </h2>
@@ -28,7 +28,7 @@ const { posts, language } = Astro.props
             href={getContentUrl(next)}
           >
             <time
-              class="font-mono text-[0.7rem] tracking-[0.04em] text-faint"
+              class="font-mono text-[0.7rem] tracking-[0.04em] text-muted"
               datetime={next.data.publishedAt.toISOString()}
             >
               {formatDate(next.data.publishedAt, language)}
@@ -38,7 +38,7 @@ const { posts, language } = Astro.props
                 {next.data.title}
               </h3>
               <span
-                class="mt-1 shrink-0 text-faint transition-colors group-hover:text-ink motion-reduce:transition-none"
+                class="mt-1 shrink-0 text-muted transition-colors group-hover:text-ink motion-reduce:transition-none"
                 aria-hidden="true"
               >
                 <Icon name="lucide:arrow-up-right" size="16" />
