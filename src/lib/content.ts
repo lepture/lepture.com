@@ -24,7 +24,7 @@ export function getContentUrl(entry: LocalizedEntry): string {
   if (entry.collection === 'legacy') return `/${entry.id}`
   const language = getContentLanguage(entry)
   const slug = entry.id.slice(language.length + 1)
-  if (entry.collection === 'pages') return localizedPath(`/${slug}/`, language)
+  if (entry.collection === 'pages') return localizedPath(`/${slug}`, language)
   return localizedPath(`/${entry.collection}/${slug}`, language)
 }
 

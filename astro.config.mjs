@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   site: 'https://lepture.com/',
   output: 'static',
+  build: { format: 'preserve' },
   devToolbar: { enabled: false },
   integrations: [
     proseflyComponents({

@@ -13,6 +13,7 @@ import '@/styles/global.css'
 interface Props {
   title?: string
   description?: string
+  canonicalPath?: string
   previousUrl?: string
   nextUrl?: string
   language?: Language
@@ -23,6 +24,7 @@ interface Props {
 const {
   title,
   description,
+  canonicalPath = Astro.url.pathname.replace(/\.html$/, ''),
   previousUrl,
   nextUrl,
   language = 'en',
@@ -34,7 +36,7 @@ const pageTitle = title
   ? `${title} — ${site.title}`
   : `${site.title} — ${site.tagline}`
 const pageImage = image ?? site.logo
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
+const canonicalUrl = new URL(canonicalPath, Astro.site)
 const pageDescription = description ?? site.description
 const languageSwitchHref =
   alternateUrl ?? getLanguageFallback(Astro.url.pathname, language)

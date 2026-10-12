@@ -1,7 +1,11 @@
 ---
 import { render } from 'astro:content'
 import DetailLayout from '@/layouts/DetailLayout.astro'
-import { getContentLanguage, type PageEntry } from '@/lib/content'
+import {
+  getContentLanguage,
+  getContentUrl,
+  type PageEntry,
+} from '@/lib/content'
 
 interface Props {
   page: PageEntry
@@ -16,6 +20,7 @@ const { Content } = await render(page)
 
 <DetailLayout
   title={title}
+  canonicalPath={getContentUrl(page)}
   description={description}
   language={language}
   alternateUrl={alternateUrl ?? null}

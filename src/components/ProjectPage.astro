@@ -6,6 +6,7 @@ import { getSite } from '@/lib/site'
 import DetailLayout from '@/layouts/DetailLayout.astro'
 import {
   getContentLanguage,
+  getContentUrl,
   getPublishedBlogPosts,
   type Project,
 } from '@/lib/content'
@@ -45,6 +46,7 @@ const { Content } = await render(project)
 
 <DetailLayout
   title={project.data.title}
+  canonicalPath={getContentUrl(project)}
   description={project.data.description}
   summary={project.data.description}
   back={{ href: localizedPath('/projects/', language), label: copy.title }}

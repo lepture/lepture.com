@@ -1,4 +1,5 @@
 import { writeFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { encodeXML } from 'entities'
 import type { AstroIntegration } from 'astro'
 
@@ -19,7 +20,15 @@ export default function sitemap(): AstroIntegration {
           ...new Set(
             pages
               .filter(({ pathname }) => !/^\/?(?:404|500)\/?$/.test(pathname))
-              .map(({ pathname }) => new URL(pathname, site).href),
+              .map(({ pathname }) => {
+                const path = pathname.replace(/^\/|\/$/g, '')
+                const indexFile = new URL(
+                  `${path ? `${path}/` : ''}index.html`,
+                  dir,
+                )
+                return new URL(existsSync(indexFile) ? `${path}/` : path, site)
+                  .href
+              }),
           ),
         ].sort()
         const entries = urls.map(

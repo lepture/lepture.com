@@ -7,6 +7,7 @@ import { ui, type Language } from '@/lib/i18n'
 
 interface Props {
   title: string
+  canonicalPath: string
   description?: string
   summary?: string
   sectionHref: string
@@ -21,6 +22,7 @@ interface Props {
 
 const {
   title,
+  canonicalPath,
   description,
   summary,
   sectionHref,
@@ -40,6 +42,7 @@ const numberFormat = new Intl.NumberFormat(language)
 
 <DetailLayout
   title={title}
+  canonicalPath={canonicalPath}
   description={description}
   summary={summary}
   back={{ href: sectionHref, label: sectionLabel }}

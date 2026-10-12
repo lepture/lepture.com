@@ -6,6 +6,7 @@ import type { Language } from '@/lib/i18n'
 interface Props {
   title: string
   description?: string
+  canonicalPath?: string
   summary?: string
   back?: { href: string; label: string }
   language: Language
@@ -13,13 +14,22 @@ interface Props {
   image?: string
 }
 
-const { title, description, summary, back, language, alternateUrl, image } =
-  Astro.props
+const {
+  title,
+  description,
+  canonicalPath,
+  summary,
+  back,
+  language,
+  alternateUrl,
+  image,
+} = Astro.props
 ---
 
 <BaseLayout
   title={title}
   description={description}
+  canonicalPath={canonicalPath}
   language={language}
   alternateUrl={alternateUrl}
   image={image}
