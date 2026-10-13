@@ -9,11 +9,13 @@ export default defineConfig({
   output: 'static',
   build: { format: 'preserve' },
   devToolbar: { enabled: false },
-  integrations: [
-    proseflyComponents(),
-    mdx(),
-    sitemap(),
-  ],
+  markdown: {
+    shikiConfig: {
+      themes: { light: 'github-light', dark: 'github-dark' },
+      defaultColor: false,
+    },
+  },
+  integrations: [proseflyComponents(), mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },

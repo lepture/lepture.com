@@ -62,6 +62,24 @@
   color-scheme: light;
 }
 
+.astro-code,
+.astro-code span {
+  color: var(--shiki-dark);
+}
+
+.astro-code {
+  background-color: var(--shiki-dark-bg);
+}
+
+:root[data-theme='light'] .astro-code,
+:root[data-theme='light'] .astro-code span {
+  color: var(--shiki-light);
+}
+
+:root[data-theme='light'] .astro-code {
+  background-color: var(--shiki-light-bg);
+}
+
 @layer components {
   .page-shell,
   .detail-shell {
