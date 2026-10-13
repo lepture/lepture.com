@@ -159,7 +159,7 @@ const {
     font-weight: 600;
   }
 
-  .reading-prose :global(:where(ul, ol):not(:where(.not-prose, .not-prose *))) {
+  .reading-prose :global(:where(ul, ol):not(:where(.not-prose, .pf-steps, .not-prose *))) {
     padding-inline-start: 1.5em;
   }
 
@@ -179,6 +179,13 @@ const {
     font-weight: 400;
     font-style: normal;
     quotes: none;
+  }
+
+  .reading-prose :global(.pf-tabs__panel > pre:only-child) {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
   }
 
   .reading-prose :global(:where(code):not(:where(.not-prose, .not-prose *))) {
