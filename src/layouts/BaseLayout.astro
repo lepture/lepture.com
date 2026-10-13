@@ -87,6 +87,24 @@ const languageSwitchHref =
       title={`${site.title} 中文 RSS`}
       href="/zh/feed.xml"
     />
+    <link
+      rel="alternate"
+      type="application/feed+json"
+      title={`${site.title} ${language === 'zh' ? '全部文章' : 'All posts'} JSON Feed`}
+      href="/feed.json"
+    />
+    <link
+      rel="alternate"
+      type="application/feed+json"
+      title={`${site.title} English JSON Feed`}
+      href="/en/feed.json"
+    />
+    <link
+      rel="alternate"
+      type="application/feed+json"
+      title={`${site.title} 中文 JSON Feed`}
+      href="/zh/feed.json"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
