@@ -1,0 +1,94 @@
+---
+import type { ArticleMetadata } from '@/lib/content'
+import { localizedPath, type Language } from '@/lib/i18n'
+import type { Site } from '@/lib/site'
+
+interface Props {
+  title: string
+  description: string
+  url: URL
+  language: Language
+  site: Site
+  article?: ArticleMetadata
+  noindex?: boolean
+}
+
+const { title, description, url, language, site, article, noindex } =
+  Astro.props
+const rootUrl = new URL('/', url).href
+const imageUrl = new URL(site.logo, url)
+const publishedTime = article?.publishedAt.toISOString()
+const modifiedTime = article?.updatedAt?.toISOString()
+const author = {
+  '@type': 'Person',
+  '@id': `${rootUrl}#author`,
+  name: site.home.name,
+  alternateName: site.title,
+  url: new URL('/about', url).href,
+  image: imageUrl.href,
+  sameAs: site.home.contact.links
+    .map(({ href }) => href)
+    .filter((href) => href.startsWith('https://')),
+}
+let structuredData: Record<string, unknown> | undefined
+if (article) {
+  structuredData = {
+    '@type': 'BlogPosting',
+    headline: article.title,
+    description,
+    url: url.href,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url.href },
+    inLanguage: language,
+    datePublished: publishedTime,
+    dateModified: modifiedTime,
+    author,
+  }
+} else if (url.pathname === localizedPath('/', language)) {
+  structuredData = {
+    '@type': 'WebSite',
+    '@id': `${rootUrl}#website`,
+    name: site.title,
+    url: rootUrl,
+    publisher: author,
+  }
+} else if (url.pathname === localizedPath('/about', language)) {
+  structuredData = {
+    '@type': 'ProfilePage',
+    name: title,
+    description,
+    url: url.href,
+    inLanguage: language,
+    mainEntity: author,
+  }
+}
+const json = structuredData
+  ? JSON.stringify({
+      '@context': 'https://schema.org',
+      ...structuredData,
+    }).replace(/</g, '\\u003c')
+  : undefined
+---
+
+{noindex && <meta name="robots" content="noindex" />}
+<meta property="og:type" content={article ? 'article' : 'website'} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:site_name" content={site.title} />
+<meta property="og:locale" content={language === 'zh' ? 'zh_CN' : 'en_US'} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="384" />
+<meta property="og:image:height" content="384" />
+<meta property="og:image:alt" content={`${site.home.name} (${site.title})`} />
+<meta name="twitter:card" content="summary" />
+{article && (
+  <>
+    <meta property="article:published_time" content={publishedTime} />
+    {modifiedTime && (
+      <meta property="article:modified_time" content={modifiedTime} />
+    )}
+    <meta property="article:author" content={author.url} />
+  </>
+)}
+{json && <script is:inline type="application/ld+json" set:html={json} />}

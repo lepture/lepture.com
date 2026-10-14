@@ -43,6 +43,7 @@ const nextPosts = [...posts.slice(index + 1), ...posts.slice(0, index)].slice(
   sectionHref={isLegacy ? '/archive/' : localizedPath('/blog/', language)}
   sectionLabel={isLegacy ? ui[language].archive.title : ui[language].blog.title}
   publishedAt={post.data.publishedAt}
+  updatedAt={post.data.updatedAt}
   tags={post.data.tags}
   project={
     project && {
@@ -52,7 +53,6 @@ const nextPosts = [...posts.slice(index + 1), ...posts.slice(0, index)].slice(
   }
   language={language}
   alternateUrl={alternateUrl ?? null}
-  image={isLegacy ? post.data.socialImage : undefined}
 >
   <Content />
   <ReadNext slot="after-content" posts={nextPosts} language={language} />

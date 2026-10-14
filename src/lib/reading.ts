@@ -53,3 +53,46 @@ export function getReadingStats(html: string, language: Language) {
 
   return { count, minutes: Math.ceil(count / readingSpeed[language]) }
 }
+
+function findParagraph(node: Node): string | undefined {
+  if (node.type === ELEMENT_NODE) {
+    if (
+      [
+        'script',
+        'style',
+        'template',
+        'svg',
+        'pre',
+        'blockquote',
+        'figure',
+        'ul',
+        'ol',
+        'aside',
+      ].includes(node.name) ||
+      'hidden' in node.attributes ||
+      node.attributes['aria-hidden'] === 'true'
+    )
+      return undefined
+    if (node.name === 'p') {
+      const text = getText(node).replace(/\s+/g, ' ').trim()
+      if (text) return text
+    }
+  }
+  if ('children' in node) {
+    for (const child of node.children) {
+      const paragraph = findParagraph(child)
+      if (paragraph) return paragraph
+    }
+  }
+  return undefined
+}
+
+export function getFirstParagraph(html: string): string | undefined {
+  const paragraph = findParagraph(parse(html))
+  if (!paragraph) return undefined
+  const characters = Array.from(paragraph)
+  if (characters.length <= 200) return paragraph
+  const excerpt = characters.slice(0, 200).join('')
+  const wordEnd = excerpt.lastIndexOf(' ')
+  return `${(wordEnd >= 160 ? excerpt.slice(0, wordEnd) : excerpt).trimEnd()}…`
+}

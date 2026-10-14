@@ -2,7 +2,7 @@
 import MetadataGrid from '@/components/MetadataGrid.astro'
 import DetailLayout from '@/layouts/DetailLayout.astro'
 import { formatDate } from '@/lib/format'
-import { getReadingStats } from '@/lib/reading'
+import { getFirstParagraph, getReadingStats } from '@/lib/reading'
 import { ui, type Language } from '@/lib/i18n'
 
 interface Props {
@@ -14,11 +14,11 @@ interface Props {
   sectionHref: string
   sectionLabel: string
   publishedAt: Date
+  updatedAt?: Date
   tags: string[]
   project?: { title: string; href: string }
   language?: Language
   alternateUrl?: string | null
-  image?: string
 }
 
 const {
@@ -30,14 +30,15 @@ const {
   sectionHref,
   sectionLabel,
   publishedAt,
+  updatedAt,
   tags,
   project,
   language = 'en',
   alternateUrl,
-  image,
 } = Astro.props
 const copy = ui[language].blog
 const content = await Astro.slots.render('default')
+const pageDescription = description?.trim() || getFirstParagraph(content)
 const { count, minutes } = getReadingStats(content, language)
 const numberFormat = new Intl.NumberFormat(language)
 ---
@@ -46,12 +47,12 @@ const numberFormat = new Intl.NumberFormat(language)
   title={title}
   canonicalPath={canonicalPath}
   filePath={filePath}
-  description={description}
+  description={pageDescription}
   summary={summary}
   back={{ href: sectionHref, label: sectionLabel }}
   language={language}
   alternateUrl={alternateUrl}
-  image={image}
+  article={{ title, publishedAt, updatedAt }}
 >
   <MetadataGrid slot="metadata" columns={4}>
     <div>

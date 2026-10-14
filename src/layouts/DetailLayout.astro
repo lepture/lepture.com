@@ -2,6 +2,7 @@
 import { Icon } from '@prosefly/astro-components'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import type { Language } from '@/lib/i18n'
+import type { ArticleMetadata } from '@/lib/content'
 
 interface Props {
   title: string
@@ -12,7 +13,7 @@ interface Props {
   back?: { href: string; label: string }
   language: Language
   alternateUrl?: string | null
-  image?: string
+  article?: ArticleMetadata
 }
 
 const {
@@ -24,7 +25,7 @@ const {
   back,
   language,
   alternateUrl,
-  image,
+  article,
 } = Astro.props
 ---
 
@@ -35,7 +36,7 @@ const {
   filePath={filePath}
   language={language}
   alternateUrl={alternateUrl}
-  image={image}
+  article={article}
 >
   <article class="detail-shell pb-24">
     <header class="pt-18 min-[761px]:pt-16">

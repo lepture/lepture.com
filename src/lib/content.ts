@@ -8,6 +8,12 @@ export type PageEntry = CollectionEntry<'pages'>
 export type LegacyPost = CollectionEntry<'legacy'>
 export type Post = BlogPost | LegacyPost
 
+export interface ArticleMetadata {
+  title: string
+  publishedAt: Date
+  updatedAt?: Date
+}
+
 type LocalizedEntry = Post | Project | PageEntry
 
 export function getContentLanguage(entry: LocalizedEntry): Language {

@@ -1,8 +1,10 @@
 ---
 import AnalyticsTracker from '@/components/AnalyticsTracker.astro'
+import SeoMetadata from '@/components/SeoMetadata.astro'
 import SiteFooter from '@/components/SiteFooter.astro'
 import SiteHeader from '@/components/SiteHeader.astro'
 import { getSite } from '@/lib/site'
+import type { ArticleMetadata } from '@/lib/content'
 import {
   getStaticAlternate,
   getLanguageFallback,
@@ -20,7 +22,8 @@ interface Props {
   nextUrl?: string
   language?: Language
   alternateUrl?: string | null
-  image?: string
+  article?: ArticleMetadata
+  noindex?: boolean
 }
 
 const {
@@ -32,13 +35,13 @@ const {
   nextUrl,
   language = 'en',
   alternateUrl = getStaticAlternate(Astro.url.pathname, language),
-  image,
+  article,
+  noindex,
 } = Astro.props
 const site = (await getSite(language)).data
 const pageTitle = title
   ? `${title} — ${site.title}`
   : `${site.title} — ${site.tagline}`
-const pageImage = image ?? site.logo
 const canonicalUrl = new URL(canonicalPath, Astro.site)
 const pageDescription = description ?? site.description
 const languageSwitchHref =
@@ -108,12 +111,15 @@ const languageSwitchHref =
       title={`${site.title} 中文 JSON Feed`}
       href="/zh/feed.json"
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={new URL(pageImage, Astro.site)} />
-    <meta name="twitter:card" content="summary" />
+    <SeoMetadata
+      title={pageTitle}
+      description={pageDescription}
+      url={canonicalUrl}
+      language={language}
+      site={site}
+      article={article}
+      noindex={noindex}
+    />
     <title>{pageTitle}</title>
     <script is:inline>
       let themePreference = 'system'
