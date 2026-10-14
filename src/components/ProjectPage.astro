@@ -47,6 +47,7 @@ const { Content } = await render(project)
 <DetailLayout
   title={project.data.title}
   canonicalPath={getContentUrl(project)}
+  filePath={project.filePath}
   description={project.data.description}
   summary={project.data.description}
   back={{ href: localizedPath('/projects/', language), label: copy.title }}

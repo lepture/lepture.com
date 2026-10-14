@@ -37,6 +37,7 @@ const nextPosts = [...posts.slice(index + 1), ...posts.slice(0, index)].slice(
 <ArticleLayout
   title={post.data.title}
   canonicalPath={getContentUrl(post)}
+  filePath={post.filePath}
   description={post.data.description}
   summary={isLegacy ? undefined : post.data.description}
   sectionHref={isLegacy ? '/archive/' : localizedPath('/blog/', language)}

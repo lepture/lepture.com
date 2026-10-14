@@ -23,7 +23,7 @@ const [posts, projects] = await Promise.all([
 ])
 ---
 
-<BaseLayout language={language} title={copy.name}>
+<BaseLayout language={language} title={copy.name} filePath={entry.filePath}>
   <section class="page-shell pt-18 pb-16 min-[761px]:pt-16">
     <div class="flex items-center gap-5 sm:gap-6">
       <img

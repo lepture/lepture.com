@@ -1,4 +1,5 @@
 ---
+import AnalyticsTracker from '@/components/AnalyticsTracker.astro'
 import SiteFooter from '@/components/SiteFooter.astro'
 import SiteHeader from '@/components/SiteHeader.astro'
 import { getSite } from '@/lib/site'
@@ -14,6 +15,7 @@ interface Props {
   title?: string
   description?: string
   canonicalPath?: string
+  filePath?: string
   previousUrl?: string
   nextUrl?: string
   language?: Language
@@ -25,6 +27,7 @@ const {
   title,
   description,
   canonicalPath = Astro.url.pathname.replace(/\.html$/, ''),
+  filePath,
   previousUrl,
   nextUrl,
   language = 'en',
@@ -132,6 +135,7 @@ const languageSwitchHref =
         .querySelector('meta[name="theme-color"]')
         .setAttribute('content', theme === 'dark' ? '#090909' : '#faf9f6')
     </script>
+    <AnalyticsTracker filePath={filePath} />
   </head>
   <body class="bg-canvas font-sans text-base leading-[1.65] text-ink antialiased selection:bg-ink selection:text-canvas [text-rendering:optimizeLegibility] transition-colors duration-200 motion-reduce:transition-none">
     <SiteHeader

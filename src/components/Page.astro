@@ -21,6 +21,7 @@ const { Content } = await render(page)
 <DetailLayout
   title={title}
   canonicalPath={getContentUrl(page)}
+  filePath={page.filePath}
   description={description}
   language={language}
   alternateUrl={alternateUrl ?? null}

@@ -1,0 +1,19 @@
+---
+interface Props {
+  filePath?: string;
+}
+const { filePath } = Astro.props;
+---
+
+{
+  import.meta.env.PROD && (
+    <script
+      is:inline
+      defer
+      src="https://analytics.prosefly.com/tracker.js"
+      data-org="sHH8vm6YrfKa3huA28rvfysXS64uF9YO"
+      data-space="d13ccfa7-9645-43ba-bc4f-629d6a20eb9d"
+      data-filepath={filePath}
+    />
+  )
+}
