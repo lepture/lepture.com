@@ -6,10 +6,24 @@
 
 @custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
 
-@theme inline {
+/* Leave shared punctuation, such as Chinese quotation marks, to the CJK font. */
+@font-face {
+  font-family: 'Geist Latin';
+  src: url('@fontsource-variable/geist/files/geist-latin-wght-normal.woff2')
+    format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0020-007E, U+00A0-00B6, U+00B8-00FF;
+}
+
+@theme {
   --font-sans: 'Geist Variable', 'SF Pro Text', system-ui, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@theme inline {
   --color-canvas: var(--canvas);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
@@ -41,13 +55,25 @@
   --pf-warning-ink: var(--ink);
   --pf-border-subtle: var(--rule);
   --pf-border-muted: #3a3936;
-  --pf-font-sans: 'Geist Variable', 'SF Pro Text', system-ui, sans-serif;
+  --pf-font-sans: var(--font-sans);
   --pf-font-mono:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --pf-radius-sm: 0;
   --pf-radius-md: 0;
   --pf-radius-lg: 0;
   color-scheme: dark;
+}
+
+[lang]:lang(zh) {
+  --font-sans:
+    'Geist Latin', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC',
+    'Noto Sans SC', system-ui, sans-serif;
+  --font-serif: var(--font-sans);
+  --pf-font-sans: var(--font-sans);
+  font-family: var(--font-sans);
+  text-autospace: normal;
+  text-spacing-trim: trim-start;
+  line-break: strict;
 }
 
 :root[data-theme='light'] {
@@ -99,6 +125,10 @@
     line-height: 1.08;
     font-weight: 400;
     letter-spacing: -0.025em;
+  }
+  .page-title:lang(zh) {
+    line-height: 1.25;
+    letter-spacing: normal;
   }
   @media (min-width: 640px) {
     .detail-shell {

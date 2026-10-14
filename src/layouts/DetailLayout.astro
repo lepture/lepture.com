@@ -42,10 +42,10 @@ const {
     <header class="pt-18 min-[761px]:pt-16">
       {back && (
         <a
-          class="mb-4 inline-flex items-center gap-1.5 font-mono text-[0.7rem] tracking-[0.08em] text-muted uppercase transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
+          class="mb-4 inline-flex min-h-6 items-center gap-2 font-mono text-sm tracking-[0.08em] text-muted uppercase transition-colors duration-150 hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[5px] focus-visible:outline-ink motion-reduce:transition-none"
           href={back.href}
         >
-          <Icon name="lucide:arrow-left" size="12" />
+          <Icon name="lucide:arrow-left" size="14" />
           {back.label}
         </a>
       )}
@@ -68,7 +68,7 @@ const {
   }
 
   .detail-title:lang(zh) {
-    letter-spacing: normal;
+    line-height: 1.25;
   }
 
   .detail-summary {
@@ -78,6 +78,10 @@ const {
     font-size: 1.0625rem;
     line-height: 1.55;
     text-wrap: pretty;
+  }
+
+  .detail-summary:lang(zh) {
+    line-height: 1.75;
   }
 
   .reading-prose {
@@ -102,6 +106,15 @@ const {
     color: var(--tw-prose-body);
     font-size: 1.0625rem;
     line-height: 1.8;
+  }
+
+  .reading-prose:lang(zh) {
+    line-height: 1.85;
+  }
+
+  .reading-prose:lang(zh)
+    :global(:where(p):not(:where(.not-prose, .not-prose *))) {
+    text-wrap: pretty;
   }
 
   .reading-prose
@@ -197,6 +210,7 @@ const {
     font-family: var(--font-mono);
     font-size: 0.875em;
     font-weight: 400;
+    text-autospace: no-autospace;
   }
 
   .reading-prose
@@ -236,6 +250,7 @@ const {
 
   .reading-prose:lang(zh)
     :global(:where(h1, h2, h3, h4):not(:where(.not-prose, .not-prose *))) {
+    line-height: 1.45;
     letter-spacing: normal;
   }
 
