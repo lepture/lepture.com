@@ -9,6 +9,10 @@
 /archive/page/:page /archive/ 301
 /archive/page/:page/ /archive/ 301
 
+# Legacy tag archives now show all matching posts on one page.
+/tags/:tag/page/:page /tags/:tag/ 301
+/tags/:tag/page/:page/ /tags/:tag/ 301
+
 # Moment detail pages are now anchored sections on the Moments page.
 /moments/:date /moments/#moment-:date 301
 /moments/:date/ /moments/#moment-:date 301

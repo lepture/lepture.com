@@ -8,7 +8,7 @@ import {
   getPublishedBlogPosts,
   type Post,
 } from '@/lib/content'
-import { getPublishedPosts } from '@/lib/legacy'
+import { getPublishedPosts, getTagUrl } from '@/lib/legacy'
 import { localizedPath, ui } from '@/lib/i18n'
 
 interface Props {
@@ -44,7 +44,10 @@ const nextPosts = [...posts.slice(index + 1), ...posts.slice(0, index)].slice(
   sectionLabel={isLegacy ? ui[language].archive.title : ui[language].blog.title}
   publishedAt={post.data.publishedAt}
   updatedAt={post.data.updatedAt}
-  tags={post.data.tags}
+  tags={post.data.tags.map((title) => ({
+    title,
+    href: isLegacy ? getTagUrl(title) : undefined,
+  }))}
   project={
     project && {
       title: project.data.title,

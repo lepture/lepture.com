@@ -1,0 +1,56 @@
+---
+import type { InferGetStaticPropsType } from 'astro'
+import PageIntro from '@/components/PageIntro.astro'
+import PostList from '@/components/PostList.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import tags from '@/legacy/tags.json'
+import { getContentLanguage } from '@/lib/content'
+import { ui } from '@/lib/i18n'
+import { getPublishedPosts } from '@/lib/legacy'
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts()
+  return Object.entries(tags)
+    .map(([slug, tag]) => ({
+      params: { tag: slug },
+      props: {
+        slug,
+        tag,
+        posts: posts.filter((post) => post.data.tags.includes(tag.title)),
+      },
+    }))
+    .filter(({ props }) => props.posts.length > 0)
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { slug, tag, posts } = Astro.props
+const language = posts.every((post) => getContentLanguage(post) === 'zh')
+  ? 'zh'
+  : 'en'
+const description =
+  'description' in tag
+    ? tag.description
+    : language === 'zh'
+      ? `与「${tag.title}」相关的旧文章。`
+      : `Archived posts tagged ${tag.title}.`
+---
+
+<BaseLayout
+  title={tag.title}
+  description={description}
+  canonicalPath={`/tags/${slug}/`}
+  language={language}
+  alternateUrl={null}
+>
+  <section class="page-shell pt-18 pb-24 min-[761px]:pt-16">
+    <PageIntro
+      title={tag.title}
+      eyebrow={`${ui[language].archive.title} · ${posts.length}`}
+      description={description}
+    />
+    <div class="mt-12">
+      <PostList posts={posts} language={language} />
+    </div>
+  </section>
+</BaseLayout>

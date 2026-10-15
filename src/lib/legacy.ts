@@ -1,6 +1,12 @@
 import { getCollection } from 'astro:content'
 import type { LegacyPost } from '@/lib/content'
 import type { Language } from '@/lib/i18n'
+import tags from '@/legacy/tags.json'
+
+export function getTagUrl(title: string): string | undefined {
+  const tag = Object.entries(tags).find(([, tag]) => tag.title === title)
+  return tag ? `/tags/${tag[0]}/` : undefined
+}
 
 export async function getPublishedPosts(
   language?: Language,
