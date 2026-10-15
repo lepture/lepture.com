@@ -1,0 +1,355 @@
+---
+import { Icon } from '@prosefly/astro-components'
+import { ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  title: string
+  canonicalPath: string
+  language: Language
+}
+
+const { title, canonicalPath, language } = Astro.props
+const copy = ui[language].blog.actions
+const url = new URL(canonicalPath, Astro.site).href
+const xUrl = `https://x.com/intent/tweet?${new URLSearchParams({ text: title, url })}`
+const blueskyUrl = `https://bsky.app/intent/compose?${new URLSearchParams({ text: `${title}\n\n${url}` })}`
+const emailUrl = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`
+---
+
+<article-actions
+  data-title={title}
+  data-url={url}
+  data-liked={copy.liked}
+  data-copied={copy.copied}
+  data-copy-failed={copy.copyFailed}
+>
+  <div class="actions-row" role="group" aria-label={copy.label} hidden>
+    <button
+      class="action"
+      type="button"
+      data-like
+      aria-pressed="false"
+      disabled
+    >
+      <Icon name="lucide:heart" size="18" />
+      <span>{copy.like}</span>
+    </button>
+    <details class="share-options">
+      <summary class="action">
+        <Icon name="lucide:share-2" size="18" />
+        <span>{copy.share}</span>
+        <Icon name="lucide:chevron-down" size="14" />
+      </summary>
+      <div class="share-menu">
+        <button type="button" data-copy>
+          {copy.copyLink}
+        </button>
+        <a href={xUrl} target="_blank" rel="noopener noreferrer">
+          {copy.shareX}
+        </a>
+        <a href={blueskyUrl} target="_blank" rel="noopener noreferrer">
+          {copy.shareBluesky}
+        </a>
+        <a href={emailUrl}>{copy.shareEmail}</a>
+        <button type="button" data-system-share hidden>
+          {copy.systemShare}
+        </button>
+      </div>
+    </details>
+    <span class="action-status" role="status"></span>
+  </div>
+  <label class="share-link" hidden>
+    <span>{copy.link}</span>
+    <input type="url" value={url} readonly />
+  </label>
+  <noscript>
+    <a href={emailUrl}>{copy.shareEmail}</a>
+  </noscript>
+</article-actions>
+
+<script>
+  class ArticleActions extends HTMLElement {
+    private controller?: AbortController
+
+    connectedCallback() {
+      const like = this.querySelector<HTMLButtonElement>('[data-like]')
+      const likeLabel = like?.querySelector('span')
+      const row = this.querySelector<HTMLElement>('.actions-row')
+      const menu = this.querySelector<HTMLDetailsElement>('.share-options')
+      const trigger = menu?.querySelector('summary')
+      const copyButton = this.querySelector<HTMLButtonElement>('[data-copy]')
+      const systemShare = this.querySelector<HTMLButtonElement>(
+        '[data-system-share]',
+      )
+      const status = this.querySelector<HTMLElement>('[role="status"]')
+      const fallback = this.querySelector<HTMLLabelElement>('.share-link')
+      const input = this.querySelector<HTMLInputElement>('input')
+      const { title, url, liked, copied, copyFailed } = this.dataset
+      if (
+        !row ||
+        !like ||
+        !likeLabel ||
+        !menu ||
+        !trigger ||
+        !copyButton ||
+        !systemShare ||
+        !status ||
+        !fallback ||
+        !input ||
+        !url
+      )
+        return
+
+      this.controller?.abort()
+      this.controller = new AbortController()
+      const { signal } = this.controller
+      row.hidden = false
+      like.disabled = like.getAttribute('aria-pressed') === 'true'
+      const storageKey = `article:liked:${url}`
+      const markLiked = () => {
+        like.setAttribute('aria-pressed', 'true')
+        likeLabel.textContent = liked ?? ''
+        like.disabled = true
+      }
+
+      try {
+        if (localStorage.getItem(storageKey) === 'true') markLiked()
+      } catch {
+        // Keep the button usable when browser storage is unavailable.
+      }
+
+      like.addEventListener(
+        'click',
+        () => {
+          if (like.disabled) return
+          window.proseflyAnalytics?.track('like')
+          markLiked()
+          try {
+            localStorage.setItem(storageKey, 'true')
+          } catch {
+            // The in-page state still prevents repeated likes.
+          }
+        },
+        { signal },
+      )
+
+      window.addEventListener(
+        'storage',
+        (event) => {
+          if (event.key === storageKey && event.newValue === 'true') markLiked()
+        },
+        { signal },
+      )
+
+      const copyLink = async () => {
+        status.textContent = ''
+        copyButton.disabled = true
+        menu.open = false
+        trigger.focus()
+        try {
+          await navigator.clipboard.writeText(url)
+          status.textContent = copied ?? ''
+        } catch {
+          status.textContent = copyFailed ?? ''
+          fallback.hidden = false
+          input.focus()
+          input.select()
+        } finally {
+          copyButton.disabled = false
+        }
+      }
+      copyButton.addEventListener('click', copyLink, { signal })
+
+      systemShare.hidden = !navigator.share
+      systemShare.addEventListener(
+        'click',
+        async () => {
+          status.textContent = ''
+          menu.open = false
+          trigger.focus()
+          systemShare.disabled = true
+          try {
+            await navigator.share({ title, url })
+          } catch (error) {
+            if (!(error instanceof DOMException && error.name === 'AbortError'))
+              await copyLink()
+          } finally {
+            systemShare.disabled = false
+          }
+        },
+        { signal },
+      )
+
+      menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener(
+          'click',
+          () => {
+            menu.open = false
+          },
+          { signal },
+        )
+      })
+      document.addEventListener(
+        'click',
+        (event) => {
+          if (event.target instanceof Node && !menu.contains(event.target))
+            menu.open = false
+        },
+        { signal },
+      )
+      menu.addEventListener(
+        'keydown',
+        (event) => {
+          if (event.key === 'Escape') {
+            menu.open = false
+            trigger.focus()
+          }
+        },
+        { signal },
+      )
+    }
+
+    disconnectedCallback() {
+      this.controller?.abort()
+    }
+  }
+
+  customElements.define('article-actions', ArticleActions)
+</script>
+
+<style>
+  article-actions {
+    display: block;
+    margin-block-end: 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  .actions-row:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .action {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--muted);
+    cursor: pointer;
+    transition:
+      color 150ms ease,
+      background-color 150ms ease;
+  }
+
+  .action:is(:hover, :focus-visible) {
+    color: var(--ink);
+    background: var(--pf-accent-soft);
+  }
+
+  .action:focus-visible,
+  .share-menu :is(a, button):focus-visible,
+  .share-link input:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+  }
+
+  .action:disabled {
+    cursor: default;
+  }
+
+  .action:disabled:not([aria-pressed='true']) {
+    opacity: 0.6;
+  }
+
+  .action[aria-pressed='true'] {
+    color: var(--ink);
+    background: var(--pf-accent-soft);
+  }
+
+  .action[aria-pressed='true'] :global(path) {
+    fill: currentColor;
+  }
+
+  .share-options {
+    position: relative;
+  }
+
+  summary.action {
+    list-style: none;
+  }
+
+  summary.action::-webkit-details-marker {
+    display: none;
+  }
+
+  .share-options[open] summary {
+    color: var(--ink);
+    background: var(--pf-accent-soft);
+  }
+
+  .share-menu {
+    position: absolute;
+    z-index: 1;
+    inset-inline-end: 0;
+    bottom: calc(100% + 0.5rem);
+    width: 13rem;
+    padding: 0.375rem;
+    border: 1px solid var(--rule);
+    border-radius: 0.5rem;
+    background: var(--canvas);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+  }
+
+  .share-menu :is(a, button):not([hidden]) {
+    display: flex;
+    width: 100%;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    color: var(--ink);
+    text-align: start;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .share-menu :is(a, button):hover {
+    background: var(--pf-accent-soft);
+  }
+
+  .action-status,
+  .share-link {
+    color: var(--muted);
+  }
+
+  .share-link:not([hidden]) {
+    display: grid;
+    gap: 0.5rem;
+    margin-block-start: 1rem;
+  }
+
+  .share-link input {
+    width: 100%;
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: 0.25rem;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .action {
+      transition: none;
+    }
+  }
+</style>

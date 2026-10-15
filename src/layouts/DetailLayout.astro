@@ -38,7 +38,7 @@ const {
   alternateUrl={alternateUrl}
   article={article}
 >
-  <article class="detail-shell pb-24">
+  <article class:list={['detail-shell pb-24', { 'h-entry': Boolean(article) }]}>
     <header class="pt-18 min-[761px]:pt-16">
       {back && (
         <a
@@ -49,11 +49,21 @@ const {
           {back.label}
         </a>
       )}
-      <h1 class="page-title detail-title">{title}</h1>
-      {summary && <p class="detail-summary">{summary}</p>}
+      <h1
+        class:list={['page-title detail-title', { 'p-name': Boolean(article) }]}
+      >
+        {title}
+      </h1>
+      {summary && (
+        <p class:list={['detail-summary', { 'p-summary': Boolean(article) }]}>
+          {summary}
+        </p>
+      )}
       <slot name="metadata" />
     </header>
-    <div class="prose reading-prose">
+    <div
+      class:list={['prose reading-prose', { 'e-content': Boolean(article) }]}
+    >
       <slot />
     </div>
     <slot name="after-content" />
