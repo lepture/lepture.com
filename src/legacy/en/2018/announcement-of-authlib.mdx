@@ -5,7 +5,7 @@ updatedAt: 2022-04-10T02:28:28Z
 tags: []
 ---
 
-It has been 4 years since I posted _[Create an OAuth Server](https://lepture.com/en/2013/create-oauth-server)_. Flask-OAuthlib has been shining in the Flask community, but it's time to say goodbye. **[Authlib][]** is going to replace Flask-OAuthlib.
+It has been 4 years since I posted [*Create an OAuth Server*](https://lepture.com/en/2013/create-oauth-server). Flask-OAuthlib has been shining in the Flask community, but it's time to say goodbye.  is going to replace Flask-OAuthlib.
 
 Authlib contains everything you need to create OAuth clients and servers. It contains:
 
@@ -33,11 +33,11 @@ To get a better understanding, you can read the official documentation and the s
 
 I have several reasons to deprecate Flask-OAuthlib. But the main reason is that Flask-OAuthlib is not maintained well. And it seems things will not go well in the future. Flask-OAuthlib depends on OAuthLib which I believe is in a chaotic maintenance (although I am a maintainer too). Besides, there are many designs I don't like.
 
-**I created [Authlib][] from scratch** - from specification implementation to framework integrations. I didn't understand OAuth well enough when writing Flask-OAuthlib. However, this time, I read every RFC carefully so that there will be less misunderstanding (I'm not a native English speaker). **The experience in OAuthLib helps too**.
+**I created  from scratch** - from specification implementation to framework integrations. I didn't understand OAuth well enough when writing Flask-OAuthlib. However, this time, I read every RFC carefully so that there will be less misunderstanding (I'm not a native English speaker). **The experience in OAuthLib helps too**.
 
 ## Being Monolithic
 
-I started [Authlib][] with a monolithic design in mind. As I've said _"it is designed from specification implementation to framework integrations"_. **Being monolithic is a feature of Authlib**. I've always hated the _micro modules_ in Node ecosystem, there are even lots of one line code modules in npm.
+I started  with a monolithic design in mind. As I've said *"it is designed from specification implementation to framework integrations"*. **Being monolithic is a feature of Authlib**. I've always hated the *micro modules* in Node ecosystem, there are even lots of one line code modules in npm.
 
 Being monolithic means it won't break things. When specifications changed, implementation will change too. It keeps everything synchronized. You don’t have to worry about monolithic, it doesn’t cost your memory. If you don’t import a module, it won’t be loaded.
 
@@ -45,9 +45,9 @@ Will it always be monolithic? It depends. As time goes and Authlib becomes matur
 
 ## Profitable = Sustainable
 
-Flask-OAuthlib is not sustainable. I can't spare too much time on it. That's why I created [Authlib][] with a sustainable idea from the beginning. I hope the project will last long enough.
+Flask-OAuthlib is not sustainable. I can't spare too much time on it. That's why I created  with a sustainable idea from the beginning. I hope the project will last long enough.
 
-**Profitable equals sustainable**. If I can make a living on [Authlib][], I can spare more time on it, keeping it updated, fixing bugs, resolving vulnerable securities. OAuth server implementation is an enterprise level problem, if you are running a company, you wouldn't like to use a **non-sustainable** module for such an important feature. What you need is a sustainable solution.
+**Profitable equals sustainable**. If I can make a living on , I can spare more time on it, keeping it updated, fixing bugs, resolving vulnerable securities. OAuth server implementation is an enterprise level problem, if you are running a company, you wouldn't like to use a **non-sustainable** module for such an important feature. What you need is a sustainable solution.
 
 The [price model for Authlib](https://authlib.org/plans) is simple yet affordable. It is **$1000/year** (or **$500/year** if your company is small), it is just **1/10** of one month salary for one year. However, if you don't care, you can always use the open source license.
 
@@ -65,6 +65,4 @@ The next implementation will be Flask OAuth 1 server. After that, there will be 
 
 ---
 
-Now, head over to the [documentation](https://docs.authlib.org/) and [play](https://play.authlib.org/) with Authlib.
-
-[Authlib]: https://authlib.org/
+Now, head over to the [documentation](https://docs.authlib.org/) and play with Authlib.
