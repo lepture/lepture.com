@@ -92,6 +92,19 @@ export const ui = {
       title: 'Moments',
       description: 'Photographs from travels and everyday life.',
     },
+    sponsors: {
+      title: 'Sponsors',
+      description:
+        'Thank you to the people and organizations who support my open source work.',
+      becomeSponsor: 'Become a sponsor',
+      gold: 'Gold Sponsors',
+      silver: 'Silver Sponsors',
+      sponsors: 'Sponsors',
+      backers: 'Backers',
+      supporter: 'Supporter',
+      past: 'Past sponsors',
+      organization: 'Organization',
+    },
     emptyWriting: 'New writing will appear here.',
     earlierWriting: 'Read earlier posts in the archive.',
     pagination: {
@@ -155,6 +168,18 @@ export const ui = {
     },
     archive: { title: '归档', description: '以前写过的中文和英文文章。' },
     moments: { title: '瞬间', description: '旅行与日常生活中的照片。' },
+    sponsors: {
+      title: '赞助',
+      description: '感谢支持我开源工作的个人与组织。',
+      becomeSponsor: '成为赞助者',
+      gold: '黄金赞助商',
+      silver: '白银赞助商',
+      sponsors: '赞助商',
+      backers: '赞助者',
+      supporter: '支持者',
+      past: '曾经的赞助者',
+      organization: '组织',
+    },
     emptyWriting: '新文章发布后会显示在这里。',
     earlierWriting: '在归档中阅读以前的文章。',
     pagination: {

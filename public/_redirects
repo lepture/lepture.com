@@ -2,6 +2,9 @@
 /en / 301
 /en/ / 301
 
+/donate /sponsors 301
+/donate/ /sponsors 301
+
 # The new archive contains all posts on one page.
 /archive/page/:page /archive/ 301
 /archive/page/:page/ /archive/ 301

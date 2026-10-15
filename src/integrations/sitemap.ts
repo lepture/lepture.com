@@ -8,7 +8,7 @@ function getPageMetadata(html: string) {
   let url: string | undefined
   let publishedAt: string | undefined
   let updatedAt: string | undefined
-  const head = html.slice(0, html.indexOf('</head>') + 7)
+  const head = html.split('</head>', 1)[0]
   walkSync(parse(head), (node) => {
     if (node.type !== ELEMENT_NODE) return
     if (node.name === 'link' && node.attributes.rel === 'canonical')

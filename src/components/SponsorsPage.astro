@@ -1,0 +1,240 @@
+---
+import { z } from 'astro/zod'
+import { Icon } from '@prosefly/astro-components'
+import PageIntro from '@/components/PageIntro.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { localizedPath, otherLanguage, ui, type Language } from '@/lib/i18n'
+
+interface Props {
+  language: Language
+}
+
+const { language } = Astro.props
+const t = ui[language].sponsors
+
+const response = await fetch(
+  'https://cdn.jsdelivr.net/gh/lepture/lepture/sponsors.json',
+  { signal: AbortSignal.timeout(15000) },
+)
+if (!response.ok)
+  throw new Error(`Could not fetch sponsors: HTTP ${response.status}`)
+
+const sponsorSchema = z.object({
+  name: z.string().nullable(),
+  login: z.string().min(1),
+  avatar: z.url({ protocol: /^https$/ }),
+  link: z.url({ protocol: /^https$/ }),
+  amount: z.number(),
+  org: z.boolean(),
+})
+const sponsors = z.array(sponsorSchema).parse(await response.json())
+type AvatarSize = 'xs' | 'sm' | 'md' | 'xl' | '2xl'
+interface SponsorTier {
+  label: string
+  minAmount: number
+  maxAmount?: number
+  size: AvatarSize
+  showName?: boolean
+}
+const tiers: SponsorTier[] = [
+  { label: t.gold, minAmount: 100, size: '2xl', showName: true },
+  { label: t.silver, minAmount: 50, maxAmount: 100, size: 'xl' },
+  {
+    label: t.sponsors,
+    minAmount: 25,
+    maxAmount: 50,
+    size: 'md',
+    showName: true,
+  },
+  { label: t.backers, minAmount: 10, maxAmount: 25, size: 'sm' },
+  { label: t.supporter, minAmount: 1, maxAmount: 10, size: 'sm' },
+]
+const avatarSizes: Record<AvatarSize, number> = {
+  '2xl': 72,
+  xl: 64,
+  md: 48,
+  sm: 40,
+  xs: 28,
+}
+const groups = tiers.map(({ label, size, showName, minAmount, maxAmount }) => ({
+  label,
+  size,
+  showName,
+  sponsors: sponsors.filter(
+    ({ amount }) =>
+      amount >= minAmount && (maxAmount === undefined || amount < maxAmount),
+  ),
+}))
+groups.push({
+  label: t.past,
+  size: 'xs',
+  showName: false,
+  sponsors: sponsors.filter(({ amount }) => amount === -1),
+})
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  language={language}
+  canonicalPath={localizedPath('/sponsors', language)}
+  alternateUrl={localizedPath('/sponsors', otherLanguage(language))}
+>
+  <section class="page-shell pt-18 pb-12 min-[761px]:pt-16">
+    <PageIntro title={t.title} description={t.description} />
+    <a
+      class="mt-7 inline-flex min-h-11 items-center gap-2 rounded-full border border-rule px-5 py-2.5 text-sm text-ink transition-colors hover:bg-(--pf-accent-soft) focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink motion-reduce:transition-none"
+      href="https://github.com/sponsors/lepture"
+    >
+      <Icon name="lucide:heart" size="16" />
+      {t.becomeSponsor}
+      <Icon name="lucide:arrow-up-right" size="14" />
+    </a>
+  </section>
+
+  <div class="page-shell space-y-10 pb-24">
+    {groups
+      .filter(({ sponsors }) => sponsors.length > 0)
+      .map((group) => (
+        <section aria-label={group.label}>
+          <h2 class="m-0 text-base leading-snug font-medium">{group.label}</h2>
+          <ul
+            class:list={['sponsor-list', { 'with-names': group.showName }]}
+            data-size={group.size}
+            style={`--avatar-size: ${avatarSizes[group.size]}px`}
+          >
+            {group.sponsors.map((sponsor) => (
+              <li>
+                <a
+                  class="sponsor-link"
+                  href={sponsor.link}
+                  title={sponsor.name?.trim() || sponsor.login}
+                >
+                  <img
+                    src={sponsor.avatar}
+                    alt=""
+                    width={avatarSizes[group.size]}
+                    height={avatarSizes[group.size]}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  {group.showName ? (
+                    <span class="sponsor-identity">
+                      <strong>{sponsor.name?.trim() || sponsor.login}</strong>
+                      <small>
+                        {sponsor.org ? t.organization : `@${sponsor.login}`}
+                      </small>
+                    </span>
+                  ) : (
+                    <span class="sr-only">
+                      {sponsor.name?.trim() || sponsor.login}
+                    </span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .sponsor-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0 0;
+    padding: 0;
+    border-block-start: 1px solid var(--rule);
+    border-inline-start: 1px solid var(--rule);
+    list-style: none;
+  }
+
+  .sponsor-list li {
+    min-width: 0;
+    border-inline-end: 1px solid var(--rule);
+    border-block-end: 1px solid var(--rule);
+  }
+
+  .sponsor-list:is([data-size='2xl'], [data-size='xl'], [data-size='md']) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sponsor-list[data-size='2xl'] {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor-list[data-size='md'] {
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  }
+
+  .sponsor-link {
+    display: flex;
+    height: 100%;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.875rem;
+    padding: 0.75rem;
+    color: var(--ink);
+  }
+
+  .sponsor-link img {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--pf-surface);
+    object-fit: cover;
+  }
+
+  .with-names .sponsor-link {
+    justify-content: start;
+    padding: 1rem;
+  }
+
+  .sponsor-identity {
+    display: grid;
+    min-width: 0;
+    gap: 0.25rem;
+    overflow-wrap: anywhere;
+  }
+
+  .sponsor-identity strong {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .sponsor-identity small {
+    color: var(--muted);
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .sponsor-link:hover {
+    background: var(--pf-accent-soft);
+  }
+
+  .sponsor-link:hover strong {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .sponsor-link:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+  }
+
+  @media (min-width: 640px) {
+    .sponsor-list[data-size='2xl'] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sponsor-list[data-size='xl'] {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

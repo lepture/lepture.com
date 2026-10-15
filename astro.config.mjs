@@ -8,6 +8,7 @@ export default defineConfig({
   site: 'https://lepture.com/',
   output: 'static',
   build: { format: 'preserve' },
+  redirects: { '/donate': '/sponsors' },
   devToolbar: { enabled: false },
   markdown: {
     shikiConfig: {
