@@ -51,7 +51,6 @@ const moments = defineCollection({
           alt: z.string().default(''),
           width: z.number().int().positive().optional(),
           height: z.number().int().positive().optional(),
-          caption: z.string().optional(),
         }),
       )
       .min(1),
