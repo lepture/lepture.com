@@ -106,10 +106,14 @@ const hasMultiplePhotos = moment.data.photos.length > 1
   .photos-carousel {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.5rem;
     overflow: visible;
     touch-action: pan-y;
     transition: transform 250ms ease;
+    overscroll-behavior-inline: contain;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
   }
 
   .photos-carousel:focus-visible {
