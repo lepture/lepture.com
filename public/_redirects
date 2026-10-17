@@ -8,6 +8,8 @@
 # The new archive contains all posts on one page.
 /archive/page/:page /archive/ 301
 /archive/page/:page/ /archive/ 301
+/en/page/:page/ /archive/ 301
+/zh/page/:page/ /archive/ 301
 
 # Legacy tag archives now show all matching posts on one page.
 /tags/:tag/page/:page /tags/:tag/ 301
